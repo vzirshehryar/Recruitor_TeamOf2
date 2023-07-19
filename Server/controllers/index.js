@@ -108,7 +108,7 @@ export const ForgetPassword = async (req, res) => {
     }
     user.forgetPasswordAuthToken = token;
     await user.save();
-    const resetLink = `http://localhost:3000/setNewPassword/${token}`;
+    const resetLink = `https://boiling-beach-52487-b897e4f8d94c.herokuapp.com/setNewPassword/${token}`;
     const msg = {
       to: email,
       from: "s3649104@gmail.com",
@@ -132,7 +132,7 @@ export const SendEmail = async (req, res) => {
   const { email } = req.body;
   try {
     const msg = {
-      to: "s3649104@gmail.com",
+      to: "info@soltridge.com",
       from: "s3649104@gmail.com",
       subject: "New User Email",
       html: `
