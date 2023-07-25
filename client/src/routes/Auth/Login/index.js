@@ -101,15 +101,6 @@ function Login() {
 
   return (
     <>
-      <div
-        onClick={handleGoBack}
-        style={{ cursor: "pointer" }}
-        className="mt-3"
-      >
-        <p>
-          <FaArrowLeft /> <span>Back</span>
-        </p>
-      </div>
       <div>
         <div class="container Card col-lg-4 pt-2  ">
           <div class="note pb-3">
@@ -188,7 +179,7 @@ function Login() {
                       }}
                       onClick={forgetPasswordPage}
                     >
-                      Recover Password?
+                      Forget Password?
                     </a>
                   </div>
 

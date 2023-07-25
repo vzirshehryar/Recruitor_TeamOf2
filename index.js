@@ -28,7 +28,7 @@ app.use(bodyParser.json({ limit: "50mb" }));
 connectDB();
 
 app.use("/user", UserRoutes);
-//app.use('/admin', AdminRoutes);
+// app.use('/admin', AdminRoutes);
 // Serve static assets in production
 // app.get("/", (req, res) => {
 //   res.send("Hello it is Recrutior");

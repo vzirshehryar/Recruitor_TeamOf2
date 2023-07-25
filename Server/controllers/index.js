@@ -8,12 +8,14 @@ import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import sgMail from "@sendgrid/mail";
-const API_KEY =
-  "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";
-sgMail.setApiKey(API_KEY);
 const router = express.Router();
+import dotenv from "dotenv";
 
-var jwtSecret = "mysecrettoken";
+dotenv.config("../.env");
+
+var jwtSecret = process.env.JWToken;
+const API_KEY = process.env.MAIL_TOKEN;
+sgMail.setApiKey(API_KEY);
 
 export const RegisterUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -111,7 +113,7 @@ export const ForgetPassword = async (req, res) => {
     const resetLink = `https://boiling-beach-52487-b897e4f8d94c.herokuapp.com/setNewPassword/${token}`;
     const msg = {
       to: email,
-      from: "s3649104@gmail.com",
+      from: process.env.FROM,
       subject: "Reset Your Password",
       html: `
         <p>Click the following link to reset your password:</p>
@@ -132,8 +134,8 @@ export const SendEmail = async (req, res) => {
   const { email } = req.body;
   try {
     const msg = {
-      to: "info@soltridge.com",
-      from: "s3649104@gmail.com",
+      to: process.env.TO,
+      from: process.env.FROM,
       subject: "New User Email",
       html: `
         <p>A new user have sent you there email</p>
@@ -192,7 +194,7 @@ export const ApplyJob = async (req, res) => {
     // Check if the user has already applied for the job
     const hasApplied = user.jobs.some((job) => job.jobTitle === jobTitle);
 
-    if (hasApplied) {
+    if (0 && hasApplied) {
       return res
         .status(200)
         .json({ message: "User already applied for this job." });
@@ -211,8 +213,8 @@ export const ApplyJob = async (req, res) => {
       const userdata = await user.save();
 
       const message = {
-        from: "s3649104@gmail.com",
-        to: "info@soltridge.com",
+        from: process.env.FROM,
+        to: process.env.TO,
         subject: "Soltridge Jobs",
         html: `<div class="container">
             <h1>Email Template</h1>
@@ -246,6 +248,8 @@ export const ApplyJob = async (req, res) => {
         attachments: [Files],
       };
 
+      console.log(fullName);
+
       const sendEmail = await sgMail.send(message);
       if (userdata && sendEmail) {
         res
@@ -256,7 +260,7 @@ export const ApplyJob = async (req, res) => {
       }
     }
   } catch (err) {
-    console.error(err.message);
+    console.error(err);
     res.status(500).send("Server error");
   }
 };

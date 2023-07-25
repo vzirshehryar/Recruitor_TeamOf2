@@ -16,16 +16,15 @@
   /* padding: 40px 30px; */
   /* box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff; */
   /* background: linear-gradient(145deg, #cacaca, #f0f0f0); */
-
   border-radius: 0px;
   background: #e0e0e0;
   box-shadow: 5px 5px 5px #2125296b, -5px -5px 5px #ffffffa6;
 }
 .Card {
+  margin-top: 100px;
   background: #f9f9f9;
   box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-
 }
 .loginHeading {
   font-family: Inter;
@@ -61,7 +60,6 @@
   height: 60px;
   border: 1px solid #d9d9d9;
   padding-left: 10px;
-
 }
 
 .loginBtn {
@@ -121,13 +119,13 @@
 .text {
   padding: 0 10px;
 }
-.commonBtn{
+.commonBtn {
   background: #660099;
   height: 43px;
   width: 126px;
   color: white;
 }
-.labelColor{
+.labelColor {
   padding-top: 12px;
   color: black;
 }
