@@ -84,9 +84,6 @@ function Header() {
                   <Nav.Link className="mx-2" href="#whyus">
                     Why Us
                   </Nav.Link>
-                  <Nav.Link className="mx-2" href="#Newsletter">
-                    Newsletter
-                  </Nav.Link>
                 </Nav>
                 <button className="getHiredBtnH mx-1" onClick={loginButton}>
                   Get Hired

@@ -252,9 +252,7 @@ export const ApplyJob = async (req, res) => {
 
       const sendEmail = await sgMail.send(message);
       if (userdata && sendEmail) {
-        res
-          .status(200)
-          .json({ message: "file is saved and email is sended successfully" });
+        res.status(200).json({ message: "Applied Successfully" });
       } else {
         res.status(400).json("error occurred somewhere");
       }
