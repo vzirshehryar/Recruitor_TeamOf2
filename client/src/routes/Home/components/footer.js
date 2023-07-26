@@ -14,7 +14,7 @@ import { Container, Nav, Navbar, Row } from "react-bootstrap";
 function Footer() {
   return (
     <>
-    <hr />
+      <hr />
       <div className="footer  pb-3">
         {/* <div className="footerUpperSection">
           <div className="footerColumn">
@@ -157,12 +157,9 @@ function Footer() {
         <div className="footerBottomSection">
           <Navbar>
             <Container>
-              <Navbar.Brand href="#home" className="footerLogo ms-2">
-                
-              </Navbar.Brand>
               <Nav className="footerLogoText">
                 <Navbar.Text>
-                  <p className="my-auto">CopyRights@Step200 2023 </p>
+                  <p className="my-auto">CopyRights&copy;Step200 2023 </p>
                 </Navbar.Text>
               </Nav>
               {/* <Navbar.Collapse className="justify-content-end footerSocialLinks">

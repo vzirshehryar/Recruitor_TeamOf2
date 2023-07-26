@@ -56,25 +56,23 @@ function Header() {
 
   return (
     <>
-      <Navbar
-        collapseOnSelect
-        expand="lg"
-        bg="transparent"
-        style={{ position: "sticky", top: 0, "z-index": 2 }}
-      >
+      <Navbar collapseOnSelect expand="lg" className="NavbarTop">
         <Container fluid className="px-5">
           <Navbar.Brand
-            className="logoH text-white"
+            className="logoH"
             href="#home"
             onClick={() => navigate("/")}
           >
             Step200
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Collapse
+            id="responsive-navbar-nav"
+            className="NavbarCollapse"
+          >
             {!user ? (
               <>
-                <Nav className="navBarLinks ms-auto me-3">
+                <Nav className="navBarLinks">
                   <Nav.Link className="mx-2" href="#home" active>
                     Home
                   </Nav.Link>
@@ -85,12 +83,12 @@ function Header() {
                     Why Us
                   </Nav.Link>
                 </Nav>
-                <button className="getHiredBtnH mx-1" onClick={loginButton}>
+                <button className="getHiredBtnH" onClick={loginButton}>
                   Get Hired
                 </button>
               </>
             ) : (
-              <Nav className="navBarLinks ms-auto me-3">
+              <Nav className="navBarLinks me-3">
                 <div>
                   <Dropdown>
                     <Dropdown.Toggle variant="transparent" id="dropdown-custom">

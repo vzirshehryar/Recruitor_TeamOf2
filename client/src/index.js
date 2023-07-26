@@ -4,7 +4,10 @@ import "./index.css";
 import "antd/dist/reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
-import 'react-phone-number-input/style.css'
+import "react-phone-number-input/style.css";
+import "@fontsource/poppins"; // Defaults to weight 400
+import "@fontsource/poppins/400.css"; // Specify weight
+import "@fontsource/poppins/400-italic.css"; // Specify weight and style
 import App from "./App";
 
 import reportWebVitals from "./reportWebVitals";
@@ -15,11 +18,7 @@ import { Provider } from "react-redux";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-
-  
-      <App />
-    
-   
+    <App />
   </React.StrictMode>
 );
 

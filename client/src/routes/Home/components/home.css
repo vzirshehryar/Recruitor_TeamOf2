@@ -11,13 +11,23 @@
   background-color: transparent;
   border: none;
 }
-.stick {
-  background: white;
-  filter: drop-shadow(2px 4px 6px black);
+
+.NavbarTop {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(109, 14, 157, 0.03);
+  backdrop-filter: blur(23px);
+}
+.NavbarCollapse {
+  justify-content: center;
 }
 .navBarLinks {
   color: #000000;
-  font-family: "Helvetica Neue", sans-serif;
+  /* font-family: "Helvetica Neue", sans-serif; */
+  color: #000;
+  font-family: Lohit Bengali;
+  font-size: 18px;
 }
 
 .navBarLinks:active {
@@ -26,10 +36,9 @@
 }
 
 .logoH {
-  border: 2px solid #6d0e9d;
-  border-radius: 5px;
-  padding: 10px;
-  background: #6d0e9d;
+  color: #6d0e9d;
+  font-size: 30px;
+  font-family: Poppins;
 }
 
 .profileBtnH {
@@ -46,18 +55,25 @@
 }
 
 .getHiredBtnH {
+  position: absolute;
+  right: 40px;
+  background: #6d0e9d;
+  color: #ffffff;
   border: 2px solid #6d0e9d;
-  padding: 10px;
-  border-radius: 5px;
-  background: #ffffff;
+  padding: 10px 15px;
+  border-radius: 10px;
   /* width: 120px; */
 }
 
 .getHiredBtnH:hover {
-  background: #6d0e9d;
-  color: #ffffff;
+  background: #ffffff;
+  color: #6d0e9d;
 }
-
+@media screen and (max-width: 990px) {
+  .getHiredBtnH {
+    top: 90px;
+  }
+}
 .hireTeamBtnH {
   border: 2px solid #6d0e9d;
   border-radius: 5px;
@@ -85,66 +101,47 @@
 }
 .backgroundDiv {
   position: relative;
-  width: 100%;
-  z-index: 1;
-}
-
-.backgroundDiv::before,
-.backgroundDiv::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 420px;
-  /* Adjust the size of the circles as needed */
-  height: 420px;
-  border-radius: 50%;
-  background-clip: padding-box;
-  /* Add this line to make edges sharp */
-}
-
-.backgroundDiv::before {
-  left: 15%;
-  transform: translateY(-50%);
-  background: radial-gradient(rgb(175, 247, 236, 0.3), #ffffff);
-  z-index: -1;
-}
-
-.backgroundDiv::after {
-  right: 15%;
-  transform: translate(0%, -50%);
-  background: radial-gradient(rgb(165, 162, 205, 0.3), #ffffff);
-  z-index: -2;
-}
-
-.backgroundDiv::after:last-child {
-  right: 10%;
+  background: url("/public/background.png");
+  background-position: bottom;
+  background-size: cover;
+  height: 80vh;
 }
 
 .landingpageHeading {
-  font-family: "Raleway", sans-serif;
+  color: #3e055b;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 70px;
   font-style: normal;
-  font-weight: 700;
-  font-size: 72px;
-  line-height: 85px;
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  line-height: 85px; /* 88.542% */
+  letter-spacing: 1.44px;
   text-transform: capitalize;
-  color: #000000;
 }
 
 .landingpageText {
-  font-family: "Raleway", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
-  letter-spacing: 0.02em;
   color: #1a1a1a;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px; /* 105% */
+  letter-spacing: 0.36px;
+  padding: 10px 5px;
+  margin: 20px 0;
 }
-
+.dashonlogin {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: -30px;
+  right: -30px;
+}
 .landingpageBtn {
   border: 2px solid #6d0e9d;
   border-radius: 5px;
-  padding: 20px 70px 20px 70px;
+  padding: 10px 50px;
   background: #6d0e9d;
   font-family: "Raleway", sans-serif;
   font-style: normal;
@@ -157,12 +154,9 @@
 
 /* Media Queries */
 @media (max-width: 768px) {
-  .backgroundDiv::before,
-  .backgroundDiv::after {
-    width: 300px;
-    height: 300px;
+  .backgroundDiv {
+    background-position: bottom left -70px;
   }
-
   .landingpageHeading {
     font-size: 42px;
     line-height: 55px;
@@ -171,6 +165,14 @@
   .landingpageText {
     font-size: 16px;
     line-height: 19px;
+  }
+
+  .dashonlogin {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -20px;
+    right: -20px;
   }
 
   .landingpageBtn {
@@ -235,12 +237,13 @@
 
 .homepageServicesHeading {
   /* position: absolute; */
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 700;
+  color: #6d0e9d;
+  text-align: center;
+  font-family: Poppins;
   font-size: 48px;
-  line-height: 48px;
-  color: #404145;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
 }
 
 .homepageServicesParagraph {
@@ -257,6 +260,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   /* flex-wrap: wrap; */
 }
 
@@ -264,34 +268,35 @@
 .service2Card,
 .service3Card {
   width: 420px;
-  height: 550px;
+  min-height: 400px;
   margin: 10px;
   border: none;
-  background: #ffffff;
-  box-shadow: 0px 17px 58px rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
+  border-radius: 24px;
+  background: #eaddf1;
 }
 
 .serviceCardTitle {
-  font-family: "Inter", sans-serif;
+  color: #404145;
+  font-family: Poppins;
+  font-size: 26px;
+  text-align: center;
   font-style: normal;
   font-weight: 700;
-  font-size: 28px;
-  line-height: 36px;
-  display: flex;
-  align-items: center;
-  color: #404145;
+  line-height: 36px; /* 100% */
 }
 
 .serviceCardText {
-  font-family: "Inter", sans-serif;
+  color: #62646a;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  line-height: 24px; /* 120% */
   display: flex;
-  align-items: center;
-  color: #7a7d85;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* Responsive Styles */
@@ -341,31 +346,36 @@
 
 .bestPartCompHeading2,
 .bestPartTalentHeading2 {
+  color: #6d0e9d;
+  font-family: "Liberation Sans";
+  font-size: 36px;
+  font-style: normal;
   font-weight: 700;
-  font-size: 42px;
-  line-height: 50px;
+  line-height: 50px; /* 104.167% */
 }
 
 .bestPartCompText,
 .bestPartTalentText {
-  font-size: 16px;
-  line-height: 24px;
-  color: #62646a;
-}
-
-.bestPartCompBtn,
-.bestPartTalentBtn {
-  font-size: 14px;
-  line-height: 21px;
-  color: #6d0e9d;
-  background-color: #ffffff;
-  border: none;
+  color: #404145;
+  font-family: "Liberation Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 42px; /* 131.25% */
 }
 
 .bestPartTalentImg,
 .bestPartCompImg {
   max-width: 100%;
   height: auto;
+}
+.getHiredBtnH2 {
+  background: #6d0e9d;
+  color: #ffffff;
+  border: 2px solid #6d0e9d;
+  padding: 10px 15px;
+  border-radius: 10px;
+  /* width: 120px; */
 }
 
 /* Responsive styles */
@@ -446,8 +456,10 @@
 }
 
 .whyUsImg {
-  height: 60px;
+  margin-top: 10px;
+  height: 80px;
   width: auto;
+  mix-blend-mode: darken;
 }
 
 .whyUsContHeader {
@@ -495,11 +507,17 @@
   }
 
   .whyUsContText {
-    font-size: 12px;
     line-height: 18px;
     padding-left: 10%;
     padding-right: 10%;
   }
+}
+
+.whyUsContentCont {
+  border-radius: 24px;
+  background: #eaddf1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 30%;
 }
 
 /* Mobile devices */
@@ -810,9 +828,12 @@
   }
 
   .footerLogoText {
-    font-size: 14px;
-    line-height: 16px;
-    margin-left: 20px;
+    color: rgba(0, 0, 0, 0.65);
+    font-family: "Liberation Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 112.5% */
   }
 }
 
@@ -833,7 +854,7 @@
   }
 
   .footerLogoText {
-    display: none;
+    /* display: none; */
   }
 
   .footerSocialLinks {

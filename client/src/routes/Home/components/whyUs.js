@@ -9,37 +9,41 @@ function WhyUs() {
     <>
       <Container id="whyus" className="py-5 p-3">
         <h1 className="text-center whyUsMainHeading">
-          Unleash Your Potential: Discover Your Perfect Career Path with Us
+          Discover Your Perfect Career Path with Us
         </h1>
         <br></br>
         <Container className="whyUsSecondHeadingCont">
           <h2 className="text-center whyUsSecondHeading">
-          Experience the difference with our unparalleled recruitment solutions that connect talent with opportunity.
+            Experience the difference with our unparalleled recruitment
+            solutions that connect talent with opportunity.
           </h2>
         </Container>
         <Container className="pt-5 pb-5">
-          <div className="row text-center p-3">
-            <div className="col-4 whyUsContentCont">
+          <div className="d-flex justify-content-between flex-wrap text-center p-3 gap-3">
+            <div className="whyUsContentCont">
               <img className="whyUsImg" src={img1} />
               <h1 className="whyUsContHeader pt-2">Cutting-Edge Technology</h1>
               <p className="whyUsContText pt-2">
-              Our state-of-the-art platform combines intelligent matching capabilities, user-friendly interfaces to ensure seamless and efficient job searches.
+                Our state-of-the-art platform combines intelligent matching
+                capabilities, user-friendly interfaces to ensure seamless and
+                efficient job searches.
               </p>
             </div>
-            <div className="col-4 whyUsContentCont">
-            <img className="whyUsImg" src={img2} />
+            <div className="whyUsContentCont">
+              <img className="whyUsImg" src={img2} />
               <h1 className="whyUsContHeader pt-2">Personalized Approach </h1>
               <p className="whyUsContText pt-2">
-              Our personalized approach enables us to provide tailored job recommendations, targeted support, 
-              and valuable career guidance.
+                Our personalized approach enables us to provide tailored job
+                recommendations, targeted support, and valuable career guidance.
               </p>
             </div>
-            <div className="col-4 whyUsContentCont">
-            <img className="whyUsImg" src={img3} />
+            <div className="whyUsContentCont">
+              <img className="whyUsImg" src={img3} />
               <h1 className="whyUsContHeader pt-2">Unparalleled Support </h1>
               <p className="whyUsContText pt-2">
-              We are committed to providing exceptional support and guidance.
-              Our dedicated team of experts is readily available to assist you.
+                We are committed to providing exceptional support and guidance.
+                Our dedicated team of experts is readily available to assist
+                you.
               </p>
             </div>
           </div>

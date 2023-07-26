@@ -5,22 +5,18 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-
 function BestPart() {
   const navigate = useNavigate();
-      const [showCarousel, setShowCarousel] = useState(false);
-      function loginButton() {
-        navigate("/Login");
-      }
-      const handleLogout = () => {
-        localStorage.clear();
-        navigate("/");
-    
-      };
+  const [showCarousel, setShowCarousel] = useState(false);
+  function loginButton() {
+    navigate("/Login");
+  }
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
   return (
     <>
-   
-
       {/* <Container className="pt-5 pb-5">
         <Row className="pt-3 pb-5">
           <Col lg={6} className="my-auto p-2">
@@ -43,22 +39,24 @@ function BestPart() {
       </Container> */}
       <br></br>
       <br></br>
-      <Container className="pt-5 pb-5">
-        <Row className="pt-3 pb-5">
+      <Container className="mt-5 mb-5">
+        <Row className="p-1 justify-content">
           <Col lg={6} className="text-center">
-            <img className="bestPartTalentImg" src={talent} alt="defs"/>
+            <img className="bestPartTalentImg" src={talent} alt="defs" />
           </Col>
           <Col lg={6} className="my-auto p-2">
             <div className="px-5">
               {/*<h2 className="bestPartTalentHeading1 mb-2">For Talent</h2>*/}
-              <h1 className="bestPartTalentHeading2 mb-2">
+              <h1 className="bestPartTalentHeading2 mb-3">
                 Find Jobs your way
               </h1>
               <p className="bestPartTalentText">
-              Discover endless opportunities and pave your own path to success with 
-              our tailored job search solutions.
+                Discover endless opportunities and pave your own path to success
+                with our tailored job search solutions.
               </p>
-              <button className="getHiredBtnH" onClick={loginButton}>Get Hired Now</button>
+              <button className="getHiredBtnH2 mt-2" onClick={loginButton}>
+                Get Hired Now!
+              </button>
             </div>
           </Col>
         </Row>
