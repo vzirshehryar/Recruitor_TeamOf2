@@ -52,7 +52,7 @@ function Slider() {
     // </Container>
 
     <>
-      <div className="backgroundDiv text-center pt-5 pb-5">
+      <div className="backgroundDiv text-center pt-5 pb-5" id="home">
         <h1 className="landingpageHeading pt-5">Discover Your Dream Career</h1>
 
         <p className="landingpageText">
