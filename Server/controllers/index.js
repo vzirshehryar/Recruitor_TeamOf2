@@ -11,43 +11,50 @@ import sgMail from "@sendgrid/mail";
 const router = express.Router();
 import dotenv from "dotenv";
 
+// DECLOARING .ENV FILE HERE
 dotenv.config("../.env");
 
+// GETTING ENVIRONMENTAL VARIABLES FROM .ENV FILE
 var jwtSecret = process.env.JWToken;
 const API_KEY = process.env.MAIL_TOKEN;
 sgMail.setApiKey(API_KEY);
 
+// REST API FOR REGISTERING USERS FIRST TIME
 export const RegisterUser = async (req, res) => {
   const { name, email, password } = req.body;
   let data;
 
   try {
-    // See if user existsyy
-
+    // SEE IF USER ALREADY EXISTS
     let user = await User.findOne({ email });
 
+    // RETURN ERROR IF ALREADY EXISTS
     if (user) {
       res.status(400).json({ errors: [{ msg: "User already exists" }] });
     }
+
+    // MAKING NEW USER
     user = new User({
       name,
       email,
       password,
     });
 
-    //Encrypt Password
+    // ENCRYPT PASSWORD
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt); //convert into hashing algorithm
 
+    // SAVING DATA TO MONGO DB
     await user.save();
 
-    //Return jsonwebtoken
+    // PAYLOAD FOR JWT
     const payload = {
       user: {
         id: user.id,
       },
     };
 
+    // CREATING JWT FOR USER GIVING TO THE CLIENT
     jwt.sign(payload, jwtSecret, { expiresIn: 360000 }, (err, token) => {
       if (err) throw err;
       data = [{ token: token, user: user }];
@@ -59,35 +66,38 @@ export const RegisterUser = async (req, res) => {
   }
 };
 
+// REST API FOR LOGGING IN USER IF EXISTS
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
   let data;
 
   try {
-    // See if user exists
+    // SEE IF USER EXISTS
     let user = await User.findOne({ email });
 
+    // RETURN ERROR IF USER NOT EXISTS
     if (!user) {
       return res
         .status(200)
         .json({ success: false, msg: "Invalid Credentials" });
     }
 
+    // DECRYPTING PASSWORD AND MATCHING IT
     const isMatch = await bcrypt.compare(password, user.password);
-
     if (!isMatch) {
       return res
         .status(200)
         .json({ success: false, msg: "Invalid Credentials" });
     }
 
-    //Return jsonwebtoken
+    // PAYLOAD FOR JWT
     const payload = {
       user: {
         id: user.id,
       },
     };
 
+    // RETURN JWT TO CLIENT
     jwt.sign(payload, jwtSecret, { expiresIn: "5 days" }, (err, token) => {
       if (err) throw err;
       data = { success: true, token: token, user: user };
@@ -98,18 +108,25 @@ export const loginUser = async (req, res) => {
     res.status(500).send("Server error");
   }
 };
+
+// REST API FOR FOR FORGET PASSWORD
 export const ForgetPassword = async (req, res) => {
   const { email } = req.body;
+
+  // CREATING TOKEN TO SEND IN THE EMAIL TO THE USER
   const token = uuidv4();
 
   try {
     const user = await User.findOne({ email });
-
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
+
+    // SAVING TOKEN TO MONGO DB
     user.forgetPasswordAuthToken = token;
     await user.save();
+
+    // EMAILING THE LINK TO THE USER
     const resetLink = `https://boiling-beach-52487-b897e4f8d94c.herokuapp.com/setNewPassword/${token}`;
     const msg = {
       to: email,
@@ -120,7 +137,6 @@ export const ForgetPassword = async (req, res) => {
         <a href="${resetLink}">${resetLink}</a>
       `,
     };
-
     await sgMail.send(msg);
 
     return res.status(200).json({ message: "Email is sended successfully" });
@@ -130,9 +146,11 @@ export const ForgetPassword = async (req, res) => {
   }
 };
 
+// REST API FOR SENDING EMAIL TO THE ADMIN FOR SUBSCRIPTION
 export const SendEmail = async (req, res) => {
   const { email } = req.body;
   try {
+    // SENDING EMAIL TO THE ADMIN
     const msg = {
       to: process.env.TO,
       from: process.env.FROM,
@@ -150,25 +168,27 @@ export const SendEmail = async (req, res) => {
   }
 };
 
+// REST API FOR SETTING NEW PASSWORD
 export const SetPassword = async (req, res) => {
   const { token, passwords } = req.body;
 
   try {
-    // See if user exists
+    // SEE IF USER EXISTS
     const user = await User.findOne({ forgetPasswordAuthToken: token });
 
     if (!user) {
       return res.status(404).json({ error: "Invalid or expired token" });
     }
 
-    // Compare the previous password with the new password
+    // COMPARING THE NEW PASSWORD TO THE PREVIOUS PASSWORD
     const isPreviousPassword = await bcrypt.compare(passwords, user.password);
-
     if (isPreviousPassword) {
       return res.status(400).json({
         error: "New password must be different from the previous password",
       });
     }
+
+    // ENCRYPTING PASSWORD AND SAVING IT TO MONGO DB
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(passwords, salt);
     user.forgetPasswordAuthToken = ""; // Optionally invalidate the token
@@ -183,6 +203,7 @@ export const SetPassword = async (req, res) => {
   }
 };
 
+// REST API FOR APPLYING TO JOBS
 export const ApplyJob = async (req, res) => {
   const { userId, fullName, email, jobTitle, phoneNumber, dbFile, Files } =
     req.body;
@@ -191,16 +212,14 @@ export const ApplyJob = async (req, res) => {
     // Find the user by their ID
     const user = await User.findById(userId);
 
-    // Check if the user has already applied for the job
+    // VALIDATING IF USER HAVE ALREADY APPLIED TO THIS JOB
     const hasApplied = user.jobs.some((job) => job.jobTitle === jobTitle);
-
-    if (0 && hasApplied) {
+    if (hasApplied) {
       return res
         .status(200)
         .json({ message: "User already applied for this job." });
     } else {
-      // Add the new job application to the user's jobs array
-
+      // IF NOT APPLIED MAKING OBJECT AND SAVING TO MONGO DB
       user.jobs.push({
         fullName,
         email,
@@ -208,10 +227,9 @@ export const ApplyJob = async (req, res) => {
         jobTitle,
         Files: dbFile,
       });
-
-      // Save the updated user document
       const userdata = await user.save();
 
+      // CREATING EMAIL CONSIST OF INFO AND RESUME TO SEND TO THE CLIENT
       const message = {
         from: process.env.FROM,
         to: process.env.TO,
@@ -247,10 +265,9 @@ export const ApplyJob = async (req, res) => {
           </div>`,
         attachments: [Files],
       };
-
-      console.log(fullName);
-
       const sendEmail = await sgMail.send(message);
+
+      // IF MAIL IS SENT THEN SUCCESSFULL MESSAGE IS SHOWN
       if (userdata && sendEmail) {
         res.status(200).json({ message: "Applied Successfully" });
       } else {

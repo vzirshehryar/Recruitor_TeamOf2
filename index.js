@@ -13,8 +13,10 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
+// CROSS-ORIGIN ACCESS
 app.use(cors());
 
+// DEALING WITH THE SIZE OF URL ENCODED BODIES COMING FROM CLIENT
 app.use(
   bodyParser.urlencoded({
     limit: "50mb",
@@ -23,10 +25,13 @@ app.use(
   })
 );
 
+// DEALING WITH THE SIZE OF URL JSON BODIES COMING FROM CLIENT
 app.use(bodyParser.json({ limit: "50mb" }));
 
+// CONNECTING TO MONGO DB (IN FOLDER CONFIG)
 connectDB();
 
+// ROUTES TO THE USERS
 app.use("/user", UserRoutes);
 // app.use('/admin', AdminRoutes);
 // Serve static assets in production
@@ -34,6 +39,7 @@ app.use("/user", UserRoutes);
 //   res.send("Hello it is Recrutior");
 // });
 
+// SCRIPT OF PRODUCTION
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
@@ -41,4 +47,5 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+// LISTENING TO THE PORT
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
