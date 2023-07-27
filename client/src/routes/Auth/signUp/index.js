@@ -91,6 +91,10 @@ function Register() {
             toast.error("Something went wrong please try again");
             throw new Error("Error sending data to the backend.");
           }
+          if (!response.success) {
+            toast.error(response.msg);
+            return;
+          }
 
           setFormData(initialFormData);
           setIsValidPassword(false);
