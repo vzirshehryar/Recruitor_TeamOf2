@@ -107,13 +107,56 @@ function Register() {
   return (
     <>
       <div>
-        <div className="container loginBox Card col-md-4   ">
-          <div className="note pt-3 pb-3">
+        <div className="backgroundIMAGE"></div>
+        <div className="container loginBox Card col-md-4 pt-2">
+          <div className="signupsignin">
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/signup")}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="80%"
+                viewBox="0 0 342 111"
+                fill="none"
+              >
+                <path
+                  d="M0 24C0 10.7452 10.7452 0 24 0H342V57.9757C342 70.3881 332.535 80.7526 320.174 81.877L0 111V24Z"
+                  fill="#6D0E9D"
+                />
+              </svg>
+              <h3 className="signUp" style={{ color: "#fff" }}>
+                SIGN UP
+              </h3>
+            </div>
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/login")}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="80%"
+                viewBox="0 0 342 110"
+                fill="none"
+              >
+                <path
+                  d="M0 0H318C331.255 0 342 10.7452 342 24V110L21.8454 81.1411C9.47562 80.0261 0 69.6579 0 57.238V0Z"
+                  fill="#F5F7FA"
+                />
+              </svg>
+              <h3 className="signIn" style={{ color: "#6d0e9d" }}>
+                LOG IN
+              </h3>
+            </div>
+          </div>
+          <div className="note pt-0 pb-3">
             <span className="loginHeading "> Apply for Jobs</span>
           </div>
 
           <div>
-            <div class="col-sm-10 offset-1 p-2">
+            <div class="col-sm-10 p-2 mx-auto">
               <div class="text-center">
                 <Form onSubmit={handleSubmit}>
                   {" "}
@@ -207,7 +250,7 @@ function Register() {
                     className="loginBtn mb-3"
                     onClick={UserRegister}
                   >
-                    Signup
+                    SIGN UP
                   </button>
                 </Form>
 
@@ -241,7 +284,7 @@ function Register() {
                     onClick={loginButton}
                     style={{
                       textDecoration: "none",
-                      color: "#D93F21",
+                      color: "#6D0E9D",
                       fontSize: "14px",
                     }}
                   >

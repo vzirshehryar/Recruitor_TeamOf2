@@ -74,6 +74,7 @@ function Login() {
   return (
     <>
       <div>
+        <div className="backgroundIMAGE"></div>
         <div class="container Card col-lg-4 pt-2  ">
           <div class="note pb-3">
             <span className="loginHeading ">Recover Password</span>
@@ -116,7 +117,7 @@ function Login() {
                     onClick={registerBtn}
                     style={{
                       textDecoration: "none",
-                      color: "#D93F21",
+                      color: "#6D0E9D",
                       fontSize: "14px",
                     }}
                   >

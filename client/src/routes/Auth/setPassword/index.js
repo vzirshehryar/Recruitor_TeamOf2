@@ -107,6 +107,7 @@ function Register() {
   return (
     <>
       <div>
+        <div className="backgroundIMAGE"></div>
         <div className="container loginBox Card col-md-4   ">
           <div className="note pt-3 pb-3">
             <span className="loginHeading "> set New Password</span>
@@ -203,7 +204,7 @@ function Register() {
                     href="#"
                     style={{
                       textDecoration: "none",
-                      color: "#D93F21",
+                      color: "#6D0E9D",
                       fontSize: "14px",
                     }}
                     onClick={loginButton}

@@ -20,17 +20,64 @@
   background: #e0e0e0;
   box-shadow: 5px 5px 5px #2125296b, -5px -5px 5px #ffffffa6;
 }
+.backgroundIMAGE {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 500px;
+  background-image: url(/public/authBG2.png);
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+}
 .Card {
+  width: 500px;
+  padding: 10px;
+  padding-top: 0;
   margin-top: 100px;
-  background: #f9f9f9;
+  background: #ffffff;
   box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
+  border-radius: 24px;
+}
+@media (max-width: 500px) {
+  .backgroundIMAGE {
+    background-image: url(/public/authBG.png);
+  }
+  .Card {
+    width: 350px;
+  }
+}
+.signupsignin {
+  width: 100%;
+  height: 100px;
+  display: flex;
+}
+.signupsignin > div {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.72px;
+}
+.signupsignin h3 {
+  position: absolute;
+  margin-left: 25%;
+  top: 25px;
 }
 .loginHeading {
-  font-family: Inter;
-  font-weight: 600;
+  color: #000;
+  font-family: Poppins;
   font-size: 28px;
-  color: #000000;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 93.75% */
+  letter-spacing: 0.64px;
 }
 .LoginBtn {
   width: 126px;
@@ -70,6 +117,12 @@
   border-radius: 5px;
   background: #6d0e9d;
   color: #ffffff;
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 83.333% */
+  letter-spacing: 0.72px;
 }
 
 .inputIcons {

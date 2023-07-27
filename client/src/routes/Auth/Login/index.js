@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  const [loader, setLoader] = useState("Login");
+  const [loader, setLoader] = useState("LOG IN");
 
   const initialFormData = {
     email: "",
@@ -50,7 +50,7 @@ function Login() {
           console.log("==data", data);
           if (!data.success) {
             toast.error(data.msg);
-            setLoader("Login");
+            setLoader("LOG IN");
             return;
           }
 
@@ -61,7 +61,7 @@ function Login() {
           localStorage.setItem("user", JSON.stringify(data.user));
 
           setFormData(initialFormData);
-          setLoader("Login");
+          setLoader("LOG IN");
           navigate("/jobFeed");
         })
         .catch((error) => {
@@ -69,7 +69,7 @@ function Login() {
           toast.error("Some error occured");
 
           console.log("Error sending data:", error);
-          setLoader("Login");
+          setLoader("LOG IN");
         });
     }
   };
@@ -102,9 +102,52 @@ function Login() {
   return (
     <>
       <div>
-        <div class="container Card col-lg-4 pt-2  ">
+        <div className="backgroundIMAGE"></div>
+        <div className="container Card col-lg-4 pt-2">
+          <div className="signupsignin">
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/signup")}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="80%"
+                viewBox="0 0 342 111"
+                fill="none"
+              >
+                <path
+                  d="M0 24C0 10.7452 10.7452 0 24 0H342V57.9757C342 70.3881 332.535 80.7526 320.174 81.877L0 111V24Z"
+                  fill="#F5F7FA"
+                />
+              </svg>
+              <h3 className="signUp" style={{ color: "#6d0e9d" }}>
+                SIGN UP
+              </h3>
+            </div>
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/login")}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="80%"
+                viewBox="0 0 342 110"
+                fill="none"
+              >
+                <path
+                  d="M0 0H318C331.255 0 342 10.7452 342 24V110L21.8454 81.1411C9.47562 80.0261 0 69.6579 0 57.238V0Z"
+                  fill="#6D0E9D"
+                />
+              </svg>
+              <h3 className="signIn" style={{ color: "#fff" }}>
+                LOG IN
+              </h3>
+            </div>
+          </div>
           <div class="note pb-3">
-            <span className="loginHeading "> Apply for Jobs</span>
+            <span className="loginHeading mt-0 ">Apply for Jobs</span>
             {/* <div className="pt-3">
               <button className="LoginBtn mx-2" onClick={handle1}>
                 Hire a Team
@@ -114,9 +157,8 @@ function Login() {
               </button>
             </div> */}
           </div>
-
           <div>
-            <div class="col-sm-10 offset-1 p-2">
+            <div class="col-sm-10 p-2 mx-auto">
               <div className="text-center  form-group">
                 <Form onSubmit={handleSubmit}>
                   <p>
@@ -174,12 +216,12 @@ function Login() {
                       href="#"
                       style={{
                         textDecoration: "none",
-                        color: "#D93F21",
+                        color: "#6D0E9D",
                         fontSize: "14px",
                       }}
                       onClick={forgetPasswordPage}
                     >
-                      Forget Password?
+                      Forgot Password?
                     </a>
                   </div>
 
@@ -212,17 +254,17 @@ function Login() {
                 </div> */}
                 <ToastContainer />
                 <div className="accountLink mt-3">
-                  Not registered?{" "}
+                  Don't have an account?{" "}
                   <a
                     href="#"
                     style={{
                       textDecoration: "none",
-                      color: "#D93F21",
+                      color: "#6D0E9D",
                       fontSize: "14px",
                     }}
                     onClick={registerBtn}
                   >
-                    Create Account
+                    sign Up
                   </a>
                 </div>
               </div>
