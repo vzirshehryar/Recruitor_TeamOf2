@@ -31,6 +31,7 @@ export const RegisterUser = async (req, res) => {
     // RETURN ERROR IF ALREADY EXISTS
     if (user) {
       res.status(200).json({ success: false, msg: "User already exists" });
+      return;
     }
 
     // MAKING NEW USER
@@ -57,8 +58,8 @@ export const RegisterUser = async (req, res) => {
     // CREATING JWT FOR USER GIVING TO THE CLIENT
     jwt.sign(payload, jwtSecret, { expiresIn: 360000 }, (err, token) => {
       if (err) throw err;
-      data = [{ token: token, user: user }];
-      res.json({ success: true, data });
+      data = { success: true, token: token, user: user };
+      res.json(data);
     });
   } catch (err) {
     console.error(err.message);
