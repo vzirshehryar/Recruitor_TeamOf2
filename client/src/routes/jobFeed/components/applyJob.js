@@ -14,7 +14,6 @@ const ApplyJob = ({ job }) => {
   const [value, setValue] = useState("");
   const data = localStorage.getItem("user");
   const user = JSON.parse(data);
-  console.log("===", data);
   const handleModal = () => {
     setShowModal(!showModal);
   };
@@ -121,21 +120,24 @@ const ApplyJob = ({ job }) => {
 
       <Modal show={showModal} onHide={handleModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Apply Job</Modal.Title>
+          <Modal.Title style={{ marginLeft: 150, color: "#6D0E9D" }}>
+            Apply Job
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className="applyjobform">
             <Form.Group className="mb-3" controlId="formBasicEmail">
+              <p>Enter Your Name</p>
               <Form.Control
                 type="text"
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                placeholder="Your Name"
+                placeholder="Name"
               />
             </Form.Group>
-
             <Form.Group controlId="email">
+              <p>Enter Your Email</p>
               <Form.Control
                 required
                 type="email"
@@ -146,7 +148,8 @@ const ApplyJob = ({ job }) => {
                 placeholder="Enter your email address"
               />
             </Form.Group>
-            <Form.Group className="mb-5 mt-3" controlId="formBasicEmail">
+            <Form.Group className=" mt-3" controlId="formBasicEmail">
+              <p>Job Application</p>
               <Form.Control
                 type="text"
                 name="job"
@@ -157,16 +160,17 @@ const ApplyJob = ({ job }) => {
               />
             </Form.Group>
             <Form.Group className="my-3" controlId="phone">
+              <p>Enter Mobile Number</p>
               <PhoneInput
                 placeholder="Enter phone number"
                 value={value}
                 onChange={setValue}
               />
             </Form.Group>
-            <div className="pt-4 d-flex align-items-center justify-content-between">
+            <div className="d-flex align-items-center justify-content-between">
               <div>
                 {" "}
-                <p>Attach your Resume</p>
+                <p>Submit Your CV / Resume</p>
                 <FileBase64 type="file" onDone={handleFileUpload} />
               </div>
 

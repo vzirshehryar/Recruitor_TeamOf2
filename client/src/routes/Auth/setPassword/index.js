@@ -19,6 +19,7 @@ function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
+  const [loader, setLoader] = useState("SET PASSWORD");
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -75,6 +76,7 @@ function Register() {
     //   );
     // }
     else {
+      setLoader("LOADING ...");
       let passwords = formData.password;
       fetch("/user/setPassword", {
         method: "POST",
@@ -88,15 +90,18 @@ function Register() {
       })
         .then((response) => {
           if (!response.ok) {
+            setLoader("SET PASSWORD");
             toast.error("Error sending data to the backend.");
             throw new Error("Error sending data to the backend.");
           }
 
           setFormData(initialFormData);
           toast.success("New Password is set Successfully");
+          setLoader("SET PASSWORD");
         })
         .catch((error) => {
           // Handle error here
+          setLoader("SET PASSWORD");
           toast.error("Some error occured");
 
           console.log("Error sending data:", error);
@@ -194,7 +199,7 @@ function Register() {
                     </Form.Text>
                   )}
                   <button className="loginBtn mb-3" onClick={UserRegister}>
-                    set Password
+                    {loader}
                   </button>
                 </Form>
 

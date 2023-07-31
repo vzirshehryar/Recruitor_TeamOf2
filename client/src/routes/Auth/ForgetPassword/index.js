@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
+  const [loader, setLoader] = useState("FORGOT PASSWORD");
   const initialFormData = {
     email: "",
   };
@@ -21,6 +22,7 @@ function Login() {
     if (!email) {
       toast.error("Please enter all fields");
     } else {
+      setLoader("LOADING ...");
       fetch("/user/forgetPassword", {
         method: "POST",
         headers: {
@@ -32,8 +34,8 @@ function Login() {
       })
         .then((response) => {
           if (!response.ok) {
-            toast.error("Some error occured");
-            throw new Error("Error sending data to the backend.");
+            toast.error("invalid email");
+            setLoader("FORGOT PASSWORD");
           }
           return response.json(); // Parse the response JSON
         })
@@ -43,10 +45,12 @@ function Login() {
           if (data) {
             setFormData(initialFormData);
             toast.success("Email is sended on account Please check gmail");
+            setLoader("FORGOT PASSWORD");
           }
         })
         .catch((error) => {
           // Handle error here
+          setLoader("FORGOT PASSWORD");
 
           console.log("Error sending data:", error);
         });
@@ -107,7 +111,7 @@ function Login() {
                   </p>
 
                   <button type="submit" className="loginBtn mb-3 mt-2">
-                    Forget Password
+                    {loader}
                   </button>
                 </Form>
 

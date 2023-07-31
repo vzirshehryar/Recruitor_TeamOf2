@@ -16,6 +16,7 @@ function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
+  const [loader, setLoader] = useState("SIGN UP");
   console.log("===password", isValidPassword);
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -77,6 +78,7 @@ function Register() {
     //   );
     // }
     else {
+      setLoader("SIGNING IN...");
       fetch("/user/register", {
         method: "POST",
         headers: {
@@ -86,23 +88,24 @@ function Register() {
         },
         body: JSON.stringify(formData),
       })
+        .then((data) => data.json())
         .then((response) => {
-          if (!response.ok) {
-            toast.error("Something went wrong please try again");
-            throw new Error("Error sending data to the backend.");
-          }
+          console.log(response);
           if (!response.success) {
             toast.error(response.msg);
+            setLoader("SIGN IN");
             return;
           }
 
           setFormData(initialFormData);
           setIsValidPassword(false);
           toast.success("User is registered successfully");
+          setLoader("SIGN IN");
         })
         .catch((error) => {
           // Handle error here
 
+          setLoader("SIGN IN");
           console.log("Error sending data:", error);
         });
     }
@@ -254,7 +257,7 @@ function Register() {
                     className="loginBtn mb-3"
                     onClick={UserRegister}
                   >
-                    SIGN UP
+                    {loader}
                   </button>
                 </Form>
 

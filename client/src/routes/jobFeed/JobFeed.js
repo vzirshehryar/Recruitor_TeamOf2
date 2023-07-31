@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Pagination } from "react-bootstrap";
 import Header from "../Home/components/header";
 import "./UserSide.css";
@@ -7,11 +7,17 @@ import JobCard from "./components/jobCard";
 import seach from "../../assests/images/search.png";
 import loc from "../../assests/images/location.png";
 
+const bacgroundSelect = {
+  background: "rgba(109, 14, 157, 0.19)",
+};
+
 function JobFeed() {
   const [location, setLocation] = useState("");
   const [searchKeyword, setSearchKeyword] = useState("");
   const [selectedJob, setSelectedJob] = useState(JobDetail[0]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selected, setSelected] = useState(0);
+
   const jobsPerPage = 6;
 
   const handleSearch = (event) => {
@@ -54,6 +60,15 @@ function JobFeed() {
     }
   };
 
+  useEffect(() => {
+    setSelected(-1);
+  }, [currentPage]);
+
+  const forBackgroundSelection = (id) => {
+    if (id === selected) return true;
+    return false;
+  };
+
   return (
     <>
       <div className="jobFeedPage">
@@ -84,52 +99,53 @@ function JobFeed() {
               <img className="searchLocIcon" alt="locationIcon" src={loc} />
             </div>
           </Row>
-
-          <h3
-            style={{ textDecoration: "underline" }}
-            className="jobFeedHeading text-center pt-3"
-          >
-            Job Feed
-          </h3>
         </Container>
         <Container fluid>
           <Container>
             <Row className="pt-4 pb-5 jobFeedDisplay">
-              <div className="col-lg-5">
+              <div className="col-lg-5 p-0">
+                <div className="JOBS">JOBS</div>
                 {currentJobs.map((item, index) => (
                   <div
                     key={index}
-                    style={{ cursor: "pointer" }}
-                    className="displayJobs p-4 mb-4"
+                    className="displayJobs p-2"
                     onClick={() => {
+                      setSelected(index);
                       setJobIndex(item.id);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
+                    style={forBackgroundSelection(index) ? bacgroundSelect : {}}
                   >
                     <Row>
-                      <div className="col-lg">
-                        <p
-                          style={{ lineHeight: "1.5" }}
-                          className="displayJobTitle"
-                        >
-                          {item.title}
-                        </p>
+                      <div className="col-lg-10 d-flex gap-1">
+                        <div className="capitalLetter">
+                          <p className="p-0 m-0">
+                            {item.title[0].toUpperCase()}
+                          </p>
+                        </div>
+                        <div>
+                          <p
+                            style={{ lineHeight: "1.5" }}
+                            className="displayJobTitle p-0 m-0"
+                          >
+                            {item.title}
+                          </p>
+                          <p className="p-0 m-0 displayJobLocation">
+                            {item.companyLocation}
+                          </p>
+                        </div>
                       </div>
-                      <div className="col-lg">
+                      <div className="col-lg-2">
                         <p className="displayJobPay">{item.amount}</p>
                       </div>
                     </Row>
-
-                    <p className="displayJobLocation">
-                      <strong>Company Location : </strong>
-                      {item.companyLocation}
-                    </p>
-
                     <p className="displayJobDescription">
                       <strong>Job Description : </strong>
                     </p>
-                    <p className="displayJobDescription">
-                      {item.job_Description}
+                    <p className="displayJobDescription2">
+                      {/* {item.job_Description} */}
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                      sed diam nonumy eirmod tempor invidunt ut labore......
                     </p>
                   </div>
                 ))}
@@ -152,7 +168,7 @@ function JobFeed() {
                 )}
               </div>
 
-              <div className="col-lg-7">
+              <div className="col-lg-7 p-0">
                 {selectedJob && <JobCard selectedJob={selectedJob} />}
               </div>
             </Row>
