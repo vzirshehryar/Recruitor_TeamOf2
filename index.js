@@ -6,8 +6,10 @@ import connectDB from "./Server/config/db.js";
 import path from "path";
 import UserRoutes from "./Server/router/users.js";
 import AdminRoutes from "./Server/router/admin.js";
+import JobExperienceRoutes from "./Server/router/userProfileRouter/jobExperienceRouter.js";
+import personalInfoRoutes from "./Server/router/userProfileRouter/personalInfo.js";
 
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -39,6 +41,7 @@ connectDB();
 
 // ROUTES TO THE USERS
 app.use("/user", UserRoutes);
+
 // app.use('/admin', AdminRoutes);
 // Serve static assets in production
 // app.get("/", (req, res) => {

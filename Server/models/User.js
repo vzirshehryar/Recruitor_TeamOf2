@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 const userSchema = Schema({
-  name: String,
+  firstName: String,
+  lastName: String,
   email: String,
   password: String,
   profileImage: String,
@@ -10,12 +11,22 @@ const userSchema = Schema({
     {
       fullName: String,
       email: String,
-      jobTitle:String,
+      jobTitle: String,
       phoneNumber: String,
       coverLetter: String,
       Files: String,
     },
   ],
+  phNo: String,
+  address: String,
+  country: String,
+  city: String,
+  zipCode: Number,
+  linkednLink: String,
+  twitterLink: String,
+  skills: {
+    type: [String],
+  },
 });
 
 export const User = mongoose.model("User", userSchema);
