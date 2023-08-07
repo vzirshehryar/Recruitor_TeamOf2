@@ -60,9 +60,10 @@ function Login() {
           // Store the user data in local storage
           localStorage.setItem("user", JSON.stringify(data.user));
 
+          
           setFormData(initialFormData);
           setLoader("LOG IN");
-          navigate("/jobFeed");
+          navigate("/personal-information");
         })
         .catch((error) => {
           // Handle error here

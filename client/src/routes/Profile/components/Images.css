@@ -72,3 +72,39 @@
   .profile-edit-icon input {
     display: none; /* Hide the file input initially */
   }
+
+  @media (max-width: 576px) {
+    .profile-container,
+    .profile-component-container {
+        width: 100%;
+        left: 0;
+    }
+
+    
+    .profile-image-box {
+        position: relative;
+        width: 100%;
+        left: 0;
+        margin-bottom: 20px;
+        margin-top: -20px;
+        
+    }
+    .cover-photo{
+      /* position: relative; */
+      width: 100%;
+      left: 0;
+      height: 150%;
+    }
+    
+
+    .cover-edit-icon,
+    .profile-edit-icon {
+        position: static;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .default-profile-text {
+        left: 50%;
+    }
+}

@@ -6,7 +6,7 @@ import Sidenav from '../Sidenav';
 const AddAwards = () => {
     return (
         <>
-        <Sidenav />
+        
         <div className="container-add-exp">
           <div className="rectangle-add-exp">
             <h2 className="experience-heading">Add Awards</h2>

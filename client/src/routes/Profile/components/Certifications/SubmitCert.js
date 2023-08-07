@@ -1,13 +1,13 @@
 import React from "react";
 import AddCertifications from "./AddCertifications";
-import DataDisplay from "../Experiences/DataDisplay";
+import DisplayCertifications from "./DisplayCertifications";
 import Sidenav from "../Sidenav";
 
 const SubmitCert = () => {
     return(
         <>
         <Sidenav />
-        <DataDisplay />
+        <DisplayCertifications />
         <div className="profile-component-container-all">
         <AddCertifications />
         </div>

@@ -1,15 +1,15 @@
 import React from "react";
-import AddCourses from "./AddCourses";
-import DisplayCour from "./DisplayCourses";
+import AddSkills from "./AddSkills";
+import DisplaySkills from "./DisplaySkills";
 import Sidenav from "../Sidenav";
 
-const SubmitCour = () => {
+const SubmitSkills = () => {
     return(
         <>
         <Sidenav />
-        <DisplayCour />
+        <DisplaySkills />
         <div className="profile-component-container-all">
-        <AddCourses />
+        <AddSkills />
         </div>
         
         
@@ -17,4 +17,4 @@ const SubmitCour = () => {
     );
 }
 
-export default SubmitCour;
+export default SubmitSkills;

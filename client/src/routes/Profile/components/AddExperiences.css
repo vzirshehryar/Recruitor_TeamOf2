@@ -44,4 +44,18 @@
   } */
   
   /* Add any other specific styles as needed */
-  
+
+  /* Media queries for mobile responsiveness */
+  @media (max-width: 576px) {
+    .container-add-exp {
+        width: 100%;
+        left: 0;
+        height: auto;
+    }
+    
+    .rectangle-add-exp {
+        width: 90%;
+        height: auto;
+        padding: 10px;
+    }
+}

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import './DataDisplay.css';
+import '../Experiences/DataDisplay.css';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-const DataDisplay = () => {
+const DisplayPub = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [data, setData] = useState(null);
   const toggleDropdown = () => {
@@ -12,7 +13,7 @@ const DataDisplay = () => {
 
   useEffect(() => {
     
-    const apiUrl = 'http://localhost:4000/user/jobExperience/getData';
+    const apiUrl = 'http://localhost:4000/user/publication/getData ';
     const token = localStorage.getItem('token');
 
     const headers = {
@@ -21,8 +22,9 @@ const DataDisplay = () => {
 
     axios.get(apiUrl, { headers })
       .then((response) => {
-        setData(response.data.jobs[0]);
-        console.log(response.data.jobs[0]);
+        console.log(response.data.publications[0]);
+        setData(response.data.publications[0]);
+        
       })
       .catch((error) => {
         console.error(error);
@@ -45,13 +47,19 @@ const DataDisplay = () => {
           </div>
         )}
         
-          <div className="data-heading">{data.jobTitle}</div>
+          <div className="data-heading">{data.publicationTitle}</div>
           <div className="data-dates">
-            {data.startDate} - {data.endDate} 
+            {data.publishedDate}
           </div>
-          <div className="data-company">{data.company}</div>
-          <div className="data-description-heading">Description:</div>
-          <div className="data-description">{data.description}</div>
+          <div className="data-company">{data.members}</div>
+          {/* <div className="data-description-heading">Description:</div> */}
+          {/* <div className="data-description">{data.school}</div> */}
+          <div className="data-description">
+            {/* Use the 'a' tag to redirect to the external URL */}
+            <a href={data.publicationURL} target="_blank" rel="noopener noreferrer">
+              Read Now
+            </a>
+          </div>
         
       </div>
       )}
@@ -59,4 +67,4 @@ const DataDisplay = () => {
   );
 };
 
-export default DataDisplay;
+export default DisplayPub;

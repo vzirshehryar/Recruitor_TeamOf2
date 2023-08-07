@@ -1,13 +1,13 @@
 import React from "react";
 import AddPublications from "./AddPublications";
-import DataDisplay from "../Experiences/DataDisplay";
+import DisplayPub from "./DisplayPublications";
 import Sidenav from "../Sidenav";
 
 const SubmitPub = () => {
     return(
         <>
         <Sidenav />
-        <DataDisplay />
+        <DisplayPub />
         <div className="profile-component-container-all">
         <AddPublications />
         </div>

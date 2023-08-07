@@ -4,9 +4,11 @@ import '../components/AddExperiences.css'; // Import the CSS file for styling
 import Sidenav from './Sidenav';
 
 const AddExperiences = () => {
+
+    
     return (
         <>
-        <Sidenav />
+        
         <div className="container-add-exp">
           <div className="rectangle-add-exp">
             <h2 className="experience-heading">Add Experiences</h2>

@@ -28,7 +28,7 @@
     gap: 10px;
     
 }
-.input-group {
+.input-group-profile {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -146,13 +146,18 @@
     top: 50%;
     right: -25px; /* Move the ellipse to the right side */
     transform: translateY(-50%) rotateY(180deg); /* Add the rotateY transformation */
-    width: 50px;
+    width: 55px;
     height: 44px;
     background: #FFF;
     border-top-left-radius: 20px; /* Adjust the border radius to create the ellipse */
     border-bottom-left-radius: 20px;
+    z-index: 9999;
+    box-shadow: -3px 0 0px rgba(0, 0, 0, 0.2);
   }
-  
+  .progress-container {
+    height: 120px;
+    width: 120px;
+  }
   .progress-circle {
     display: flex;
     flex-direction: column;
@@ -201,3 +206,52 @@
   .user-icon {
     /* Add your styles for the user icon here */
   }
+
+  @media (max-width: 576px) {
+    .form-container {
+        height: auto;
+        padding-top: 60px; /* Add padding for the top navigation bar */
+    }
+
+    .shadow {
+        max-width: 90%;
+    }
+
+    .new-name-container {
+        flex-direction: column; /* Stack first name and last name vertically */
+        align-items: center; /* Center the names horizontally */
+    }
+
+    .sidenav {
+        width: 100%;
+        position: static; /* Remove fixed positioning */
+        background: #6D0E9D;
+        color: #FFF;
+        font-family: Poppins;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .sidenav-buttons {
+        margin-top: 10px;
+    }
+
+    .sidenav-button.active {
+      background: #FFF;
+      color: #6D0E9D;
+    }
+
+    .sidenav-button.active:before {
+        content: none; /* Remove the ellipse */
+    }
+
+    .progress-circle {
+        align-items: center; /* Align circle and percentage center horizontally */
+        margin-top: 10px;
+    }
+
+    .percentage-circle {
+        right: 0; /* Move percentage circle to the right side */
+        left: auto;
+    }
+}
