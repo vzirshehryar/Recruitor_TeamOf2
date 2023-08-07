@@ -6,8 +6,7 @@ import connectDB from "./Server/config/db.js";
 import path from "path";
 import UserRoutes from "./Server/router/users.js";
 import AdminRoutes from "./Server/router/admin.js";
-import JobExperienceRoutes from "./Server/router/userProfileRouter/jobExperienceRouter.js";
-import personalInfoRoutes from "./Server/router/userProfileRouter/personalInfo.js";
+import CompanyRoutes from "./Server/router/company.js";
 
 import { fileURLToPath } from "url";
 
@@ -41,6 +40,8 @@ connectDB();
 
 // ROUTES TO THE USERS
 app.use("/user", UserRoutes);
+// ROUTES TO THE COMPANY
+app.use("/company", CompanyRoutes);
 
 // app.use('/admin', AdminRoutes);
 // Serve static assets in production

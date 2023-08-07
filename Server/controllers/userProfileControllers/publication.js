@@ -1,4 +1,4 @@
-import Publication from "../../models/Publications.js";
+import Publication from "../../models/userModels/Publications.js";
 
 export const postData = async (req, res) => {
   try {

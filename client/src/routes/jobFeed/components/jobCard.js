@@ -3,19 +3,34 @@ import ApplyJob from "./applyJob";
 const JobCard = ({ selectedJob }) => {
   console.log(selectedJob);
   return (
-    <div className="card p-4" style={{ borderRadius: "0 23px 0 0" }}>
+    <div
+      className="card"
+      style={{
+        paddingLeft: "4%",
+        borderRadius: "0 23px 0 0",
+        maxHeight: "600px",
+        overflowY: "auto",
+      }}
+    >
       <div
         className="d-flex align-items-center justify-content-between pb-3 mb-3"
-        style={{ borderBottom: "1px solid #6D0E9D" }}
+        style={{
+          borderBottom: "1px solid #6D0E9D",
+          position: "sticky",
+          top: "0px",
+          background: "white",
+        }}
       >
         <div className="col-lg">
-          <h3 className="selectedJobTitle p-0">{selectedJob.title}</h3>
+          <h3 className="selectedJobTitle p-0" style={{ marginTop: "7%" }}>
+            {selectedJob.title}
+          </h3>
         </div>
-        <div className="d-flex align-items-center">
+        <div style={{ marginTop: "8%", marginRight: "1%" }}>
+          <p className="displayJobPay">Unpaid</p>
+        </div>
+        <div className="d-flex align-items-center" style={{ marginTop: "5%" }}>
           <ApplyJob job={selectedJob.title} />
-          {/* <div className="">
-            <p className="displayJobPay">Unpaid</p>
-          </div> */}
         </div>
       </div>
       <div className="selectedJobLocation p-0 mb-3 d-flex gap-3 align-items-center">

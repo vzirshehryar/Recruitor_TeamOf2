@@ -1,5 +1,9 @@
 IMPORTANT : REACT HEROKU'S LINK: https://boiling-beach-52487-b897e4f8d94c.herokuapp.com/
 
+<----------------------------------------------------------------------------------------->
+<######################################### USER ##########################################>
+<----------------------------------------------------------------------------------------->
+
 ALL ENDPOINTS FOR PERSONAL INFO REST APIs           with token in request's headers
 http://localhost:4000/user/personalInfo/getData     (GET)
 http://localhost:4000/user/personalInfo/postData    (POST)
@@ -14,6 +18,8 @@ http://localhost:4000/user/personalInfo/postData    (POST)
   "linkednLink": "www.linkedn",
   "twitterLink": "www.twitter"
 }
+
+
 http://localhost:4000/user/personalInfo/getSkills     (GET)
 http://localhost:4000/user/personalInfo/postSkills    (POST)
 {
@@ -119,4 +125,24 @@ http://localhost:4000/user/language/postData  (POST)
     "listeningLevel": "Intermediate",
     "writingLevel": "Intermediate",
     "readingLevel": "Intermediate"
+}
+
+
+<----------------------------------------------------------------------------------------->
+<######################################### COMPANY #######################################>
+<----------------------------------------------------------------------------------------->
+
+ALL ENDPOINTS FOR LANGUAGE REST APIs     with token in request's headers
+http://localhost:4000/company/getJobs   (GET)
+http://localhost:4000/company/postJob   (POST)
+{
+    "jobTitle": "Mechanical Engineering",
+    "jobType": "full time",
+    "jobLevel": "intermediate",
+    "maxSR": 100000,
+    "minSR": 60000,
+    "location": "skardu",
+    "Experience": "2years",
+    "applicationDeadline": "2nd july",
+    "jobDescription": "nothing yet"
 }

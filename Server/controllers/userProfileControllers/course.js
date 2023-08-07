@@ -1,4 +1,4 @@
-import Course from "../../models/Course.js";
+import Course from "../../models/userModels/Course.js";
 
 export const postData = async (req, res) => {
   try {

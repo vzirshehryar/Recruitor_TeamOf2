@@ -1,4 +1,4 @@
-import Education from "../../models/Education.js";
+import Education from "../../models/userModels/Education.js";
 
 export const postData = async (req, res) => {
   try {

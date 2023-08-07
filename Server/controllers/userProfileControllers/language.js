@@ -1,4 +1,4 @@
-import Language from "../../models/Language.js";
+import Language from "../../models/userModels/Language.js";
 
 export const postData = async (req, res) => {
   try {

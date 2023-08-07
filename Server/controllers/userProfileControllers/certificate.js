@@ -1,4 +1,4 @@
-import Certificate from "../../models/Certificate.js";
+import Certificate from "../../models/userModels/Certificate.js";
 
 export const postData = async (req, res) => {
   try {

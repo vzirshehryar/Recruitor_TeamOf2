@@ -6,6 +6,7 @@ import { jobList, JobDetail } from "./components/Data";
 import JobCard from "./components/jobCard";
 import seach from "../../assests/images/search.png";
 import loc from "../../assests/images/location.png";
+import JobNav from "./components/JobNav";
 
 const bacgroundSelect = {
   background: "rgba(109, 14, 157, 0.19)",
@@ -68,13 +69,23 @@ function JobFeed() {
     if (id === selected) return true;
     return false;
   };
-
+  const sortedCurrentJobs = [...currentJobs].sort((a, b) => {
+    const titleA = a.title.toLowerCase();
+    const titleB = b.title.toLowerCase();
+    if (titleA < titleB) {
+      return -1;
+    }
+    if (titleA > titleB) {
+      return 1;
+    }
+    return 0;
+  });
   return (
     <>
       <div className="jobFeedPage">
         <Header />
-
-        <Container>
+        <JobNav />
+        {/*<Container>
           <Row className="pt-5 pb-5 searchCont">
             <div className="searchJobCont mx-3">
               <p className="searchJobFieldText">What</p>
@@ -99,13 +110,25 @@ function JobFeed() {
               <img className="searchLocIcon" alt="locationIcon" src={loc} />
             </div>
           </Row>
-        </Container>
-        <Container fluid>
+        </Container>*/}
+        <Container fluid className="jobFeedContainer">
           <Container>
             <Row className="pt-4 pb-5 jobFeedDisplay">
-              <div className="col-lg-5 p-0">
-                <div className="JOBS">JOBS</div>
-                {currentJobs.map((item, index) => (
+              <div
+                className="col-lg-5 jobFeedList"
+                style={{
+                  paddingRight: "3px",
+                  maxHeight: "600px",
+                  overflowY: "auto",
+                }}
+              >
+                <div
+                  className="JOBS"
+                  style={{ position: "sticky", top: "0px" }}
+                >
+                  JOBS
+                </div>
+                {sortedCurrentJobs.map((item, index) => (
                   <div
                     key={index}
                     className="displayJobs p-2"
@@ -152,7 +175,7 @@ function JobFeed() {
 
                 {/* Pagination */}
                 {totalPages > 1 && (
-                  <div className="text-center mt-4">
+                  <div className="text-center mt-4 custom-pagination">
                     <Pagination>
                       {Array.from({ length: totalPages }, (_, index) => (
                         <Pagination.Item

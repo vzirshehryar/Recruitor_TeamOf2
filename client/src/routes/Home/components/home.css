@@ -5,7 +5,13 @@
   justify-content: space-between;
   align-items: center;
 }
-
+.account_icon {
+  margin-left: 1290%;
+  color: #6d0e9d;
+}
+.account_icon:hover {
+  color: #000;
+}
 .notificationBarCloseBtn {
   color: #ffffff;
   background-color: transparent;
@@ -528,6 +534,9 @@
   .whyUsMainHeading {
     font-size: 30px;
     line-height: 32px;
+  }
+  .account_icon {
+    margin-left: 0%;
   }
 
   .whyUsSecondHeading {

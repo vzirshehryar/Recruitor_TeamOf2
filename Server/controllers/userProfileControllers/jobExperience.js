@@ -1,4 +1,4 @@
-import JobExperience from "../../models/JobExperience.js";
+import JobExperience from "../../models/userModels/JobExperience.js";
 
 export const postData = async (req, res) => {
   try {

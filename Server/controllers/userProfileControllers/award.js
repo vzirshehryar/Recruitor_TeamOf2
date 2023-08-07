@@ -1,4 +1,4 @@
-import Award from "../../models/Award.js";
+import Award from "../../models/userModels/Award.js";
 
 export const postData = async (req, res) => {
   try {

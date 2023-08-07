@@ -1,17 +1,26 @@
-// import "../components/home.css";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Dropdown } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "./home.css";
+import JobNav from "../../jobFeed/components/JobNav";
 
 function Header() {
   const navigate = useNavigate();
   const [showCarousel, setShowCarousel] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchKeyword, setSearchKeyword] = useState("");
+
   function loginButton() {
     navigate("/Login");
   }
+  const handleSearch = (event) => {
+    setCurrentPage(1);
+    setSearchKeyword(event.target.value);
+  };
   const handleLogout = () => {
     localStorage.clear();
     navigate("/");
@@ -50,9 +59,11 @@ function Header() {
       borderRadius: "50%",
     },
     name: {
-      marginRight: "20px",
+      marginRight: "0px",
     },
   };
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
     <>
@@ -65,10 +76,11 @@ function Header() {
           >
             Step200
           </Navbar.Brand>
+
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
             id="responsive-navbar-nav"
-            className="NavbarCollapse"
+            style={{ justifyContent: "center" }}
           >
             {!user ? (
               <>
@@ -89,15 +101,50 @@ function Header() {
               </>
             ) : (
               <Nav className="navBarLinks me-3">
+                {/* <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+                    <input value={searchKeyword} onChange={handleSearch}  type="text" placeholder="Search..." style={{ paddingLeft:'5%', border:'none', outline:'none', borderRadius:' 20px 0 0 20px ', justifyContent:'center', alignItems:'center', marginBottom:'2%', marginTop:'2%'}} />
+                    <i style={{background:'white', borderRadius:'0 20px 20px 0', padding:'1px', paddingRight:'10px', color:'gray'}} className="ri-search-line"></i>
+                    </div>*/}
                 <div>
-                  <Dropdown>
-                    <Dropdown.Toggle variant="transparent" id="dropdown-custom">
-                      <div style={styles.container}>
-                        <p style={styles.name}>{user && data.email}</p>
-                      </div>
-                    </Dropdown.Toggle>
+                  <Dropdown
+                    drop="left"
+                    align="end"
+                    show={isDropdownOpen}
+                    onToggle={(isOpen) => setIsDropdownOpen(isOpen)}
+                  >
+                    <div className="account_icon">
+                      <i
+                        style={{
+                          fontWeight: "100",
+                          fontSize: "33px",
+                          cursor: "pointer",
+                        }}
+                        className="ri-account-circle-line"
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      ></i>
+                    </div>
+
                     <Dropdown.Menu>
-                      <Dropdown.Item onClick={handleLogout}>
+                      <Dropdown.Item
+                        style={{
+                          textAlign: "center",
+                          borderBottom: "1px solid black",
+                        }}
+                      >
+                        <i
+                          className="ri-account-box-fill"
+                          style={{ marginRight: "2%" }}
+                        ></i>
+                        {user && data.email}
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={handleLogout}
+                        style={{ textAlign: "center" }}
+                      >
+                        <i
+                          className="ri-logout-box-r-line"
+                          style={{ marginRight: "2%" }}
+                        ></i>
                         Logout
                       </Dropdown.Item>
                     </Dropdown.Menu>
