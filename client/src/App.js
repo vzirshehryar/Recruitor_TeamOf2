@@ -35,6 +35,7 @@ import SubmitCert from './routes/Profile/components/Certifications/SubmitCert';
 import SubmitAwards from './routes/Profile/components/Awards/SubmitAwards';
 import SubmitPub from './routes/Profile/components/Publications/SubmitPub';
 import SubmitLang from './routes/Profile/components/Languages/SubmitLang';
+import SubmitSkills from './routes/Profile/components/Skills/SubmitSkills';
 
 
 const App = () => {
@@ -52,28 +53,28 @@ const App = () => {
         <Route path="/personal-information" element={<PersonalInformation />} />
         <Route path="/experiences" element={<AddExperiences />} />
         <Route path="/experiences/form" element={<Experiences />} />
-        <Route path="/experiences/submitted" element={<SubmitExp />} />
+        <Route path="/experiences/submit-exp" element={<SubmitExp />} />
         <Route path="/education" element={<AddEducation />} />
         <Route path="/education/form" element={<Education />} />
-        <Route path="/education/submitted" element={<SubmitEdu />} />
+        <Route path="/education/submit-edu" element={<SubmitEdu />} />
         <Route path="/courses" element={<AddCourses />} />
         <Route path="/courses/form" element={<Courses />} />
-        <Route path="/courses/submitted" element={<SubmitCour />} />
+        <Route path="/courses/submit-cour" element={<SubmitCour />} />
         <Route path="/certifications" element={<AddCertifications />} />
         <Route path="/certifications/form" element={<Certifications />} />
-        <Route path="/certifications/submitted" element={<SubmitCert />} />
+        <Route path="/certifications/submit-cert" element={<SubmitCert />} />
         <Route path="/awards" element={<AddAwards />} />
         <Route path="/awards/form" element={<Awards />} />
-        <Route path="/awards/submitted" element={<SubmitAwards />} />
+        <Route path="/awards/submit-awards" element={<SubmitAwards />} />
         <Route path="/publications" element={<AddPublications />} />
         <Route path="/publications/form" element={<Publications />} />
-        <Route path="/publications/submitted" element={<SubmitPub />} />
+        <Route path="/publications/submit-pub" element={<SubmitPub />} />
         <Route path="/languages" element={<AddLanguages />} />
         <Route path="/languages/form" element={<Languages />} />
-        <Route path="/languages/submitted" element={<SubmitLang />} />
+        <Route path="/languages/submit-lang" element={<SubmitLang />} />
         <Route path="/skills" element={<AddSkills />} />
         <Route path="/skills/skillsinput" element={<Skills />} />
-        
+        <Route path="/skills/submit-skills" element={<SubmitSkills />} />
       </Routes>
     </Router>
   );

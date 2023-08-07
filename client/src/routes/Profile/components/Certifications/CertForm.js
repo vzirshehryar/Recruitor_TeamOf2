@@ -1,111 +1,190 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import "../Experiences/ExpForm.css";
-
+import axios from 'axios';
+import { ToastContainer, toast } from "react-toastify";
 
 
 const CertForm = () => {
 
-    
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    courseTitle: '',
+    organization: '',
+    issueDate: '',
+    expiryDate: '',
+    credentialID: '',
+    credentialURL: '',
+    description: '',
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formattedData = {
+      courseTitle: formData.courseTitle,
+      organization: formData.organization,
+      issueDate: formData.issueDate,
+      expiryDate: formData.expiryDate,
+      credentialID: formData.credentialID,
+      credentialURL: formData.credentialURL,
+      desrciption: formData.description,
+    };
+
+    console.log(formattedData);
+
+    const token = localStorage.getItem('token');
+    console.log(token);
+    const apiUrl = '/user/certificate/postData';
+
+    const headers = {
+      Authorization: token,
+    };
+    axios.post(apiUrl, formattedData, { headers })
+      .then((response) => {
+        console.log(response.data);
+        localStorage.setItem('progress', '55');
+        toast.success(response.data.message);
+        setTimeout(() => {
+          navigate("/certifications/submit-cert");
+        }, 1500);
+        
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("Error sending data to the backend.");
+      });
+  };
 
     return (
         <div className="form-container-cour">
           <div className="shadow-exp">
-            <div className="email-container-exp">
-              <label className="label-exp" htmlFor="course-title">
-                Course Title
-                <span className="required-exp">*</span>
-              </label>
-              <input
-                type="text"
-                id="course-title"
-                className="input-field-exp"
-                placeholder=""
-              />
-            </div>
-            <div className="email-container-exp">
-              <label className="label-exp" htmlFor="organization">
-                Organization
-                <span className="required-exp">*</span>
-              </label>
-              <input
-                type="text"
-                id="organization"
-                className="input-field-exp"
-                placeholder=""
-              />
-            </div>
-            <div className="name-container-exp">
-              <div className="input-group-exp">
-                <label className="label-exp" htmlFor="issue-date">
-                  Issue Date
+            <form onSubmit={handleSubmit}>
+              <div className="email-container-exp">
+                <label className="label-exp" htmlFor="courseTitle">
+                  Course Title
                   <span className="required-exp">*</span>
-                </label>
-                <input
-                  type="date"
-                  id="issue-date"
-                  className="input-field-exp"
-                  placeholder=""
-                />
-              </div>
-              <div className="input-group-exp">
-                <label className="label-exp" htmlFor="expiry-date">
-                  Expiry Date
-                  <span className="required-exp">*</span>
-                </label>
-                <input
-                  type="date"
-                  id="expiry-date"
-                  className="input-field-exp"
-                  placeholder=""
-                />
-              </div>
-            </div>
-                
-              <div className="name-container-exp">
-              <div className="input-group-exp">
-                <label className="label-exp" htmlFor="cred-id">
-                  Credential ID
-                  
                 </label>
                 <input
                   type="text"
-                  id="cred-id"
+                  id="courseTitle"
                   className="input-field-exp"
                   placeholder=""
+                  required
+                  value={formData.courseTitle}
+                  onChange={handleChange}
                 />
               </div>
-              <div className="input-group-exp">
-                <label className="label-exp" htmlFor="cred-url">
-                  Credential URL
-                  
+              <div className="email-container-exp">
+                <label className="label-exp" htmlFor="organization">
+                  Organization
+                  <span className="required-exp">*</span>
                 </label>
                 <input
-                  type="link"
-                  id="cred-url"
+                  type="text"
+                  id="organization"
                   className="input-field-exp"
                   placeholder=""
+                  required
+                  value={formData.organization}
+                  onChange={handleChange}
                 />
               </div>
-            </div>
-            
-            <div className="description-container-exp">
-              <label className="label-exp" htmlFor="description">
-                Description
-                <span className="required-exp">*</span>
-              </label>
-              <input
-                type="description"
-                id="description"
-                className="input-field-exp-1"
-                placeholder=""
-              />
-            </div>
-            
-            <div className="button-container-exp">
-            <Link to="/certifications/submitted"> <button>Submit</button> </Link>
-            </div>
+              <div className="name-container-exp">
+                <div className="input-group-exp">
+                  <label className="label-exp" htmlFor="issueDate">
+                    Issue Date
+                    <span className="required-exp">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    id="issueDate"
+                    className="input-field-exp"
+                    placeholder=""
+                    required
+                    value={formData.issueDate}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="input-group-exp">
+                  <label className="label-exp" htmlFor="expiryDate">
+                    Expiry Date
+                    <span className="required-exp">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    id="expiryDate"
+                    className="input-field-exp"
+                    placeholder=""
+                    required
+                    value={formData.expiryDate}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+                  
+                <div className="name-container-exp">
+                <div className="input-group-exp">
+                  <label className="label-exp" htmlFor="credentialID">
+                    Credential ID
+                    
+                  </label>
+                  <input
+                    type="text"
+                    id="credentialID"
+                    className="input-field-exp"
+                    placeholder=""
+                    value={formData.credentialID}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="input-group-exp">
+                  <label className="label-exp" htmlFor="credentialURL">
+                    Credential URL
+                    
+                  </label>
+                  <input
+                    type="url"
+                    id="credentialURL"
+                    className="input-field-exp"
+                    placeholder=""
+                    value={formData.credentialURL}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+              
+              <div className="description-container-exp">
+                <label className="label-exp" htmlFor="description">
+                  Description
+                  <span className="required-exp">*</span>
+                </label>
+                <input
+                  type="description"
+                  id="description"
+                  className="input-field-exp-1"
+                  placeholder=""
+                  required
+                  value={formData.description}
+                  onChange={handleChange}
+                />
+              </div>
+              
+              <div className="button-container-exp">
+                <button type="submit">Submit</button> 
+              </div>
+            </form>
           </div>
+          <ToastContainer />
         </div>
       );
   };

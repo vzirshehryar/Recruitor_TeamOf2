@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import './DataDisplay.css';
+import '../Experiences/DataDisplay.css';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-const DataDisplay = () => {
+const DisplayCour = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [data, setData] = useState(null);
   const toggleDropdown = () => {
@@ -12,7 +13,7 @@ const DataDisplay = () => {
 
   useEffect(() => {
     
-    const apiUrl = 'http://localhost:4000/user/jobExperience/getData';
+    const apiUrl = 'http://localhost:4000/user/certificate/getData';
     const token = localStorage.getItem('token');
 
     const headers = {
@@ -21,8 +22,10 @@ const DataDisplay = () => {
 
     axios.get(apiUrl, { headers })
       .then((response) => {
-        setData(response.data.jobs[0]);
-        console.log(response.data.jobs[0]);
+        
+        console.log(response.data.certificate[0]);
+        setData(response.data.certificate[0]);
+        
       })
       .catch((error) => {
         console.error(error);
@@ -45,13 +48,14 @@ const DataDisplay = () => {
           </div>
         )}
         
-          <div className="data-heading">{data.jobTitle}</div>
+          <div className="data-heading">{data.courseTitle}</div>
           <div className="data-dates">
-            {data.startDate} - {data.endDate} 
+            {data.issueDate} - {data.expiryDate} 
           </div>
-          <div className="data-company">{data.company}</div>
-          <div className="data-description-heading">Description:</div>
-          <div className="data-description">{data.description}</div>
+          <div className="data-company">{data.organization}</div>
+          {/* <div className="data-description-heading">Course Credentials</div>  */}
+          <div className="data-description"><Link to={data.credentialURL}>Course Credentials</Link></div>
+          {/* <a href={data.credentialURL}>Course Credentials</a> */}
         
       </div>
       )}
@@ -59,4 +63,4 @@ const DataDisplay = () => {
   );
 };
 
-export default DataDisplay;
+export default DisplayCour;
