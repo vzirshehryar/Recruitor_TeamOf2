@@ -52,7 +52,11 @@ const CertForm = () => {
     axios.post(apiUrl, formattedData, { headers })
       .then((response) => {
         console.log(response.data);
-        localStorage.setItem('progress', '55');
+        const updateprogress = localStorage.getItem('progress');
+        const newprogress = parseInt(updateprogress, 10);
+        const addprogress = newprogress + 10;
+        const finalprogress = addprogress.toString();
+        localStorage.setItem('progress', finalprogress);
         toast.success(response.data.message);
         setTimeout(() => {
           navigate("/certifications/submit-cert");

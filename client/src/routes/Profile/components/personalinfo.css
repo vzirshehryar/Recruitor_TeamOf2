@@ -106,7 +106,7 @@
     background: #6D0E9D;
     color: #FFF;
     font-family: Poppins;
-    padding: 20px;
+    
     width: 300px; /* Set your desired width here */
     position: fixed; /* Keep the sidenav fixed on the left side */
     top: 0;
@@ -118,12 +118,15 @@
     text-align: center;
     font-size: 24px;
     font-weight: bold;
+    margin-top: 10px;
   }
   
   .sidenav-buttons {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 15px;
+    margin-left: 10px;
+    /* width: 100%; */
   }
   
   .sidenav-button {
@@ -138,6 +141,8 @@
     background: #FFF;
     color: #6D0E9D;
     text-decoration: none;
+    padding-right: 25px;
+    margin-left: -9px;
   }
   
   .sidenav-button.active:before {
@@ -157,7 +162,9 @@
   .progress-container {
     height: 120px;
     width: 120px;
+    margin-top: -10px;
   }
+  
   .progress-circle {
     display: flex;
     flex-direction: column;
@@ -204,7 +211,45 @@
   }
   
   .user-icon {
-    /* Add your styles for the user icon here */
+    /* margin-top: -50px;
+    cursor: pointer; */
+    margin-top: -30px;
+    cursor: pointer;
+    position: relative;
+    margin-left: 30px;
+  }
+  .dropdown-profile-log {
+    /* position: absolute; */
+    top: auto;
+    bottom: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 25%;
+  }
+  
+  .logout-button-profile {
+    display: block;
+    width: 100%;
+    padding: 4px 4px; /* Adjust padding for the smaller button */
+    font-size: 12px;
+    font-family: Poppins;
+    color: #6D0E9D;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .logout-button-profile:hover {
+    background-color: #f0f0f0;
+  }
+  .dropdown-profile-log.drop-up {
+    bottom: auto;
+    top: 100%;
   }
 
   @media (max-width: 576px) {
