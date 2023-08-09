@@ -39,6 +39,8 @@ import SubmitSkills from './routes/Profile/components/Skills/SubmitSkills';
 import Sidebar from './routes/company/Sidebar';
 import Jobs from './routes/company/Dashboard/PostJobs/Jobs';
 import Profile from './routes/company/Dashboard/CompProfile/Profile';
+import Applicants from './routes/company/Dashboard/AllApplicants/Applicants';
+import Listings from './routes/company/Dashboard/JobListings/Listings';
 
 
 const App = () => {
@@ -81,6 +83,8 @@ const App = () => {
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/postjobs" element={<Jobs />} />
         <Route path="/compprofile" element={<Profile />} />
+        <Route path="/allapplicants" element={<Applicants />} />
+        <Route path="/joblistings" element={<Listings />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,35 @@
+.date-filter-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .date-filter {
+    display: flex;
+    align-items: center;
+    background: #F4F5F9;
+    border-radius: 30px;
+    padding: 10px;
+    width: 70%;
+    max-width: 600px;
+  }
+  
+  .filter-button {
+    border: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease-in-out;
+    flex: 1; 
+    text-align: center;
+    color: #969BA0;
+    font-family: Montserrat;
+  }
+  
+  .filter-button.active {
+    background: #6D0E9D;
+    color: white;
+    border-radius: 30px;
+  }
+  
