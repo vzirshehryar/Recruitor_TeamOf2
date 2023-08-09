@@ -16,7 +16,28 @@ const jobSchema = new mongoose.Schema({
   qualification: String,
   applicationDeadline: String,
   jobDescription: String,
+  applications: [
+    {
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+      appliedDate: {
+        type: Date,
+        default: Date.now(),
+      },
+      hiringStage: {
+        type: String,
+        default: "In process",
+      },
+      status: {
+        type: String,
+        default: "On Going",
+      },
+      resume: String,
+    },
+  ],
 });
 
-const Job = new mongoose.model("Jobs", jobSchema);
+const Job = new mongoose.model("Job", jobSchema);
 export default Job;

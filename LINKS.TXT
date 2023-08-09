@@ -132,9 +132,47 @@ http://localhost:4000/user/language/postData  (POST)
 <######################################### COMPANY #######################################>
 <----------------------------------------------------------------------------------------->
 
-ALL ENDPOINTS FOR LANGUAGE REST APIs     with token in request's headers
-http://localhost:4000/company/getJobs   (GET)
-http://localhost:4000/company/postJob   (POST)
+http://localhost:4000/company/login   (POST)
+{
+  "email": "vzirshehryar@gmail.com",
+  "password": "123"
+}
+
+http://localhost:4000/company/register   (POST)
+{
+  "email": "vzirshehryar@gmail.com",
+  "password": "123"
+}
+
+http://localhost:4000/company/setProfile    (POST)  with token of company in request's headers
+{
+    "name": "Ayan Company",
+    "teamSize": "1000-1500",
+    "phNo": "03461687987",
+    "website": "www.ayan.com",
+    "country": "Pakistan",
+    "city": "Skardu",
+    "address": "stak nala",
+    "about": "the biggest company ever existed"
+}
+http://localhost:4000/company/getProfile    (GET)   with token of company in request's headers
+
+
+
+<----------------------------------------------------------------------------------------->
+<######################################### JOB #######################################>
+<----------------------------------------------------------------------------------------->
+
+ALL ENDPOINTS FOR JOBS RELATED TO USER REST APIs     with token of users in request's headers
+http://localhost:4000/job/apply/64d1001541502eadb0c8ee92  (POST) jobID in params
+{
+  "jobID": "64ce0ed968f40d46f0340db9"
+}
+
+
+ALL ENDPOINTS FOR JOBS RELATED TO COMPANY REST APIs     with token of company in request's headers
+http://localhost:4000/job/getJobs   (GET)   (get all jobs of a company)
+http://localhost:4000/job/postJob   (POST) 
 {
     "jobTitle": "Mechanical Engineering",
     "jobType": "full time",
@@ -146,3 +184,14 @@ http://localhost:4000/company/postJob   (POST)
     "applicationDeadline": "2nd july",
     "jobDescription": "nothing yet"
 }
+
+ALL ENDPOINTS FOR JOBS RELATED TO COMPANY REST APIs     with token of company in request's headers
+http://localhost:4000/job/getApplicantssOfAJob/64d1001541502eadb0c8ee92   (GET) jobID in params  (get all applicants of a specific job)
+http://localhost:4000/job/getallapplicants    (GET) 
+
+ALL ENDPOINTS FOR JOBS RELATED TO COMPANY REST APIs     with token of company in request's headers
+http://localhost:4000/job/changeStage/64d1001541502eadb0c8ee92/64d1e06c62afa42d120f88a3   (PUT) /:jobID/:applicationID
+{
+  "stage": "Interview"
+}
+http://localhost:4000/job/deleteApplication/64d1001541502eadb0c8ee92/64d1e06c62afa42d120f88a3   (DELETE)  /:jobID/:applicationID

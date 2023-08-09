@@ -7,6 +7,7 @@ import path from "path";
 import UserRoutes from "./Server/router/users.js";
 import AdminRoutes from "./Server/router/admin.js";
 import CompanyRoutes from "./Server/router/company.js";
+import JobRoutes from "./Server/router/job.js";
 
 import { fileURLToPath } from "url";
 
@@ -42,6 +43,8 @@ connectDB();
 app.use("/user", UserRoutes);
 // ROUTES TO THE COMPANY
 app.use("/company", CompanyRoutes);
+// ROUTES TO THE JOB
+app.use("/job", JobRoutes);
 
 // app.use('/admin', AdminRoutes);
 // Serve static assets in production
