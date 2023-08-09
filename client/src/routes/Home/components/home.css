@@ -60,9 +60,19 @@
   color: #6d0e9d;
 }
 
-.getHiredBtnH {
+.getSignUpBtn {
   position: absolute;
-  right: 40px;
+  right: 10px;
+  background: #ffffff;
+  color: #6d0e9d;
+  border: 2px solid #6d0e9d;
+  padding: 10px 15px;
+  border-radius: 10px;
+  /* width: 120px; */
+}
+.getLogInBtn {
+  position: absolute;
+  right: 110px;
   background: #6d0e9d;
   color: #ffffff;
   border: 2px solid #6d0e9d;
@@ -71,13 +81,23 @@
   /* width: 120px; */
 }
 
-.getHiredBtnH:hover {
+/* .getLogInBtn:hover {
   background: #ffffff;
   color: #6d0e9d;
 }
+.getSignUpBtn:hover {
+  background: #6d0e9d;
+  color: #ffffff;
+} */
+
 @media screen and (max-width: 990px) {
-  .getHiredBtnH {
-    top: 90px;
+  .getLogInBtn {
+    top: 70px;
+    right: 50px;
+  }
+  .getSignUpBtn {
+    top: 130px;
+    right: 50px;
   }
 }
 .hireTeamBtnH {
@@ -147,7 +167,7 @@
 .landingpageBtn {
   border: 2px solid #6d0e9d;
   border-radius: 5px;
-  padding: 10px 50px;
+  padding: 10px 30px;
   background: #6d0e9d;
   font-family: "Raleway", sans-serif;
   font-style: normal;
@@ -156,6 +176,7 @@
   line-height: 21px;
   letter-spacing: 0.02em;
   color: #ffffff;
+  margin-right: 5px;
 }
 
 /* Media Queries */
@@ -860,10 +881,6 @@
   .footerLinks {
     font-size: 12px;
     line-height: 20px;
-  }
-
-  .footerLogoText {
-    /* display: none; */
   }
 
   .footerSocialLinks {

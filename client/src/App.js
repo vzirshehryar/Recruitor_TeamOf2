@@ -39,21 +39,29 @@ import SubmitSkills from './routes/Profile/components/Skills/SubmitSkills';
 import Sidebar from './routes/company/Sidebar';
 import Jobs from './routes/company/Dashboard/PostJobs/Jobs';
 import Profile from './routes/company/Dashboard/CompProfile/Profile';
+import CompanySignUp from "./routes/Auth/signUp/CompanySignUp";
+import LoginAsCompany from "./routes/Auth/Login/LoginAsCompany";
 import Applicants from './routes/company/Dashboard/AllApplicants/Applicants';
 import Listings from './routes/company/Dashboard/JobListings/Listings';
 
-
 const App = () => {
-
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        //ROUTES OF USER
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/forgetPassword" element={<ForgetPassword />} />
         <Route path="/setNewPassword/:id" element={<SetPassword />} />
-        <Route path="/jobFeed" element={<ProtectedRoute><JobFeed /></ProtectedRoute>} />
+        <Route
+          path="/jobFeed"
+          element={
+            <ProtectedRoute>
+              <JobFeed />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/sidenav" element={<Sidenav />} />
         <Route path="/personal-information" element={<PersonalInformation />} />
         <Route path="/experiences" element={<AddExperiences />} />
@@ -80,6 +88,9 @@ const App = () => {
         <Route path="/skills" element={<AddSkills />} />
         <Route path="/skills/skillsinput" element={<Skills />} />
         <Route path="/skills/submit-skills" element={<SubmitSkills />} />
+        //ROUTES OF COMPANY
+        <Route path="/registerAsCompany" element={<CompanySignUp />} />
+        <Route path="/loginAsCompany" element={<LoginAsCompany />} />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/postjobs" element={<Jobs />} />
         <Route path="/compprofile" element={<Profile />} />

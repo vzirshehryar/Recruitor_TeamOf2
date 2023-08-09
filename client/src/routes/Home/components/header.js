@@ -95,8 +95,11 @@ function Header() {
                     Why Us
                   </Nav.Link>
                 </Nav>
-                <button className="getHiredBtnH" onClick={loginButton}>
-                  Get Hired
+                <button className="getLogInBtn" onClick={loginButton}>
+                  Log In
+                </button>
+                <button className="getSignUpBtn" onClick={loginButton}>
+                  Sign Up
                 </button>
               </>
             ) : (

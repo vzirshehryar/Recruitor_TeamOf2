@@ -78,57 +78,6 @@ export const loginCompany = async (req, res) => {
   }
 };
 
-export const postJob = async (req, res) => {
-  try {
-    const data = req.body;
-    const companyID = req.company; // it is set from middleware
-    if (
-      !data.jobTitle ||
-      !data.jobType ||
-      !data.jobLevel ||
-      !data.maxSR ||
-      !data.minSR ||
-      !data.location ||
-      !data.Experience ||
-      !data.qualification ||
-      !data.applicationDeadline ||
-      !data.jobDescription
-    ) {
-      res.status(400).json({ error: "data in body is not complete" });
-      return;
-    }
-
-    data.company = companyID;
-    const jobObj = new Job(data);
-    const job = await jobObj.save();
-
-    return res.status(201).json({
-      message: "Job Added Successfully",
-    });
-  } catch (error) {
-    console.error("Error creating Job:", error);
-    return res.status(400).json({
-      error: "An error occurred while creating Job",
-    });
-  }
-};
-
-export const getJobs = async (req, res) => {
-  try {
-    const companyID = req.company; // it is set from middleware
-    const jobs = await Job.find({ company: companyID });
-
-    return res.status(201).json({
-      jobs,
-    });
-  } catch (error) {
-    console.error("Error getting Jobs:", error);
-    return res.status(400).json({
-      error: "An error occurred while getting Jobs",
-    });
-  }
-};
-
 export const setProfile = async (req, res) => {
   try {
     const data = req.body;
