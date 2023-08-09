@@ -1,0 +1,48 @@
+.sidebar {
+    background: #6D0E9D;
+    color: #FFF;
+    font-family: Poppins;
+    
+    width: 300px; /* Set your desired width here */
+    position: fixed; /* Keep the sidenav fixed on the left side */
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+  
+  .dashboard-heading {
+    text-align: center;
+    font-family: Poppins;
+    font-size: 18px;
+    margin-top: 30px;
+    font-weight: 400;
+  }
+  
+  .sidebar-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    margin-left: 20px;
+    
+    /* width: 100%; */
+  }
+  
+  .sidebar-button {
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  
+  .sidebar-button.active {
+    position: relative;
+    
+    color: #fff;
+    text-decoration: none;
+    padding-right: 25px;
+    font-weight: 900;
+    font-style: normal;
+  } 

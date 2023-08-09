@@ -12,7 +12,7 @@
 .shadow {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 6px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
   background: #FFF;
-  padding: 20px;
+  padding: 30px;
   border-radius: 18px;
   max-width: 70%;
 }
@@ -101,6 +101,7 @@
     background-color: #9639d4;
 }
 
+/* Sidenav CSS Start */
 
 .sidenav {
     background: #6D0E9D;
@@ -252,6 +253,100 @@
     top: 100%;
   }
 
+/* Sidenav CSS End   */
+
+
+
+/*Post Jobs CSS Start*/
+
+.form-container-postjobs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 175vh;
+  
+  
+}
+.shadow2 {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 6px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  background: #FFF;
+  padding: 30px;
+  border-radius: 18px;
+  width: 65%;
+  
+}
+.form-container-compprofile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200vh;
+  
+  
+}
+.postjobs-heading{
+  color: #000;
+  text-align: start;
+  font-family: Poppins;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+.compprofile-heading{
+  color: #000;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 24px;
+  margin-bottom: 40px;
+  margin-top: 10px;
+}
+.dashboard-component-container{
+  height: 175vh;
+  margin-left: 280px;
+}
+
+.compprofile-image-box {
+  position: relative;
+  
+  left: 260px;
+  border: 7px solid #6D0E9D;
+  background: #F5F7FA;
+  border-radius: 5%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Set the desired size for the profile image box */
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+.compprofile-image-box::after {
+  content: "";
+  
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.5));
+  pointer-events: none;
+  z-index: 1;
+}
+.default-compprofile-text {
+  position: relative;
+  top: 50%;
+  left: 65px;
+  transform: translate(-50%, -50%);
+  font-size: 35px;
+  color: #6D0E9D;
+  font-family: Poppins;
+  font-weight: bold;
+}
+.compprofile-edit-icon {
+  position: relative;
+  bottom: -10px;
+  left: 70px;
+  /* Add styles for your pencil icon */
+  cursor: pointer;
+}
+
+
+/*Post Jobs CSS End*/
   @media (max-width: 576px) {
     .form-container {
         height: auto;

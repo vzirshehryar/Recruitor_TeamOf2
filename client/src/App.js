@@ -36,6 +36,9 @@ import SubmitAwards from './routes/Profile/components/Awards/SubmitAwards';
 import SubmitPub from './routes/Profile/components/Publications/SubmitPub';
 import SubmitLang from './routes/Profile/components/Languages/SubmitLang';
 import SubmitSkills from './routes/Profile/components/Skills/SubmitSkills';
+import Sidebar from './routes/company/Sidebar';
+import Jobs from './routes/company/Dashboard/PostJobs/Jobs';
+import Profile from './routes/company/Dashboard/CompProfile/Profile';
 
 
 const App = () => {
@@ -75,6 +78,9 @@ const App = () => {
         <Route path="/skills" element={<AddSkills />} />
         <Route path="/skills/skillsinput" element={<Skills />} />
         <Route path="/skills/submit-skills" element={<SubmitSkills />} />
+        <Route path="/sidebar" element={<Sidebar />} />
+        <Route path="/postjobs" element={<Jobs />} />
+        <Route path="/compprofile" element={<Profile />} />
       </Routes>
     </Router>
   );
