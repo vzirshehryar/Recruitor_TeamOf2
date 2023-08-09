@@ -9,6 +9,9 @@ function Slider() {
   function loginButton() {
     navigate("/Login");
   }
+  function loginButtonForCompany() {
+    navigate("/LoginAsCompany");
+  }
   const handleLogout = () => {
     localStorage.clear();
     navigate("/");
@@ -62,6 +65,12 @@ function Slider() {
         <div className="mt-3 d-inline-block position-relative">
           <img src="/Group4.png" alt="nothing" className="dashonlogin" />
           <button className="landingpageBtn mt-2" onClick={loginButton}>
+            Hire
+          </button>
+          <button
+            className="landingpageBtn mt-2"
+            onClick={loginButtonForCompany}
+          >
             Get Hired Now!
           </button>
         </div>

@@ -32,12 +32,28 @@
   background-position: center;
   background-size: cover;
   z-index: -1;
+  display: flex;
+  justify-content: center;
+}
+
+.topHeadingOfAuth {
+  color: #6d0e9d;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 56.5px; /* 117.708% */
+  letter-spacing: 0.96px;
+  max-width: 500px;
+  margin-top: 60px;
+  text-align: center;
 }
 .Card {
   width: 500px;
   padding: 10px;
   padding-top: 0;
-  margin-top: 100px;
+  margin-top: 180px;
   background: #ffffff;
   box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
   border-radius: 24px;
