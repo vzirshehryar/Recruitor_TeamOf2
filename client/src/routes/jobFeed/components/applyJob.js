@@ -9,11 +9,12 @@ const ApplyJob = ({ job }) => {
   const [showModal, setShowModal] = useState(false);
   const [fileData, setFileData] = useState();
   const [fileDataforDB, setFileDataforDB] = useState();
-  const [coverLetter, setCoverLetter] = useState("");
-  const [coverLetterDB, setCoverLetterDB] = useState("");
   const [value, setValue] = useState("");
   const data = localStorage.getItem("user");
+  const token = localStorage.getItem("token");
+
   const user = JSON.parse(data);
+
   const handleModal = () => {
     setShowModal(!showModal);
   };
@@ -21,14 +22,14 @@ const ApplyJob = ({ job }) => {
   useEffect(() => {
     setFormData((prevFormData) => ({
       ...prevFormData,
-      jobTitle: job || "",
+      jobTitle: job.jobTitle || "",
     }));
   }, [job]);
 
   const initialFormData = {
     fullName: "",
     email: user.email,
-    jobTitle: job || "",
+    jobTitle: job.jobTitle || "",
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -40,50 +41,48 @@ const ApplyJob = ({ job }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!formData.fullName || !formData.email || !fileData) {
+    if (!fileDataforDB) {
       toast.error("Please enter all fields");
       return;
     } else {
       const data = {
-        ...formData,
-        phoneNumber: value,
-        dbFile: fileDataforDB,
-        Files: fileData,
-        userId: user._id,
+        // ...formData,
+        // phoneNumber: value,
+        resume: fileDataforDB,
+        // Files: fileData,
+        // userId: user._id,
       };
 
-      fetch("/user/applyJob", {
+      fetch(`/job/apply/${job._id}`, {
         method: "POST",
         headers: {
+          Authorization: token,
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "*",
         },
         body: JSON.stringify(data),
       })
-        .then((response) => {
-          if (!response.ok) {
-            toast.error("Error sending data to the backend.");
-            throw new Error("Error sending data to the backend.");
-          }
-          return response.json();
-        })
+        .then((response) => response.json())
         .then((data) => {
-          if (data) {
-            setFormData((prevFormData) => ({
-              ...prevFormData,
-              job: "",
-              fullName: "",
-            }));
-            setValue("");
-            setFileData();
+          if (data.error) {
+            toast.error(data.error);
             setFileDataforDB();
-
-            toast.success(data.message);
+            return;
           }
+          // console.log(data);
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            job: "",
+            fullName: "",
+          }));
+          setValue("");
+          setFileDataforDB();
+          toast.success(data.message);
         })
         .catch((error) => {
-          console.log("Error sending data:", error);
+          console.log(error);
+          toast.error(error);
         });
     }
   };
@@ -106,7 +105,7 @@ const ApplyJob = ({ job }) => {
         disposition: "attachment",
       };
       setFileDataforDB(file.base64);
-      setFileData(attachment);
+      // setFileData(attachment);
     }
   };
 
@@ -126,7 +125,7 @@ const ApplyJob = ({ job }) => {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit} className="applyjobform">
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            {/* <Form.Group className="mb-3" controlId="formBasicEmail">
               <p>Enter Your Name</p>
               <Form.Control
                 type="text"
@@ -147,8 +146,8 @@ const ApplyJob = ({ job }) => {
                 onChange={handleChange}
                 placeholder="Enter your email address"
               />
-            </Form.Group>
-            <Form.Group className=" mt-3" controlId="formBasicEmail">
+            </Form.Group> */}
+            <Form.Group className=" my-2" controlId="formBasicEmail">
               <p>Job Application</p>
               <Form.Control
                 type="text"
@@ -159,19 +158,23 @@ const ApplyJob = ({ job }) => {
                 placeholder="Job title"
               />
             </Form.Group>
-            <Form.Group className="my-3" controlId="phone">
+            {/* <Form.Group className="my-3" controlId="phone">
               <p>Enter Mobile Number</p>
               <PhoneInput
                 placeholder="Enter phone number"
                 value={value}
                 onChange={setValue}
               />
-            </Form.Group>
+            </Form.Group> */}
             <div className="d-flex align-items-center justify-content-between">
               <div>
                 {" "}
                 <p>Submit Your CV / Resume</p>
-                <FileBase64 type="file" onDone={handleFileUpload} />
+                <FileBase64
+                  type="file"
+                  onDone={handleFileUpload}
+                  value={fileDataforDB}
+                />
               </div>
 
               <div>

@@ -7,6 +7,7 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../company/Navbar";
 
 function LoginAsCompany() {
   const navigate = useNavigate();
@@ -63,8 +64,7 @@ function LoginAsCompany() {
 
           setFormData(initialFormData);
           setLoader("LOG IN");
-          //   navigate("/personal-information");
-          console.log(localStorage);
+          navigate("/company");
         })
         .catch((error) => {
           // Handle error here
@@ -103,6 +103,7 @@ function LoginAsCompany() {
 
   return (
     <>
+      <Navbar page="authPage" />
       <div>
         <div className="backgroundIMAGE">
           <h2 className="topHeadingOfAuth">TAKE YOUR HIRING TO NEW HEIGHTS</h2>
@@ -131,7 +132,7 @@ function LoginAsCompany() {
             </div>
             <div
               style={{ cursor: "pointer" }}
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/loginAsCompany")}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

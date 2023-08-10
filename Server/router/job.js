@@ -9,10 +9,12 @@ import {
   getAllApplicants,
   changeStage,
   deleteApplication,
+  getAllJobs,
 } from "../controllers/job.js";
 
 const router = express.Router();
 
+router.get("/getAllJobs", getAllJobs);
 router.post("/postJob", verifyCompanyToken, postJob);
 router.post("/apply/:jobID", verifyJWT, applyForJob);
 //  get jobs of a company

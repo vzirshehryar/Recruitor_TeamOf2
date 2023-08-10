@@ -44,8 +44,10 @@ import SubmitSkills from "./routes/Profile/components/Skills/SubmitSkills";
 import Sidebar from "./routes/company/Sidebar";
 import Jobs from "./routes/company/Dashboard/PostJobs/Jobs";
 import Profile from "./routes/company/Dashboard/CompProfile/Profile";
+
 import CompanySignUp from "./routes/Auth/signUp/CompanySignUp";
 import LoginAsCompany from "./routes/Auth/Login/LoginAsCompany";
+import CompanyHome from "./routes/company/home/Home";
 
 const App = () => {
   return (
@@ -94,6 +96,7 @@ const App = () => {
         //ROUTES OF COMPANY
         <Route path="/registerAsCompany" element={<CompanySignUp />} />
         <Route path="/loginAsCompany" element={<LoginAsCompany />} />
+        <Route path="/company" element={<CompanyHome />} />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/postjobs" element={<Jobs />} />
         <Route path="/compprofile" element={<Profile />} />

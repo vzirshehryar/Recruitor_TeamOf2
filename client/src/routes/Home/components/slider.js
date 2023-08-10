@@ -7,10 +7,10 @@ function Slider() {
   const navigate = useNavigate();
   const [showCarousel, setShowCarousel] = useState(false);
   function loginButton() {
-    navigate("/Login");
+    navigate("/LoginAsCompany");
   }
   function loginButtonForCompany() {
-    navigate("/LoginAsCompany");
+    navigate("/jobFeed");
   }
   const handleLogout = () => {
     localStorage.clear();

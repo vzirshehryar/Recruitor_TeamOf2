@@ -1,7 +1,7 @@
 import React from "react";
 import ApplyJob from "./applyJob";
+
 const JobCard = ({ selectedJob }) => {
-  console.log(selectedJob);
   return (
     <div
       className="card"
@@ -13,24 +13,25 @@ const JobCard = ({ selectedJob }) => {
       }}
     >
       <div
-        className="d-flex align-items-center justify-content-between pb-3 mb-3"
+        className="d-flex align-items-center justify-content-center px-2 py-3 mb-3"
         style={{
           borderBottom: "1px solid #6D0E9D",
           position: "sticky",
           top: "0px",
           background: "white",
+          gap: "5px",
         }}
       >
         <div className="col-lg">
-          <h3 className="selectedJobTitle p-0" style={{ marginTop: "7%" }}>
-            {selectedJob.title}
-          </h3>
+          <h3 className="selectedJobTitle p-0">{selectedJob.jobTitle}</h3>
         </div>
-        <div style={{ marginTop: "8%", marginRight: "1%" }}>
-          <p className="displayJobPay">Unpaid</p>
+        <div>
+          <p className="displayJobPay m-0">
+            {selectedJob.minSR ? selectedJob.minSR : "Unpaid"}
+          </p>
         </div>
-        <div className="d-flex align-items-center" style={{ marginTop: "5%" }}>
-          <ApplyJob job={selectedJob.title} />
+        <div className="d-flex align-items-center">
+          <ApplyJob job={selectedJob} />
         </div>
       </div>
       <div className="selectedJobLocation p-0 mb-3 d-flex gap-3 align-items-center">
@@ -46,7 +47,7 @@ const JobCard = ({ selectedJob }) => {
             fill="black"
           />
         </svg>
-        <p className="m-0">{selectedJob.Timing}</p>
+        <p className="m-0">{selectedJob.jobType}</p>
       </div>
       <div className="selectedJobLocation p-0 mb-3 d-flex gap-3 align-items-center">
         <svg
@@ -66,7 +67,7 @@ const JobCard = ({ selectedJob }) => {
           />
         </svg>
         <p className="m-0">location: </p>
-        <p className="m-0">Islamabad / Rawalpindi</p>
+        <p className="m-0">{selectedJob.location}</p>
       </div>
       <div className="selectedJobLocation p-0 mb-3 d-flex gap-3">
         <img src="/skillIcon.png" alt="skill icon" height={30} />
@@ -81,7 +82,7 @@ const JobCard = ({ selectedJob }) => {
 
       <div className="mb-3">
         <h5 className="selectedJobDescription">Job Description:</h5>
-        <p className="insideDescription">{selectedJob.job_Description}</p>
+        <p className="insideDescription">{selectedJob.jobDescription}</p>
       </div>
 
       <div className="mb-3">
@@ -97,6 +98,7 @@ const JobCard = ({ selectedJob }) => {
       <div>
         <h5 className="selectedJobDescription">Qualifications:</h5>
         <ul className="insideDescription">
+          {selectedJob.jobLevel}
           {selectedJob.qualifications &&
             selectedJob.qualifications.map((qualification, index) => (
               <li key={index}>{qualification}</li>

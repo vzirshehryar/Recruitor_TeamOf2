@@ -1,0 +1,143 @@
+.allCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.companyNav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 55px;
+  padding: 5px 15px;
+  background: rgba(109, 14, 157, 0.03);
+  backdrop-filter: blur(23px);
+  z-index: 2;
+}
+
+.companyNavDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.companyNav > h2 {
+  color: #6d0e9d;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  cursor: pointer;
+  width: 20%;
+  min-width: fit-content;
+}
+
+.links {
+  width: 80%;
+  min-width: fit-content;
+}
+.links > a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.83);
+  font-family: Lohit Bengali;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 100% */
+  margin: 0 10px;
+}
+.user {
+  gap: 10px;
+  width: 20%;
+  min-width: 210px;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 100% */
+}
+.logIn {
+  border-radius: 8px;
+  background: #6d0e9d;
+  color: #fefdff;
+  padding: 6px 20px;
+  border: 1px solid #6d0e9d;
+}
+.signUp {
+  border: 1px solid #6d0e9d;
+  border-radius: 8px;
+  background: #fefdff;
+  color: #6d0e9d;
+  padding: 6px 20px;
+}
+
+.barIcon {
+  display: none;
+  color: #6d0e9d;
+  cursor: pointer;
+}
+
+.companyNav div img {
+  width: 30px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.cover {
+  width: 120px;
+  align-items: "center";
+  justify-content: "center";
+  gap: 10px;
+  border-radius: 25px;
+  background: var(--secondary-putih, #f7f7f7);
+  padding: 5px 10px;
+  cursor: pointer;
+  position: relative;
+}
+.logoutOption {
+  position: absolute;
+  top: 55px;
+  right: 10px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background: var(--secondary-putih, #f6f6f6);
+  display: none;
+}
+.logoutOption > p {
+  padding: 3px 5px;
+  border-radius: 5px;
+  margin: 2px 0;
+  transition: 0.3ms;
+}
+.logoutOption > p:hover {
+  background: var(--secondary-putih, #ffffff);
+}
+
+@media (max-width: 600px) {
+  .companyNavDiv {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    background: rgb(236, 235, 235);
+    display: none;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    padding: 10px;
+    transition: 1s;
+  }
+  .links,
+  .user {
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .barIcon {
+    display: block;
+  }
+}
