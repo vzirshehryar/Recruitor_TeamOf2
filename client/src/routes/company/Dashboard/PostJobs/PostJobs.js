@@ -7,16 +7,16 @@ const PostJobs = () => {
   
   
     const [formData, setFormData] = useState({
-      firstName: '',
-      lastName: '',
-      emailAddress: '',
-      phoneNumber: '',
-      address: '',
-      country: '',
-      city: '',
-      zipCode: '',
-      linkedInLink: '',
-      twitterLink: '',
+      jobTitle: '',
+      jobType: '',
+      jobLevel: '',
+      maxSR: null,
+      minSR: null,
+      location: '',
+      Experience: '',
+      applicationDeadline: '',
+      jobDescription: '',
+      qualification: '',
     });
   
     const handleChange = (e) => {
@@ -32,22 +32,23 @@ const PostJobs = () => {
   
       
       const formattedData = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        phNo: formData.phoneNumber,
-        address: formData.address,
-        country: formData.country,
-        city: formData.city,
-        zipCode: formData.zipCode,
-        linkednLink: formData.linkedInLink,
-        twitterLink: formData.twitterLink,
+        jobTitle: formData.jobTitle,
+        jobType: formData.jobType,
+        jobLevel: formData.jobLevel,
+        maxSR: formData.maxSR,
+        minSR: formData.minSR,
+        location: formData.location,
+        Experience: formData.Experience,
+        applicationDeadline: formData.applicationDeadline,
+        jobDescription: formData.jobDescription,
+        qualification: formData.qualification,
       };
   
       console.log(formattedData);
   
       const token = localStorage.getItem('token');
       console.log(token);
-      const apiUrl = '/user/personalInfo/postData';
+      const apiUrl = '/job/postJob';
   
       const headers = {
         Authorization: token,
@@ -56,6 +57,18 @@ const PostJobs = () => {
         .then((response) => {
           console.log(response.data);
           toast.success(response.data.message);
+          setFormData({
+            jobTitle: '',
+            jobType: '',
+            jobLevel: '',
+            maxSR: null,
+            minSR: null,
+            location: '',
+            Experience: '',
+            applicationDeadline: '',
+            jobDescription: '',
+            qualification: '',
+          });
         })
         .catch((error) => {
           console.error(error);
@@ -71,135 +84,135 @@ const PostJobs = () => {
             <div className="postjobs-heading">Job Detail</div>
             <div className="name-container">
               <div className="input-group-profile">
-                <label className="label" htmlFor="firstName">
+                <label className="label" htmlFor="jobTitle">
                   Job Title
                   <span className="required">*</span>
                 </label>
                 <input
                   type="text"
-                  id="firstName"
+                  id="jobTitle"
                   className="input-field"
                   placeholder="Designer"
                   required
-                  value={formData.firstName}
+                  value={formData.jobTitle}
                   onChange={handleChange}
                 />
               </div>
               <div className="input-group-profile">
-                <label className="label" htmlFor="lastName">
+                <label className="label" htmlFor="jobType">
                   Job Type
                   <span className="required">*</span>
                 </label>
                 <select
-                    id="speakingLevel"
+                    id="jobType"
                     className="input-field-exp"
                     required
-                    value={formData.speakingLevel}
+                    value={formData.jobType}
                     onChange={handleChange}
                 >
                     <option value="">Select One</option>
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="Advanced">Advanced</option>
+                    <option value="Part Time">Part Time</option>
+                    <option value="Full Time">Full Time</option>
+                    <option value="Contract">Contract</option>
                 </select>
               </div>
             </div>
   
             <div className="email-container">
-              <label className="label" htmlFor="emailAddress">
+              <label className="label" htmlFor="jobLevel">
                 Job Level
                 <span className="required">*</span>
               </label>
               <select
-                    id="speakingLevel"
+                    id="jobLevel"
                     className="input-field-exp"
                     required
-                    value={formData.speakingLevel}
+                    value={formData.jobLevel}
                     onChange={handleChange}
                 >
                     <option value="">Select One</option>
                     <option value="Beginner">Beginner</option>
                     <option value="Intermediate">Intermediate</option>
-                    <option value="Advanced">Advanced</option>
+                    <option value="Expert">Expert</option>
                 </select>
             </div>
   
             <div className="name-container-exp">
                 <div className="input-group-exp">
-                  <label className="label-exp" htmlFor="publishedBy">
+                  <label className="label-exp" htmlFor="minSR">
                     Salary Range
                     <span className="required-exp">*</span>
                   </label>
                   <input
                     type="text"
-                    id="publishedBy"
+                    id="minSR"
                     className="input-field-exp"
                     placeholder="Min-0000"
                     required
-                    value={formData.publishedBy}
+                    value={formData.minSR}
                     onChange={handleChange}
                   />
                 </div>
                 <div className="input-group-exp">
-                  <label className="label-exp" htmlFor="publicationURL">
+                  <label className="label-exp" htmlFor="maxSR">
                   &nbsp;
                   </label>
                   <input
-                    type="url"
-                    id="publicationURL"
+                    type="text"
+                    id="maxSR"
                     className="input-field-exp"
                     placeholder="Max-000"
                     required
-                    value={formData.publicationURL}
+                    value={formData.maxSR}
                     onChange={handleChange}
                   />
                 </div>
               </div>
   
             <div className="address-container">
-              <label className="label" htmlFor="address">
+              <label className="label" htmlFor="location">
                 Location
                 <span className="required">*</span>
               </label>
               <input
                 type="text"
-                id="address"
+                id="location"
                 className="input-field"
                 placeholder="house # 00 street # 00 Phase 0 Dummy Town"
                 required
-                value={formData.address}
+                value={formData.location}
                 onChange={handleChange}
               />
             </div>
   
             <div className="address-container">
-              <label className="label" htmlFor="experience">
+              <label className="label" htmlFor="Experience">
                 Experience
                 <span className="required">*</span>
               </label>
               <input
                 type="text"
-                id="experience"
+                id="Experience"
                 className="input-field"
                 placeholder="Experience"
                 required
-                value={formData.address}
+                value={formData.Experience}
                 onChange={handleChange}
               />
             </div>
 
             <div className="address-container">
-              <label className="label" htmlFor="qualifications">
+              <label className="label" htmlFor="qualification">
                 Qualifications
                 <span className="required">*</span>
               </label>
               <input
                 type="text"
-                id="qualifications"
+                id="qualification"
                 className="input-field"
                 placeholder="Qualification"
                 required
-                value={formData.address}
+                value={formData.qualification}
                 onChange={handleChange}
               />
             </div>
@@ -215,23 +228,23 @@ const PostJobs = () => {
                 className="input-field"
                 placeholder="mm/dd/yyyy"
                 required
-                value={formData.linkedInLink}
+                value={formData.applicationDeadline}
                 onChange={handleChange}
               />
             </div>
   
             <div className="description-container-exp">
-                <label className="label-exp" htmlFor="description">
+                <label className="label-exp" htmlFor="jobDescription">
                   Description
                   <span className="required-exp">*</span>
                 </label>
                 <input
                   type="description"
-                  id="description"
+                  id="jobDescription"
                   className="input-field-exp-1"
                   placeholder=""
                   required
-                  value={formData.description}
+                  value={formData.jobDescription}
                   onChange={handleChange}
                 />
               </div>
