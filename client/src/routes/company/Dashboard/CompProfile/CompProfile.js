@@ -17,16 +17,15 @@ const CompProfile = () => {
       };
   
     const [formData, setFormData] = useState({
-      firstName: '',
-      lastName: '',
-      emailAddress: '',
-      phoneNumber: '',
-      address: '',
-      country: '',
-      city: '',
-      zipCode: '',
-      linkedInLink: '',
-      twitterLink: '',
+        name: '',
+        teamSize: '',
+        phNo: '',
+        website: '',
+        country: '',
+        city: '',
+        address: '',
+        about: '',
+        email: '',
     });
   
     const handleChange = (e) => {
@@ -42,22 +41,21 @@ const CompProfile = () => {
   
       
       const formattedData = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        phNo: formData.phoneNumber,
-        address: formData.address,
+        name: formData.name,
+        teamSize: formData.teamSize,
+        phNo: formData.phNo,
+        website: formData.website,
         country: formData.country,
         city: formData.city,
-        zipCode: formData.zipCode,
-        linkednLink: formData.linkedInLink,
-        twitterLink: formData.twitterLink,
+        address: formData.address,
+        about: formData.about,
       };
   
       console.log(formattedData);
   
       const token = localStorage.getItem('token');
       console.log(token);
-      const apiUrl = '/user/personalInfo/postData';
+      const apiUrl = '/company/setProfile';
   
       const headers = {
         Authorization: token,
@@ -66,6 +64,17 @@ const CompProfile = () => {
         .then((response) => {
           console.log(response.data);
           toast.success(response.data.message);
+          setFormData({
+            name: '',
+            teamSize: '',
+            phNo: '',
+            website: '',
+            country: '',
+            city: '',
+            address: '',
+            about: '',
+            email: '',
+          });
         })
         .catch((error) => {
           console.error(error);
@@ -105,30 +114,30 @@ const CompProfile = () => {
             </div>
             <div className="name-container">
               <div className="input-group-profile">
-                <label className="label" htmlFor="firstName">
+                <label className="label" htmlFor="name">
                   Company Name
                   {/* <span className="required">*</span> */}
                 </label>
                 <input
                   type="text"
-                  id="firstName"
+                  id="name"
                   className="input-field"
                   placeholder="Xyz"
                   required
-                  value={formData.firstName}
+                  value={formData.name}
                   onChange={handleChange}
                 />
               </div>
               <div className="input-group-profile">
-                <label className="label" htmlFor="lastName">
+                <label className="label" htmlFor="teamSize">
                   Team Size
                  
                 </label>
                 <select
-                    id="speakingLevel"
+                    id="teamSize"
                     className="input-field-exp"
                     required
-                    value={formData.speakingLevel}
+                    value={formData.teamSize}
                     onChange={handleChange}
                 >
                     <option value="">Select One</option>
@@ -140,47 +149,46 @@ const CompProfile = () => {
             </div>
             
             <div className="email-container">
-                <label className="label" htmlFor="emailAddress">
+                <label className="label" htmlFor="email">
                 Email Address
                 
                 </label>
                 <input
                 type="email"
-                id="emailAddress"
+                id="email"
                 className="input-field"
                 placeholder="@gmail.com"
-                required
-                value={formData.emailAddress}
+                value={formData.email}
                 onChange={handleChange}
                 />
             </div>
             <div className="phone-container">
-            <label className="label" htmlFor="phoneNumber">
+            <label className="label" htmlFor="phNo">
               Phone Number
               
             </label>
             <input
               type="phone"
-              id="phoneNumber"
+              id="phNo"
               className="input-field"
               placeholder="0000 0000000"
               required
-              value={formData.phoneNumber}
+              value={formData.phNo}
               onChange={handleChange}
             />
           </div>
             <div className="email-container">
-                <label className="label" htmlFor="url">
+                <label className="label" htmlFor="website">
                 Website
                 
                 </label>
                 <input
                 type="url"
-                id="emailAddress"
+                id="website"
                 className="input-field"
                 placeholder="www.xyz.com"
                 required
-                value={formData.emailAddress}
+                value={formData.website}
                 onChange={handleChange}
                 />
             </div>
@@ -193,7 +201,7 @@ const CompProfile = () => {
                     id="country"
                     className="input-field-exp"
                     required
-                    value={formData.speakingLevel}
+                    value={formData.country}
                     onChange={handleChange}
                 >
                     <option value="">country</option>
@@ -211,7 +219,7 @@ const CompProfile = () => {
                     id="city"
                     className="input-field-exp"
                     required
-                    value={formData.speakingLevel}
+                    value={formData.city}
                     onChange={handleChange}
                 >
                     <option value="">city</option>
@@ -239,17 +247,17 @@ const CompProfile = () => {
             </div>
   
             <div className="description-container-exp">
-                <label className="label-exp" htmlFor="description">
+                <label className="label-exp" htmlFor="about">
                   About Company
                   
                 </label>
                 <input
                   type="description"
-                  id="description"
+                  id="about"
                   className="input-field-exp-1"
                   placeholder=""
                   required
-                  value={formData.description}
+                  value={formData.about}
                   onChange={handleChange}
                 />
               </div>

@@ -302,6 +302,10 @@
   height: 175vh;
   margin-left: 280px;
 }
+.dashboard-component-container2{
+  height: 100vh;
+  margin-left: 280px;
+}
 
 .compprofile-image-box {
   position: relative;
