@@ -64,8 +64,7 @@ function LoginAsCompany() {
 
           setFormData(initialFormData);
           setLoader("LOG IN");
-          navigate("/company");
-          // navigate("/compprofile");
+          navigate("/compprofile");
           console.log(localStorage);
         })
         .catch((error) => {
