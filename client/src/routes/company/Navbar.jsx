@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaBars, FaGreaterThan } from "react-icons/fa";
+import { FaBars, FaGreaterThan, FaUser } from "react-icons/fa";
 
 import style from "./navbar.module.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -67,7 +67,12 @@ const Navbar = ({ page }) => {
           className={`${style.allCenter} ${style.cover}`}
           onClick={() => setOpen(!open)}
         >
-          <img src="/background.png" alt="profilePic" className={style.image} />
+          {/* <img
+            src={"/background.png"}
+            alt="profilePic"
+            className={style.image}
+          /> */}
+          <FaUser style={{ width: 25, height: 25 }} />
           <p className="m-0">Xyz</p>
           <FaGreaterThan style={{ width: 12, height: 12 }} />
           <div

@@ -41,11 +41,13 @@ import SubmitAwards from "./routes/Profile/components/Awards/SubmitAwards";
 import SubmitPub from "./routes/Profile/components/Publications/SubmitPub";
 import SubmitLang from "./routes/Profile/components/Languages/SubmitLang";
 import SubmitSkills from "./routes/Profile/components/Skills/SubmitSkills";
+// COMPANY ROUTES
+import CompanySignUp from "./routes/Auth/signUp/CompanySignUp";
+import LoginAsCompany from "./routes/Auth/Login/LoginAsCompany";
+import CompanyHome from "./routes/company/home/Home";
 import Sidebar from "./routes/company/Sidebar";
 import Jobs from "./routes/company/Dashboard/PostJobs/Jobs";
 import Profile from "./routes/company/Dashboard/CompProfile/Profile";
-import CompanySignUp from "./routes/Auth/signUp/CompanySignUp";
-import LoginAsCompany from "./routes/Auth/Login/LoginAsCompany";
 import Applicants from "./routes/company/Dashboard/AllApplicants/Applicants";
 import Listings from "./routes/company/Dashboard/JobListings/Listings";
 
