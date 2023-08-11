@@ -2,8 +2,8 @@
     background: #6D0E9D;
     color: #FFF;
     font-family: Poppins;
-    
-    width: 300px; /* Set your desired width here */
+    margin-top: 55px;
+    width: 280px; /* Set your desired width here */
     position: fixed; /* Keep the sidenav fixed on the left side */
     top: 0;
     left: 0;
@@ -46,3 +46,51 @@
     font-weight: 900;
     font-style: normal;
   } 
+
+  .sidebar.open {
+    width: 250px;
+  }
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+  }
+  
+  .hamburger.open {
+    display: block;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 0;
+    }
+  
+    .sidebar.open {
+      width: 200px;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    .dashboard-heading {
+      margin-top: 0;
+      
+    }
+  
+    .sidebar-buttons {
+      
+      margin-top: 20px;
+      
+    }
+    .sidebar-button{
+      font-size: 12px;
+    }
+  }

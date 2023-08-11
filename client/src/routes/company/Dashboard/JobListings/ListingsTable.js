@@ -27,17 +27,7 @@ const ListingsTable = () => {
       });
   }, []);
     
-      const renderRows = () => {
-        return data.map((item, index) => (
-          <tr key={index} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
-            {/* Render the cells for each column */}
-          </tr>
-        ));
-      };
-      const handleCheckboxChange = (index) => {
-        // Add your logic to handle checkbox change
-        // Update the data array or state accordingly
-      };
+      
   return (
     <div className="table-container2">
         <div className="listings-heading"> Job Listing</div>
@@ -68,7 +58,7 @@ const ListingsTable = () => {
                     <td>{item.jobTitle}</td>
                     <td>{item.jobType}</td>
                     <td>08</td>
-                    <td>{item.applicationDeadline}</td>
+                    <td>{new Date(item.applicationDeadline).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
                     <td>
                     <div className={statusClassName}>
                       {status}

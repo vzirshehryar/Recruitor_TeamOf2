@@ -8,6 +8,7 @@ const Languages = () => {
         <Sidenav />
         <div className="profile-component-container">
         <LangForm />
+        
         </div>
         
         </>

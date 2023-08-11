@@ -208,6 +208,26 @@
 .button-container-exp button:hover{
     background-color: #9639d4;
 }
+.button-apply-jobs button{
+  outline: none;
+  border: none;
+  background-color: #6d0e9d;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 10px 16px;
+  width: 60%;
+  transition: 100ms;
+  cursor: pointer;
+  font-family: Poppins;
+  margin-top: -80px;
+  margin-bottom: 10px;
+  margin-left: 400px;
+}
+.button-apply-jobs button:hover{
+  background-color: #9639d4;
+}
 .file-input-wrapper {
   position: relative;
 }

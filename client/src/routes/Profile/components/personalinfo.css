@@ -399,3 +399,25 @@
         left: auto;
     }
 }
+
+@media screen and (max-width: 576px) {
+  .dashboard-component-container,
+  .dashboard-component-container2 {
+     /* Add top margin on smaller screens */
+    padding: 10px;
+    width: 100%;
+  }
+
+  .compprofile-edit-icon {
+    bottom: -5px;
+  }
+  .form-container-compprofile{
+    margin-top: 280px;
+    height: 100vh;
+    margin-left: -300px;
+  }
+  
+  .compprofile-image-box{
+    margin-left: -110px;
+  }
+}
