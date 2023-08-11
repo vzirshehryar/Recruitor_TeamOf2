@@ -6,6 +6,8 @@ import { FaFacebook } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../company/Navbar";
+
 function CompanySignUp() {
   const navigate = useNavigate();
 
@@ -113,6 +115,7 @@ function CompanySignUp() {
 
   return (
     <>
+      <Navbar page="authPage" />
       <div>
         <div className="backgroundIMAGE">
           <h2 className="topHeadingOfAuth">TAKE YOUR HIRING TO NEW HEIGHTS</h2>
@@ -121,7 +124,7 @@ function CompanySignUp() {
           <div className="signupsignin">
             <div
               style={{ cursor: "pointer" }}
-              onClick={() => navigate("/signup")}
+              onClick={() => navigate("/registerAsCompany")}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

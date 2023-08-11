@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Pagination } from "react-bootstrap";
 import Header from "../Home/components/header";
+import Footer from "../Home/components/footer";
 import "./UserSide.css";
-import { jobList, JobDetail } from "./components/Data";
+// import { jobList, JobDetail } from "./components/Data";
 import JobCard from "./components/jobCard";
 import seach from "../../assests/images/search.png";
 import loc from "../../assests/images/location.png";
 import JobNav from "./components/JobNav";
+import { useNavigate } from "react-router-dom";
 
 const bacgroundSelect = {
   background: "rgba(109, 14, 157, 0.19)",
@@ -15,9 +17,16 @@ const bacgroundSelect = {
 function JobFeed() {
   const [location, setLocation] = useState("");
   const [searchKeyword, setSearchKeyword] = useState("");
-  const [selectedJob, setSelectedJob] = useState(JobDetail[0]);
+  const [jobList, setJobList] = useState([]);
+  const [selectedJob, setSelectedJob] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [selected, setSelected] = useState(0);
+
+  useEffect(() => {
+    getAllJobs();
+
+    setSelected(0);
+  }, [currentPage]);
 
   const jobsPerPage = 6;
 
@@ -32,46 +41,19 @@ function JobFeed() {
   };
 
   const filteredJobs = jobList.filter((job) => {
-    const titleMatch = job.title
-      .toLowerCase()
-      .includes(searchKeyword.toLowerCase());
-    const locationMatch = job.companyLocation
-      .toLowerCase()
-      .includes(location.toLowerCase());
-    return titleMatch && locationMatch;
+    // const titleMatch = job.title
+    //   .toLowerCase()
+    //   .includes(searchKeyword.toLowerCase());
+    // const locationMatch = job.companyLocation
+    //   .toLowerCase()
+    //   .includes(location.toLowerCase());
+    // return titleMatch && locationMatch;
+    return 1;
   });
 
-  const totalJobs = filteredJobs.length;
-  const totalPages = Math.ceil(totalJobs / jobsPerPage);
-
-  const indexOfLastJob = currentPage * jobsPerPage;
-  const indexOfFirstJob = indexOfLastJob - jobsPerPage;
-  const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
-
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  const setJobIndex = (index) => {
-    const selectedItem = JobDetail.find((item) => item.id === index);
-    if (selectedItem) {
-      setSelectedJob(selectedItem);
-    } else {
-      setSelectedJob(JobDetail[0]);
-    }
-  };
-
-  useEffect(() => {
-    setSelected(-1);
-  }, [currentPage]);
-
-  const forBackgroundSelection = (id) => {
-    if (id === selected) return true;
-    return false;
-  };
-  const sortedCurrentJobs = [...currentJobs].sort((a, b) => {
-    const titleA = a.title.toLowerCase();
-    const titleB = b.title.toLowerCase();
+  const sortedCurrentJobs = [...jobList].sort((a, b) => {
+    const titleA = a.jobTitle.toLowerCase();
+    const titleB = b.jobTitle.toLowerCase();
     if (titleA < titleB) {
       return -1;
     }
@@ -80,11 +62,46 @@ function JobFeed() {
     }
     return 0;
   });
+
+  // const totalJobs = filteredJobs.length;
+  const totalJobs = sortedCurrentJobs.length;
+  const totalPages = Math.ceil(totalJobs / jobsPerPage);
+
+  const indexOfLastJob = currentPage * jobsPerPage;
+  const indexOfFirstJob = indexOfLastJob - jobsPerPage;
+  // const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
+  const currentJobs = sortedCurrentJobs.slice(indexOfFirstJob, indexOfLastJob);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const setJobIndex = (id) => {
+    const selectedItem = jobList.find((item) => item._id === id);
+    if (selectedItem) {
+      setSelectedJob(selectedItem);
+    } else {
+      setSelectedJob(jobList[selected]);
+    }
+  };
+
+  const getAllJobs = async () => {
+    const newJobs = await fetch("/job/getalljobs");
+    const resJobs = await newJobs.json();
+    setJobList(resJobs.jobs);
+    setSelectedJob(resJobs.jobs[0]);
+  };
+
+  const forBackgroundSelection = (index) => {
+    if (index === selected) return true;
+    return false;
+  };
+
   return (
     <>
+      <Header />
       <div className="jobFeedPage">
-        <Header />
-        <JobNav />
+        {/* <JobNav /> */}
         {/*<Container>
           <Row className="pt-5 pb-5 searchCont">
             <div className="searchJobCont mx-3">
@@ -128,14 +145,14 @@ function JobFeed() {
                 >
                   JOBS
                 </div>
-                {sortedCurrentJobs.map((item, index) => (
+                {currentJobs.map((item, index) => (
                   <div
                     key={index}
                     className="displayJobs p-2"
                     onClick={() => {
                       setSelected(index);
-                      setJobIndex(item.id);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
+                      setJobIndex(item._id);
+                      // window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                     style={forBackgroundSelection(index) ? bacgroundSelect : {}}
                   >
@@ -143,7 +160,7 @@ function JobFeed() {
                       <div className="col-lg-10 d-flex gap-1">
                         <div className="capitalLetter">
                           <p className="p-0 m-0">
-                            {item.title[0].toUpperCase()}
+                            {item.jobTitle[0].toUpperCase()}
                           </p>
                         </div>
                         <div>
@@ -151,24 +168,26 @@ function JobFeed() {
                             style={{ lineHeight: "1.5" }}
                             className="displayJobTitle p-0 m-0"
                           >
-                            {item.title}
+                            {item.jobTitle}
                           </p>
                           <p className="p-0 m-0 displayJobLocation">
-                            {item.companyLocation}
+                            {item.location}
                           </p>
                         </div>
                       </div>
                       <div className="col-lg-2">
-                        <p className="displayJobPay">{item.amount}</p>
+                        <p className="displayJobPay">
+                          {item.minSR ? item.minSR : "Unpaid"}
+                        </p>
                       </div>
                     </Row>
                     <p className="displayJobDescription">
                       <strong>Job Description : </strong>
                     </p>
                     <p className="displayJobDescription2">
-                      {/* {item.job_Description} */}
-                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                      sed diam nonumy eirmod tempor invidunt ut labore......
+                      {item.jobDescription}
+                      {/* Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                      sed diam nonumy eirmod tempor invidunt ut labore...... */}
                     </p>
                   </div>
                 ))}
@@ -198,6 +217,7 @@ function JobFeed() {
           </Container>
         </Container>
       </div>
+      <Footer />
     </>
   );
 }

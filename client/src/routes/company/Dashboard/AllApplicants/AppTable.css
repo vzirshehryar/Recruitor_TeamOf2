@@ -270,7 +270,7 @@
   .status-rectangle-listings-2 {
     display: inline-block;
     margin-left: -40px;
-    padding: 8px 35px;
+    padding: 8px 50px;
     border-radius: 12px;
     font-family: Montserrat;
     color: var(--light-theme-color-white, #FFF);
@@ -287,6 +287,8 @@
   }
   .custom-table-listings thead {
     background: #EADDF1;
+    color: #6D0E9D;
+    font-family: Montserrat;
      /* Optional border below the header */
   }
   /* .custom-table-listings tbody tr:nth-child(even) {

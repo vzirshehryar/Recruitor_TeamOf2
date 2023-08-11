@@ -56,11 +56,11 @@ function Login() {
 
           // Store the token in local storage
           localStorage.setItem("token", data.token);
+          localStorage.setItem("userType", "user");
 
           // Store the user data in local storage
           localStorage.setItem("user", JSON.stringify(data.user));
 
-          
           setFormData(initialFormData);
           setLoader("LOG IN");
           navigate("/personal-information");

@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./AppTable.css"
-
+import axios from 'axios';
+import { useEffect } from 'react';
 const AppTable = () => {
 
-    const data = [
-        // Your data array
-      ];
+    const [data, setData] = useState(null);
     
+    useEffect(() => {
+    
+      const apiUrl = '/job/getallapplicants';
+      const token = localStorage.getItem('token');
+  
+      const headers = {
+        Authorization: token,
+      };
+  
+      axios.get(apiUrl, { headers })
+        .then((response) => {
+          console.log(response.data);
+          // setData(response.data.courses[0]);
+          
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }, []);
+
       const renderRows = () => {
         return data.map((item, index) => (
           <tr key={index} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>

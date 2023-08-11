@@ -35,7 +35,6 @@
   display: flex;
   justify-content: center;
 }
-
 .topHeadingOfAuth {
   color: #6d0e9d;
   text-align: center;
@@ -53,7 +52,7 @@
   width: 500px;
   padding: 10px;
   padding-top: 0;
-  margin-top: 180px;
+  margin-top: 140px;
   background: #ffffff;
   box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
   border-radius: 24px;

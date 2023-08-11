@@ -163,10 +163,12 @@ http://localhost:4000/company/getProfile    (GET)   with token of company in req
 <######################################### JOB #######################################>
 <----------------------------------------------------------------------------------------->
 
+http://localhost:4000/job/getalljobs    (GET)
+
 ALL ENDPOINTS FOR JOBS RELATED TO USER REST APIs     with token of users in request's headers
 http://localhost:4000/job/apply/64d1001541502eadb0c8ee92  (POST) jobID in params
 {
-  "jobID": "64ce0ed968f40d46f0340db9"
+  "resume": "resume"
 }
 
 

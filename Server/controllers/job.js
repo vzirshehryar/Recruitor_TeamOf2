@@ -1,12 +1,27 @@
 import Job from "../models/Job.js";
 
+export const getAllJobs = async (req, res) => {
+  try {
+    const jobs = await Job.find({}, "-applications");
+
+    return res.status(201).json({
+      jobs,
+    });
+  } catch (error) {
+    console.error("Error getting Jobs:", error);
+    return res.status(400).json({
+      error: "An error occurred while getting Jobs",
+    });
+  }
+};
+
 export const applyForJob = async (req, res) => {
   try {
     const userID = req.user;
+    const resume = req.body.resume;
     const jobID = req.params.jobID;
 
     const job = await Job.findById(jobID, "applications");
-    console.log(job);
 
     for (let i = 0; i < job.applications.length; i++) {
       var id = job.applications[i].user;
@@ -20,6 +35,7 @@ export const applyForJob = async (req, res) => {
 
     job.applications.push({
       user: userID,
+      resume: resume,
     });
 
     await job.save();

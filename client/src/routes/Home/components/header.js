@@ -17,6 +17,9 @@ function Header() {
   function loginButton() {
     navigate("/Login");
   }
+  function signUpButton() {
+    navigate("/signUp");
+  }
   const handleSearch = (event) => {
     setCurrentPage(1);
     setSearchKeyword(event.target.value);
@@ -98,7 +101,7 @@ function Header() {
                 <button className="getLogInBtn" onClick={loginButton}>
                   Log In
                 </button>
-                <button className="getSignUpBtn" onClick={loginButton}>
+                <button className="getSignUpBtn" onClick={signUpButton}>
                   Sign Up
                 </button>
               </>
