@@ -43,6 +43,8 @@ import CompanySignUp from "./routes/Auth/signUp/CompanySignUp";
 import LoginAsCompany from "./routes/Auth/Login/LoginAsCompany";
 import Applicants from './routes/company/Dashboard/AllApplicants/Applicants';
 import Listings from './routes/company/Dashboard/JobListings/Listings';
+import ManageHiring from './routes/company/Dashboard/ManageHiring/ManageHiring';
+import CompanyDashboard from './routes/company/Dashboard/Dashboard/CompanyDashboard';
 
 const App = () => {
   return (
@@ -96,6 +98,8 @@ const App = () => {
         <Route path="/compprofile" element={<Profile />} />
         <Route path="/allapplicants" element={<Applicants />} />
         <Route path="/joblistings" element={<Listings />} />
+        <Route path="/companydashboard" element={<CompanyDashboard/>}/>
+        <Route path="/managehiring" element={<ManageHiring/>}/>
       </Routes>
     </Router>
   );
