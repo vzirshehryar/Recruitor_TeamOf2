@@ -9,7 +9,6 @@ const Applicants = () =>{
         <>
         <Sidebar />
         <div className="dashboard-component-container2">
-            
             <AppSearch />
             <AppTable />
         </div>
