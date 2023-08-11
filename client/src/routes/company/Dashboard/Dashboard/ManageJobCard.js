@@ -1,5 +1,6 @@
 import React from "react";
 import { BsBarChartLine } from "react-icons/bs";
+import "./CompanyDashboard.css"
 
 const ManageJobCard = (props) => {
   return (
@@ -9,17 +10,17 @@ const ManageJobCard = (props) => {
           <p className="company-dashbaord-job-card-top-div-para">
             Job {props.for}
           </p>
-          <div className="company-dashbaord-stats-with-icon">
+          <div className="company-dashboard-stats-with-icon">
             <p>
               <BsBarChartLine />
             </p>
             <p>0.0</p>
           </div>
         </div>
-        <div className="company-dashbaord-job-card-middle-div">
+        <div className="company-dashboard-job-card-middle-div">
           <p>0</p>
         </div>
-        <div className="company-dashbaord-job-card-bottom-div">
+        <div className="company-dashboard-job-card-bottom-div">
           <p>Jobs</p>
         </div>
       </div>

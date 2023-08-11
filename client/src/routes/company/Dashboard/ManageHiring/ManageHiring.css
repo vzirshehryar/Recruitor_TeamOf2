@@ -12,6 +12,7 @@
 }
 
 .manage-hiring-main-container {
+  margin-left: 300px;
   padding-block: 1rem;
   padding-inline: 1rem;
   display: grid;
