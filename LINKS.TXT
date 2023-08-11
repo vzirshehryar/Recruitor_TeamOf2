@@ -157,6 +157,7 @@ http://localhost:4000/company/setProfile    (POST)  with token of company in req
 }
 http://localhost:4000/company/getProfile    (GET)   with token of company in request's headers
 
+http://localhost:4000/company/getDashboard    (GET)   with token of company in request's headers
 
 
 <----------------------------------------------------------------------------------------->

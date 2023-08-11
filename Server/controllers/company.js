@@ -134,3 +134,32 @@ export const getProfile = async (req, res) => {
     });
   }
 };
+
+export const getDashboardInfo = async (req, res) => {
+  try {
+    const companyId = req.company; // Company ID from the middleware
+    const companyJobs = await Job.find({ company: companyId });
+
+    let jobPosted = companyJobs.length ? companyJobs.length : 0;
+    let applied = 0;
+    const jobs = [];
+
+    companyJobs.forEach((job) => {
+      applied = job.applications.length; // Sum up applications across all jobs
+      job = job.toObject();
+      delete job.applications;
+      jobs.push(job);
+    });
+
+    const jobInfo = {
+      jobPosted,
+      applied,
+      jobs,
+    };
+
+    return res.status(200).json(jobInfo);
+  } catch (error) {
+    console.error("Error fetching dashboard:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+};
