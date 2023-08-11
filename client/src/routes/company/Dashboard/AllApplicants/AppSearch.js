@@ -13,6 +13,7 @@ const AppSearch = () => {
         setShowDropdown(!showDropdown);
     };
 
+
     const handleSortOptionChange = (option) => {
         setSelectedSortOption(option);
         setShowDropdown(false);
