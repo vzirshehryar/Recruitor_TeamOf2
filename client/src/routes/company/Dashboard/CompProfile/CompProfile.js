@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from "react-toastify";
 import axios from 'axios';
 
@@ -15,8 +15,7 @@ const CompProfile = () => {
           reader.readAsDataURL(file);
         }
       };
-  
-    const [formData, setFormData] = useState({
+      const [formData, setFormData] = useState({
         name: '',
         teamSize: '',
         phNo: '',
@@ -27,6 +26,56 @@ const CompProfile = () => {
         about: '',
         email: '',
     });
+
+    const handleData = () =>{
+      const comptoken = localStorage.getItem('token');
+      const headers = {
+        Authorization: comptoken,
+      };
+      const newUrl = '/company/getProfile';
+          axios.get(newUrl, { headers })
+          .then((getResponse) => {
+            
+            if(!getResponse.data)
+            {
+              setFormData({
+                name: '',
+                teamSize: '',
+                phNo: '',
+                website: '',
+                country: '',
+                city: '',
+                address: '',
+                about: '',
+                email: '',
+            });
+            }
+            else
+            {
+                setFormData({
+                name: getResponse.data.company.name,
+                teamSize: getResponse.data.company.teamSize,
+                phNo: getResponse.data.company.phNo,
+                website: getResponse.data.company.website,
+                country: getResponse.data.company.country,
+                city: getResponse.data.company.city,
+                address: getResponse.data.company.address,
+                about: getResponse.data.company.about,
+                email: getResponse.data.company.email,
+            });
+            }
+          })
+          .catch((getError) => {
+            console.error(getError);
+            // Handle error from the GET request
+          });
+    }
+    useEffect(() => {
+      handleData();
+    }, []);
+      
+  
+    
   
     const handleChange = (e) => {
       const { id, value } = e.target;
@@ -64,17 +113,6 @@ const CompProfile = () => {
         .then((response) => {
           console.log(response.data);
           toast.success(response.data.message);
-          setFormData({
-            name: '',
-            teamSize: '',
-            phNo: '',
-            website: '',
-            country: '',
-            city: '',
-            address: '',
-            about: '',
-            email: '',
-          });
         })
         .catch((error) => {
           console.error(error);
@@ -87,14 +125,12 @@ const CompProfile = () => {
         
         <div className="shadow2">
           <form onSubmit={handleSubmit}>
-          <div className="compprofile-image-box">
-                {/* {profileImage ? (
-                <img src={profileImage} alt="Profile Image" />
-                ) : ( */}
+              {/* <div className="compprofile-image-box">
+                
                 <div className="default-compprofile-text">
                 CP
                 </div>
-                {/* )} */}
+                
                 <label htmlFor="profile-input" className="compprofile-edit-icon">
                     
                     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
@@ -108,10 +144,9 @@ const CompProfile = () => {
                     onChange={handleProfileImageChange}
                     style={{ display: 'none' }}
                 />
-                </div>
-            <div className="compprofile-heading">
-            Upload Picture
-            </div>
+              </div> */}
+              
+              <div className="postjobs-heading">Company Profile</div>
             <div className="name-container">
               <div className="input-group-profile">
                 <label className="label" htmlFor="name">
@@ -139,8 +174,9 @@ const CompProfile = () => {
                     required
                     value={formData.teamSize}
                     onChange={handleChange}
+                    
                 >
-                    <option value="">Select One</option>
+                    <option value=""></option>
                     <option value="10-50">10-50</option>
                     <option value="50-100">50-100</option>
                     <option value="100-150">100-150</option>
@@ -204,7 +240,7 @@ const CompProfile = () => {
                     value={formData.country}
                     onChange={handleChange}
                 >
-                    <option value="">country</option>
+                    <option value=""></option>
                     <option value="Pakistan">Pakistan</option>
                     <option value="USA">USA</option>
                     <option value="UK">UK</option>
@@ -222,7 +258,7 @@ const CompProfile = () => {
                     value={formData.city}
                     onChange={handleChange}
                 >
-                    <option value="">city</option>
+                    <option value=""></option>
                     <option value="Islamabad">Islamabad</option>
                     <option value="New York">New York</option>
                     <option value="London">London</option>

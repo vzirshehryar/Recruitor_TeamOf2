@@ -35,10 +35,7 @@ const LangForm = () => {
         readingLevel: formData.readingLevel,
       };
 
-      console.log(formattedData);
-
       const token = localStorage.getItem('token');
-      console.log(token);
       const apiUrl = '/user/language/postData';
 
       const headers = {
@@ -47,7 +44,6 @@ const LangForm = () => {
       axios.post(apiUrl, formattedData, { headers })
         .then((response) => {
           
-          console.log(response.data);
           const updateprogress = localStorage.getItem('progress');
           const newprogress = parseInt(updateprogress, 10);
           const addprogress = newprogress + 10;

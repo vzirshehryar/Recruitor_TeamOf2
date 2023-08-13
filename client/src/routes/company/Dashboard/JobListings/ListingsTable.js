@@ -5,8 +5,9 @@ import axios from 'axios';
 import { useEffect } from 'react';
 const ListingsTable = () => {
 
-  const [data, setData] = useState(null);
-    
+  const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1); 
+  const itemsPerPage = 10;
   useEffect(() => {
   
     const apiUrl = '/job/getJobs';
@@ -27,12 +28,15 @@ const ListingsTable = () => {
       });
   }, []);
     
-      
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
   return (
     <div className="table-container2">
         <div className="listings-heading"> Job Listing</div>
         <div className="allapplicants-heading"> Jobs List</div>
-        <div className="filter-data-listings"><DataFilter /></div>
+        {/* <div className="filter-data-listings"><DataFilter /></div> */}
       <table className="custom-table-listings">
         <thead>
           <tr>
@@ -47,7 +51,9 @@ const ListingsTable = () => {
           {/* Map through your data and create table rows */}
           {/* Replace placeholders with actual data */}
           {data &&
-              data.map((item, index) => {
+              data
+                .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+                .map((item, index) => {
                 const currentDate = new Date();
                 const applicationDeadlineDate = new Date(item.applicationDeadline);
                 const isActive = currentDate <= applicationDeadlineDate;
@@ -69,6 +75,24 @@ const ListingsTable = () => {
               })}
         </tbody>
       </table>
+                  <div className="pagination-apptable">
+              <button
+                className="pagination-apptable-button"
+                onClick={() => setCurrentPage(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                Previous
+              </button>
+              
+                <span className="pagination-apptable-page">{currentPage}{"/"}{totalPages}</span>
+              <button
+                className="pagination-apptable-button"
+                onClick={() => setCurrentPage(currentPage + 1)}
+                disabled={currentPage === Math.ceil(data.length / itemsPerPage)}
+              >
+                Next
+              </button>
+            </div>
     </div>
   );
 };

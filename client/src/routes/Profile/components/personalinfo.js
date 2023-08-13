@@ -45,10 +45,7 @@ const PersonalInfo = () => {
       twitterLink: formData.twitterLink,
     };
 
-    console.log(formattedData);
-
     const token = localStorage.getItem('token');
-    console.log(token);
     const apiUrl = '/user/personalInfo/postData';
 
     const headers = {
@@ -56,7 +53,6 @@ const PersonalInfo = () => {
     };
     axios.post(apiUrl, formattedData, { headers })
       .then((response) => {
-        console.log(response.data);
         localStorage.setItem('progress', '15');
         toast.success(response.data.message);
       })

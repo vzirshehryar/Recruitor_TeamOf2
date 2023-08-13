@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./AppTable.css"
 import axios from 'axios';
 import { useEffect } from 'react';
-
+import { useNavigate } from "react-router-dom";
 
 const getStatusIcon = (status) => {
   switch (status) {
@@ -42,12 +42,13 @@ const getStatusIcon = (status) => {
 
 const AppTable = () => {
 
-  const [data, setData] = useState(null);
-  const [orgData, setOrgData] = useState([]);
+  const navigate = useNavigate();
+  const [data, setData] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedSortOption, setSelectedSortOption] = useState('Name');
   const [searchValue, setSearchValue] = useState('');
-  const [filteredData, setFilteredData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   const handleFilterClick = () => {
     setShowDropdown(!showDropdown);
@@ -68,23 +69,22 @@ const AppTable = () => {
     axios.get(apiUrl, { headers })
       .then((response) => {
         setData(response.data.applicants);
-        setOrgData(response.data.applicants);
+        console.log(data);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
 
-  useEffect(() => {
-    if (searchValue === "") {
-      setFilteredData(orgData);
-    } else if (data) {
-      const filtered = data.filter(applicant =>
-        applicant.firstName.toLowerCase().includes(searchValue.toLowerCase())
-      );
-      setFilteredData(filtered);
-    }
-  }, [data, searchValue, orgData]);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  const handlePost = () =>{
+    navigate("/postjobs");
+  }
+  
 
 return (
   <>
@@ -128,7 +128,7 @@ return (
                 />
                 
               </label>
-              <label>
+              {/* <label>
                 Applied Date&nbsp;&nbsp;
                 <input
                   type="radio"
@@ -137,7 +137,7 @@ return (
                   onChange={() => handleSortOptionChange('Applied Date')}
                 />
                 
-              </label>
+              </label> */}
             </div>
             )}
           </div>
@@ -149,12 +149,11 @@ return (
                 <input
                   type="text"
                   placeholder="Search Users by Name, Email or Date"
-                  value={searchValue}
-                  onChange={e => setSearchValue(e.target.value)}
+                  onChange={(e) => setSearchValue(e.target.value)}
                 />
             </div>
             <div className="space" />
-            <button className="post-button-app-search">Post a new job</button>
+            <button className="post-button-app-search" onClick={handlePost}>Post a new job</button>
         </div>
       </div>
       <div className="table-container">
@@ -176,8 +175,18 @@ return (
             </tr>
           </thead>
           <tbody>
-          {filteredData.map(applicant => (
-            <tr key={applicant.userID}>
+          {currentItems
+              .filter((applicant) => {
+                const propertyToSearch =
+                    selectedSortOption === 'Name'
+                    ? applicant.firstName?.toLowerCase() || ''
+                    : selectedSortOption === 'Job Title'
+                    ? applicant.jobRole?.toLowerCase() || ''
+                    : '';
+                return searchValue.toLowerCase() === '' || propertyToSearch.includes(searchValue);
+              })
+              .map((applicant, index) => (
+            <tr key={index}>
               <td>
                   <input type='checkbox' className="checkbox-container"></input>
               </td>
@@ -203,7 +212,27 @@ return (
             
           </tbody>
         </table>
+        
+          {/* Pagination controls */}
+          <div className="pagination-apptable">
+            <button
+              onClick={() => setCurrentPage(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="pagination-apptable-button"
+            >
+              Previous
+            </button>
+            <span className="pagination-apptable-page">{currentPage}{"/"}{totalPages}</span>
+            <button
+              onClick={() => setCurrentPage(currentPage + 1)}
+              disabled={indexOfLastItem >= data.length}
+              className="pagination-apptable-button"
+            >
+              Next
+            </button>
+          </div>
       </div>
+      
   </>
 );
 };

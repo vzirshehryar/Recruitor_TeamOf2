@@ -44,10 +44,7 @@ const PostJobs = () => {
         qualification: formData.qualification,
       };
   
-      console.log(formattedData);
-  
       const token = localStorage.getItem('token');
-      console.log(token);
       const apiUrl = '/job/postJob';
   
       const headers = {
@@ -55,7 +52,7 @@ const PostJobs = () => {
       };
       axios.post(apiUrl, formattedData, { headers })
         .then((response) => {
-          console.log(response.data);
+          
           toast.success(response.data.message);
           setFormData({
             jobTitle: '',
@@ -86,7 +83,7 @@ const PostJobs = () => {
               <div className="input-group-profile">
                 <label className="label" htmlFor="jobTitle">
                   Job Title
-                  <span className="required">*</span>
+                  
                 </label>
                 <input
                   type="text"
@@ -101,7 +98,7 @@ const PostJobs = () => {
               <div className="input-group-profile">
                 <label className="label" htmlFor="jobType">
                   Job Type
-                  <span className="required">*</span>
+                  
                 </label>
                 <select
                     id="jobType"
@@ -110,7 +107,7 @@ const PostJobs = () => {
                     value={formData.jobType}
                     onChange={handleChange}
                 >
-                    <option value="">Select One</option>
+                    <option value=""></option>
                     <option value="Part Time">Part Time</option>
                     <option value="Full Time">Full Time</option>
                     <option value="Contract">Contract</option>
@@ -121,7 +118,7 @@ const PostJobs = () => {
             <div className="email-container">
               <label className="label" htmlFor="jobLevel">
                 Job Level
-                <span className="required">*</span>
+                
               </label>
               <select
                     id="jobLevel"
@@ -130,7 +127,7 @@ const PostJobs = () => {
                     value={formData.jobLevel}
                     onChange={handleChange}
                 >
-                    <option value="">Select One</option>
+                    <option value=""></option>
                     <option value="Beginner">Beginner</option>
                     <option value="Intermediate">Intermediate</option>
                     <option value="Expert">Expert</option>
@@ -141,7 +138,7 @@ const PostJobs = () => {
                 <div className="input-group-exp">
                   <label className="label-exp" htmlFor="minSR">
                     Salary Range
-                    <span className="required-exp">*</span>
+                    
                   </label>
                   <input
                     type="text"
@@ -172,7 +169,7 @@ const PostJobs = () => {
             <div className="address-container">
               <label className="label" htmlFor="location">
                 Location
-                <span className="required">*</span>
+                
               </label>
               <input
                 type="text"
@@ -188,7 +185,7 @@ const PostJobs = () => {
             <div className="address-container">
               <label className="label" htmlFor="Experience">
                 Experience
-                <span className="required">*</span>
+                
               </label>
               <input
                 type="text"
@@ -204,7 +201,7 @@ const PostJobs = () => {
             <div className="address-container">
               <label className="label" htmlFor="qualification">
                 Qualifications
-                <span className="required">*</span>
+                
               </label>
               <input
                 type="text"
@@ -220,13 +217,12 @@ const PostJobs = () => {
             <div className="linkedin-container">
               <label className="label" htmlFor="applicationDeadline">
                 Application Deadline
-                <span className="required">*</span>
+                
               </label>
               <input
                 type="date"
                 id="applicationDeadline"
-                className="input-field"
-                placeholder="mm/dd/yyyy"
+                className={(formData.applicationDeadline) ? 'input-field' : ''}
                 required
                 value={formData.applicationDeadline}
                 onChange={handleChange}
@@ -236,7 +232,7 @@ const PostJobs = () => {
             <div className="description-container-exp">
                 <label className="label-exp" htmlFor="jobDescription">
                   Description
-                  <span className="required-exp">*</span>
+                  
                 </label>
                 <input
                   type="description"

@@ -172,6 +172,9 @@
   width: 100%; /* Set the width of the input fields to 100% */
   
 }
+.input-field-exp::placeholder {
+  color: #D3D3D3 !important;
+}
 .input-field-exp-1 {
     font-family: Poppins;
     font-size: 20px;

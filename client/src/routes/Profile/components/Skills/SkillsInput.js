@@ -38,10 +38,9 @@ const SkillInput = () => {
   const handleSubmit = () => {
     
     
-    const apiUrl = 'http://localhost:4000/user/personalInfo/postSkills';
+    const apiUrl = '/user/personalInfo/postSkills';
 
     const token = localStorage.getItem('token');
-    console.log(token);
 
     const headers = {
       Authorization: token,
@@ -51,11 +50,9 @@ const SkillInput = () => {
       skills: formState.skills,
     };
 
-    console.log(requestData);
     
     axios.post(apiUrl, requestData, { headers })
       .then((response) => {
-        console.log(response.data);
         const updateprogress = localStorage.getItem('progress');
         const newprogress = parseInt(updateprogress, 10);
         const addprogress = newprogress + 15;

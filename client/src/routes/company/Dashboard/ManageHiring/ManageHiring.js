@@ -5,11 +5,24 @@ import RecentJobPosts from "./RecentJobPosts";
 import Footer from "../../../Home/components/footer";
 import Navbar from "../../Navbar";
 import Sidebar from "../../Sidebar";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ManageHiring = () => {
+  const navigate = useNavigate();
+    const handleAuth = () =>{
+        const type = localStorage.getItem("userType");
+        if (type !== "company")
+        {
+            navigate("/loginAsCompany");
+        }
+    }
+    useEffect(() => {
+        handleAuth();
+      }, []);
   return (
     <>
-      <Navbar />
+      
       <Sidebar />
       <div className="manage-hiring-main-container">
         <div className="manage-hiring-heading-div">

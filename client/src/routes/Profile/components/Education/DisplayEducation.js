@@ -12,7 +12,7 @@ const DisplayEdu = () => {
 
   useEffect(() => {
     
-    const apiUrl = 'http://localhost:4000/user/education/getData';
+    const apiUrl = '/user/education/getData';
     const token = localStorage.getItem('token');
 
     const headers = {
@@ -21,7 +21,6 @@ const DisplayEdu = () => {
 
     axios.get(apiUrl, { headers })
       .then((response) => {
-        console.log(response.data.educations[0]);
         setData(response.data.educations[0]);
         
       })

@@ -5,14 +5,26 @@ import ManageJobCard from './ManageJobCard';
 import RecentJobPosts from './RecentJobPosts';
 import Navbar from '../../Navbar';
 import Footer from '../../../Home/components/footer';
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // import { useState } from 'react';
 
 const CompanyDashboard = () => {
   const [nav, setNav] = useState(false);
+  const navigate = useNavigate();
+    const handleAuth = () =>{
+        const type = localStorage.getItem("userType");
+        if (type !== "company")
+        {
+            navigate("/loginAsCompany");
+        }
+    }
+    useEffect(() => {
+        handleAuth();
+      }, []);
 
   return (
     <>
-      <Navbar />
       <Sidebar />
       <div className="company-dashboard-main-container">
         <div className="company-dashboard-welcome-div">
