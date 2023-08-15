@@ -9,10 +9,41 @@ import Footer from "../../../Home/components/footer";
 
 const CompanyDashboard = () => {
   const [nav, setNav] = useState(false);
+  const [allInfo, setAllInfo] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("userType") !== "company")
+      navigate("/loginAsCompany");
+    getDashboard();
+  }, []);
+
+  const getDashboard = async () => {
+    try {
+      const res = await fetch("/company/getDashboard", {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      });
+      const data = await res.json();
+      setAllInfo(data);
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+
+  const handleAuth = () => {
+    const type = localStorage.getItem("userType");
+    if (type !== "company") {
+      navigate("/loginAsCompany");
+    }
+  };
+  useEffect(() => {
+    handleAuth();
+  }, []);
 
   return (
     <>
-      <Navbar />
       <Sidebar />
       <div className="company-dashboard-main-container">
         <div className="company-dashboard-welcome-div">
@@ -21,7 +52,7 @@ const CompanyDashboard = () => {
             <p className="company-dashboard-para">XYZ</p>
           </div>
           <div className="company-dashboard-image">
-            <img src="/background.png" alt="image" />
+            <img src="/girlWithBook.png" alt="image" />
           </div>
         </div>
         <div className="company-dashboard-job-cards-container">
@@ -30,7 +61,7 @@ const CompanyDashboard = () => {
           <ManageJobCard for="view" />
         </div>
         <div className="company-dashboard-job-table-comp">
-          <RecentJobPosts />
+          <RecentJobPosts jobs={allInfo.jobs} />
         </div>
       </div>
       <Footer />

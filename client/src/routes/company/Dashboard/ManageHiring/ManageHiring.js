@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ManageHiring.css";
 import ManageJobCard from "./ManageJobCard";
-import RecentJobPosts from "./RecentJobPosts";
+import ManageCandidates from "./ManageCandidates";
 import Footer from "../../../Home/components/footer";
 import Navbar from "../../Navbar";
 import Sidebar from "../../Sidebar";
@@ -46,7 +46,7 @@ const ManageHiring = () => {
       {/* <Sidebar /> */}
       <div className="manage-hiring-main-container">
         <div className="manage-hiring-heading-div">
-          <h1 className="manage-hiring-heading">Manage Hiring</h1>
+          <h3 className="manage-hiring-heading">Manage Hiring</h3>
         </div>
         <div className="manage-hiring-job-cards-container">
           <div className="overlay" />

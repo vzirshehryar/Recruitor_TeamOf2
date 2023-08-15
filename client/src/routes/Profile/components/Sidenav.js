@@ -4,10 +4,10 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { NavLink, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 const Sidenav = () => {
-
+    const navigate = useNavigate();
     const location = useLocation();
     const [dropdownVisible, setDropdownVisible] = useState(false);
 
@@ -16,11 +16,14 @@ const Sidenav = () => {
     };
     const handleLogout = () => {
       // Implement your logout logic here
-      console.log('Logged out');
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      localStorage.removeItem("userType");
+      navigate("/");
     };
     const currProgress = localStorage.getItem('progress');
     console.log(currProgress);
-    console.log('Current Path:', location.pathname);
+    
     
     
   return (

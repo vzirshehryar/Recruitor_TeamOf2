@@ -41,14 +41,14 @@
 
 /*let this stay*/
 .manage-hiring-job-cards-container {
-  padding: 1rem 0.7rem;
+  padding: 10px 20px;
   box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
   margin-right: -1.19rem;
   overflow: hidden;
   border-radius: 5px;
 
   & h3 {
-    font-size: 1rem;
+    font-size: 20px;
     font-weight: 600;
   }
  
@@ -68,6 +68,7 @@
 /* STYLING FOR THE CARD */
 
 .manage-hiring-job-card {
+  border-radius: 5px;
   position: relative;
   min-width: 321px;
   flex-shrink: 0;
@@ -83,6 +84,8 @@
 .manage-hiring-job-card::before {
   content: "";
   position: absolute;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   inset: 0;
   width: 23%;
   /* height: auto; */
@@ -95,7 +98,8 @@
 .manage-hiring-job-card-top-div {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+
   & p {
     margin-bottom: 0 !important;
   }
@@ -106,9 +110,12 @@
   font-size: 1.4rem;
   font-weight: 500;
   text-transform: capitalize;
+  text-align: center;
+  width: 200px;
 }
 
 .manage-hiring-stats-with-icon {
+  cursor: pointer;
   display: flex;
   background: rgba(35, 193, 10, 0.15);
   align-items: center;

@@ -6,7 +6,7 @@ const ProtectedRoute = ({ children }) => {
   const user = localStorage.getItem("userType");
   let location = useLocation();
 
-  if (!isAuthenticated && user !== "user") {
+  if (!isAuthenticated || user !== "user") {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
   return children;

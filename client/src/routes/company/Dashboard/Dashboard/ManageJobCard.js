@@ -18,7 +18,7 @@ const ManageJobCard = (props) => {
           </div>
         </div>
         <div className="company-dashboard-job-card-middle-div">
-          <p>0</p>
+          <p>{props.count}</p>
         </div>
         <div className="company-dashboard-job-card-bottom-div">
           <p>Jobs</p>

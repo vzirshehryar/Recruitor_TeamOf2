@@ -13,7 +13,7 @@ const DisplayPub = () => {
 
   useEffect(() => {
     
-    const apiUrl = 'http://localhost:4000/user/publication/getData ';
+    const apiUrl = '/user/publication/getData ';
     const token = localStorage.getItem('token');
 
     const headers = {
@@ -22,7 +22,6 @@ const DisplayPub = () => {
 
     axios.get(apiUrl, { headers })
       .then((response) => {
-        console.log(response.data.publications[0]);
         setData(response.data.publications[0]);
         
       })

@@ -30,7 +30,7 @@ const ManageJobCard = ({ job, changeJob }) => {
                 {job.applications}
               </p>
             </div>
-            <div>
+            {/* <div>
               <p>New</p>
               <p
                 style={{
@@ -40,7 +40,7 @@ const ManageJobCard = ({ job, changeJob }) => {
               >
                 3
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -91,6 +91,12 @@
     background: var(--red-secondary, #FFD3D3);
     border-radius: 8px;
   }
+  .status-rectangle-hold{
+    display: inline-block;
+    padding: 6px 12px;
+    background: var(--orange-secondary, #FFE6C0);
+    border-radius: 8px;
+  }
   
   .status-rectangle svg {
     vertical-align: middle;
@@ -108,6 +114,35 @@
     height: 22px;
     position: relative;
     cursor: pointer;
+  }
+
+  .pagination-apptable {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .pagination-apptable-button {
+    background-color: #6D0E9D;
+    font-family: Poppins;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .pagination-apptable-button:hover {
+    background-color: #9d57c0;
+  }
+  
+  .pagination-apptable-page {
+    margin: 0 10px;
+    background-color: rgba(255, 255, 255, 0.2); 
+    padding: 5px 15px;
+    border: 2px solid #6D0E9D; 
+    border-radius: 5px;
+    color: #6D0E9D;
   }
 
 /* App Table CSS End */

@@ -97,3 +97,22 @@ const RecentJobPosts = () => {
 };
 
 export default RecentJobPosts;
+
+function DeadlineButton({ deadline }) {
+  const deadlineDate = new Date(deadline);
+
+  const currentDate = new Date();
+
+  // Compare the deadline with the current date
+  const isActive = deadlineDate >= currentDate;
+
+  return (
+    <div>
+      {isActive ? (
+        <button style={{ backgroundColor: "#6FCF97" }}>Active</button>
+      ) : (
+        <button style={{ backgroundColor: "#FA976C" }}>Inactive</button>
+      )}
+    </div>
+  );
+}

@@ -21,6 +21,8 @@ function JobFeed() {
   const [selectedJob, setSelectedJob] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [selected, setSelected] = useState(0);
+  const [jobType, setJobType] = useState([]);
+  const [jobLevel, setJobLevel] = useState([]);
 
   useEffect(() => {
     getAllJobs();
@@ -48,10 +50,20 @@ function JobFeed() {
     //   .toLowerCase()
     //   .includes(location.toLowerCase());
     // return titleMatch && locationMatch;
-    return 1;
+    console.log(!jobType.length, !jobLevel.length);
+    if (!jobType.length && !jobLevel.length) return true;
+
+    for (const word of jobType) {
+      if (job.jobType === word) return true;
+    }
+    for (const word of jobLevel) {
+      if (job.jobLevel === word) return true;
+    }
+    // if(jobType.lenght)
+    return false;
   });
 
-  const sortedCurrentJobs = [...jobList].sort((a, b) => {
+  const sortedCurrentJobs = [...filteredJobs].sort((a, b) => {
     const titleA = a.jobTitle.toLowerCase();
     const titleB = b.jobTitle.toLowerCase();
     if (titleA < titleB) {
@@ -97,11 +109,17 @@ function JobFeed() {
     return false;
   };
 
+  const Search = (jt, jl) => {
+    console.log("searched called");
+    setJobType(jt);
+    setJobLevel(jl);
+  };
+
   return (
     <>
       <Header />
       <div className="jobFeedPage">
-        {/* <JobNav /> */}
+        <JobNav Search={Search} />
         {/*<Container>
           <Row className="pt-5 pb-5 searchCont">
             <div className="searchJobCont mx-3">
