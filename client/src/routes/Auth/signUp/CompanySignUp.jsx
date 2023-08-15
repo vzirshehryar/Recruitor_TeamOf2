@@ -179,7 +179,7 @@ function CompanySignUp() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="email"
+                      placeholder="Email"
                     />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicPassword">

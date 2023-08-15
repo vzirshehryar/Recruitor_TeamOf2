@@ -1,5 +1,5 @@
 /* Form.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 .form-container {
   display: flex;
@@ -10,8 +10,9 @@
 }
 
 .shadow {
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 6px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    6px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  background: #fff;
   padding: 30px;
   border-radius: 18px;
   max-width: 70%;
@@ -19,14 +20,13 @@
 
 .name-container {
   display: flex;
- 
+
   gap: 10px; /* Add space between first name and last name */
 }
-.new-name-container{
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-    
+.new-name-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
 }
 .input-group-profile {
   flex: 1;
@@ -45,15 +45,15 @@
   display: flex;
   flex-direction: column; /* Ensure the label and input field are stacked vertically */
 }
-.address-container{
-    margin-top: 20px; /* Add some space between the email container and phone input */
-    display: flex;
-    flex-direction: column;
+.address-container {
+  margin-top: 20px; /* Add some space between the email container and phone input */
+  display: flex;
+  flex-direction: column;
 }
-.linkedin-container{
-    margin-top: 20px; /* Add some space between the email container and phone input */
-    display: flex;
-    flex-direction: column;
+.linkedin-container {
+  margin-top: 20px; /* Add some space between the email container and phone input */
+  display: flex;
+  flex-direction: column;
 }
 
 .label {
@@ -74,17 +74,15 @@
   border-radius: 4px;
   padding: 10px;
   width: 100%; /* Set the width of the input fields to 100% */
-  
 }
 .input-field::placeholder {
-  color: #D3D3D3 !important;
+  color: #d3d3d3 !important;
 }
 input[type="date"]::-webkit-datetime-edit-text,
 input[type="date"]::-webkit-datetime-edit-month-field,
 input[type="date"]::-webkit-datetime-edit-day-field,
 input[type="date"]::-webkit-datetime-edit-year-field {
   color: #888;
-  
 }
 input[type="date"].input-field::-webkit-datetime-edit-text,
 input[type="date"].input-field::-webkit-datetime-edit-month-field,
@@ -98,185 +96,188 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   color: #6d0e9d;
   font-family: Poppins;
 }
-.button-container button{
-    outline: none;
-    border: none;
-    background-color: #6d0e9d;
-    color: #fff;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1.5rem;
-    padding: 10px 16px;
-    width: 100%;
-    transition: 100ms;
-    cursor: pointer;
-    font-family: Poppins;
-    margin-top: 20px;
+.button-container button {
+  outline: none;
+  border: none;
+  background-color: #6d0e9d;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 10px 16px;
+  width: 100%;
+  transition: 100ms;
+  cursor: pointer;
+  font-family: Poppins;
+  margin-top: 20px;
 }
-.button-container button:hover{
-    background-color: #9639d4;
+.button-container button:hover {
+  background-color: #9639d4;
 }
 
 /* Sidenav CSS Start */
 
 .sidenav {
-    background: #6D0E9D;
-    color: #FFF;
-    font-family: Poppins;
-    
-    width: 300px; /* Set your desired width here */
-    position: fixed; /* Keep the sidenav fixed on the left side */
-    top: 0;
-    left: 0;
-    bottom: 0;
-  }
-  
-  .profile-heading {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .sidenav-buttons {
-    display: flex;
-    flex-direction: column;
-    
-    margin-top: 15px;
-    margin-left: 10px;
-    font-size: 16.5px;
-    width: 100%;
-    /* width: 100%; */
-  }
-  
-  .sidenav-button {
-    padding: 10px;
-    padding-left: 30px;
-    cursor: pointer;
-    font-family: Poppins sans-serif;
-    text-decoration: none;
-    color: #FFF;
-  }
-  
-  .sidenav-button.active {
-    position: relative;
-    background: #FFF;
-    color: #6D0E9D;
-    text-decoration: none;
-    padding-right: 25px;
-    margin-left: -9px;
-  }
-  
-  .sidenav-button.active:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -25px; /* Move the ellipse to the right side */
-    transform: translateY(-50%) rotateY(180deg); /* Add the rotateY transformation */
-    width: 55px;
-    height: 44px;
-    background: #FFF;
-    border-top-left-radius: 20px; /* Adjust the border radius to create the ellipse */
-    border-bottom-left-radius: 20px;
-    z-index: 9999;
-    box-shadow: -3px 0 0px rgba(0, 0, 0, 0.2);
-  }
-  .progress-container {
-    height: 120px;
-    width: 120px;
-    margin-top: -10px;
-  }
-  
-  .progress-circle {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Align the circle and percentage vertically with the profile heading */
-    margin-top: 20px;
-  }
-  .progress-ring {
-    width: 50px; /* Adjust the size of the circle */
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid #FFF;
-    position: relative;
-  }
-  .progress-fill {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    clip: rect(0, 50px, 50px, 25px); /* Clip the circle to create a half-circle effect */
-    background: #FFF;
-    position: absolute;
-    transform-origin: 100% 50%; /* Set the origin to right side to fill from right to left */
-  }
-  
-  .percentage-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #6D0E9D;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
-    position: absolute;
-    top: 0;
-    margin-top: 10px;
-    left: 50px; /* Move the percentage circle to the right side */
-  }
-  
-  .percentage {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 5px;
-  }
-  
-  .user-icon {
-    /* margin-top: -50px;
+  background: #6d0e9d;
+  color: #fff;
+  font-family: Poppins;
+
+  width: 300px; /* Set your desired width here */
+  position: fixed; /* Keep the sidenav fixed on the left side */
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.profile-heading {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.sidenav-buttons {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 15px;
+  margin-left: 10px;
+  font-size: 16.5px;
+  width: 100%;
+  /* width: 100%; */
+}
+
+.sidenav-button {
+  padding: 10px;
+  padding-left: 30px;
+  cursor: pointer;
+  font-family: Poppins sans-serif;
+  text-decoration: none;
+  color: #fff;
+}
+
+.sidenav-button.active {
+  position: relative;
+  background: #fff;
+  color: #6d0e9d;
+  text-decoration: none;
+  padding-right: 25px;
+  margin-left: -9px;
+}
+
+.sidenav-button.active:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -25px; /* Move the ellipse to the right side */
+  transform: translateY(-50%) rotateY(180deg); /* Add the rotateY transformation */
+  width: 55px;
+  height: 44px;
+  background: #fff;
+  border-top-left-radius: 20px; /* Adjust the border radius to create the ellipse */
+  border-bottom-left-radius: 20px;
+  z-index: 9999;
+  box-shadow: -3px 0 0px rgba(0, 0, 0, 0.2);
+}
+.progress-container {
+  height: 120px;
+  width: 120px;
+  margin-top: -10px;
+}
+
+.progress-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Align the circle and percentage vertically with the profile heading */
+  margin-top: 20px;
+}
+.progress-ring {
+  width: 50px; /* Adjust the size of the circle */
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  position: relative;
+}
+.progress-fill {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  clip: rect(
+    0,
+    50px,
+    50px,
+    25px
+  ); /* Clip the circle to create a half-circle effect */
+  background: #fff;
+  position: absolute;
+  transform-origin: 100% 50%; /* Set the origin to right side to fill from right to left */
+}
+
+.percentage-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #6d0e9d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  margin-top: 10px;
+  left: 50px; /* Move the percentage circle to the right side */
+}
+
+.percentage {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.user-icon {
+  /* margin-top: -50px;
     cursor: pointer; */
-    margin-top: -30px;
-    cursor: pointer;
-    position: relative;
-    margin-left: 30px;
-  }
-  .dropdown-profile-log {
-    /* position: absolute; */
-    top: auto;
-    bottom: 100%;
-    right: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    width: 25%;
-  }
-  
-  .logout-button-profile {
-    display: block;
-    width: 100%;
-    padding: 4px 4px; /* Adjust padding for the smaller button */
-    font-size: 12px;
-    font-family: Poppins;
-    color: #6D0E9D;
-    text-align: left;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .logout-button-profile:hover {
-    background-color: #f0f0f0;
-  }
-  .dropdown-profile-log.drop-up {
-    bottom: auto;
-    top: 100%;
-  }
+  margin-top: -30px;
+  cursor: pointer;
+  position: relative;
+  margin-left: 30px;
+}
+.dropdown-profile-log {
+  /* position: absolute; */
+  top: auto;
+  bottom: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 25%;
+}
+
+.logout-button-profile {
+  display: block;
+  width: 100%;
+  padding: 4px 4px; /* Adjust padding for the smaller button */
+  font-size: 12px;
+  font-family: Poppins;
+  color: #6d0e9d;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-button-profile:hover {
+  background-color: #f0f0f0;
+}
+.dropdown-profile-log.drop-up {
+  bottom: auto;
+  top: 100%;
+}
 
 /* Sidenav CSS End   */
-
-
 
 /*Post Jobs CSS Start*/
 
@@ -284,34 +285,30 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 175vh;
-  
-  
 }
 .shadow2 {
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 6px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    6px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  background: #fff;
   padding: 30px;
   border-radius: 18px;
   width: 65%;
-  
+  min-width: 350px;
 }
 .form-container-compprofile {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200vh;
-  
-  
+  margin-top: 40px;
 }
-.postjobs-heading{
+.postjobs-heading {
   color: #000;
   text-align: start;
   font-family: Poppins;
   font-size: 32px;
   margin-bottom: 40px;
 }
-.compprofile-heading{
+.compprofile-heading {
   color: #000;
   text-align: center;
   font-family: Poppins;
@@ -319,21 +316,21 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   margin-bottom: 40px;
   margin-top: 10px;
 }
-.dashboard-component-container{
+.dashboard-component-container {
   height: 175vh;
   margin-left: 280px;
 }
-.dashboard-component-container2{
+.dashboard-component-container2 {
   height: 100vh;
   margin-left: 280px;
 }
 
 .compprofile-image-box {
   position: relative;
-  
+
   left: 260px;
-  border: 7px solid #6D0E9D;
-  background: #F5F7FA;
+  border: 7px solid #6d0e9d;
+  background: #f5f7fa;
   border-radius: 5%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   /* Set the desired size for the profile image box */
@@ -343,7 +340,7 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
 }
 .compprofile-image-box::after {
   content: "";
-  
+
   bottom: 0;
   left: 0;
   width: 100%;
@@ -358,7 +355,7 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   left: 65px;
   transform: translate(-50%, -50%);
   font-size: 35px;
-  color: #6D0E9D;
+  color: #6d0e9d;
   font-family: Poppins;
   font-weight: bold;
 }
@@ -370,61 +367,60 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   cursor: pointer;
 }
 
-
 /*Post Jobs CSS End*/
-  @media (max-width: 576px) {
-    .form-container {
-        height: auto;
-        padding-top: 60px; /* Add padding for the top navigation bar */
-    }
+@media (max-width: 576px) {
+  .form-container {
+    height: auto;
+    padding-top: 60px; /* Add padding for the top navigation bar */
+  }
 
-    .shadow {
-        max-width: 90%;
-    }
+  .shadow {
+    max-width: 90%;
+  }
 
-    .new-name-container {
-        flex-direction: column; /* Stack first name and last name vertically */
-        align-items: center; /* Center the names horizontally */
-    }
+  .new-name-container {
+    flex-direction: column; /* Stack first name and last name vertically */
+    align-items: center; /* Center the names horizontally */
+  }
 
-    .sidenav {
-        width: 100%;
-        position: static; /* Remove fixed positioning */
-        background: #6D0E9D;
-        color: #FFF;
-        font-family: Poppins;
-        padding: 0;
-        box-shadow: none;
-    }
+  .sidenav {
+    width: 100%;
+    position: static; /* Remove fixed positioning */
+    background: #6d0e9d;
+    color: #fff;
+    font-family: Poppins;
+    padding: 0;
+    box-shadow: none;
+  }
 
-    .sidenav-buttons {
-        margin-top: 10px;
-    }
+  .sidenav-buttons {
+    margin-top: 10px;
+  }
 
-    .sidenav-button.active {
-      background: #FFF;
-      color: #6D0E9D;
-    }
+  .sidenav-button.active {
+    background: #fff;
+    color: #6d0e9d;
+  }
 
-    .sidenav-button.active:before {
-        content: none; /* Remove the ellipse */
-    }
+  .sidenav-button.active:before {
+    content: none; /* Remove the ellipse */
+  }
 
-    .progress-circle {
-        align-items: center; /* Align circle and percentage center horizontally */
-        margin-top: 10px;
-    }
+  .progress-circle {
+    align-items: center; /* Align circle and percentage center horizontally */
+    margin-top: 10px;
+  }
 
-    .percentage-circle {
-        right: 0; /* Move percentage circle to the right side */
-        left: auto;
-    }
+  .percentage-circle {
+    right: 0; /* Move percentage circle to the right side */
+    left: auto;
+  }
 }
 
 @media screen and (max-width: 576px) {
   .dashboard-component-container,
   .dashboard-component-container2 {
-     /* Add top margin on smaller screens */
+    /* Add top margin on smaller screens */
     padding: 10px;
     width: 100%;
   }
@@ -432,18 +428,26 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   .compprofile-edit-icon {
     bottom: -5px;
   }
-  .form-container-compprofile{
+  /* .form-container-compprofile {
     margin-top: 280px;
     height: 100vh;
     margin-left: -300px;
+  } */
+  .form-container-postjobs {
+    margin-top: 100px;
   }
-  .form-container-postjobs{
-    margin-top: 280px;
-    height: 100vh;
-    margin-left: -300px;
-  }
-  
-  .compprofile-image-box{
+
+  .compprofile-image-box {
     margin-left: -110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-component-container {
+    margin-left: 0;
+    width: 100%;
+  }
+  .shadow2 {
+    padding: 30px 10px;
   }
 }

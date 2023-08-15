@@ -70,7 +70,7 @@ function LoginAsCompany() {
 
           setFormData(initialFormData);
           setLoader("LOG IN");
-          navigate("/compprofile");
+          navigate("/companydashboard");
           console.log(localStorage);
         })
         .catch((error) => {
@@ -181,7 +181,7 @@ function LoginAsCompany() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="email"
+                        placeholder="Email"
                       />
                     </Form.Group>
                   </p>
