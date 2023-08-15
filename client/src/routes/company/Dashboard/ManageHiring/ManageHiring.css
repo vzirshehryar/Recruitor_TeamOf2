@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat";
+  font-family: 'Poppins', 'monospace';
 
   & p {
     margin-bottom: 0;
@@ -12,7 +12,7 @@
 }
 
 .manage-hiring-main-container {
-  margin-left: 300px;
+  overflow-x: hidden;
   padding-block: 1rem;
   padding-inline: 1rem;
   display: grid;
@@ -21,40 +21,61 @@
     text-transform: capitalize;
     font-weight: 600;
     color: #6d0e9d;
+    margin-bottom: 0;
+  }
+  @media (min-width: 768px) {
+    margin-left: 300px;
   }
 }
 
+.recent-job-top-row-heading h1{
+  font-size: 2rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: .7rem;
+  @media (min-width: 600px) {
+    margin-bottom: 0;
+  }
+}
+
+/*let this stay*/
 .manage-hiring-job-cards-container {
   padding: 10px 20px;
   box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
-  overflow-x: auto;
+  margin-right: -1.19rem;
+  overflow: hidden;
+  border-radius: 5px;
 
   & h3 {
     font-size: 20px;
     font-weight: 600;
   }
+ 
 }
 
 .manage-hiring-job-cards-div {
+  padding-block: 1rem; /* to preserve the shadow */
   display: flex;
-  gap: 20px;
+  gap: 0.7rem;
   overflow-x: auto;
+   @media (min-width: 600px) {
+    gap: 1.5rem;
+  }
 }
 
+/*LET THIS STAY*/
 /* STYLING FOR THE CARD */
 
 .manage-hiring-job-card {
   border-radius: 5px;
   position: relative;
-  /* min-width: 540px; for 1927 wide screen */
-  min-width: 380px;
-  height: 200px;
-  flex-grow: 1;
+  min-width: 321px;
   flex-shrink: 0;
   background-color: white;
   box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
-  /* padding-block: 2.79rem; for 1927 wide screen*/
   padding-block: 1.5rem;
+  padding-left: 73px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -74,8 +95,10 @@
   mask-image: url("/public/manage-card.svg");
 }
 
+/*LET THIS STAY*/
 .manage-hiring-job-card-top-div {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 
@@ -84,6 +107,7 @@
   }
 }
 
+/*LET THIS STAY*/
 .manage-hiring-job-card-top-div-para {
   font-size: 1.4rem;
   font-weight: 500;
@@ -103,6 +127,8 @@
   height: 20px;
   & p {
     margin-bottom: 0 !important;
+    color: #0B8A00;
+    font-weight: 600;
   }
 }
 
@@ -134,34 +160,100 @@
 
 /* TABLE COMPONENET */
 
+.manage-hiring-recent-job-top-row{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 1185px;
+  @media (min-width: 600px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.manage-hiring-recent-job-top-row-buttons {
+  & button {
+    border-radius: 50px;
+    background-color: #6d0e9d;
+    border: none;
+    padding-inline: 1rem;
+    padding-block: .6rem;
+    @media (min-width: 600px) {
+      padding-inline: 2rem;
+    }
+  }
+}
+
+.manage-hiring-recent-job-table {
+  min-width: 1185px;
+  margin-top: 1.2rem;
+  border-radius: 4px;
+  border-collapse: collapse;
+
+  & thead {
+    color: #6d0e9d;
+    background-color: #eaddf1;
+    text-align: center;
+  }
+  & tbody {
+    text-align: center;
+  }
+}
+
+.manage-hiring-table-head th {
+  padding-block: 0.7rem;
+}
+.manage-hiring-table-row-body {
+  border-bottom: 1px solid rgb(202, 202, 202);
+  background-color: #f7f4f442;
+}
+.manage-hiring-table-row-body td {
+  padding-block: 1rem;
+}
+
 .manage-hiring-table-comp {
-}
-
-.recent-job-post-table-container {
-  /* Set a maximum width for the component */
-  /* max-width: 100%; */
-  /* margin: 0 auto; */
-  /* padding: 20px; */
-  overflow-x: scroll;
-}
-
-.recent-job-table {
-  width: 100%;
+  border-radius: 5px;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  overflow-x: hidden;
+  box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
 .mange-hiring-recent-job-table-component {
-  border-radius: 4px;
-  padding: 10px 20px;
-  background: var(--shades-of-black-white, #fff);
-  box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
-.manage-hiring-recent-job-top-row {
-  margin-top: 20px;
+
+.recent-job-post-table-container {
+  overflow-x: auto;
+}
+
+.pagination-button {
+  background: transparent;
+  color: black;
+  padding: 0 0.7rem;
+  border: 1px solid black;
+}
+
+.hiring-manager-table-pagination-footer {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 1rem;
+  max-width: 1185px;
+  @media (min-width: 415px) {
+    flex-direction: row;
+  }
 }
-.manage-hiring-recent-job-top-row h3 {
-  font-size: 20px;
-  font-weight: 600;
+.hiring-manager-table-pagination-footer > div {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.manage-hiring-badge{
+  background-color: #6d0e9d !important;
 }

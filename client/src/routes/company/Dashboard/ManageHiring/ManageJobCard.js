@@ -1,5 +1,4 @@
 import React from "react";
-import { BsBarChartLine } from "react-icons/bs";
 
 const ManageJobCard = ({ job, changeJob }) => {
   return (
@@ -30,17 +29,6 @@ const ManageJobCard = ({ job, changeJob }) => {
                 {job.applications}
               </p>
             </div>
-            {/* <div>
-              <p>New</p>
-              <p
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "1.3rem",
-                }}
-              >
-                3
-              </p>
-            </div> */}
           </div>
         </div>
       </div>

@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import "./ManageHiring.css";
-import ManageJobCard from "./ManageJobCard";
-import ManageCandidates from "./ManageCandidates";
-import Footer from "../../../Home/components/footer";
-import Navbar from "../../Navbar";
-import Sidebar from "../../Sidebar";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "../../Sidebar";
+import Footer from "../../../Home/components/footer";
+
+import ManageJobCard from "./ManageJobCard";
+import RecentJobPosts from "./RecentJobPosts";
+
 import { toast } from "react-toastify";
+import "./ManageHiring.css";
 
 const ManageHiring = () => {
   const navigate = useNavigate();
@@ -29,7 +30,6 @@ const ManageHiring = () => {
       const data = await res.json();
       setJobs(data.jobs);
       setSelectedJob(data.jobs[0]._id);
-      console.log(data.jobs);
     } catch (error) {
       toast.error(error);
     }
@@ -47,6 +47,7 @@ const ManageHiring = () => {
           <h3 className="manage-hiring-heading">Manage Hiring</h3>
         </div>
         <div className="manage-hiring-job-cards-container">
+          <div className="overlay" />
           <h3>Active Jobs</h3>
           <div className="manage-hiring-job-cards-div">
             {jobs.length ? (
@@ -61,7 +62,7 @@ const ManageHiring = () => {
           </div>
         </div>
         <div className="manage-hiring-table-comp">
-          <ManageCandidates jobID={selectedJob} />
+          <RecentJobPosts jobID={selectedJob} />
         </div>
       </div>
       <Footer />
