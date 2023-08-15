@@ -1,6 +1,6 @@
 import React from "react";
 import { BsBarChartLine } from "react-icons/bs";
-import "./CompanyDashboard.css"
+import "./CompanyDashboard.css";
 
 const ManageJobCard = (props) => {
   return (

@@ -51,6 +51,7 @@ import Profile from "./routes/company/Dashboard/CompProfile/Profile";
 import Applicants from "./routes/company/Dashboard/AllApplicants/Applicants";
 import Listings from "./routes/company/Dashboard/JobListings/Listings";
 import ManageHiring from "./routes/company/Dashboard/ManageHiring/ManageHiring";
+
 import CompanyDashboard from "./routes/company/Dashboard/Dashboard/CompanyDashboard";
 
 const App = () => {
