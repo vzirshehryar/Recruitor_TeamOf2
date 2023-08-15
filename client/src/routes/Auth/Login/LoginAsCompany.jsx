@@ -1,5 +1,5 @@
 import "./components/Login.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
@@ -12,6 +12,12 @@ import Navbar from "../../company/Navbar";
 function LoginAsCompany() {
   const navigate = useNavigate();
   const [loader, setLoader] = useState("LOG IN");
+
+  useEffect(() => {
+    if (localStorage.getItem("userType") === "company") {
+      navigate("/company");
+    }
+  }, []);
 
   const initialFormData = {
     email: "",

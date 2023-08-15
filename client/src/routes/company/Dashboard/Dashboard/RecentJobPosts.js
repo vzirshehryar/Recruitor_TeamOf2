@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { IoIosArrowBack } from "react-icons/bs";
-import Nav from 'react-bootstrap/Nav';
+import Nav from "react-bootstrap/Nav";
 
-const RecentJobPosts = () => {
-
+const RecentJobPosts = ({ jobs }) => {
   const [activeTableButton, setActiveTableButton] = useState();
 
   const buttonTabStyles = {
-    backgroundColor: activeTableButton ? "#6D0E9D" : "#F4F5F9"
-  }
+    backgroundColor: activeTableButton ? "#6D0E9D" : "#F4F5F9",
+  };
 
   return (
     <>
@@ -17,11 +16,11 @@ const RecentJobPosts = () => {
           <div className="recent-job-top-row-heading">
             <h1>Recent Job Posts</h1>
           </div>
-          <div className="recent-job-top-row-buttons">
+          {/* <div className="recent-job-top-row-buttons">
             <button >Monthly</button>
             <button>Weekly</button>
             <button>Today</button>
-          </div>
+          </div> */}
         </div>
         <div>
           <table className="recent-job-table">
@@ -35,42 +34,20 @@ const RecentJobPosts = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>
-                  <button>No Post</button>
-                </td>
-              </tr>
-              <tr>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>
-                  <button>No Post</button>
-                </td>
-              </tr>
-              <tr>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>
-                  <button>No Post</button>
-                </td>
-              </tr>
-              <tr>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>
-                  <button>No Post</button>
-                </td>
-              </tr>
+              {jobs &&
+                jobs.map((job, i) => {
+                  return (
+                    <tr key={i}>
+                      <td>{job.jobTitle}</td>
+                      <td>{job.jobType}</td>
+                      <td>{10}</td>
+                      <td>{3}</td>
+                      <td>
+                        <DeadlineButton deadline={job.applicationDeadline} />
+                      </td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>
@@ -97,3 +74,22 @@ const RecentJobPosts = () => {
 };
 
 export default RecentJobPosts;
+
+function DeadlineButton({ deadline }) {
+  const deadlineDate = new Date(deadline);
+
+  const currentDate = new Date();
+
+  // Compare the deadline with the current date
+  const isActive = deadlineDate >= currentDate;
+
+  return (
+    <div>
+      {isActive ? (
+        <button style={{ backgroundColor: "#6FCF97" }}>Active</button>
+      ) : (
+        <button style={{ backgroundColor: "#FA976C" }}>Inactive</button>
+      )}
+    </div>
+  );
+}
