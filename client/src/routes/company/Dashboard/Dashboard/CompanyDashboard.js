@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../../Sidebar";
 import "./CompanyDashboard.css";
 import ManageJobCard from "./ManageJobCard";
 import RecentJobPosts from "./RecentJobPosts";
-import Navbar from "../../Navbar";
 import Footer from "../../../Home/components/footer";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 // import { useState } from 'react';
 
 const CompanyDashboard = () => {
@@ -27,6 +28,7 @@ const CompanyDashboard = () => {
       });
       const data = await res.json();
       setAllInfo(data);
+      console.log(allInfo)
     } catch (error) {
       toast.error(error);
     }
@@ -61,7 +63,7 @@ const CompanyDashboard = () => {
           <ManageJobCard for="view" />
         </div>
         <div className="company-dashboard-job-table-comp">
-          <RecentJobPosts jobs={allInfo.jobs} />
+          <RecentJobPosts jobs={allInfo.jobs} setAllInfo={setAllInfo} />
         </div>
       </div>
       <Footer />

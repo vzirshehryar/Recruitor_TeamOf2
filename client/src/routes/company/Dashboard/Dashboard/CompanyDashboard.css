@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat";
+  font-family: 'Poppins', 'monospace';
 }
 
 .company-dashboard-main-container {
@@ -15,6 +15,9 @@
   grid-template-columns: 1fr;
   gap: 0.8rem;
 
+  @media (min-width: 768px) {
+    margin-left: 300px;
+  }
   @media (min-width: 1200px) {
     margin-left: 300px;
     grid-template-columns: repeat(3, 1fr);
@@ -29,11 +32,9 @@
   padding-top: 1rem;
   padding-inline: 1rem;
   border-radius: 5px;
+  
   @media (min-width: 600px) {
     flex-direction: row;
-    & img {
-      margin-right: -49rem;
-    }
     justify-content: space-between;
   }
   @media (min-width: 1200px) {

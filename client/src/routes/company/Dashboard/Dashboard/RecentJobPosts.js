@@ -1,10 +1,94 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { Badge } from "react-bootstrap";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 import { FaEllipsisH } from "react-icons/fa";
 
-const RecentJobPosts = () => {
+const RecentJobPosts = ({ jobs, setAllInfo }) => {
+  const exampleTableData = [
+    {
+      jobTitle: "Software Engineer",
+      jobType: "Full-Time",
+      numberOfOpenings: 10,
+      numberOfApplications: 3,
+    },
+    {
+      jobTitle: "Data Scientist",
+      jobType: "Part-Time",
+      numberOfOpenings: 5,
+      numberOfApplications: 2,
+    },
+    {
+      jobTitle: "Product Manager",
+      jobType: "Full-Time",
+      numberOfOpenings: 8,
+      numberOfApplications: 4,
+    },
+    {
+      jobTitle: "UI/UX Designer",
+      jobType: "Contract",
+      numberOfOpenings: 3,
+      numberOfApplications: 1,
+    },
+    {
+      jobTitle: "Marketing Specialist",
+      jobType: "Remote",
+      numberOfOpenings: 6,
+      numberOfApplications: 2,
+    },
+    {
+      jobTitle: "Sales Representative",
+      jobType: "Full-Time",
+      numberOfOpenings: 7,
+      numberOfApplications: 3,
+    },
+    {
+      jobTitle: "Data Analyst",
+      jobType: "Part-Time",
+      numberOfOpenings: 4,
+      numberOfApplications: 1,
+    },
+    {
+      jobTitle: "Project Manager",
+      jobType: "Full-Time",
+      numberOfOpenings: 9,
+      numberOfApplications: 5,
+    },
+    {
+      jobTitle: "Content Writer",
+      jobType: "Freelance",
+      numberOfOpenings: 2,
+      numberOfApplications: 0,
+    },
+    {
+      jobTitle: "Customer Support",
+      jobType: "Remote",
+      numberOfOpenings: 5,
+      numberOfApplications: 2,
+    },
+  ];
+
+  const [data, setData] = useState([jobs]);
+  //for displaying the number of rows per page
+  const [rowsToShow, setRowsToShow] = useState(4);
+
+  //for actual pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const startIndex = (currentPage - 1) * rowsToShow;
+
+  const totalPages = Math.ceil(exampleTableData.length / rowsToShow);
+  // const totalPages = Math.ceil(jobs.length / rowsToShow); //actual data from db
+
+  //for pagination
+  //also use actual data here
+  useEffect(() => {
+    const startIndex = (currentPage - 1) * rowsToShow;
+    const endIndex = startIndex + rowsToShow;
+    const paginatedData = exampleTableData.slice(startIndex, endIndex);
+    setData(paginatedData);
+  }, [currentPage, rowsToShow]);
+
   return (
     <div className="mange-hiring-recent-job-table-component">
       <div className="manage-hiring-recent-job-top-row">
@@ -36,60 +120,66 @@ const RecentJobPosts = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="manage-hiring-table-row-body">
-              <td>UI UX Designer</td>
-              <td>Full Time</td>
-              <td>12</td>
-              <td>45</td>
-              <td>
-                <Button>Inactive</Button>
-              </td>
-            </tr>
-            <tr className="manage-hiring-table-row-body">
-              <td>Fullstack Dev</td>
-              <td>Full Time</td>
-              <td>08</td>
-              <td>05</td>
-              <td>
-                <Button>Inactive</Button>
-              </td>
-            </tr>
-            <tr className="manage-hiring-table-row-body">
-              <td>DevOps</td>
-              <td>Internship</td>
-              <td>12</td>
-              <td>100</td>
-              <td>
-                <Button>Inactive</Button>
-              </td>
-            </tr>
-            <tr className="manage-hiring-table-row-body">
-              <td>Mobile App Dev</td>
-              <td>Full Time</td>
-              <td>04</td>
-              <td>135</td>
-              <td>
-                <Button>Inactive</Button>
-              </td>
-            </tr>
+            {jobs &&
+              data.slice(0, rowsToShow).map((job, i) => {
+                return (
+                  <tr key={i} className="manage-hiring-table-row-body">
+                    <td>{job.jobTitle}</td>
+                    <td>{job.jobType}</td>
+                    <td>{10}</td>
+                    <td>{3}</td>
+                    <td>
+                      <DeadlineButton deadline={job.applicationDeadline} />
+                    </td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       </div>
       <div className="hiring-manager-table-pagination-footer">
         <div>
           <div>
-            <button className="pagination-button">&lt;</button>
+            <button
+              className="pagination-button"
+              disabled={currentPage <= 1}
+              onClick={() => {
+                setCurrentPage(currentPage - 1);
+              }}
+            >
+              &lt;
+            </button>
           </div>
-          <div>1</div>
+          <div>{currentPage}</div>
           <div>/</div>
-          <div>16</div>
+          <div>{totalPages}</div>
           <div>
-            <button className="pagination-button">&gt;</button>
+            <button
+              className="pagination-button"
+              disabled={currentPage >= totalPages}
+              onClick={() => {
+                setCurrentPage(currentPage + 1);
+              }}
+            >
+              &gt;
+            </button>
           </div>
         </div>
         <div>
           <span>Rows per page: </span>
-          <button className="pagination-button">4 &or;</button>
+          <select
+            name=""
+            id=""
+            value={rowsToShow}
+            onChange={(e) => {
+              setRowsToShow(e.target.value);
+            }}
+          >
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
         </div>
       </div>
     </div>

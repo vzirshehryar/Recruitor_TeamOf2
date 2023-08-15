@@ -1,12 +1,11 @@
 import React from "react";
-import { BsBarChartLine } from "react-icons/bs";
 
 const ManageJobCard = ({ job, changeJob }) => {
   return (
     <>
       <div className="manage-hiring-job-card">
         <div className="manage-hiring-job-card-top-div">
-          <p className="manage-hiring-job-card-top-div-para">Title</p>
+          <p className="manage-hiring-job-card-top-div-para">{job.jobTitle}</p>
           <div
             className="manage-hiring-stats-with-icon"
             onClick={() => changeJob(job._id)}
@@ -30,17 +29,6 @@ const ManageJobCard = ({ job, changeJob }) => {
                 {job.applications}
               </p>
             </div>
-            {/* <div>
-              <p>New</p>
-              <p
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "1.3rem",
-                }}
-              >
-                3
-              </p>
-            </div> */}
           </div>
         </div>
       </div>
