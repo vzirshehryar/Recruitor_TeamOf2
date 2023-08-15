@@ -24,7 +24,7 @@ const DisplayAwards = () => {
   };
 
   useEffect(() => {
-    const apiUrl = 'http://localhost:4000/user/award/getData';
+    const apiUrl = '/user/award/getData';
     const token = localStorage.getItem('token');
 
     const headers = {
@@ -33,7 +33,6 @@ const DisplayAwards = () => {
 
     axios.get(apiUrl, { headers })
       .then((response) => {
-        console.log(response.data.awards[0]);
         setData(response.data.awards[0]);
       })
       .catch((error) => {

@@ -12,7 +12,7 @@ const DataDisplay = () => {
 
   useEffect(() => {
     
-    const apiUrl = 'http://localhost:4000/user/jobExperience/getData';
+    const apiUrl = '/user/jobExperience/getData';
     const token = localStorage.getItem('token');
 
     const headers = {
@@ -22,7 +22,6 @@ const DataDisplay = () => {
     axios.get(apiUrl, { headers })
       .then((response) => {
         setData(response.data.jobs[0]);
-        console.log(response.data.jobs[0]);
       })
       .catch((error) => {
         console.error(error);

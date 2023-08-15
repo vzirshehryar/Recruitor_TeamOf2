@@ -12,7 +12,7 @@ const DisplayLang = () => {
 
   useEffect(() => {
     
-    const apiUrl = 'http://localhost:4000/user/language/getData';
+    const apiUrl = '/user/language/getData';
     const token = localStorage.getItem('token');
 
     const headers = {
@@ -21,8 +21,6 @@ const DisplayLang = () => {
 
     axios.get(apiUrl, { headers })
       .then((response) => {
-        
-        console.log(response.data.languages[0]);
         setData(response.data.languages[0]);
         
       })

@@ -37,10 +37,7 @@ const PubForm = () => {
         members: formData.members,
       };
 
-      console.log(formattedData);
-
       const token = localStorage.getItem('token');
-      console.log(token);
       const apiUrl = '/user/publication/postData';
 
       const headers = {
@@ -48,7 +45,6 @@ const PubForm = () => {
       };
       axios.post(apiUrl, formattedData, { headers })
         .then((response) => {
-          console.log(response.data);
           const updateprogress = localStorage.getItem('progress');
           const newprogress = parseInt(updateprogress, 10);
           const addprogress = newprogress + 10;

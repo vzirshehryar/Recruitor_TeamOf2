@@ -12,7 +12,7 @@ const DisplayCour = () => {
 
   useEffect(() => {
     
-    const apiUrl = 'http://localhost:4000/user/course/getData';
+    const apiUrl = '/user/course/getData';
     const token = localStorage.getItem('token');
 
     const headers = {
@@ -21,7 +21,6 @@ const DisplayCour = () => {
 
     axios.get(apiUrl, { headers })
       .then((response) => {
-        console.log(response.data.courses[0]);
         setData(response.data.courses[0]);
         
       })

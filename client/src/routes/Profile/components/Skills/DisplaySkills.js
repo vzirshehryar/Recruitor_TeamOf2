@@ -12,7 +12,7 @@ const DisplaySkills = () => {
   
   useEffect(() => {
     
-    const apiUrl = 'http://localhost:4000/user/personalInfo/getSkills';
+    const apiUrl = '/user/personalInfo/getSkills';
     const token = localStorage.getItem('token');
 
     const headers = {
@@ -21,8 +21,6 @@ const DisplaySkills = () => {
 
     axios.get(apiUrl, { headers })
       .then((response) => {
-        
-        console.log(response.data.skills);
         setData(response.data);
         
       })

@@ -23,7 +23,7 @@ const AwardsForm = () => {
       const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData((prevFormData) => {
-          console.log("Setting formData:", id, value); // Add this line
+           
           return {
             ...prevFormData,
             [id]: value,
@@ -56,10 +56,7 @@ const AwardsForm = () => {
           desrciption: formData.description,
         };
 
-        console.log(formattedData);
-    
         const token = localStorage.getItem('token');
-        console.log(token);
         const apiUrl = '/user/award/postData';
     
         const headers = {
@@ -67,7 +64,7 @@ const AwardsForm = () => {
         };
         axios.post(apiUrl, formattedData, { headers })
           .then((response) => {
-            console.log(response.data);
+            
             const updateprogress = localStorage.getItem('progress');
             const newprogress = parseInt(updateprogress, 10);
             const addprogress = newprogress + 10;

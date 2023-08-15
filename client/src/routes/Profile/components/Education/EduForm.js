@@ -43,10 +43,7 @@ const EduForm = () => {
         description: formData.description,
       };
   
-      console.log(formattedData);
-  
       const token = localStorage.getItem('token');
-      console.log(token);
       const apiUrl = '/user/education/postData';
   
       const headers = {
@@ -54,7 +51,6 @@ const EduForm = () => {
       };
       axios.post(apiUrl, formattedData, { headers })
         .then((response) => {
-          console.log(response.data);
           const updateprogress = localStorage.getItem('progress');
           const newprogress = parseInt(updateprogress, 10);
           const addprogress = newprogress + 10;

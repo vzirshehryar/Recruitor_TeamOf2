@@ -2,13 +2,16 @@
     background: #6D0E9D;
     color: #FFF;
     font-family: Poppins;
-    
-    width: 300px; /* Set your desired width here */
+    margin-top: 55px;
+    width: 280px; /* Set your desired width here */
     position: fixed; /* Keep the sidenav fixed on the left side */
     top: 0;
     left: 0;
     bottom: 0;
   }
+.footer-container-dashboard{
+  /* margin-top: 100%; */
+}
   
   .dashboard-heading {
     text-align: center;
@@ -36,8 +39,17 @@
     font-size: 18px;
     font-weight: 400;
   }
+  .sidebar-head-button {
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 400;
+  }
   
-  .sidebar-button.active {
+  .sidebar-head-button.active {
     position: relative;
     
     color: #fff;
@@ -45,4 +57,78 @@
     padding-right: 25px;
     font-weight: 900;
     font-style: normal;
-  } 
+  }
+  .sidebar-button.active {
+    position: relative;
+    background: #FFF;
+    color: #6D0E9D;
+    text-decoration: none;
+    padding-right: 25px;
+    margin-left: -18px;
+  }
+  .sidebar-button.active svg path {
+    stroke: #6D0E9D;
+  }
+  
+  .sidebar-button.active:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -25px; /* Move the ellipse to the right side */
+    transform: translateY(-50%) rotateY(180deg); /* Add the rotateY transformation */
+    width: 55px;
+    height: 44px;
+    background: #FFF;
+    border-top-left-radius: 20px; /* Adjust the border radius to create the ellipse */
+    border-bottom-left-radius: 20px;
+    z-index: 9999;
+    box-shadow: -3px 0 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .sidebar.open {
+    width: 250px;
+  }
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+  }
+  
+  .hamburger.open {
+    display: block;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 0;
+    }
+  
+    .sidebar.open {
+      width: 200px;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    .dashboard-heading {
+      margin-top: 0;
+      
+    }
+  
+    .sidebar-buttons {
+      
+      margin-top: 20px;
+      
+    }
+    .sidebar-button{
+      font-size: 12px;
+    }
+  }

@@ -7,7 +7,6 @@ import Navbar from "../../Navbar";
 import Footer from "../../../Home/components/footer";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-// import { useState } from 'react';
 
 const CompanyDashboard = () => {
   const [nav, setNav] = useState(false);
@@ -34,9 +33,18 @@ const CompanyDashboard = () => {
     }
   };
 
+  const handleAuth = () => {
+    const type = localStorage.getItem("userType");
+    if (type !== "company") {
+      navigate("/loginAsCompany");
+    }
+  };
+  useEffect(() => {
+    handleAuth();
+  }, []);
+
   return (
     <>
-      <Navbar />
       <Sidebar />
       <div className="company-dashboard-main-container">
         <div className="company-dashboard-welcome-div">

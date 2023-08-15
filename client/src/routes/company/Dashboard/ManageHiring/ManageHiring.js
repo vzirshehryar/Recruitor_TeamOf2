@@ -41,7 +41,6 @@ const ManageHiring = () => {
 
   return (
     <>
-      <Navbar />
       <Sidebar />
       <div className="manage-hiring-main-container">
         <div className="manage-hiring-heading-div">
