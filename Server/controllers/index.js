@@ -101,7 +101,12 @@ export const loginUser = async (req, res) => {
     // RETURN JWT TO CLIENT
     jwt.sign(payload, jwtSecret, { expiresIn: "5 days" }, (err, token) => {
       if (err) throw err;
-      data = { success: true, token: token, user: user };
+      data = {
+        success: true,
+        token: token,
+        user: user,
+        completionStatus: user.profileCompletion,
+      };
       res.json(data);
     });
   } catch (err) {

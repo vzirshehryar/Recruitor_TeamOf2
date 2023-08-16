@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import '../Skills/SkillsInput.css';
-import axios from 'axios'; // Don't forget to import axios if you haven't already.
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "../Skills/SkillsInput.css";
+import axios from "axios"; // Don't forget to import axios if you haven't already.
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 const SkillInput = () => {
   const navigate = useNavigate();
   const [formState, setFormState] = useState({
     skills: [],
-    newSkill: '',
+    newSkill: "",
   });
 
   const handleInputChange = (event) => {
@@ -19,11 +19,11 @@ const SkillInput = () => {
   };
 
   const handleAddSkill = () => {
-    if (formState.newSkill.trim() !== '') {
+    if (formState.newSkill.trim() !== "") {
       setFormState((prevFormState) => ({
         ...prevFormState,
         skills: [...prevFormState.skills, prevFormState.newSkill.trim()],
-        newSkill: '',
+        newSkill: "",
       }));
     }
   };
@@ -36,17 +36,15 @@ const SkillInput = () => {
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      handleAddSkill(); 
+    if (event.key === "Enter") {
+      handleAddSkill();
     }
   };
 
   const handleSubmit = () => {
-    
-    
-    const apiUrl = '/user/personalInfo/postSkills';
+    const apiUrl = "/user/personalInfo/postSkills";
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
     const headers = {
       Authorization: token,
@@ -56,19 +54,18 @@ const SkillInput = () => {
       skills: formState.skills,
     };
 
-    
-    axios.post(apiUrl, requestData, { headers })
+    axios
+      .post(apiUrl, requestData, { headers })
       .then((response) => {
-        const updateprogress = localStorage.getItem('progress');
+        const updateprogress = localStorage.getItem("progress");
         const newprogress = parseInt(updateprogress, 10);
-        const addprogress = newprogress + 15;
+        const addprogress = newprogress + 10;
         const finalprogress = addprogress.toString();
-        localStorage.setItem('progress', finalprogress);
+        localStorage.setItem("progress", finalprogress);
         toast.success(response.data.message);
-          setTimeout(() => {
-            navigate("/skills/submit-skills");
-          }, 1500);
-        
+        setTimeout(() => {
+          navigate("/skills/submit-skills");
+        }, 1500);
       })
       .catch((error) => {
         console.error(error);
@@ -93,7 +90,10 @@ const SkillInput = () => {
           {formState.skills.map((skill, index) => (
             <div className="skill" key={index}>
               {skill}
-              <button className="delete-button" onClick={() => handleDeleteSkill(skill)}>
+              <button
+                className="delete-button"
+                onClick={() => handleDeleteSkill(skill)}
+              >
                 x
               </button>
             </div>

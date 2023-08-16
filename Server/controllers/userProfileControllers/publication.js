@@ -1,9 +1,17 @@
+import { User } from "../../models/User.js";
 import Publication from "../../models/userModels/Publications.js";
 
 export const postData = async (req, res) => {
   try {
     const data = req.body;
     const userID = req.user; // it is set from middleware
+
+    const checkForProgress = await Publication.find({ user: userID });
+    if (checkForProgress.length === 0) {
+      const user = await User.findById(userID);
+      user.profileCompletion += 10;
+      await user.save();
+    }
 
     if (
       !data.publicationTitle ||

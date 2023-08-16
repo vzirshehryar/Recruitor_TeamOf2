@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Dropdown } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { FaUser } from "react-icons/fa";
 import "./home.css";
 import JobNav from "../../jobFeed/components/JobNav";
 
@@ -83,7 +84,11 @@ function Header() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
             id="responsive-navbar-nav"
-            style={{ justifyContent: "center" }}
+            style={
+              !user
+                ? { justifyContent: "center" }
+                : { justifyContent: "flex-end" }
+            }
           >
             {!user ? (
               <>
@@ -119,15 +124,16 @@ function Header() {
                     onToggle={(isOpen) => setIsDropdownOpen(isOpen)}
                   >
                     <div className="account_icon">
-                      <i
+                      <FaUser
                         style={{
-                          fontWeight: "100",
-                          fontSize: "33px",
+                          width: "20px",
+                          height: "20px",
                           cursor: "pointer",
+                          color: "black",
                         }}
-                        className="ri-account-circle-line"
+                        // className="ri-account-circle-line"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      ></i>
+                      />
                     </div>
 
                     <Dropdown.Menu>
@@ -136,6 +142,7 @@ function Header() {
                           textAlign: "center",
                           borderBottom: "1px solid black",
                         }}
+                        onClick={() => navigate("/personal-information")}
                       >
                         <i
                           className="ri-account-box-fill"

@@ -36,6 +36,9 @@ export const postData = async (req, res) => {
       forgetPasswordAuthToken: 0,
     });
 
+    if (!user.firstName) {
+      user.profileCompletion += 20;
+    }
     user.firstName = firstName;
     user.lastName = lastName;
     user.phNo = phNo;
@@ -83,10 +86,14 @@ export const postSkills = async (req, res) => {
       return;
     }
 
-    const user = await User.findById(userID, "skills");
+    const user = await User.findById(userID);
 
-    console.log(user);
-    user.skills = data.skills;
+    // console.log(user);
+    if (user.skills.length === 0) {
+      user.profileCompletion += 10;
+    }
+
+    user.skills = [...data.skills, ...user.skills];
     const skills = await user.save();
 
     res.status(200).json({ message: "Skills Added Successfully" });

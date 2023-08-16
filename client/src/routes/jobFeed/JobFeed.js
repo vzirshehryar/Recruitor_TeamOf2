@@ -199,14 +199,19 @@ function JobFeed() {
                         </p>
                       </div>
                     </Row>
-                    <p className="displayJobDescription">
-                      <strong>Job Description : </strong>
-                    </p>
-                    <p className="displayJobDescription2">
-                      {item.jobDescription}
-                      {/* Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    <div style={{ display: "flex", marginTop: 0 }}>
+                      <p className="displayJobDescription">
+                        <strong>Job Description : </strong>
+                      </p>
+                      <p
+                        className="displayJobDescription2"
+                        style={{ maxWidth: "60%", marginTop: "10px" }}
+                      >
+                        {item.jobDescription}
+                        {/* Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                       sed diam nonumy eirmod tempor invidunt ut labore...... */}
-                    </p>
+                      </p>
+                    </div>
                   </div>
                 ))}
 

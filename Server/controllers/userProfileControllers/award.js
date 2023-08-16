@@ -1,9 +1,17 @@
+import { User } from "../../models/User.js";
 import Award from "../../models/userModels/Award.js";
 
 export const postData = async (req, res) => {
   try {
     const data = req.body;
     const userID = req.user; // it is set from middleware
+
+    const checkForProgress = await Award.find({ user: userID });
+    if (checkForProgress.length === 0) {
+      const user = await User.findById(userID);
+      user.profileCompletion += 10;
+      await user.save();
+    }
 
     if (
       !data.awardTitle ||

@@ -56,7 +56,10 @@ function Login() {
 
           // Store the token in local storage
           localStorage.setItem("token", data.token);
+          localStorage.setItem("progress", data.completionStatus);
           localStorage.setItem("userType", "user");
+
+          console.log(localStorage);
 
           // Store the user data in local storage
           localStorage.setItem("user", JSON.stringify(data.user));

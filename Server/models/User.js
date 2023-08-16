@@ -27,6 +27,10 @@ const userSchema = Schema({
   skills: {
     type: [String],
   },
+  profileCompletion: {
+    type: Number,
+    default: 0,
+  },
 });
 
 export const User = mongoose.model("User", userSchema);
