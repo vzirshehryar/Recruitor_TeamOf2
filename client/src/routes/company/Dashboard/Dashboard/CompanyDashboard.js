@@ -1,48 +1,69 @@
-import React, { useState } from 'react'
-import Sidebar from '../../Sidebar'
-import "./CompanyDashboard.css"
-import ManageJobCard from './ManageJobCard';
-import RecentJobPosts from './RecentJobPosts';
-import Navbar from '../../Navbar';
-import Footer from '../../../Home/components/footer';
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import Sidebar from "../../Sidebar";
+import "./CompanyDashboard.css";
+import ManageJobCard from "./ManageJobCard";
+import RecentJobPosts from "./RecentJobPosts";
+import Footer from "../../../Home/components/footer";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 // import { useState } from 'react';
 
 const CompanyDashboard = () => {
   const [nav, setNav] = useState(false);
+  const [allInfo, setAllInfo] = useState({});
   const navigate = useNavigate();
-    const handleAuth = () =>{
-        const type = localStorage.getItem("userType");
-        if (type !== "company")
-        {
-            navigate("/loginAsCompany");
-        }
+
+  useEffect(() => {
+    if (localStorage.getItem("userType") !== "company")
+      navigate("/loginAsCompany");
+    getDashboard();
+  }, []);
+
+  const getDashboard = async () => {
+    try {
+      const res = await fetch("/company/getDashboard", {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      });
+      const data = await res.json();
+      setAllInfo(data);
+      console.log(allInfo)
+    } catch (error) {
+      toast.error(error);
     }
-    useEffect(() => {
-        handleAuth();
-      }, []);
+  };
+
+  const handleAuth = () => {
+    const type = localStorage.getItem("userType");
+    if (type !== "company") {
+      navigate("/loginAsCompany");
+    }
+  };
+  useEffect(() => {
+    handleAuth();
+  }, []);
 
   return (
     <>
       <Sidebar />
       <div className="company-dashboard-main-container">
         <div className="company-dashboard-welcome-div">
-          <div className="company-dashboard-heading">
-            <h1>Welcome to Step200</h1>
-            <p>XYZ</p>
+          <div>
+            <h1 className="company-dashboard-heading">Welcome to Step200</h1>
+            <p className="company-dashboard-para">XYZ</p>
           </div>
           <div className="company-dashboard-image">
-            <img src="/background.png" alt="image" />
+            <img src="/girlWithBook.png" alt="image" />
           </div>
         </div>
-        <div className="company-dashboard-job-cards-div">
+        <div className="company-dashboard-job-cards-container">
           <ManageJobCard for="post" />
           <ManageJobCard for="applied" />
           <ManageJobCard for="view" />
         </div>
         <div className="company-dashboard-job-table-comp">
-          <RecentJobPosts />
+          <RecentJobPosts jobs={allInfo.jobs} setAllInfo={setAllInfo} />
         </div>
       </div>
       <Footer />
@@ -50,4 +71,4 @@ const CompanyDashboard = () => {
   );
 };
 
-export default CompanyDashboard
+export default CompanyDashboard;

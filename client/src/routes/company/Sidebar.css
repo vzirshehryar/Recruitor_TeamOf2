@@ -1,138 +1,153 @@
-.sidebar {
-    background: #6D0E9D;
-    color: #FFF;
-    font-family: Poppins;
-    margin-top: 55px;
-    width: 280px; /* Set your desired width here */
-    position: fixed; /* Keep the sidenav fixed on the left side */
-    top: 0;
-    left: 0;
-    bottom: 0;
-  }
+.dashboard-component-container3 {
+  position: absolute;
+  left: 300px;
+  min-width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: -webkit-fill-available;
+}
 
-  .dashboard-heading {
-    text-align: center;
-    font-family: Poppins;
-    font-size: 18px;
-    margin-top: 30px;
-    font-weight: 400;
+.sidebar {
+  z-index: 3;
+  background: #6d0e9d;
+  color: #fff;
+  font-family: Poppins;
+  margin-top: 55px;
+  width: 280px; /* Set your desired width here */
+  position: fixed; /* Keep the sidenav fixed on the left side */
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+.footer-container-dashboard {
+  /* margin-top: 100%; */
+}
+
+.dashboard-heading {
+  text-align: center;
+  font-family: Poppins;
+  font-size: 18px;
+  margin-top: 30px;
+  font-weight: 400;
+}
+
+.sidebar-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+  margin-left: 20px;
+
+  /* width: 100%; */
+}
+
+.sidebar-button {
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+}
+.sidebar-head-button {
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.sidebar-head-button.active {
+  position: relative;
+
+  color: #fff;
+  text-decoration: none;
+  padding-right: 25px;
+  font-weight: 900;
+  font-style: normal;
+}
+.sidebar-button.active {
+  position: relative;
+  background: #fff;
+  color: #6d0e9d;
+  text-decoration: none;
+  padding-right: 25px;
+  margin-left: -18px;
+}
+.sidebar-button.active svg path {
+  stroke: #6d0e9d;
+}
+
+.sidebar-button.active:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -25px; /* Move the ellipse to the right side */
+  transform: translateY(-50%) rotateY(180deg); /* Add the rotateY transformation */
+  width: 55px;
+  height: 44px;
+  background: #fff;
+  border-top-left-radius: 20px; /* Adjust the border radius to create the ellipse */
+  border-bottom-left-radius: 20px;
+  z-index: 9999;
+  box-shadow: -3px 0 0px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.open {
+  left: 300px;
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+  padding: 15px;
+  position: sticky;
+  top: 90px;
+  left: 20px;
+  z-index: 5;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+}
+
+@media (max-width: 768px) {
+  .dashboard-component-container3 {
+    left: 0;
+    width: 100%;
   }
-  
-  .sidebar-buttons {
-    display: flex;
-    flex-direction: column;
-    margin-top: 70px;
-    margin-left: 20px;
-    
-    /* width: 100%; */
+  .hamburger {
+    display: block;
   }
-  
-  .sidebar-button {
-    padding: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    color: #FFF;
-    font-family: Poppins;
-    font-size: 18px;
-    font-weight: 400;
-  }
-  .sidebar-head-button {
-    padding: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    color: #FFF;
-    font-family: Poppins;
-    font-size: 18px;
-    font-weight: 400;
-  }
-  
-  .sidebar-head-button.active {
-    position: relative;
-    
-    color: #fff;
-    text-decoration: none;
-    padding-right: 25px;
-    font-weight: 900;
-    font-style: normal;
-  }
-  .sidebar-button.active {
-    position: relative;
-    background: #FFF;
-    color: #6D0E9D;
-    text-decoration: none;
-    padding-right: 25px;
-    margin-left: -18px;
-  }
-  .sidebar-button.active svg path {
-    stroke: #6D0E9D;
-  }
-  
-  .sidebar-button.active:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -25px; /* Move the ellipse to the right side */
-    transform: translateY(-50%) rotateY(180deg); /* Add the rotateY transformation */
-    width: 55px;
-    height: 44px;
-    background: #FFF;
-    border-top-left-radius: 20px; /* Adjust the border radius to create the ellipse */
-    border-bottom-left-radius: 20px;
-    z-index: 9999;
-    box-shadow: -3px 0 0px rgba(0, 0, 0, 0.2);
+  .sidebar {
+    left: -320px;
   }
 
   .sidebar.open {
-    width: 250px;
-  }
-  .hamburger {
-    display: none;
-    cursor: pointer;
-    padding: 15px;
-  }
-  
-  .hamburger.open {
-    display: block;
-  }
-  
-  .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px 0;
+    left: 0;
   }
 
-  @media (max-width: 768px) {
-    .sidebar {
-      width: 0;
-    }
-  
-    .sidebar.open {
-      width: 200px;
-    }
-  
-    .hamburger {
-      display: block;
-    }
-  
-    .dashboard-heading {
-      margin-top: 0;
-      
-    }
-  
-    .sidebar-buttons {
-      
-      margin-top: 20px;
-      
-    }
-    .sidebar-button{
-      font-size: 12px;
-    }
-    .sidebar-buttons, .dashboard-heading{
-      visibility: hidden;
-    }
-    .sidebar.open .sidebar-buttons,
-    .sidebar.open .dashboard-heading{
-      visibility: visible;
-    }
+  .dashboard-heading {
+    margin-top: 50px;
   }
+
+  .sidebar-buttons {
+    margin-top: 40px;
+  }
+  .sidebar-button {
+    font-size: 12px;
+  }
+  .sidebar-buttons, .dashboard-heading{
+    visibility: hidden;
+  }
+  .sidebar.open .sidebar-buttons,
+  .sidebar.open .dashboard-heading{
+    visibility: visible;
+  }
+}

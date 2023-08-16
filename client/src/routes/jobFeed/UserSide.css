@@ -322,9 +322,6 @@
     font-size: 26px;
     line-height: 40px;
   }
-  .filter_btns {
-    display: grid !important;
-  }
 }
 
 /* Edit Profile Page CSS */

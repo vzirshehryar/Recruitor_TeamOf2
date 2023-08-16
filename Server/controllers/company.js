@@ -1,4 +1,5 @@
 import Company from "../models/Company.js";
+import mongoose from "mongoose";
 import Job from "../models/Job.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -158,6 +159,31 @@ export const getDashboardInfo = async (req, res) => {
     };
 
     return res.status(200).json(jobInfo);
+  } catch (error) {
+    console.error("Error fetching dashboard:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export const manageHiringGetJobs = async (req, res) => {
+  try {
+    const companyId = new mongoose.Types.ObjectId(req.company); // Company ID from the middleware
+    const jobs = await Job.aggregate([
+      {
+        $match: {
+          company: companyId, // Convert company ID to ObjectId
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          jobTitle: 1,
+          applications: { $size: "$applications" },
+        },
+      },
+    ]);
+
+    return res.status(200).json({ jobs });
   } catch (error) {
     console.error("Error fetching dashboard:", error);
     return res.status(500).json({ error: "Internal server error" });

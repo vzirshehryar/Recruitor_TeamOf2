@@ -1,4 +1,5 @@
 import Job from "../models/Job.js";
+import Education from "../models/userModels/Education.js";
 
 export const getAllJobs = async (req, res) => {
   try {
@@ -107,19 +108,34 @@ export const getJobs = async (req, res) => {
 export const getApplicantssOfAJob = async (req, res) => {
   try {
     const jobId = req.params.jobID;
-    const applicants = await Job.findById(jobId, "applications").populate({
+    const company = req.company;
+    var applicants = await Job.findOne(
+      { _id: jobId, company: company },
+      "applications"
+    ).populate({
       path: "applications.user",
       model: "User",
-      select: "-jobs",
+      select: "firstName lastName",
     }); // Select specific user fields
 
-    if (!applicants) {
-      console.log("Applicant not found");
-      res.status(400).json({ error: "Applicants not found" });
-      return;
-    }
+    applicants = applicants.applications;
 
-    res.json(applicants.applications);
+    const applicantsWithEducation = await Promise.all(
+      applicants.map(async (application) => {
+        // Assuming 'Education' model has a field named 'user' that references the User model
+        console.log(application.user._id);
+        const education = await Education.findOne({
+          user: application.user._id,
+        }).select("degree");
+
+        return {
+          ...application.toObject(),
+          education: education, // Add education information to the application object
+        };
+      })
+    );
+
+    res.json(applicantsWithEducation);
   } catch (error) {
     console.error("Error getting Applicants:", error);
     return res.status(400).json({
