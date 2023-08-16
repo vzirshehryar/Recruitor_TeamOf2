@@ -53,7 +53,26 @@ const Sidenav = () => {
         </div>
         <div className="progress-circle">
           <div className="progress-container">
-            <CircularProgressbar color='white' value={currProgress} text={`${currProgress}%`} />
+            
+            <CircularProgressbar
+              value={currProgress}
+              text={`${currProgress}%`}
+              styles={{
+                path: {
+                  stroke: "#D4ACE9",
+                  strokeWidth: 5.5,
+                },
+                text: {
+                  fill: "#FFF",
+                  fontFamily: "Poppins",
+                },
+                trail: {
+                  stroke: 'white',
+                  strokeWidth: 5.5,
+                  strokeLinecap: "round",
+                },
+              }}
+            />
           </div>
           
         </div>
