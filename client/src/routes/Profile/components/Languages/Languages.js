@@ -20,7 +20,7 @@ const Languages = () => {
     return(
         <>
         <Sidenav />
-        <div className="profile-component-container">
+        <div className="profile-component-container-multi">
         <LangForm />
         
         </div>

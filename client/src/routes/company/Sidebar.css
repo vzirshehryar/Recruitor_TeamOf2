@@ -9,10 +9,7 @@
     left: 0;
     bottom: 0;
   }
-.footer-container-dashboard{
-  /* margin-top: 100%; */
-}
-  
+
   .dashboard-heading {
     text-align: center;
     font-family: Poppins;
@@ -130,5 +127,12 @@
     }
     .sidebar-button{
       font-size: 12px;
+    }
+    .sidebar-buttons, .dashboard-heading{
+      visibility: hidden;
+    }
+    .sidebar.open .sidebar-buttons,
+    .sidebar.open .dashboard-heading{
+      visibility: visible;
     }
   }

@@ -10,6 +10,17 @@
     width: 75%;
     left: 320px;
 }
+.profile-component-container1{
+  position: relative;
+  width: 75%;
+  left: 320px;
+}
+
+.profile-component-container-multi{
+  position: relative;
+  width: 75%;
+  left: 320px;
+}
 
   .cover-photo {
     position: relative;
@@ -76,10 +87,42 @@
   @media (max-width: 576px) {
     .profile-container,
     .profile-component-container {
-        width: 100%;
+        width: 120%;
         left: 0;
     }
+    .profile-component-container1 {
+      width: 140%;
+      left: -80px;
+  }
+  
 
+.profile-component-container-multi{
+  width: 90%;
+  left: 0;
+  margin-left: 20px;
+}
+
+  .shadow-exp{
+    width: 100%;
+    
+  }
+  .switch{
+    margin-top: 10px !important;
+    margin-left: 0 !important;
+  }
+  .curr-work{
+    margin-top: 10px !important;
+    font-size: 15px !important;
+  }
+  .label-exp{
+    font-size: 15px !important;
+  }
+  .name-container-exp{
+    display: block !important;
+  }
+  .custom-file-button{
+    width: 82% !important;
+  }
     
     .profile-image-box {
         position: relative;
@@ -87,6 +130,7 @@
         left: 0;
         margin-bottom: 20px;
         margin-top: -20px;
+        display: none;
         
     }
     .cover-photo{
@@ -94,6 +138,7 @@
       width: 100%;
       left: 0;
       height: 150%;
+      display: none;
     }
     
 

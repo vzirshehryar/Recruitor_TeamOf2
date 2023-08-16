@@ -2,13 +2,20 @@ import React from 'react';
 import "../components/personalinfo.css";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { AiOutlineMenu } from 'react-icons/ai';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Sidenav = () => {
+
     const navigate = useNavigate();
-    const location = useLocation();
+
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
     const [dropdownVisible, setDropdownVisible] = useState(false);
 
     const toggleDropdown = () => {
@@ -27,7 +34,10 @@ const Sidenav = () => {
     
     
   return (
-    <div className="sidenav">
+    <div className={`sidenav ${isSidebarOpen ? 'open' : ''}`}>
+       <div className={`hamburger-sidenav ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}>
+            <AiOutlineMenu size={30} style={{ color: '#FF0000' }} />
+       </div>
       <div className="profile-heading">Profile</div>
         <div className="sidenav-buttons">
           <NavLink to="/personal-information" activeClassName="active" className="sidenav-button">Personal Information</NavLink>

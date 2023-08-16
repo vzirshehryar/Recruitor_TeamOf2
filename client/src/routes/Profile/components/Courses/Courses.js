@@ -20,7 +20,7 @@ const Courses = () => {
     return(
         <>
         <Sidenav />
-        <div className="profile-component-container">
+        <div className="profile-component-container-multi">
         <CourForm />
         </div>
         

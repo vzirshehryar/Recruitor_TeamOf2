@@ -72,7 +72,7 @@ const Images = () => {
         </div>
         
       </div>
-      <div className="profile-component-container">
+      <div className="profile-component-container1">
       <PersonalInfo />
       </div>
     </> 
