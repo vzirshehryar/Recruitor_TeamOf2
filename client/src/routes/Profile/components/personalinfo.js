@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../components/personalinfo.css";
 import { Button } from 'react-bootstrap';
+import { useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 
@@ -20,6 +21,55 @@ const PersonalInfo = () => {
     linkedInLink: '',
     twitterLink: '',
   });
+
+  const handleData = () =>{
+    const userToken = localStorage.getItem('token');
+    const headers = {
+      Authorization: userToken,
+    };
+    const newUrl = '/user/personalInfo/getData';
+        axios.get(newUrl, { headers })
+        .then((getResponse) => {
+          
+          if(!getResponse.data)
+          {
+            setFormData({
+              firstName: '',
+              lastName: '',
+              emailAddress: '',
+              phoneNumber: '',
+              address: '',
+              country: '',
+              city: '',
+              zipCode: '',
+              linkedInLink: '',
+              twitterLink: '',
+          });
+          }
+          else
+          {
+              setFormData({
+                firstName: getResponse.data.firstName,
+                lastName: getResponse.data.lastName,
+                emailAddress: getResponse.data.email,
+                phoneNumber: getResponse.data.phNo,
+                address: getResponse.data.address,
+                country: getResponse.data.country,
+                city: getResponse.data.city,
+                zipCode: getResponse.data.zipCode,
+                linkedInLink: getResponse.data.linkednLink,
+                twitterLink: getResponse.data.twitterLink,
+          });
+          }
+        })
+        .catch((getError) => {
+          console.error(getError);
+          // Handle error from the GET request
+        });
+  }
+  useEffect(() => {
+    handleData();
+  }, []);
 
   const handleChange = (e) => {
     const { id, value } = e.target;

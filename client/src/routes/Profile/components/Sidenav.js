@@ -29,7 +29,7 @@ const Sidenav = () => {
       navigate("/");
     };
     const currProgress = localStorage.getItem('progress');
-    console.log(currProgress);
+    
     
     
     
