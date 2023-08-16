@@ -6,6 +6,8 @@ import RecentJobPosts from "./RecentJobPosts";
 import Footer from "../../../Home/components/footer";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import CandidatePieChart from "./CandidatePiChart";
+
 // import { useState } from 'react';
 
 const CompanyDashboard = () => {
@@ -28,7 +30,7 @@ const CompanyDashboard = () => {
       });
       const data = await res.json();
       setAllInfo(data);
-      console.log(allInfo)
+      console.log(allInfo);
     } catch (error) {
       toast.error(error);
     }
@@ -64,6 +66,9 @@ const CompanyDashboard = () => {
         </div>
         <div className="company-dashboard-job-table-comp">
           <RecentJobPosts jobs={allInfo.jobs} setAllInfo={setAllInfo} />
+        </div>
+        <div className="pie-chart-holder">
+          <CandidatePieChart />
         </div>
       </div>
       <Footer />
