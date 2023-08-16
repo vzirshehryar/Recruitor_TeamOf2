@@ -1,6 +1,20 @@
 /* Form.css */
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+::-webkit-scrollbar {
+  width: 10px; 
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: #cccacc; 
+  border-radius: 5px; 
+}
+
+/* Optional: When hovering over the scrollbar */
+::-webkit-scrollbar-thumb:hover {
+  background: #c4c2c4; 
+}
 .form-container {
   display: flex;
   justify-content: center;
@@ -10,9 +24,8 @@
 }
 
 .shadow {
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
-    6px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 6px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  background: #FFF;
   padding: 30px;
   border-radius: 18px;
   max-width: 70%;
@@ -20,13 +33,14 @@
 
 .name-container {
   display: flex;
-
+ 
   gap: 10px; /* Add space between first name and last name */
 }
-.new-name-container {
-  margin-top: 20px;
-  display: flex;
-  gap: 10px;
+.new-name-container{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    
 }
 .input-group-profile {
   flex: 1;
@@ -45,15 +59,15 @@
   display: flex;
   flex-direction: column; /* Ensure the label and input field are stacked vertically */
 }
-.address-container {
-  margin-top: 20px; /* Add some space between the email container and phone input */
-  display: flex;
-  flex-direction: column;
+.address-container{
+    margin-top: 20px; /* Add some space between the email container and phone input */
+    display: flex;
+    flex-direction: column;
 }
-.linkedin-container {
-  margin-top: 20px; /* Add some space between the email container and phone input */
-  display: flex;
-  flex-direction: column;
+.linkedin-container{
+    margin-top: 20px; /* Add some space between the email container and phone input */
+    display: flex;
+    flex-direction: column;
 }
 
 .label {
@@ -68,21 +82,23 @@
 
 .input-field {
   font-family: Poppins;
-  font-size: 20px;
+  font-size: 17px;
   color: #6d0e9d;
   border: 1px solid #6d0e9d;
   border-radius: 4px;
   padding: 10px;
   width: 100%; /* Set the width of the input fields to 100% */
+  
 }
 .input-field::placeholder {
-  color: #d3d3d3 !important;
+  color: #D3D3D3 !important;
 }
 input[type="date"]::-webkit-datetime-edit-text,
 input[type="date"]::-webkit-datetime-edit-month-field,
 input[type="date"]::-webkit-datetime-edit-day-field,
 input[type="date"]::-webkit-datetime-edit-year-field {
   color: #888;
+  
 }
 input[type="date"].input-field::-webkit-datetime-edit-text,
 input[type="date"].input-field::-webkit-datetime-edit-month-field,
@@ -96,23 +112,23 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   color: #6d0e9d;
   font-family: Poppins;
 }
-.button-container button {
-  outline: none;
-  border: none;
-  background-color: #6d0e9d;
-  color: #fff;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 1.5rem;
-  padding: 10px 16px;
-  width: 100%;
-  transition: 100ms;
-  cursor: pointer;
-  font-family: Poppins;
-  margin-top: 20px;
+.button-container button{
+    outline: none;
+    border: none;
+    background-color: #6d0e9d;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 10px 16px;
+    width: 100%;
+    transition: 100ms;
+    cursor: pointer;
+    font-family: Poppins;
+    margin-top: 20px;
 }
-.button-container button:hover {
-  background-color: #9639d4;
+.button-container button:hover{
+    background-color: #9639d4;
 }
 
 /* Sidenav CSS Start */
@@ -121,7 +137,7 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
     background: #6D0E9D;
     color: #FFF;
     font-family: Poppins;
-    z-index: 999;
+    
     width: 300px; /* Set your desired width here */
     position: fixed; /* Keep the sidenav fixed on the left side */
     top: 0;
@@ -134,6 +150,7 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
     font-size: 24px;
     font-weight: bold;
     margin-top: 10px;
+    font-family: Poppins;
   }
   
   .sidenav-buttons {
@@ -151,7 +168,7 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
     padding: 10px;
     padding-left: 30px;
     cursor: pointer;
-    font-family: Poppins sans-serif;
+    font-family: Poppins;
     text-decoration: none;
     color: #FFF;
   }
@@ -271,8 +288,29 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
     bottom: auto;
     top: 100%;
   }
+  .sidenav.open {
+    width: 250px;
+  }
+  .hamburger-sidenav {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+  }
+  
+  .hamburger-sidenav.open {
+    display: block;
+  }
+  
+  .bar-sidenav {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
 
 /* Sidenav CSS End   */
+
+
 
 /*Post Jobs CSS Start*/
 
@@ -280,30 +318,34 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 175vh;
+  
+  
 }
 .shadow2 {
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
-    6px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 6px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  background: #FFF;
   padding: 30px;
   border-radius: 18px;
   width: 65%;
-  min-width: 350px;
+  
 }
 .form-container-compprofile {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  height: 200vh;
+  
+  
 }
-.postjobs-heading {
+.postjobs-heading{
   color: #000;
   text-align: start;
   font-family: Poppins;
   font-size: 32px;
   margin-bottom: 40px;
 }
-.compprofile-heading {
+.compprofile-heading{
   color: #000;
   text-align: center;
   font-family: Poppins;
@@ -311,21 +353,21 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   margin-bottom: 40px;
   margin-top: 10px;
 }
-.dashboard-component-container {
+.dashboard-component-container{
   height: 175vh;
   margin-left: 280px;
 }
-.dashboard-component-container2 {
+.dashboard-component-container2{
   height: 100vh;
   margin-left: 280px;
 }
 
 .compprofile-image-box {
   position: relative;
-
+  
   left: 260px;
-  border: 7px solid #6d0e9d;
-  background: #f5f7fa;
+  border: 7px solid #6D0E9D;
+  background: #F5F7FA;
   border-radius: 5%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   /* Set the desired size for the profile image box */
@@ -335,7 +377,7 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
 }
 .compprofile-image-box::after {
   content: "";
-
+  
   bottom: 0;
   left: 0;
   width: 100%;
@@ -350,7 +392,7 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   left: 65px;
   transform: translate(-50%, -50%);
   font-size: 35px;
-  color: #6d0e9d;
+  color: #6D0E9D;
   font-family: Poppins;
   font-weight: bold;
 }
@@ -362,11 +404,13 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   cursor: pointer;
 }
 
+
 /*Post Jobs CSS End*/
   @media (max-width: 768px) {
     
     .sidenav {
       width: 0;
+      z-index: 999;
     }
   
     .sidenav.open {
@@ -389,10 +433,10 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
     }
     .sidenav-button.active:before {
       /* width: 55px; */
-      height: 35px !important;
+      height: 40px !important;
     }
     .sidenav-button{
-      font-size: 12px;
+      font-size: 14.5px;
     }
     .sidenav-buttons,
     .progress-circle,
@@ -417,7 +461,7 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
 @media screen and (max-width: 576px) {
   .dashboard-component-container,
   .dashboard-component-container2 {
-    /* Add top margin on smaller screens */
+     /* Add top margin on smaller screens */
     padding: 10px;
     width: 100%;
   }
@@ -425,26 +469,18 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   .compprofile-edit-icon {
     bottom: -5px;
   }
-  /* .form-container-compprofile {
+  .form-container-compprofile{
     margin-top: 280px;
     height: 100vh;
     margin-left: -300px;
-  } */
-  .form-container-postjobs {
-    margin-top: 100px;
   }
-
-  .compprofile-image-box {
+  .form-container-postjobs{
+    margin-top: 280px;
+    height: 100vh;
+    margin-left: -300px;
+  }
+  
+  .compprofile-image-box{
     margin-left: -110px;
-  }
-}
-
-@media (max-width: 768px) {
-  .dashboard-component-container {
-    margin-left: 0;
-    width: 100%;
-  }
-  .shadow2 {
-    padding: 30px 10px;
   }
 }

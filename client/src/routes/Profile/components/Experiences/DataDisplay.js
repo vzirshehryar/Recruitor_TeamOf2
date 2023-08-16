@@ -46,9 +46,23 @@ const DataDisplay = () => {
         
           <div className="data-heading">{data.jobTitle}</div>
           <div className="data-dates">
-            {data.startDate} - {data.endDate} 
+          
+          {`${new Date(data.startDate).toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          })} - ${
+            data.currentlyWorking
+              ? 'Currently Working'
+              : new Date(data.endDate).toLocaleDateString('en-GB', {
+                  day: 'numeric',
+                  month: 'short',
+                  year: 'numeric',
+                })
+          }`}
+            
           </div>
-          <div className="data-company">{data.company}</div>
+          <div className="data-company">Company: {data.company}</div>
           <div className="data-description-heading">Description:</div>
           <div className="data-description">{data.description}</div>
         

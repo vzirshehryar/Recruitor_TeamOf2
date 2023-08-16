@@ -47,10 +47,12 @@ const DisplayPub = () => {
         )}
         
           <div className="data-heading">{data.publicationTitle}</div>
-          <div className="data-dates">
-            {data.publishedDate}
+          <div className="data-dates">Publication Date: {new Date(data.publishedDate).toLocaleDateString(
+                      "en-GB",
+                      { day: "numeric", month: "short", year: "numeric" }
+          )} 
           </div>
-          <div className="data-company">{data.members}</div>
+          <div className="data-company">Members: {data.members}</div>
           {/* <div className="data-description-heading">Description:</div> */}
           {/* <div className="data-description">{data.school}</div> */}
           <div className="data-description">

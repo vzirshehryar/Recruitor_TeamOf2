@@ -35,6 +35,12 @@ const SkillInput = () => {
     }));
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleAddSkill(); 
+    }
+  };
+
   const handleSubmit = () => {
     
     
@@ -77,6 +83,7 @@ const SkillInput = () => {
           type="text"
           value={formState.newSkill}
           onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
           placeholder="Enter a skill"
         />
         <button onClick={handleAddSkill}>Add</button>

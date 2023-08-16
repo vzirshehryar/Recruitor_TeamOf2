@@ -56,8 +56,13 @@ const DisplayAwards = () => {
             </div>
           )}
           <div className="data-heading">{data.awardTitle}</div>
-          <div className="data-dates">{data.issueDate}</div>
-          <div className="data-company">{data.institute}</div>
+          <div className="data-dates">
+          {new Date(data.issueDate).toLocaleDateString(
+                      "en-GB",
+                      { day: "numeric", month: "short", year: "numeric" }
+          )} 
+          </div>
+          <div className="data-company">Institute: {data.institute}</div>
           <div className="data-description">
             <img
               src={data.awardImage}

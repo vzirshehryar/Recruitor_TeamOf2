@@ -49,9 +49,17 @@ const DisplayCour = () => {
         
           <div className="data-heading">{data.courseTitle}</div>
           <div className="data-dates">
-            {data.issueDate} - {data.expiryDate} 
+          {new Date(data.issueDate).toLocaleDateString(
+                      "en-GB",
+                      { day: "numeric", month: "short", year: "numeric" }
+          )} - {" "}
+          {new Date(data.expiryDate).toLocaleDateString(
+                      "en-GB",
+                      { day: "numeric", month: "short", year: "numeric" }
+          )}
+             
           </div>
-          <div className="data-company">{data.organization}</div>
+          <div className="data-company">Organization: {data.organization}</div>
           {/* <div className="data-description-heading">Course Credentials</div>  */}
           <div className="data-description"><Link to={data.credentialURL}>Course Credentials</Link></div>
           {/* <a href={data.credentialURL}>Course Credentials</a> */}

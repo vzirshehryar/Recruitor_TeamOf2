@@ -36,7 +36,8 @@ const Sidenav = () => {
   return (
     <div className={`sidenav ${isSidebarOpen ? 'open' : ''}`}>
        <div className={`hamburger-sidenav ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}>
-            <AiOutlineMenu size={30} style={{ color: '#FF0000' }} />
+            <AiOutlineMenu size={30} 
+            style={isSidebarOpen ? { color: "white" } : { color: "#6d0e9d" }} />
        </div>
       <div className="profile-heading">Profile</div>
         <div className="sidenav-buttons">

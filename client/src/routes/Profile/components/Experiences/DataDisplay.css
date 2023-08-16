@@ -15,10 +15,10 @@
     background: #fff;
     box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.25), 8px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     padding: 20px;
-    max-width: 800px; /* Adjust the width as needed */
+    max-width: 890px; /* Adjust the width as needed */
     width: 100%;
     border-radius: 15px;
-    margin-left: 250px;
+    margin-left: 270px;
     position: relative; /* Add position relative to allow absolute positioning of dots */
   }
   
@@ -104,10 +104,10 @@
   @media (max-width: 576px) {
     
     .data-container {
+      max-width: 530px;
+      margin-top: 150px;
+      margin-left: -230px;
       
-      margin-top: 50px;
-      margin-left: -240px;
-      margin-bottom: -200px;
   }
     .data-box {
         border-radius: 5px;

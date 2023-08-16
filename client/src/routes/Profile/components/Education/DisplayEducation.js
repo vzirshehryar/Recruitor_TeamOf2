@@ -49,9 +49,9 @@ const DisplayEdu = () => {
           <div className="data-dates">
             {data.startMonth} {data.startYear} - {data.endMonth} {data.endYear}
           </div>
-          <div className="data-company">{data.fieldOfStudy}</div>
+          <div className="data-company">Field of Study: {data.fieldOfStudy}</div>
           {/* <div className="data-description-heading">Description:</div> */}
-          <div className="data-description">{data.school}</div>
+          <div className="data-description">School: {data.school}</div>
         
       </div>
       )}
