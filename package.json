@@ -4,6 +4,10 @@
   "description": "",
   "main": "server.js",
   "type": "module",
+  "engines": {
+    "node": "16.17.0",
+    "npm": "9.8.0"
+  },
   "scripts": {
     "start": "node server.js",
     "client": "",
