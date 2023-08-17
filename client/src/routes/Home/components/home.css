@@ -131,6 +131,13 @@
   background-size: cover;
   height: 80vh;
 }
+.backgroudnDivImage {
+  position: relative;
+  background: url("/public/companyhome.png");
+  background-position: bottom;
+  background-size: cover;
+  height: 80vh;
+}
 
 .landingpageHeading {
   color: #3e055b;

@@ -1,8 +1,10 @@
-*, *::before, *::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat';
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
 }
 
 .company-dashboard-main-container {
@@ -65,8 +67,8 @@
 }
 
 .company-dashboard-welcome-div img {
-  max-width: 100%;
-  height: auto;
+  width: auto;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -93,7 +95,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding-left: 110px;
   gap: 0.7rem;
 }
 .company-dashboard-job-card::before {

@@ -33,6 +33,9 @@ import SubmitSkills from "./routes/Profile/components/Skills/SubmitSkills";
 // COMPANY ROUTES
 import CompanySignUp from "./routes/Auth/signUp/CompanySignUp";
 import LoginAsCompany from "./routes/Auth/Login/LoginAsCompany";
+import CForgetPassword from "./routes/Auth/ForgetPassword/companyIndex";
+import CSetPassword from "./routes/Auth/setPassword/companyIndex";
+
 import CompanyHome from "./routes/company/home/Home";
 import Jobs from "./routes/company/Dashboard/PostJobs/Jobs";
 import Profile from "./routes/company/Dashboard/CompProfile/Profile";
@@ -80,13 +83,15 @@ const App = () => {
         //ROUTES OF COMPANY
         <Route path="/registerAsCompany" element={<CompanySignUp />} />
         <Route path="/loginAsCompany" element={<LoginAsCompany />} />
+        <Route path="/CforgetPassword" element={<CForgetPassword />} />
+        <Route path="/CsetNewPassword/:id" element={<CSetPassword />} />
         <Route path="/company" element={<CompanyHome />} />
         <Route path="/postjobs" element={<Jobs />} />
         <Route path="/compprofile" element={<Profile />} />
         <Route path="/allapplicants" element={<Applicants />} />
         <Route path="/joblistings" element={<Listings />} />
-        <Route path="/companydashboard" element={<CompanyDashboard/>}/>
-        <Route path="/managehiring" element={<ManageHiring/>}/>
+        <Route path="/companydashboard" element={<CompanyDashboard />} />
+        <Route path="/managehiring" element={<ManageHiring />} />
       </Routes>
     </Router>
   );

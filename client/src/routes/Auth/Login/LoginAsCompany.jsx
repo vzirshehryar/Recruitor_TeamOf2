@@ -92,7 +92,7 @@ function LoginAsCompany() {
   }
 
   function forgetPasswordPage() {
-    navigate("/forgetPassword");
+    navigate("/CforgetPassword");
   }
 
   // Company Login
@@ -222,7 +222,7 @@ function LoginAsCompany() {
 
                   <div className="d-flex justify-content-between mt-1">
                     <p className="rememberMe">
-                      <input type="checkbox" /> Remember Me
+                      {/* <input type="checkbox" /> Remember Me */}
                     </p>
                     <a
                       href="#"
@@ -230,6 +230,7 @@ function LoginAsCompany() {
                         textDecoration: "none",
                         color: "#6D0E9D",
                         fontSize: "14px",
+                        fontFamily: "Poppins",
                       }}
                       onClick={forgetPasswordPage}
                     >
@@ -276,7 +277,7 @@ function LoginAsCompany() {
                     }}
                     onClick={registerBtn}
                   >
-                    sign Up
+                    Sign Up
                   </a>
                 </div>
               </div>

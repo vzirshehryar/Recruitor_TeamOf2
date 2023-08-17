@@ -26,7 +26,7 @@ const Home = () => {
     <>
       <Navbar page="home" />
 
-      <div className="backgroundDiv px-5 pt-4" id="home">
+      <div className="backgroundDiv backgroudnDivImage px-5 pt-4" id="home">
         <h1 className="landingpageHeading" style={styleH2}>
           Find the next talented member of your team
         </h1>

@@ -13,109 +13,108 @@ const RecentJobPosts = ({ jobID }) => {
   const [displayResume, setDisplayResume] = useState(false);
 
   //just here for the example
-const exampleData = [
-  {
-    user: {
-      firstName: "John",
-      lastName: "Doe",
+  const exampleData = [
+    {
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      education: {
+        degree: "Bachelor's",
+      },
+      appliedDate: "2023-08-15T12:30:00Z",
     },
-    education: {
-      degree: "Bachelor's",
+    {
+      user: {
+        firstName: "Jane",
+        lastName: "Smith",
+      },
+      education: {
+        degree: "Master's",
+      },
+      appliedDate: "2023-08-16T09:15:00Z",
     },
-    appliedDate: "2023-08-15T12:30:00Z",
-  },
-  {
-    user: {
-      firstName: "Jane",
-      lastName: "Smith",
+    {
+      user: {
+        firstName: "Michael",
+        lastName: "Johnson",
+      },
+      education: {
+        degree: "PhD",
+      },
+      appliedDate: "2023-08-17T14:45:00Z",
     },
-    education: {
-      degree: "Master's",
+    {
+      user: {
+        firstName: "Emily",
+        lastName: "Brown",
+      },
+      education: {
+        degree: "Bachelor's",
+      },
+      appliedDate: "2023-08-18T11:30:00Z",
     },
-    appliedDate: "2023-08-16T09:15:00Z",
-  },
-  {
-    user: {
-      firstName: "Michael",
-      lastName: "Johnson",
+    {
+      user: {
+        firstName: "William",
+        lastName: "Williams",
+      },
+      education: {
+        degree: "Master's",
+      },
+      appliedDate: "2023-08-19T08:00:00Z",
     },
-    education: {
-      degree: "PhD",
+    {
+      user: {
+        firstName: "Alice",
+        lastName: "Johnson",
+      },
+      education: {
+        degree: "PhD",
+      },
+      appliedDate: "2023-08-20T14:45:00Z",
     },
-    appliedDate: "2023-08-17T14:45:00Z",
-  },
-  {
-    user: {
-      firstName: "Emily",
-      lastName: "Brown",
+    {
+      user: {
+        firstName: "Ella",
+        lastName: "Davis",
+      },
+      education: {
+        degree: "Bachelor's",
+      },
+      appliedDate: "2023-08-21T11:30:00Z",
     },
-    education: {
-      degree: "Bachelor's",
+    {
+      user: {
+        firstName: "James",
+        lastName: "Smith",
+      },
+      education: {
+        degree: "Master's",
+      },
+      appliedDate: "2023-08-22T09:15:00Z",
     },
-    appliedDate: "2023-08-18T11:30:00Z",
-  },
-  {
-    user: {
-      firstName: "William",
-      lastName: "Williams",
+    {
+      user: {
+        firstName: "Olivia",
+        lastName: "Brown",
+      },
+      education: {
+        degree: "Bachelor's",
+      },
+      appliedDate: "2023-08-23T11:30:00Z",
     },
-    education: {
-      degree: "Master's",
+    {
+      user: {
+        firstName: "Liam",
+        lastName: "Williams",
+      },
+      education: {
+        degree: "Master's",
+      },
+      appliedDate: "2023-08-24T08:00:00Z",
     },
-    appliedDate: "2023-08-19T08:00:00Z",
-  },
-  {
-    user: {
-      firstName: "Alice",
-      lastName: "Johnson",
-    },
-    education: {
-      degree: "PhD",
-    },
-    appliedDate: "2023-08-20T14:45:00Z",
-  },
-  {
-    user: {
-      firstName: "Ella",
-      lastName: "Davis",
-    },
-    education: {
-      degree: "Bachelor's",
-    },
-    appliedDate: "2023-08-21T11:30:00Z",
-  },
-  {
-    user: {
-      firstName: "James",
-      lastName: "Smith",
-    },
-    education: {
-      degree: "Master's",
-    },
-    appliedDate: "2023-08-22T09:15:00Z",
-  },
-  {
-    user: {
-      firstName: "Olivia",
-      lastName: "Brown",
-    },
-    education: {
-      degree: "Bachelor's",
-    },
-    appliedDate: "2023-08-23T11:30:00Z",
-  },
-  {
-    user: {
-      firstName: "Liam",
-      lastName: "Williams",
-    },
-    education: {
-      degree: "Master's",
-    },
-    appliedDate: "2023-08-24T08:00:00Z",
-  },
-];
-
+  ];
 
   //for displaying the number of rows per page
   const [rowsToShow, setRowsToShow] = useState(4);
@@ -157,7 +156,6 @@ const exampleData = [
     // const paginatedData = data.slice(startIndex, endIndex);
     setApplicants(paginatedData);
   }, [currentPage, rowsToShow]);
-
 
   useEffect(() => {
     console.log("useEffect1");

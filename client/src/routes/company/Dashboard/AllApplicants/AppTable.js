@@ -303,28 +303,29 @@ const AppTable = () => {
               ))}
           </tbody>
         </table>
-
-        {/* Pagination controls */}
-        <div className="pagination-apptable">
-          <button
-            onClick={() => setCurrentPage(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="pagination-apptable-button"
-          >
-            Previous
-          </button>
-          <span className="pagination-apptable-page">
-            {currentPage}
-            {"/"}
-            {totalPages}
-          </span>
-          <button
-            onClick={() => setCurrentPage(currentPage + 1)}
-            disabled={indexOfLastItem >= data.length}
-            className="pagination-apptable-button"
-          >
-            Next
-          </button>
+        <div style={{ width: "100%" }}>
+          {/* Pagination controls */}
+          <div className="pagination-apptable">
+            <button
+              onClick={() => setCurrentPage(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="pagination-apptable-button"
+            >
+              Previous
+            </button>
+            <span className="pagination-apptable-page">
+              {currentPage}
+              {"/"}
+              {totalPages}
+            </span>
+            <button
+              onClick={() => setCurrentPage(currentPage + 1)}
+              disabled={indexOfLastItem >= data.length}
+              className="pagination-apptable-button"
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </>

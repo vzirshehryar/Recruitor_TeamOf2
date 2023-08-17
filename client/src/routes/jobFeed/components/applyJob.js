@@ -189,6 +189,7 @@ const ApplyJob = ({ job }) => {
                 height: "60px",
                 background: "#660099",
                 color: "#FFFFFF",
+                fontSize: "30px",
               }}
               type="submit"
             >

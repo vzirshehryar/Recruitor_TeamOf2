@@ -21,7 +21,13 @@ const ManageJobCard = (props) => {
           <p>{props.count ? props.count : 0}</p>
         </div>
         <div className="company-dashboard-job-card-bottom-div">
-          <p>Jobs</p>
+          <p>
+            {props.for === "Post"
+              ? "Jobs"
+              : props.for === "Applied"
+              ? "Applicants"
+              : "Viewers"}
+          </p>
         </div>
       </div>
     </>

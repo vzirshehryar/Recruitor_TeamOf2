@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const companySchema = new mongoose.Schema({
   email: String,
   password: String,
+  forgetPasswordAuthToken: String,
   name: String,
   teamSize: String,
   phNo: String,

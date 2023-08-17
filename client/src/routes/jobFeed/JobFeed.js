@@ -205,7 +205,7 @@ function JobFeed() {
                       </p>
                       <p
                         className="displayJobDescription2"
-                        style={{ maxWidth: "60%", marginTop: "10px" }}
+                        style={{ maxWidth: "45%", marginTop: "10px" }}
                       >
                         {item.jobDescription}
                         {/* Lorem ipsum dolor sit amet, consetetur sadipscing elitr,

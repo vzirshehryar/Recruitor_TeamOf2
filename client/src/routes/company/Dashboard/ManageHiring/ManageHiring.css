@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', 'monospace';
+  font-family: "Poppins", "monospace";
 
   & p {
     margin-bottom: 0;
@@ -27,21 +27,21 @@
     margin-left: 300px;
   }
 }
-.manage-hiring-heading{
+.manage-hiring-heading {
   font-size: 2.5rem;
   color: #6d0e9d;
   font-weight: 600;
-  @media (min-width:  1200px) {
+  @media (min-width: 1200px) {
     font-size: 3rem;
   }
 }
 
-.recent-job-top-row-heading h1{
+.recent-job-top-row-heading h1 {
   font-size: 1.25rem;
   text-transform: capitalize;
   font-weight: 600;
   color: #000000;
-  margin-bottom: .7rem;
+  margin-bottom: 0.7rem;
   @media (min-width: 600px) {
     margin-bottom: 0;
   }
@@ -59,7 +59,6 @@
     font-size: 20px;
     font-weight: 600;
   }
- 
 }
 
 .manage-hiring-job-cards-div {
@@ -67,7 +66,7 @@
   display: flex;
   gap: 0.7rem;
   overflow-x: auto;
-   @media (min-width: 600px) {
+  @media (min-width: 600px) {
     gap: 1.5rem;
   }
 }
@@ -87,7 +86,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding-left: 100px;
+  padding-right: 10px;
   gap: 0.7rem;
 }
 .manage-hiring-job-card::before {
@@ -117,11 +117,10 @@
 
 /*LET THIS STAY*/
 .manage-hiring-job-card-top-div-para {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 500;
   text-transform: capitalize;
-  text-align: center;
-  width: 200px;
+  width: 190px;
 }
 
 .manage-hiring-stats-with-icon {
@@ -135,7 +134,7 @@
   height: 20px;
   & p {
     margin-bottom: 0 !important;
-    color: #0B8A00;
+    color: #0b8a00;
     font-weight: 600;
   }
 }
@@ -161,14 +160,13 @@
   background-color: white;
   width: 124px;
   height: 67px;
-  margin-left: 5rem;
   border-radius: 8px;
   border: 0.3px solid rgb(206, 205, 205);
 }
 
 /* TABLE COMPONENET */
 
-.manage-hiring-recent-job-top-row{
+.manage-hiring-recent-job-top-row {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -187,7 +185,7 @@
     background-color: #6d0e9d;
     border: none;
     padding-inline: 1rem;
-    padding-block: .6rem;
+    padding-block: 0.6rem;
     @media (min-width: 600px) {
       padding-inline: 2rem;
     }
@@ -262,6 +260,6 @@
   flex-wrap: wrap;
 }
 
-.manage-hiring-badge{
+.manage-hiring-badge {
   background-color: #6d0e9d !important;
 }

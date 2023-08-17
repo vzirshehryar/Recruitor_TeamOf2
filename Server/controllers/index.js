@@ -133,7 +133,7 @@ export const ForgetPassword = async (req, res) => {
     await user.save();
 
     // EMAILING THE LINK TO THE USER
-    const resetLink = `https://boiling-beach-52487-b897e4f8d94c.herokuapp.com/setNewPassword/${token}`;
+    const resetLink = `${process.env.LINK}/setNewPassword/${token}`;
     const msg = {
       to: email,
       from: process.env.FROM,
@@ -146,6 +146,41 @@ export const ForgetPassword = async (req, res) => {
     await sgMail.send(msg);
 
     return res.status(200).json({ message: "Email is sended successfully" });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+};
+
+// REST API FOR SETTING NEW PASSWORD
+export const SetPassword = async (req, res) => {
+  const { token, passwords } = req.body;
+
+  try {
+    // SEE IF USER EXISTS
+    const user = await User.findOne({ forgetPasswordAuthToken: token });
+
+    if (!user) {
+      return res.status(404).json({ error: "Invalid or expired token" });
+    }
+
+    // COMPARING THE NEW PASSWORD TO THE PREVIOUS PASSWORD
+    // const isPreviousPassword = await bcrypt.compare(passwords, user.password);
+    // if (isPreviousPassword) {
+    //   return res.status(400).json({
+    //     error: "New password must be different from the previous password",
+    //   });
+    // }
+
+    // ENCRYPTING PASSWORD AND SAVING IT TO MONGO DB
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(passwords, salt);
+    user.forgetPasswordAuthToken = ""; // Optionally invalidate the token
+    await user.save();
+
+    return res
+      .status(200)
+      .json({ message: "Your password has been updated successfully" });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");
@@ -171,41 +206,6 @@ export const SendEmail = async (req, res) => {
   } catch (err) {
     res.send({ success: false, msg: err.message });
     console.log("err");
-  }
-};
-
-// REST API FOR SETTING NEW PASSWORD
-export const SetPassword = async (req, res) => {
-  const { token, passwords } = req.body;
-
-  try {
-    // SEE IF USER EXISTS
-    const user = await User.findOne({ forgetPasswordAuthToken: token });
-
-    if (!user) {
-      return res.status(404).json({ error: "Invalid or expired token" });
-    }
-
-    // COMPARING THE NEW PASSWORD TO THE PREVIOUS PASSWORD
-    const isPreviousPassword = await bcrypt.compare(passwords, user.password);
-    if (isPreviousPassword) {
-      return res.status(400).json({
-        error: "New password must be different from the previous password",
-      });
-    }
-
-    // ENCRYPTING PASSWORD AND SAVING IT TO MONGO DB
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(passwords, salt);
-    user.forgetPasswordAuthToken = ""; // Optionally invalidate the token
-    await user.save();
-
-    return res
-      .status(200)
-      .json({ message: "Your password has been updated successfully" });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Server error");
   }
 };
 

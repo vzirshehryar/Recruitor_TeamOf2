@@ -214,14 +214,15 @@ function Login() {
 
                   <div className="d-flex justify-content-between mt-1">
                     <p className="rememberMe">
-                      <input type="checkbox" /> Remember Me
+                      {/* <input type="checkbox" /> Remember Me */}
                     </p>
                     <a
                       href="#"
                       style={{
                         textDecoration: "none",
                         color: "#6D0E9D",
-                        fontSize: "14px",
+                        fontSize: "15px",
+                        fontFamily: "Poppins",
                       }}
                       onClick={forgetPasswordPage}
                     >
@@ -264,11 +265,11 @@ function Login() {
                     style={{
                       textDecoration: "none",
                       color: "#6D0E9D",
-                      fontSize: "14px",
+                      fontSize: "15px",
                     }}
                     onClick={registerBtn}
                   >
-                    sign Up
+                    Sign Up
                   </a>
                 </div>
               </div>
