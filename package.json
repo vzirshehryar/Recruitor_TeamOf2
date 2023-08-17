@@ -2,14 +2,14 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "engines": {
     "node": "18.16.1",
     "npm": "9.5.1"
   },
   "scripts": {
-    "start": "cd client && npm install && npm run build && cd .. && node index.js",
+    "start": "node server.js",
     "client": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
