@@ -36,16 +36,6 @@ const CompanyDashboard = () => {
     }
   };
 
-  const handleAuth = () => {
-    const type = localStorage.getItem("userType");
-    if (type !== "company") {
-      navigate("/loginAsCompany");
-    }
-  };
-  useEffect(() => {
-    handleAuth();
-  }, []);
-
   return (
     <>
       <Sidebar />

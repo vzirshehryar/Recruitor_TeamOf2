@@ -1,9 +1,13 @@
 import React from "react";
 
-const ManageJobCard = ({ job, changeJob }) => {
+const ManageJobCard = ({ job, changeJob, selectedJob }) => {
+  console.log(selectedJob, job._id);
   return (
     <>
-      <div className="manage-hiring-job-card">
+      <div
+        className="manage-hiring-job-card"
+        style={selectedJob === job._id ? { background: "#F5F7FA" } : {}}
+      >
         <div className="manage-hiring-job-card-top-div">
           <p className="manage-hiring-job-card-top-div-para">{job.jobTitle}</p>
           <div

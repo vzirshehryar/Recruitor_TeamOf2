@@ -123,7 +123,7 @@ export const getApplicantssOfAJob = async (req, res) => {
     const applicantsWithEducation = await Promise.all(
       applicants.map(async (application) => {
         // Assuming 'Education' model has a field named 'user' that references the User model
-        console.log(application.user._id);
+        // console.log(application.user._id);
         const education = await Education.findOne({
           user: application.user._id,
         }).select("degree");

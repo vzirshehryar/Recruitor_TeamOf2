@@ -53,7 +53,12 @@ const ManageHiring = () => {
             {jobs.length ? (
               jobs.map((job, i) => {
                 return (
-                  <ManageJobCard key={i} job={job} changeJob={changeJob} />
+                  <ManageJobCard
+                    key={i}
+                    job={job}
+                    changeJob={changeJob}
+                    selectedJob={selectedJob}
+                  />
                 );
               })
             ) : (

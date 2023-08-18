@@ -156,7 +156,6 @@ export const SetPassword = async (req, res) => {
 export const setProfile = async (req, res) => {
   try {
     const data = req.body;
-    console.log(data);
     const companyID = req.company; // it is set from middleware
     if (
       !data.name ||

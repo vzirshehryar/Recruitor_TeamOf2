@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 
 const RecentJobPosts = ({ jobID }) => {
   const [activeTableButton, setActiveTableButton] = useState();
+  const [allApplicants, setAllApplicants] = useState([]);
   const [applicants, setApplicants] = useState([]);
   const [displayResume, setDisplayResume] = useState(false);
 
@@ -122,11 +123,13 @@ const RecentJobPosts = ({ jobID }) => {
   //for actual pagination
   const [currentPage, setCurrentPage] = useState(1);
 
-  const startIndex = (currentPage - 1) * rowsToShow;
-  const endIndex = startIndex + rowsToShow;
-  const currentData = exampleData.slice(startIndex, endIndex);
+  // const startIndex = (currentPage - 1) * rowsToShow;
+  // const endIndex = startIndex + rowsToShow;
+  // const currentData = exampleData.slice(startIndex, endIndex);
 
-  const totalPages = Math.ceil(exampleData.length / rowsToShow);
+  const totalPages = allApplicants
+    ? Math.ceil(allApplicants.length / rowsToShow)
+    : 0;
 
   const getAllApplicants = async () => {
     try {
@@ -138,8 +141,9 @@ const RecentJobPosts = ({ jobID }) => {
       const data = await res.json();
 
       // CHANGE THIS TO ACUTAL DATA RETURNED BY DATABASE LATER
-      setApplicants(exampleData);
-      // setApplicants(data);
+      // setApplicants(exampleData);
+      setApplicants(data);
+      setAllApplicants(data);
 
       console.log("Data is: ", data);
     } catch (error) {
@@ -152,15 +156,13 @@ const RecentJobPosts = ({ jobID }) => {
   useEffect(() => {
     const startIndex = (currentPage - 1) * rowsToShow;
     const endIndex = startIndex + rowsToShow;
-    const paginatedData = exampleData.slice(startIndex, endIndex);
+    const paginatedData = allApplicants.slice(startIndex, endIndex);
     // const paginatedData = data.slice(startIndex, endIndex);
     setApplicants(paginatedData);
   }, [currentPage, rowsToShow]);
 
   useEffect(() => {
-    console.log("useEffect1");
     getAllApplicants();
-    console.log("useEffect2");
   }, [jobID]);
 
   const ResumeStyle = {
