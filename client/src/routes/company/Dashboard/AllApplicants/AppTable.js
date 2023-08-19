@@ -223,7 +223,6 @@ const AppTable = () => {
               <th>Applied Date</th>
               <th>Job Role</th>
               <th>Hiring Stage</th>
-              <th>Status</th>
               <th></th>
             </tr>
           </thead>
@@ -262,10 +261,9 @@ const AppTable = () => {
                       {applicant.hiringStage}
                     </div>
                   </td>
-                  <td>{getStatusIcon(applicant.status)}</td>
                   <td>
                     <div className="action-buttons">
-                      <svg
+                      {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="36"
                         height="36"
@@ -280,7 +278,7 @@ const AppTable = () => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
+                      </svg> */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="36"

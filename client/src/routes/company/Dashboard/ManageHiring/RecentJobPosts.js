@@ -92,7 +92,7 @@ const RecentJobPosts = ({ jobID }) => {
               <th>Applied Date</th>
               <th>Hiring Stage</th>
               <th>Resume</th>
-              <th>Actions</th>
+              {/* <th>Actions</th> */}
             </tr>
           </thead>
           <tbody>
@@ -121,9 +121,9 @@ const RecentJobPosts = ({ jobID }) => {
                         ></iframe>
                       )}
                     </td>
-                    <td>
+                    {/* <td>
                       <FaEllipsisH />
-                    </td>
+                    </td> */}
                   </tr>
                 );
               })
@@ -144,9 +144,9 @@ const RecentJobPosts = ({ jobID }) => {
                   </button>
                 </td>
                 <td>--</td>
-                <td>
+                {/* <td>
                   <FaEllipsisH />
-                </td>
+                </td> */}
               </tr>
             )}
           </tbody>

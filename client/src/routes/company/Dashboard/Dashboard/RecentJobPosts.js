@@ -53,7 +53,6 @@ const RecentJobPosts = ({ jobs }) => {
             <tr>
               <th>Job Title</th>
               <th>Category</th>
-              <th>Openings</th>
               <th>Applications</th>
               <th>Status</th>
             </tr>
@@ -65,7 +64,6 @@ const RecentJobPosts = ({ jobs }) => {
                   <tr key={i} className="manage-hiring-table-row-body">
                     <td>{job.jobTitle}</td>
                     <td>{job.jobType}</td>
-                    <td>{10}</td>
                     <td>{3}</td>
                     <td>
                       <DeadlineButton deadline={job.applicationDeadline} />

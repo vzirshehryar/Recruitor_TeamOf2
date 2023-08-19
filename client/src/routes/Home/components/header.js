@@ -144,20 +144,20 @@ function Header() {
                         }}
                         onClick={() => navigate("/personal-information")}
                       >
-                        <i
+                        {/* <i
                           className="ri-account-box-fill"
                           style={{ marginRight: "2%" }}
-                        ></i>
-                        {user && data.email}
+                        ></i> */}
+                        Profile
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={handleLogout}
                         style={{ textAlign: "center" }}
                       >
-                        <i
+                        {/* <i
                           className="ri-logout-box-r-line"
                           style={{ marginRight: "2%" }}
-                        ></i>
+                        ></i> */}
                         Logout
                       </Dropdown.Item>
                     </Dropdown.Menu>
