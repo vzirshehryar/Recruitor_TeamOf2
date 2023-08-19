@@ -95,7 +95,7 @@ function CompanySignUp() {
           console.log(response);
           if (!response.success) {
             toast.error(response.msg);
-            setLoader("SIGN IN");
+            setLoader("SIGN UP");
             return;
           }
 

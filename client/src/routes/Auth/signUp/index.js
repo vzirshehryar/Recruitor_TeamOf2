@@ -78,7 +78,7 @@ function Register() {
     //   );
     // }
     else {
-      setLoader("SIGNING IN...");
+      setLoader("SIGNING UP...");
       fetch("/user/register", {
         method: "POST",
         headers: {
@@ -93,19 +93,19 @@ function Register() {
           console.log(response);
           if (!response.success) {
             toast.error(response.msg);
-            setLoader("SIGN IN");
+            setLoader("SIGN UP");
             return;
           }
 
           setFormData(initialFormData);
           setIsValidPassword(false);
           toast.success("User is registered successfully");
-          setLoader("SIGN IN");
+          setLoader("SIGN UP");
         })
         .catch((error) => {
           // Handle error here
 
-          setLoader("SIGN IN");
+          setLoader("SIGN UP");
           console.log("Error sending data:", error);
         });
     }
