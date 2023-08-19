@@ -53,12 +53,12 @@ app.use("/job", JobRoutes);
 // });
 
 // SCRIPT OF PRODUCTION
-// if (process.env.NODE_ENV === "production") {
-app.use(express.static("client/build"));
-app.get("*", (req, res) => {
-  res.sendFile(__dirname, "client", "build", "index.html");
-});
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(__dirname, "client", "build", "index.html");
+  });
+}
 
 // LISTENING TO THE PORT
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
