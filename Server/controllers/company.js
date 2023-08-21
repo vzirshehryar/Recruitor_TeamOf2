@@ -50,7 +50,7 @@ export const loginCompany = async (req, res) => {
 
   try {
     // SEE IF USER EXISTS
-    let company = await Company.findOne({ email }, "email password");
+    let company = await Company.findOne({ email }, "email password name");
 
     // RETURN ERROR IF USER NOT EXISTS
     if (!company) {
@@ -180,7 +180,7 @@ export const setProfile = async (req, res) => {
     company.city = data.city;
     company.address = data.address;
     company.about = data.about;
-    company.save();
+    await company.save();
 
     return res.status(201).json({
       message: "Company profile Added Successfully",
@@ -219,8 +219,9 @@ export const getDashboardInfo = async (req, res) => {
     const jobs = [];
 
     companyJobs.forEach((job) => {
-      applied = job.applications.length; // Sum up applications across all jobs
+      applied += job.applications.length; // Sum up applications across all jobs
       job = job.toObject();
+      job.applicants = job.applications.length;
       delete job.applications;
       jobs.push(job);
     });
@@ -234,6 +235,30 @@ export const getDashboardInfo = async (req, res) => {
     return res.status(200).json(jobInfo);
   } catch (error) {
     console.error("Error fetching dashboard:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export const getPieInfo = async (req, res) => {
+  try {
+    const companyId = req.company; // Company ID from the middleware
+    const companyJobs = await Job.find({ company: companyId });
+
+    var interviewed = 0;
+    var shortlisted = 0;
+    var hired = 0;
+
+    companyJobs.forEach((job) => {
+      job.applications.forEach((applicant) => {
+        if (applicant.hiringStage === "Interviewed") interviewed++;
+        if (applicant.hiringStage === "Hired") hired++;
+        if (applicant.hiringStage === "Shortlisted") shortlisted++;
+      });
+    });
+
+    return res.status(200).json({ interviewed, shortlisted, hired });
+  } catch (error) {
+    console.error("Error fetching Pie Information:", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 };

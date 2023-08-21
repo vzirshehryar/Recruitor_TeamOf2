@@ -47,7 +47,6 @@ function Login() {
           return response.json(); // Parse the response JSON
         })
         .then((data) => {
-          console.log("==data", data);
           if (!data.success) {
             toast.error(data.msg);
             setLoader("LOG IN");
@@ -58,8 +57,6 @@ function Login() {
           localStorage.setItem("token", data.token);
           localStorage.setItem("progress", data.completionStatus);
           localStorage.setItem("userType", "user");
-
-          console.log(localStorage);
 
           // Store the user data in local storage
           localStorage.setItem("user", JSON.stringify(data.user));

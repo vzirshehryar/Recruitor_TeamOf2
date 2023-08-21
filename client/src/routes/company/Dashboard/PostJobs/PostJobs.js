@@ -15,6 +15,7 @@ const PostJobs = () => {
     jobDescription: "",
     qualification: "",
   });
+  const [degree, setDegree] = useState("");
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -37,7 +38,7 @@ const PostJobs = () => {
       Experience: formData.Experience,
       applicationDeadline: formData.applicationDeadline,
       jobDescription: formData.jobDescription,
-      qualification: formData.qualification,
+      qualification: degree + " " + formData.qualification,
     };
 
     const token = localStorage.getItem("token");
@@ -176,30 +177,57 @@ const PostJobs = () => {
             <label className="label" htmlFor="Experience">
               Experience
             </label>
-            <input
-              type="text"
+            <select
               id="Experience"
               className="input-field"
-              placeholder="Experience"
               required
               value={formData.Experience}
               onChange={handleChange}
-            />
+            >
+              <option value=""></option>
+              <option value="Fresh">Fresh</option>
+              <option value="Less than 1 Year">Less than 1 Year</option>
+              <option value="1-2 Years">1-2 Years</option>
+              <option value="3-5 Years">3-5 Years</option>
+              <option value="6-10 Years">6-10 Years</option>
+              <option value="More than 10 Years">More than 10 Years</option>
+            </select>
           </div>
 
-          <div className="address-container">
-            <label className="label" htmlFor="qualification">
-              Qualifications
-            </label>
-            <input
-              type="text"
-              id="qualification"
-              className="input-field"
-              placeholder="Qualification"
-              required
-              value={formData.qualification}
-              onChange={handleChange}
-            />
+          <div className="name-container-exp">
+            <div className="input-group-exp">
+              <label className="label-exp" htmlFor="minSR">
+                Education
+              </label>
+              <select
+                id="degree"
+                className="input-field"
+                required
+                value={degree}
+                onChange={(e) => setDegree(e.target.value)}
+              >
+                <option value=""></option>
+                <option value="BS">BS</option>
+                <option value="BA">BA</option>
+                <option value="MS">MS</option>
+                <option value="MA">MA</option>
+                <option value="PhD">PhD</option>
+              </select>
+            </div>
+            <div className="input-group-exp">
+              <label className="label" htmlFor="qualification">
+                &nbsp;
+              </label>
+              <input
+                type="text"
+                id="qualification"
+                className="input-field"
+                placeholder="Qualification"
+                required
+                value={formData.qualification}
+                onChange={handleChange}
+              />
+            </div>
           </div>
 
           <div className="linkedin-container">

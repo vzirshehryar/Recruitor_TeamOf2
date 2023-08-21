@@ -87,6 +87,70 @@ export const postJob = async (req, res) => {
   }
 };
 
+// get a single job from id in params
+export const getJob = async (req, res) => {
+  try {
+    const companyID = req.company; // it is set from middleware
+    const jobID = req.params.jobID;
+    const job = await Job.findById(jobID, "-applications");
+
+    return res.status(201).json({
+      job,
+    });
+  } catch (error) {
+    console.error("Error getting Jobs:", error);
+    return res.status(400).json({
+      error: "An error occurred while getting Jobs",
+    });
+  }
+};
+
+// edit a job from id in params
+export const editJob = async (req, res) => {
+  try {
+    const data = req.body;
+    const companyID = req.company; // it is set from middleware
+    const jobID = req.params.jobID;
+
+    if (
+      !data.jobTitle ||
+      !data.jobType ||
+      !data.jobLevel ||
+      !data.maxSR ||
+      !data.minSR ||
+      !data.location ||
+      !data.Experience ||
+      !data.qualification ||
+      !data.applicationDeadline ||
+      !data.jobDescription
+    ) {
+      res.status(400).json({ error: "data in body is not complete" });
+      return;
+    }
+    const job = await Job.findById(jobID, "-applications");
+    job.jobTitle = data.jobTitle;
+    job.jobType = data.jobType;
+    job.jobLevel = data.jobLevel;
+    job.maxSR = data.maxSR;
+    job.minSR = data.minSR;
+    job.location = data.location;
+    job.Experience = data.Experience;
+    job.qualification = data.qualification;
+    job.applicationDeadline = data.applicationDeadline;
+    job.jobDescription = data.jobDescription;
+    await job.save();
+
+    return res.status(201).json({
+      message: "Job Edited Successfully",
+    });
+  } catch (error) {
+    console.error("Error editing Job:", error);
+    return res.status(400).json({
+      error: "An error occurred while editing Job",
+    });
+  }
+};
+
 // get jobs of a company
 export const getJobs = async (req, res) => {
   try {
@@ -96,6 +160,27 @@ export const getJobs = async (req, res) => {
     return res.status(201).json({
       jobs,
     });
+  } catch (error) {
+    console.error("Error getting Jobs:", error);
+    return res.status(400).json({
+      error: "An error occurred while getting Jobs",
+    });
+  }
+};
+
+export const deleteJob = async (req, res) => {
+  try {
+    const companyID = req.company; // it is set from middleware
+    const jobID = req.params.jobID;
+    const job = await Job.findById(jobID);
+
+    if (!job) {
+      throw new Error("Job not found");
+    }
+
+    await job.deleteOne();
+
+    return res.status(200);
   } catch (error) {
     console.error("Error getting Jobs:", error);
     return res.status(400).json({

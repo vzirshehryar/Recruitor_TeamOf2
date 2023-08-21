@@ -44,6 +44,7 @@ import Listings from "./routes/company/Dashboard/JobListings/Listings";
 import ManageHiring from "./routes/company/Dashboard/ManageHiring/ManageHiring";
 
 import CompanyDashboard from "./routes/company/Dashboard/Dashboard/CompanyDashboard";
+import EditJob from "./routes/company/Dashboard/PostJobs/EditJob";
 
 const App = () => {
   return (
@@ -87,6 +88,7 @@ const App = () => {
         <Route path="/CsetNewPassword/:id" element={<CSetPassword />} />
         <Route path="/company" element={<CompanyHome />} />
         <Route path="/postjobs" element={<Jobs />} />
+        <Route path="/editjob/:jobID" element={<EditJob />} />
         <Route path="/compprofile" element={<Profile />} />
         <Route path="/allapplicants" element={<Applicants />} />
         <Route path="/joblistings" element={<Listings />} />

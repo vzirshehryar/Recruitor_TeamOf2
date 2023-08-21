@@ -183,6 +183,7 @@ const CompProfile = () => {
               id="email"
               className="input-field"
               placeholder="@gmail.com"
+              readOnly={true}
               value={formData.email}
               onChange={handleChange}
             />

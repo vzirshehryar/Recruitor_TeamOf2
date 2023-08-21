@@ -263,3 +263,22 @@
 .manage-hiring-badge {
   background-color: #6d0e9d !important;
 }
+
+.ResumeDisplay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.ResumeDisplay embed {
+  width: 400px;
+  height: 100%;
+  z-index: 12;
+}

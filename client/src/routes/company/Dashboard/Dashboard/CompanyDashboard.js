@@ -21,6 +21,8 @@ const CompanyDashboard = () => {
     getDashboard();
   }, []);
 
+  const { email, name } = JSON.parse(localStorage.getItem("user"));
+
   const getDashboard = async () => {
     try {
       const res = await fetch("/company/getDashboard", {
@@ -30,7 +32,7 @@ const CompanyDashboard = () => {
       });
       const data = await res.json();
       setAllInfo(data);
-      console.log(allInfo);
+      console.log(data);
     } catch (error) {
       toast.error(error);
     }
@@ -43,7 +45,7 @@ const CompanyDashboard = () => {
         <div className="company-dashboard-welcome-div">
           <div>
             <h1 className="company-dashboard-heading">Welcome to Step200</h1>
-            <p className="company-dashboard-para">XYZ</p>
+            <p className="company-dashboard-para">{name ? name : email}</p>
           </div>
           <div className="company-dashboard-image">
             <img src="/girlWithBook.png" alt="image" />

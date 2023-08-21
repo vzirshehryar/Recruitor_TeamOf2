@@ -14,7 +14,7 @@ export const postData = async (req, res) => {
       twitterLink,
     } = req.body;
     const userID = req.user;
-
+    var progress = 0;
     if (
       !firstName ||
       !lastName ||
@@ -38,6 +38,7 @@ export const postData = async (req, res) => {
 
     if (!user.firstName) {
       user.profileCompletion += 20;
+      progress = 20;
     }
     user.firstName = firstName;
     user.lastName = lastName;
@@ -52,6 +53,7 @@ export const postData = async (req, res) => {
     user.save();
 
     return res.status(201).json({
+      progress: progress,
       message: "Personal Information Added Successfully",
     });
   } catch (error) {
@@ -86,17 +88,21 @@ export const postSkills = async (req, res) => {
       return;
     }
 
+    var progress = 0;
     const user = await User.findById(userID);
 
     // console.log(user);
     if (user.skills.length === 0) {
       user.profileCompletion += 10;
+      progress = 10;
     }
 
     user.skills = [...data.skills, ...user.skills];
     const skills = await user.save();
 
-    res.status(200).json({ message: "Skills Added Successfully" });
+    res
+      .status(200)
+      .json({ progress: progress, message: "Skills Added Successfully" });
   } catch (err) {
     console.log(err.message);
     res.status(400).json({ error: "An error occurred while adding Skills" });

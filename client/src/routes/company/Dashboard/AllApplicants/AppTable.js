@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./AppTable.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -63,7 +65,10 @@ const AppTable = () => {
   const [selectedSortOption, setSelectedSortOption] = useState("Name");
   const [searchValue, setSearchValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [hiringStage, setHiringStage] = useState([]);
+  const [update, setUpdate] = useState(true);
   const itemsPerPage = 10;
+  const token = localStorage.getItem("token");
 
   const handleFilterClick = () => {
     setShowDropdown(!showDropdown);
@@ -85,12 +90,21 @@ const AppTable = () => {
       .get(apiUrl, { headers })
       .then((response) => {
         setData(response.data.applicants);
-        console.log(data);
+        const res = response.data.applicants;
+        // console.log(response);
+        const initialSelectedExperiences = [];
+        console.log("data ki length", res.length);
+        for (let i = 0; i < res.length; i++) {
+          console.log(i, res[i]);
+          initialSelectedExperiences.push(res[i].hiringStage);
+        }
+        console.log("data experince", initialSelectedExperiences);
+        setHiringStage(initialSelectedExperiences);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [update]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -99,6 +113,50 @@ const AppTable = () => {
 
   const handlePost = () => {
     navigate("/postjobs");
+  };
+
+  const ChangeHiringStage = (index, value) => {
+    var newArr = hiringStage;
+    newArr[index] = value;
+    // console.log([...newArr]);
+    setHiringStage([...newArr]);
+    fetch(`/job/changeStage/${data[index].jobID}/${data[index]._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({ stage: value }),
+    });
+  };
+
+  const deleteApplication = async (application) => {
+    const deleteIt = window.confirm("Do you want to delete it?");
+    if (!deleteIt) return;
+
+    try {
+      const res = await fetch(
+        `/job/deleteApplication/${application.jobID}/${application._id}`,
+        {
+          method: "delete",
+          headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (!res.ok) {
+        throw Error("Backend Error Occured");
+      }
+    } catch (err) {
+      console.log("error Toast");
+      toast.error("Backend Error Occured");
+      return;
+    }
+    console.log("succeess");
+    toast.success("Application Deleted Successfully");
+
+    setUpdate(!update);
   };
 
   return (
@@ -195,10 +253,13 @@ const AppTable = () => {
       </div>
       <div className="table-container">
         <div className="allapplicants-heading"> Applicants List</div>
-        <table className="custom-table">
-          <thead>
-            <tr>
-              <th>
+        <div
+          style={{ overflowX: "auto", marginBottom: "20px", padding: "0 20px" }}
+        >
+          <table className="custom-table">
+            <thead>
+              <tr>
+                {/* <th>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -218,52 +279,64 @@ const AppTable = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-              </th>
-              <th>Name</th>
-              <th>Applied Date</th>
-              <th>Job Role</th>
-              <th>Hiring Stage</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentItems
-              .filter((applicant) => {
-                const propertyToSearch =
-                  selectedSortOption === "Name"
-                    ? applicant.firstName?.toLowerCase() || ""
-                    : selectedSortOption === "Job Title"
-                    ? applicant.jobRole?.toLowerCase() || ""
-                    : "";
-                return (
-                  searchValue.toLowerCase() === "" ||
-                  propertyToSearch.includes(searchValue)
-                );
-              })
-              .map((applicant, index) => (
-                <tr key={index}>
-                  <td>
+              </th> */}
+                <th>Name</th>
+                <th>Applied Date</th>
+                <th>Job Role</th>
+                <th>Hiring Stage</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentItems
+                .filter((applicant) => {
+                  const propertyToSearch =
+                    selectedSortOption === "Name"
+                      ? applicant.firstName?.toLowerCase() || ""
+                      : selectedSortOption === "Job Title"
+                      ? applicant.jobRole?.toLowerCase() || ""
+                      : "";
+                  return (
+                    searchValue.toLowerCase() === "" ||
+                    propertyToSearch.includes(searchValue)
+                  );
+                })
+                .map((applicant, index) => {
+                  // console.log(hiringStage);
+                  return (
+                    <tr key={index}>
+                      {/* <td>
                     <input
                       type="checkbox"
                       className="checkbox-container"
                     ></input>
-                  </td>
-                  <td>{applicant.firstName}</td>
-                  <td>
-                    {new Date(applicant.appliedDate).toLocaleDateString(
-                      "en-GB",
-                      { day: "numeric", month: "short", year: "numeric" }
-                    )}
-                  </td>
-                  <td>{applicant.jobRole}</td>
-                  <td>
-                    <div className="stage-rectangle">
-                      {applicant.hiringStage}
-                    </div>
-                  </td>
-                  <td>
-                    <div className="action-buttons">
-                      {/* <svg
+                  </td> */}
+                      <td>{applicant.firstName}</td>
+                      <td>
+                        {new Date(applicant.appliedDate).toLocaleDateString(
+                          "en-GB",
+                          { day: "numeric", month: "short", year: "numeric" }
+                        )}
+                      </td>
+                      <td>{applicant.jobRole}</td>
+                      <td>
+                        <select
+                          id="jobType"
+                          className="stage-rectangle"
+                          value={hiringStage[index]}
+                          onChange={(e) =>
+                            ChangeHiringStage(index, e.target.value)
+                          }
+                        >
+                          <option value="Pending">Pending</option>
+                          <option value="Interviewed">Interviewed</option>
+                          <option value="Shortlisted">Shortlisted</option>
+                          <option value="Hired">Hired</option>
+                        </select>
+                      </td>
+                      <td>
+                        <div className="action-buttons">
+                          {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="36"
                         height="36"
@@ -279,28 +352,32 @@ const AppTable = () => {
                           strokeLinejoin="round"
                         />
                       </svg> */}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="36"
-                        height="36"
-                        viewBox="0 0 36 36"
-                        fill="none"
-                      >
-                        <circle cx="18" cy="18" r="18" fill="white" />
-                        <path
-                          d="M11 13.2H12.6M12.6 13.2H25.4M12.6 13.2V24.4C12.6 24.8243 12.7686 25.2313 13.0686 25.5314C13.3687 25.8314 13.7757 26 14.2 26H22.2C22.6243 26 23.0313 25.8314 23.3314 25.5314C23.6314 25.2313 23.8 24.8243 23.8 24.4V13.2M15 13.2V11.6C15 11.1757 15.1686 10.7687 15.4686 10.4686C15.7687 10.1686 16.1757 10 16.6 10H19.8C20.2243 10 20.6313 10.1686 20.9314 10.4686C21.2314 10.7687 21.4 11.1757 21.4 11.6V13.2M16.6 17.2V22M19.8 17.2V22"
-                          stroke="#524E4E"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+                          <svg
+                            onClick={() => deleteApplication(applicant)}
+                            style={{ cursor: "pointer" }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="36"
+                            height="36"
+                            viewBox="0 0 36 36"
+                            fill="none"
+                          >
+                            <circle cx="18" cy="18" r="18" fill="white" />
+                            <path
+                              d="M11 13.2H12.6M12.6 13.2H25.4M12.6 13.2V24.4C12.6 24.8243 12.7686 25.2313 13.0686 25.5314C13.3687 25.8314 13.7757 26 14.2 26H22.2C22.6243 26 23.0313 25.8314 23.3314 25.5314C23.6314 25.2313 23.8 24.8243 23.8 24.4V13.2M15 13.2V11.6C15 11.1757 15.1686 10.7687 15.4686 10.4686C15.7687 10.1686 16.1757 10 16.6 10H19.8C20.2243 10 20.6313 10.1686 20.9314 10.4686C21.2314 10.7687 21.4 11.1757 21.4 11.6V13.2M16.6 17.2V22M19.8 17.2V22"
+                              stroke="#524E4E"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
         <div style={{ width: "100%" }}>
           {/* Pagination controls */}
           <div className="pagination-apptable">

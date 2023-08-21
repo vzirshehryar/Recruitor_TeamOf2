@@ -30,6 +30,7 @@ function Header() {
     navigate("/");
   };
   const user = localStorage.getItem("user");
+  const userType = localStorage.getItem("userType") === "user";
   let data = JSON.parse(user);
 
   const [email, setEmail] = useState("");
@@ -85,12 +86,12 @@ function Header() {
           <Navbar.Collapse
             id="responsive-navbar-nav"
             style={
-              !user
+              !userType
                 ? { justifyContent: "center" }
                 : { justifyContent: "flex-end" }
             }
           >
-            {!user ? (
+            {!userType ? (
               <>
                 <Nav className="navBarLinks">
                   <Nav.Link className="mx-2" href="#home" active>

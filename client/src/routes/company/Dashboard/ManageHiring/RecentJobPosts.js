@@ -11,7 +11,7 @@ const RecentJobPosts = ({ jobID }) => {
   const [activeTableButton, setActiveTableButton] = useState();
   const [allApplicants, setAllApplicants] = useState([]);
   const [applicants, setApplicants] = useState([]);
-  const [displayResume, setDisplayResume] = useState(false);
+  const [displayResume, setDisplayResume] = useState("");
 
   //for displaying the number of rows per page
   const [rowsToShow, setRowsToShow] = useState(4);
@@ -69,8 +69,19 @@ const RecentJobPosts = ({ jobID }) => {
     left: "50px",
   };
 
+  const handleShowPDF = (resume) => {
+    setDisplayResume(resume);
+  };
+
   return (
     <div className="mange-hiring-recent-job-table-component">
+      <div
+        className="ResumeDisplay"
+        style={displayResume ? { display: "flex" } : { display: "none" }}
+        onClick={() => setDisplayResume("")}
+      >
+        <embed src={`${displayResume}`} />
+      </div>
       <div className="manage-hiring-recent-job-top-row">
         <div className="recent-job-top-row-heading">
           <h1>Candidates</h1>
@@ -110,20 +121,10 @@ const RecentJobPosts = ({ jobID }) => {
                     </td>
                     <td>
                       <FaEye
-                        onClick={() => setDisplayResume(!displayResume)}
+                        onClick={() => handleShowPDF(applicant.resume)}
                         style={{ cursor: "pointer" }}
                       />
-                      {displayResume && (
-                        <iframe
-                          src={`${applicant.resume}`}
-                          title="Resume"
-                          style={ResumeStyle}
-                        ></iframe>
-                      )}
                     </td>
-                    {/* <td>
-                      <FaEllipsisH />
-                    </td> */}
                   </tr>
                 );
               })

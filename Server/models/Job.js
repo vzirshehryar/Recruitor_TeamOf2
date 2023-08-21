@@ -28,7 +28,7 @@ const jobSchema = new mongoose.Schema({
       },
       hiringStage: {
         type: String,
-        default: "In process",
+        default: "Pending",
       },
       status: {
         type: String,

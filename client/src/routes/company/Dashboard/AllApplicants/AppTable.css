@@ -5,7 +5,7 @@
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
     6px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  overflow: auto;
+  overflow-x: hidden;
   width: 95%;
   margin-top: 20px;
   display: flex;
@@ -35,11 +35,9 @@
 }
 .custom-table {
   width: 90%;
-  min-width: 750px;
+  min-width: 800px;
   border-collapse: collapse;
-  text-align: left;
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 .custom-table thead {
   background: var(--white-secondary, #ece9fd);
@@ -78,7 +76,7 @@
 .stage-rectangle {
   background: #6d0e9d;
   display: inline-block;
-  padding: 6px 12px;
+  padding: 5px 5px;
   border-radius: 8px;
   color: #fff;
 }
@@ -273,7 +271,7 @@
   border-radius: 4px;
   background: var(--shades-of-black-white, #fff);
   box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
-  overflow: auto;
+  overflow-x: hidden;
   width: 95%;
   margin-top: 20px;
 }
@@ -313,11 +311,10 @@
 }
 .custom-table-listings {
   width: 90%;
+  min-width: 1000px;
   border-collapse: collapse;
   text-align: left;
   margin-top: 20px;
-  margin-left: 50px;
-  margin-bottom: 20px;
 }
 .custom-table-listings thead {
   background: #eaddf1;

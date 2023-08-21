@@ -103,6 +103,7 @@
   position: absolute;
   top: 55px;
   right: 10px;
+  width: 200px;
   padding: 10px 10px;
   border-radius: 10px;
   background: var(--secondary-putih, #f9f9f9);

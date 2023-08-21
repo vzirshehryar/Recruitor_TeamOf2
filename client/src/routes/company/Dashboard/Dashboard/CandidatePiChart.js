@@ -1,15 +1,36 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 const CandidatePieChart = () => {
   const chartRef = useRef(null);
+  const [pieInfo, setPieInfo] = useState({
+    interviewed: 0,
+    shortlisted: 0,
+    hired: 0,
+  });
 
   //temporary for now, data will from the database
-  let rejectedCount = 200,
-    hiredCount = 200,
-    shortlistedCount = 200;
+
+  const getPieInfo = async () => {
+    try {
+      const res = await fetch("/company/getPieInfo", {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      });
+      const data = await res.json();
+      setPieInfo(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getPieInfo();
+  }, []);
 
   useEffect(() => {
     drawPieChart();
-  }, [rejectedCount, hiredCount, shortlistedCount]);
+  }, [pieInfo]);
 
   const drawPieChart = () => {
     const canvas = chartRef.current;
@@ -20,11 +41,11 @@ const CandidatePieChart = () => {
     const centerY = canvasHeight / 2;
     const radius = Math.min(centerX, centerY) - 10; // Adjust margin
 
-    const total = rejectedCount + hiredCount + shortlistedCount;
+    const total = pieInfo.interviewed + pieInfo.hired + pieInfo.shortlisted;
     const startAngle = 0;
-    const endAngleRejected = (rejectedCount / total) * 2 * Math.PI;
-    const endAngleHired = (hiredCount / total) * 2 * Math.PI;
-    const endAngleShortlisted = (shortlistedCount / total) * 2 * Math.PI;
+    const endAngleRejected = (pieInfo.interviewed / total) * 2 * Math.PI;
+    const endAngleHired = (pieInfo.hired / total) * 2 * Math.PI;
+    const endAngleShortlisted = (pieInfo.shortlisted / total) * 2 * Math.PI;
 
     context.clearRect(0, 0, canvasWidth, canvasHeight);
 
@@ -58,6 +79,7 @@ const CandidatePieChart = () => {
 
     drawHollowCircle(context, centerX, centerY, radius * 0.5, "#FFFFFF"); // Draw a white circle in the center
   };
+  // drawPieChart();
 
   const drawSlice = (
     context,
@@ -93,15 +115,15 @@ const CandidatePieChart = () => {
       <div className="pie-chart-bottom-div">
         <div>
           <span className="pie-chart-span span-shortlisted"></span>
-          <p>200</p>
+          <p>{pieInfo.hired}</p>
         </div>
         <div>
           <span className="pie-chart-span span-hired"></span>
-          <p>200</p>
+          <p>{pieInfo.interviewed}</p>
         </div>
         <div>
           <span className="pie-chart-span span-rejected"></span>
-          <p>200</p>
+          <p>{pieInfo.shortlisted}</p>
         </div>
       </div>
     </div>

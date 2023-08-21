@@ -15,14 +15,14 @@ const Navbar = ({ page }) => {
   if (page === "authPage")
     return (
       <div className={`${style.allCenter} ${style.companyNav}`}>
-        <h2 onClick={() => navigate("/company")}>Step200</h2>
+        <h2 onClick={() => navigate("/")}>Step200</h2>
       </div>
     );
 
   if (!authenticated)
     return (
       <div className={style.companyNav}>
-        <h2 onClick={() => navigate("/company")}>Step200</h2>
+        <h2 onClick={() => navigate("/")}>Step200</h2>
         <div
           className={`${style.allCenter} ${style.companyNavDiv}`}
           style={open ? { display: "flex" } : {}}
@@ -58,11 +58,12 @@ const Navbar = ({ page }) => {
       </div>
     );
 
-  const { email } = JSON.parse(localStorage.getItem("user"));
+  const { email, name } = JSON.parse(localStorage.getItem("user"));
+
   if (authenticated)
     return (
       <div className={style.companyNav}>
-        <h2 onClick={() => navigate("/company")}>Step200</h2>
+        <h2 onClick={() => navigate("/")}>Step200</h2>
         <div
           className={`${style.allCenter} ${style.cover}`}
           onClick={() => setOpen(!open)}
@@ -73,18 +74,17 @@ const Navbar = ({ page }) => {
             className={style.image}
           /> */}
           <FaUser style={{ width: 25, height: 25 }} />
-          <p className="m-0">Xyz</p>
+          <p className="m-0">{name ? name.slice(0, 5) : email.slice(0, 5)}</p>
           <FaGreaterThan style={{ width: 12, height: 12 }} />
           <div
             className={`${style.logoutOption}`}
             style={open ? { display: "block" } : {}}
           >
-            <p>{email}</p>
+            <p>{name ? name : email}</p>
             <p
               onClick={() => {
-                localStorage.removeItem("token");
-                localStorage.removeItem("userType");
-                navigate("/company");
+                localStorage.clear();
+                navigate("/");
               }}
             >
               Logout

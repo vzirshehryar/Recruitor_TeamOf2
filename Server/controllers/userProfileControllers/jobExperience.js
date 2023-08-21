@@ -5,11 +5,12 @@ export const postData = async (req, res) => {
   try {
     const data = req.body;
     const userID = req.user; // it is set from middleware
-
+    var progress = 0;
     const checkForProgress = await JobExperience.find({ user: userID });
     if (checkForProgress.length === 0) {
       const user = await User.findById(userID);
       user.profileCompletion += 10;
+      progress = 10;
       await user.save();
     }
 
@@ -35,6 +36,7 @@ export const postData = async (req, res) => {
     const job = await jobExperience.save();
 
     return res.status(201).json({
+      progress: progress,
       message: "Job Experience Added Successfully",
     });
   } catch (error) {

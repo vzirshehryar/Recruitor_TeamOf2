@@ -6,10 +6,12 @@ export const postData = async (req, res) => {
     const data = req.body;
     const userID = req.user; // it is set from middleware
 
+    var progress = 0;
     const checkForProgress = await Course.find({ user: userID });
     if (checkForProgress.length === 0) {
       const user = await User.findById(userID);
       user.profileCompletion += 10;
+      progress = 10;
       await user.save();
     }
 
@@ -29,6 +31,7 @@ export const postData = async (req, res) => {
     const course = await courseObj.save();
 
     return res.status(201).json({
+      progress: progress,
       message: "Course Added Successfully",
     });
   } catch (error) {

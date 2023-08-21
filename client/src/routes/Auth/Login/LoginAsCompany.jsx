@@ -54,7 +54,7 @@ function LoginAsCompany() {
           return response.json(); // Parse the response JSON
         })
         .then((data) => {
-          console.log("==data", data);
+          // console.log("==data", data);
           if (!data.success) {
             toast.error(data.msg);
             setLoader("LOG IN");
@@ -71,7 +71,7 @@ function LoginAsCompany() {
           setFormData(initialFormData);
           setLoader("LOG IN");
           navigate("/companydashboard");
-          console.log(localStorage);
+          // console.log(localStorage);
         })
         .catch((error) => {
           // Handle error here

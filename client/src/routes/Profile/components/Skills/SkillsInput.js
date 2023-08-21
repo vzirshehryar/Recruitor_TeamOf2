@@ -59,7 +59,7 @@ const SkillInput = () => {
       .then((response) => {
         const updateprogress = localStorage.getItem("progress");
         const newprogress = parseInt(updateprogress, 10);
-        const addprogress = newprogress + 10;
+        const addprogress = newprogress + response.data.progress;
         const finalprogress = addprogress.toString();
         localStorage.setItem("progress", finalprogress);
         toast.success(response.data.message);
