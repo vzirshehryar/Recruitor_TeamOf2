@@ -1,6 +1,5 @@
 .dashboard-component-container3 {
-  position: absolute;
-  left: 300px;
+  margin-left: 300px;
   min-width: 350px;
   display: flex;
   justify-content: center;
@@ -120,8 +119,7 @@
 
 @media (max-width: 768px) {
   .dashboard-component-container3 {
-    left: 0;
-    width: 100%;
+    margin-left: 0;
   }
   .hamburger {
     display: block;

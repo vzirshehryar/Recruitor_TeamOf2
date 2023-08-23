@@ -76,9 +76,10 @@ const ListingsTable = () => {
       toast.error("Backend Error Occured");
       return;
     }
+
     console.log("succeess");
-    toast.success("Job Deleted Successfully");
     setUpdate(!update);
+    toast.success("Job Deleted Successfully");
   };
 
   return (

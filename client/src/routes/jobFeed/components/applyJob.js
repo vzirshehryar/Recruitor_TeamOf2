@@ -41,6 +41,11 @@ const ApplyJob = ({ job }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (parseInt(localStorage.getItem("progress"), 10) < 70) {
+      toast.error("Profile not complete");
+      return;
+    }
+
     if (!fileDataforDB) {
       toast.error("Please enter all fields");
       return;
