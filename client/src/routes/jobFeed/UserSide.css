@@ -47,7 +47,7 @@
 
 /* Job Feed Page CSS */
 .jobFeedPage {
-  background-color: #e0e0e0;
+  background: #fff;
   min-height: 100vh;
 }
 
@@ -118,10 +118,9 @@
 
 .displayJobs {
   background: #ffffff;
-  border: 1px solid #d9d9d9;
-  border-radius: 3px;
   cursor: pointer;
-  /* height: 355px; */
+  border-bottom: 1px solid #cf1350;
+  padding: 30px;
 }
 .jobFeedDisplay > div > .JOBS {
   border-radius: 5px 0px 0px 0px;
@@ -388,20 +387,148 @@
 /* Style the pagination container */
 .custom-pagination {
   display: flex;
-  justify-content: center;
+  justify-content: end;
+  margin-right: 20px;
   margin-top: 16px;
 }
 
 /* Style the pagination items */
 .custom-pagination .page-link {
   background-color: white;
-  color: #6d0e9d;
-  border-color: #6d0e9d;
+  color: #000;
 }
 
 /* Style the active pagination item */
 .custom-pagination .page-item.active .page-link {
-  background-color: #6d0e9d;
+  background: #cf1350;
   color: white;
-  border-color: #6d0e9d;
+  border: 1px solid #cf1350;
 }
+
+/* ------------------------------------------------------------------------------------------------ */
+.jobFeedList {
+  border-radius: 20px;
+  border: 0.6px solid #cf1350;
+  max-height: 800px;
+  min-width: 810px;
+  overflow-y: auto;
+}
+.jobCardInJobFeed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 810px;
+  margin-bottom: 10px;
+}
+.jobCardInJobFeed p {
+  color: #1e1ef0;
+  font-family: Red Hat Text;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.jobCardInJobFeed button {
+  border-radius: 4px;
+  border: 1px solid #cf1350;
+  padding: 5px 10px;
+  background: white;
+  color: #0c0c0c;
+  font-family: Red Hat Text;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.displayJobs .EasyApplyPortion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.displayJobs .EasyApplyPortion button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 3px;
+  background: #cf1350;
+  width: 100px;
+  color: #fff;
+  font-family: Red Hat Text;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.displayJobs .EasyApplyPortion .iconsForJobCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.displayJobs .EasyApplyPortion .iconsForJobCard > div {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.displayJobs .JobCardTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.displayJobs .JobCardTitle h3 {
+  color: #1e1ef0;
+  font-family: Red Hat Text;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.displayJobs .JobCardTitle h5 {
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.displayJobs .JobCardTitle p {
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.displayJobs .JobCardTitle .image {
+  border-radius: 10px;
+  border: 0.6px solid #e32424;
+  padding: 5px 40px;
+}
+.displayJobs .SeeMore {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #1e1ef0;
+  font-family: Red Hat Text;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.sideFilter {
+  min-width: 250px;
+}
+
+/* ------------------------------------------------------------------------------- */

@@ -21,27 +21,25 @@
   position: sticky;
   top: 0;
   z-index: 5;
-  background: rgba(109, 14, 157, 0.03);
-  backdrop-filter: blur(23px);
+  background: #cf1350;
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
 }
 .NavbarCollapse {
   justify-content: center;
 }
 .navBarLinks {
-  color: #000000;
-  /* font-family: "Helvetica Neue", sans-serif; */
-  color: #000;
+  color: #fff;
   font-family: Lohit Bengali;
   font-size: 18px;
 }
 
-.navBarLinks:active {
-  color: #6d0e9d;
+.navBarLinks > a:active {
+  /* color: #6d0e9d; */
   font-weight: bold;
 }
 
 .logoH {
-  color: #6d0e9d;
+  color: #fff;
   font-size: 30px;
   font-family: Poppins;
 }
@@ -62,21 +60,19 @@
 .getSignUpBtn {
   position: absolute;
   right: 10px;
-  background: #ffffff;
-  color: #6d0e9d;
-  border: 2px solid #6d0e9d;
+  color: #fff;
+  border: 2px solid #fff;
   padding: 10px 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   /* width: 120px; */
 }
 .getLogInBtn {
   position: absolute;
-  right: 110px;
-  background: #6d0e9d;
+  right: 140px;
   color: #ffffff;
-  border: 2px solid #6d0e9d;
+  /* border: 2px solid #6d0e9d; */
   padding: 10px 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   /* width: 120px; */
 }
 

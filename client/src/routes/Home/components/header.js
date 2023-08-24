@@ -94,21 +94,51 @@ function Header() {
             {!userType ? (
               <>
                 <Nav className="navBarLinks">
-                  <Nav.Link className="mx-2" href="#home" active>
-                    Home
+                  <Nav.Link
+                    className="mx-2"
+                    style={{ color: "white" }}
+                    href="#home"
+                    onClick={() => navigate("/jobfeed")}
+                    active
+                  >
+                    Jobs
                   </Nav.Link>
-                  <Nav.Link className="mx-2" href="#services">
-                    Services
+                  <Nav.Link
+                    className="mx-2"
+                    style={{ color: "white" }}
+                    href="#home"
+                    active
+                  >
+                    Courses
                   </Nav.Link>
-                  <Nav.Link className="mx-2" href="#whyus">
-                    Why Us
+                  <Nav.Link
+                    className="mx-2"
+                    style={{ color: "white" }}
+                    href="#services"
+                  >
+                    Career Advise
+                  </Nav.Link>
+                  <Nav.Link
+                    className="mx-2"
+                    style={{ color: "white" }}
+                    href="#whyus"
+                  >
+                    Recruiting? Post A Job
                   </Nav.Link>
                 </Nav>
-                <button className="getLogInBtn" onClick={loginButton}>
-                  Log In
+                <button
+                  className="getLogInBtn"
+                  style={{ background: "transparent" }}
+                  onClick={loginButton}
+                >
+                  Sign In
                 </button>
-                <button className="getSignUpBtn" onClick={signUpButton}>
-                  Sign Up
+                <button
+                  className="getSignUpBtn"
+                  style={{ background: "transparent" }}
+                  onClick={signUpButton}
+                >
+                  Register Cv
                 </button>
               </>
             ) : (
@@ -130,7 +160,7 @@ function Header() {
                           width: "20px",
                           height: "20px",
                           cursor: "pointer",
-                          color: "black",
+                          color: "white",
                         }}
                         // className="ri-account-circle-line"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
