@@ -55,3 +55,16 @@
   line-height: normal;
   text-transform: capitalize;
 }
+
+.moreORless {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #1e1ef0;
+  font-family: Red Hat Text;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}

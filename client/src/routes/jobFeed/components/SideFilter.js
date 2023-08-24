@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Style from "./SideFilter.module.css";
 import { Row } from "react-bootstrap";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
 const optionsOfSpecialism = [
   "IT & Telecom",
@@ -9,6 +10,8 @@ const optionsOfSpecialism = [
   "Accountance",
   "Customer Service",
   "Sale",
+  "Art",
+  "Management",
 ];
 const optionsOfJobtyp = [
   "Permanent",
@@ -20,7 +23,7 @@ const optionsOfJobtyp = [
 const optionsOfPostedby = ["Agency", "Employee", "Reed"];
 
 const SideFilter = () => {
-  const [distance, setDistance] = useState("0 miles");
+  const [location, setLocation] = useState("Islamabad");
   const [salaryFrom, setSalaryFrom] = useState("$ Any");
   const [salaryTo, setSalaryTo] = useState("$ Any");
   const [datePosted, setDatePosted] = useState("Anytime");
@@ -31,6 +34,11 @@ const SideFilter = () => {
   const [selectedPostedby, setSelectedPostedby] = useState([]);
   const [selectedSpecialism, setSelectedSpecialism] = useState([]);
 
+  // SEE MORE AND SEE LESS
+  const [specialismeSeeMore, setSpecialSeeMore] = useState(false);
+  var sizeOfSpecialism = specialismeSeeMore ? optionsOfSpecialism.length : 5;
+  const [jobTypeSeeMore, setJobTypeSeeMore] = useState(false);
+  var sizeOfJobType = jobTypeSeeMore ? optionsOfJobtyp.length : 5;
   const handleJobtype = (option) => {
     if (selectedJobtype.includes(option)) {
       setSelectedJobtype(selectedJobtype.filter((item) => item !== option));
@@ -39,14 +47,14 @@ const SideFilter = () => {
     }
     console.log(selectedJobtype);
   };
-  const handlePostedby = (option) => {
-    if (selectedPostedby.includes(option)) {
-      setSelectedPostedby(selectedPostedby.filter((item) => item !== option));
-    } else {
-      setSelectedPostedby([...selectedPostedby, option]);
-    }
-    console.log(selectedPostedby);
-  };
+  // const handlePostedby = (option) => {
+  //   if (selectedPostedby.includes(option)) {
+  //     setSelectedPostedby(selectedPostedby.filter((item) => item !== option));
+  //   } else {
+  //     setSelectedPostedby([...selectedPostedby, option]);
+  //   }
+  //   console.log(selectedPostedby);
+  // };
   const handleSpecialism = (option) => {
     if (selectedSpecialism.includes(option)) {
       setSelectedSpecialism(
@@ -66,25 +74,25 @@ const SideFilter = () => {
       >
         <div>
           <h3 className={Style.h3}>Filter By</h3>
-          {/* ---------- DISTANCE ---------- */}
+          {/* ---------- LOCATI0N ---------- */}
           <div className="pt-4 pb-4">
-            <h5 className={Style.h5}>Distance</h5>
+            <h5 className={Style.h5}>Location</h5>
             <select
               className={Style.select}
-              value={distance}
-              onChange={(e) => setDistance(e.target.value)}
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
             >
-              <option value="0 miles">0 miles</option>
-              <option value="3 miles">3 miles</option>
-              <option value="10 miles">10 miles</option>
-              <option value="15 miles">15 miles</option>
-              <option value="20 miles">20 miles</option>
-              <option value="25 miles">25 miles</option>
+              <option value="Islamabad">Islamabad</option>
+              <option value="Rawalpindi">Rawalpindi</option>
+              <option value="Karachi">Karachi</option>
+              <option value="Lahore">Lahore</option>
+              <option value="Peshawar">Peshawar</option>
+              <option value="Quetta">Quetta</option>
             </select>
           </div>
           <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} />
           {/* ---------- SALARY RANGE ---------- */}
-          <div className="pt-4 pb-4">
+          <div className="pt-4 pb-2">
             <h5 className={Style.h5}>Salary Range</h5>
             <p className={`${Style.p} mt-2 mb-1`}>From</p>
             <select
@@ -119,7 +127,7 @@ const SideFilter = () => {
           {/* ---------- JOB TYPE ---------- */}
           <div className={`${Style.JobType} pt-4 pb-4`}>
             <h5 className={`${Style.h5}`}>Job Type</h5>
-            {optionsOfJobtyp.map((option) => (
+            {optionsOfJobtyp.slice(0, sizeOfJobType).map((option) => (
               <label key={option}>
                 <input
                   type="checkbox"
@@ -129,6 +137,22 @@ const SideFilter = () => {
                 {option}
               </label>
             ))}
+          </div>
+          <div
+            className={`${Style.moreORless} pb-2`}
+            style={!jobTypeSeeMore ? { display: "flex" } : { display: "none" }}
+            onClick={() => setJobTypeSeeMore(true)}
+          >
+            See More
+            <FaAngleDown />
+          </div>
+          <div
+            className={`${Style.moreORless} pb-2`}
+            style={jobTypeSeeMore ? { display: "flex" } : { display: "none" }}
+            onClick={() => setJobTypeSeeMore(false)}
+          >
+            See Less
+            <FaAngleUp />
           </div>
           <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} />
           {/* ---------- WORK FROM HOME ---------- */}
@@ -141,21 +165,6 @@ const SideFilter = () => {
               />{" "}
               Work From Home
             </label>
-          </div>
-          <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} />
-          {/* ---------- POSTED BY ---------- */}
-          <div className={`${Style.JobType} pt-4 pb-4`}>
-            <h5 className={`${Style.h5}`}>Posted By</h5>
-            {optionsOfPostedby.map((option) => (
-              <label key={option}>
-                <input
-                  type="checkbox"
-                  checked={selectedPostedby.includes(option)}
-                  onChange={() => handlePostedby(option)}
-                />{" "}
-                {option}
-              </label>
-            ))}
           </div>
           <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} />
           {/* ---------- DATE POSTED ---------- */}
@@ -173,9 +182,9 @@ const SideFilter = () => {
           </div>
           <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} />
           {/* ---------- Specialism ---------- */}
-          <div className={`${Style.JobType} pt-4 pb-4`}>
+          <div className={`${Style.JobType} pt-4 pb-2`}>
             <h5 className={`${Style.h5}`}>Specialism</h5>
-            {optionsOfSpecialism.map((option) => (
+            {optionsOfSpecialism.slice(0, sizeOfSpecialism).map((option) => (
               <label key={option}>
                 <input
                   type="checkbox"
@@ -186,6 +195,26 @@ const SideFilter = () => {
               </label>
             ))}
           </div>
+          <div
+            className={`${Style.moreORless} pb-2`}
+            style={
+              !specialismeSeeMore ? { display: "flex" } : { display: "none" }
+            }
+            onClick={() => setSpecialSeeMore(true)}
+          >
+            See More
+            <FaAngleDown />
+          </div>
+          <div
+            className={`${Style.moreORless} pb-2`}
+            style={
+              specialismeSeeMore ? { display: "flex" } : { display: "none" }
+            }
+            onClick={() => setSpecialSeeMore(false)}
+          >
+            See Less
+            <FaAngleUp />
+          </div>
           <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} />
         </div>
       </Row>
@@ -194,3 +223,23 @@ const SideFilter = () => {
 };
 
 export default SideFilter;
+
+{
+  /* ---------- POSTED BY ---------- */
+}
+{
+  /* <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} />
+          <div className={`${Style.JobType} pt-4 pb-4`}>
+            <h5 className={`${Style.h5}`}>Posted By</h5>
+            {optionsOfPostedby.map((option) => (
+              <label key={option}>
+                <input
+                  type="checkbox"
+                  checked={selectedPostedby.includes(option)}
+                  onChange={() => handlePostedby(option)}
+                />{" "}
+                {option}
+              </label>
+            ))}
+          </div> */
+}
