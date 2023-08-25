@@ -16,7 +16,7 @@ function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
-  const [loader, setLoader] = useState("SIGN UP");
+  const [loader, setLoader] = useState("Next");
   console.log("===password", isValidPassword);
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -114,25 +114,12 @@ function Register() {
   return (
     <>
       <div>
-        <div className="backgroundIMAGE"></div>
-        <div className="container loginBox Card col-md-4 pt-2">
+        <div className="container text-center loginBox Card col-md-4 pt-2">
           <div className="signupsignin">
             <div
               style={{ cursor: "pointer" }}
               onClick={() => navigate("/signup")}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                height="80%"
-                viewBox="0 0 342 111"
-                fill="none"
-              >
-                <path
-                  d="M0 24C0 10.7452 10.7452 0 24 0H342V57.9757C342 70.3881 332.535 80.7526 320.174 81.877L0 111V24Z"
-                  fill="#6D0E9D"
-                />
-              </svg>
               <h3 className="signUp" style={{ color: "#fff" }}>
                 SIGN UP
               </h3>
@@ -141,25 +128,10 @@ function Register() {
               style={{ cursor: "pointer" }}
               onClick={() => navigate("/login")}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                height="80%"
-                viewBox="0 0 342 110"
-                fill="none"
-              >
-                <path
-                  d="M0 0H318C331.255 0 342 10.7452 342 24V110L21.8454 81.1411C9.47562 80.0261 0 69.6579 0 57.238V0Z"
-                  fill="#F5F7FA"
-                />
-              </svg>
-              <h3 className="signIn" style={{ color: "#6d0e9d" }}>
-                LOG IN
+              <h3 className="signIn" style={{ color: "#fff" }}>
+                Log In
               </h3>
             </div>
-          </div>
-          <div className="note pt-0 pb-3">
-            <span className="loginHeading "> Apply for Jobs</span>
           </div>
 
           <div>
@@ -168,6 +140,16 @@ function Register() {
                 <Form onSubmit={handleSubmit}>
                   {" "}
                   <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <label
+                      className="form-label d-flex justify-content-start  mt-1"
+                      htmlFor="form3Example3"
+                      style={{
+                        fontWeight: "600",
+                        color: "#000",
+                      }}
+                    >
+                      Register With Email
+                    </label>
                     <Form.Control
                       className="form-control loginInput"
                       type="email"
@@ -198,6 +180,7 @@ function Register() {
                             top: "17px",
                             right: "0",
                             textAlign: "center",
+                            borderRadius: "10px",
                           }}
                           onClick={handleTogglePassword}
                         >
@@ -235,6 +218,7 @@ function Register() {
                             top: "17px",
                             right: "0",
                             textAlign: "center",
+                            borderRadius: "10px",
                           }}
                           onClick={handleToggleConfirmPassword}
                         >
@@ -291,7 +275,7 @@ function Register() {
                     onClick={loginButton}
                     style={{
                       textDecoration: "none",
-                      color: "#6D0E9D",
+                      color: "#1E1EF0",
                       fontSize: "14px",
                     }}
                   >

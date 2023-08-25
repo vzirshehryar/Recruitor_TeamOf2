@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  const [loader, setLoader] = useState("LOG IN");
+  const [loader, setLoader] = useState("Continue");
 
   const initialFormData = {
     email: "",
@@ -103,26 +103,13 @@ function Login() {
   return (
     <>
       <div>
-        <div className="backgroundIMAGE"></div>
         <div className="container Card col-lg-4 pt-2">
-          <div className="signupsignin">
+          <div className="signupsignin d-flex">
             <div
               style={{ cursor: "pointer" }}
               onClick={() => navigate("/signup")}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                height="80%"
-                viewBox="0 0 342 111"
-                fill="none"
-              >
-                <path
-                  d="M0 24C0 10.7452 10.7452 0 24 0H342V57.9757C342 70.3881 332.535 80.7526 320.174 81.877L0 111V24Z"
-                  fill="#F5F7FA"
-                />
-              </svg>
-              <h3 className="signUp" style={{ color: "#6d0e9d" }}>
+              <h3 className="signUp" style={{ color: "#fff" }}>
                 SIGN UP
               </h3>
             </div>
@@ -130,24 +117,12 @@ function Login() {
               style={{ cursor: "pointer" }}
               onClick={() => navigate("/login")}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                height="80%"
-                viewBox="0 0 342 110"
-                fill="none"
-              >
-                <path
-                  d="M0 0H318C331.255 0 342 10.7452 342 24V110L21.8454 81.1411C9.47562 80.0261 0 69.6579 0 57.238V0Z"
-                  fill="#6D0E9D"
-                />
-              </svg>
-              <h3 className="signIn" style={{ color: "#fff" }}>
+              <h3 className="signIn px-2" style={{ color: "#fff" }}>
                 LOG IN
               </h3>
             </div>
           </div>
-          <div class="note pb-3">
+          {/* <div class="note pb-3">
             <span className="loginHeading mt-0 ">Apply for Jobs</span>
             {/* <div className="pt-3">
               <button className="LoginBtn mx-2" onClick={handle1}>
@@ -156,21 +131,32 @@ function Login() {
               <button className="LoginBtn mx-2" onClick={handle2}>
                 Apply for Jobs
               </button>
-            </div> */}
-          </div>
+            </div> 
+          </div> */}
           <div>
             <div class="col-sm-10 p-2 mx-auto">
-              <div className="text-center  form-group">
+              <div className="text-center mt-5 form-group">
                 <Form onSubmit={handleSubmit}>
                   <p>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <label
+                        className="form-label d-flex justify-content-start  mt-1"
+                        htmlFor="form3Example3"
+                        style={{
+                          fontWeight: "600",
+                          color: "#000",
+                        }}
+                      >
+                        Continue With Email
+                      </label>
                       <Form.Control
-                        className="form-control loginInput"
+                        className="form-control loginInput "
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="email"
+                        style={{ borderRadius: "10px" }}
                       />
                     </Form.Group>
                   </p>
@@ -196,6 +182,7 @@ function Login() {
                             top: "17px",
                             right: "0",
                             textAlign: "center",
+                            borderRadius: "10px",
                           }}
                           onClick={handleTogglePassword}
                         >
@@ -209,7 +196,7 @@ function Login() {
                     </InputGroup>
                   </Form.Group>
 
-                  <div className="d-flex justify-content-between mt-1">
+                  <div className="d-flex justify-content-start mt-1">
                     <p className="rememberMe">
                       {/* <input type="checkbox" /> Remember Me */}
                     </p>
@@ -217,7 +204,7 @@ function Login() {
                       href="#"
                       style={{
                         textDecoration: "none",
-                        color: "#6D0E9D",
+                        color: "#1E1EF0",
                         fontSize: "15px",
                         fontFamily: "Poppins",
                       }}
@@ -227,7 +214,7 @@ function Login() {
                     </a>
                   </div>
 
-                  <button type="submit" className="loginBtn mb-3 mt-2">
+                  <button type="submit" className="loginBtn mb-3 ml-2 mt-2">
                     {loader}
                   </button>
                 </Form>
@@ -255,13 +242,13 @@ function Login() {
                   </button>
                 </div> */}
                 <ToastContainer />
-                <div className="accountLink mt-3">
+                <div className="accountLink ">
                   Don't have an account?{" "}
                   <a
                     href="#"
                     style={{
                       textDecoration: "none",
-                      color: "#6D0E9D",
+                      color: "#1E1EF0",
                       fontSize: "15px",
                     }}
                     onClick={registerBtn}
