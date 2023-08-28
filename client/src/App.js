@@ -13,6 +13,7 @@ import SignUp from "./routes/Auth/signUp/index";
 import ForgetPassword from "./routes/Auth/ForgetPassword/index";
 import SetPassword from "./routes/Auth/setPassword/index";
 import JobFeed from "./routes/jobFeed/JobFeed";
+import DetailPage from "./routes/jobFeed/job/DetailPage";
 import PersonalInformation from "./routes/Profile/components/Information";
 import Experiences from "./routes/Profile/components/Experiences/Experiences";
 import Education from "./routes/Profile/components/Education/Education";
@@ -60,9 +61,10 @@ const App = () => {
           <Route path="/forgetPassword" element={<ForgetPassword />} />
           <Route path="/setNewPassword/:id" element={<SetPassword />} />
           <Route path="/" element={<Home />} />
-          <Route path="/jobFeed" element={<JobFeed />} />
           <Route path="/set-profile" element={<SetProfile />} />
           <Route path="/experiences/form" element={<Experiences />} />
+          <Route path="/jobFeed" element={<JobFeed />} />
+          <Route path="/jobdetail" element={<DetailPage />} />
           <Route path="/experiences/submit-exp" element={<SubmitExp />} />
           <Route path="/education/form" element={<Education />} />
           <Route path="/education/submit-edu" element={<SubmitEdu />} />
