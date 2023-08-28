@@ -3,13 +3,12 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Dropdown } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import "./home.css";
-import JobNav from "../../jobFeed/components/JobNav";
 
-function Header() {
+function Header({ active, page }) {
   const navigate = useNavigate();
   const [showCarousel, setShowCarousel] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -69,6 +68,21 @@ function Header() {
   };
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  if (page === "authPage") {
+    return (
+      <Navbar collapseOnSelect expand="lg" className="NavbarTop">
+        <Container fluid className="px-5">
+          <Navbar.Brand
+            className="logoH"
+            href="#home"
+            onClick={() => navigate("/")}
+          >
+            Step200
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+    );
+  }
 
   return (
     <>
@@ -85,47 +99,40 @@ function Header() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
             id="responsive-navbar-nav"
-            style={
-              !userType
-                ? { justifyContent: "center" }
-                : { justifyContent: "flex-end" }
-            }
+            style={{ justifyContent: "space-between" }}
           >
-            {!userType ? (
-              <>
-                <Nav className="navBarLinks">
-                  <Nav.Link
-                    className="mx-2"
-                    style={{ color: "white" }}
-                    href="#home"
-                    onClick={() => navigate("/jobfeed")}
-                    active
-                  >
-                    Jobs
-                  </Nav.Link>
-                  <Nav.Link
-                    className="mx-2"
-                    style={{ color: "white" }}
-                    href="#home"
-                    active
-                  >
-                    Courses
-                  </Nav.Link>
-                  <Nav.Link
-                    className="mx-2"
-                    style={{ color: "white" }}
-                    href="#services"
-                  >
-                    Career Advise
-                  </Nav.Link>
-                  <Nav.Link
-                    className="mx-2"
-                    style={{ color: "white" }}
-                    href="#whyus"
-                  >
-                    Recruiting? Post A Job
-                  </Nav.Link>
-                </Nav>
+            <Nav className="navBarLinks">
+              <Link
+                className={`mx-2 ${active === "job" ? "active" : ""}`}
+                style={{ color: "white" }}
+                to="/"
+              >
+                Jobs
+              </Link>
+              <Link
+                className={`mx-2 ${active === "careerAdvise" ? "active" : ""}`}
+                style={{ color: "white" }}
+                to="/"
+              >
+                Career Advise
+              </Link>
+              <Link
+                className={`mx-2 ${active === "company" ? "active" : ""}`}
+                style={{ color: "white" }}
+                to="/company"
+              >
+                Recruiting? Post A Job
+              </Link>
+            </Nav>
+            {!user ? (
+              <Nav>
+                <button
+                  className="getSignUpBtn"
+                  style={{ background: "transparent" }}
+                  onClick={signUpButton}
+                >
+                  Register CV
+                </button>
                 <button
                   className="getLogInBtn"
                   style={{ background: "transparent" }}
@@ -133,20 +140,9 @@ function Header() {
                 >
                   Sign In
                 </button>
-                <button
-                  className="getSignUpBtn"
-                  style={{ background: "transparent" }}
-                  onClick={signUpButton}
-                >
-                  Register Cv
-                </button>
-              </>
+              </Nav>
             ) : (
               <Nav className="navBarLinks me-3">
-                {/* <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-                    <input value={searchKeyword} onChange={handleSearch}  type="text" placeholder="Search..." style={{ paddingLeft:'5%', border:'none', outline:'none', borderRadius:' 20px 0 0 20px ', justifyContent:'center', alignItems:'center', marginBottom:'2%', marginTop:'2%'}} />
-                    <i style={{background:'white', borderRadius:'0 20px 20px 0', padding:'1px', paddingRight:'10px', color:'gray'}} className="ri-search-line"></i>
-                    </div>*/}
                 <div>
                   <Dropdown
                     drop="left"

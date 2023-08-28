@@ -4,6 +4,7 @@ import { Form } from "react-bootstrap";
 import { FaArrowLeft } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Header from "../../Home/components/header";
 
 function Login() {
   const navigate = useNavigate();
@@ -77,7 +78,15 @@ function Login() {
 
   return (
     <>
-      <div>
+      <Header page="authPage" />
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div className="backgroundIMAGE"></div>
         <div class="container Card col-lg-4 pt-2  ">
           <div class="note pb-3">

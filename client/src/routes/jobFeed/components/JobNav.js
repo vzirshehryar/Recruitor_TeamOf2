@@ -3,40 +3,42 @@ import { FaGreaterThan } from "react-icons/fa";
 import "./jobNav.css";
 import { Link } from "react-router-dom";
 
+import { useJobContext } from "../../../useContext/jobContext";
+
 const JobNav = ({ Search }) => {
-  const [openJT, setOpenJT] = useState(false);
-  const [openJL, setOpenJL] = useState(false);
+  const [what, setWhat] = useState("");
+  const [where, setWhere] = useState("");
 
-  const [jobType, setJobType] = useState([]);
-  const [jobLevel, setJobLevel] = useState([]);
+  const { setSearchLocation, setSearchSector, searchLocation, searchSector } =
+    useJobContext();
 
-  const jobTypeChange = (val) => {
-    if (jobType.includes(val)) {
-      setJobType(jobType.filter((item) => item !== val));
-    } else {
-      setJobType([...jobType, val]);
-    }
-  };
-  const jobLevelChange = (val) => {
-    if (jobLevel.includes(val)) {
-      setJobLevel(jobLevel.filter((item) => item !== val));
-    } else {
-      setJobLevel([...jobLevel, val]);
-    }
+  const handleSearch = () => {
+    setSearchLocation(where);
+    setSearchSector(what);
   };
 
   return (
     <div className="jobFeedFilter">
       <div className="filter">
         <label for="what">What</label>
-        <input placeholder='e.g. "teacher"' value="" />
+        <input
+          placeholder='e.g. "teacher"'
+          value={what}
+          defaultValue={searchSector}
+          onChange={(e) => setWhat(e.target.value)}
+        />
       </div>
       <div className="filter">
         <label for="where">Where</label>
-        <input placeholder="town or postcode" value="" />
+        <input
+          placeholder="town or postcode"
+          value={where}
+          defaultValue={searchLocation}
+          onChange={(e) => setWhere(e.target.value)}
+        />
       </div>
       <div className="filter">
-        <button>Search Jobs</button>
+        <button onClick={handleSearch}>Search Jobs</button>
         <Link to="">
           Browse Jobs
           <svg
@@ -60,117 +62,3 @@ const JobNav = ({ Search }) => {
 };
 
 export default JobNav;
-
-{
-  /* <div className="filter">
-        <p>Job Type</p>
-        <img
-          src="/filterIcon.png"
-          alt="filter icon"
-          width={15}
-          height={15}
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            setOpenJT(!openJT);
-          }}
-        />
-        <div
-          className="dropDown"
-          style={openJT ? { display: "flex" } : { display: "none" }}
-        >
-          <div>
-            <input
-              type="checkbox"
-              id="partTime"
-              name="jobType"
-              checked={jobType.includes("Part Time")}
-              onChange={() => jobTypeChange("Part Time")}
-            />
-            <label style={{ marginLeft: 5 }} for="partTime">
-              Part Time
-            </label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="fullTime"
-              name="jobType"
-              checked={jobType.includes("Full Time")}
-              onChange={() => jobTypeChange("Full Time")}
-            />
-            <label style={{ marginLeft: 5 }} for="fullTime">
-              Full Time
-            </label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="contract"
-              name="jobType"
-              checked={jobType.includes("Contract")}
-              onChange={() => jobTypeChange("Contract")}
-            />
-            <label style={{ marginLeft: 5 }} for="contract">
-              Contract
-            </label>
-          </div>
-        </div>
-      </div>
-      <div className="filter">
-        <p>Job Level</p>
-        <img
-          src="/filterIcon.png"
-          alt="filter icon"
-          width={15}
-          height={15}
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            setOpenJL(!openJL);
-          }}
-        />
-        <div
-          className="dropDown"
-          style={openJL ? { display: "flex" } : { display: "none" }}
-        >
-          <div>
-            <input
-              type="checkbox"
-              id="beginner"
-              name="jobLevel"
-              checked={jobLevel.includes("Beginner")}
-              onChange={() => jobLevelChange("Beginner")}
-            />
-            <label style={{ marginLeft: 5 }} for="beginner">
-              Beginner
-            </label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="intermediate"
-              name="jobLevel"
-              checked={jobLevel.includes("Intermediate")}
-              onChange={() => jobLevelChange("Intermediate")}
-            />
-            <label style={{ marginLeft: 5 }} for="intermediate">
-              Intermediate
-            </label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="expert"
-              name="jobLevel"
-              checked={jobLevel.includes("Expert")}
-              onChange={() => jobLevelChange("Expert")}
-            />
-            <label style={{ marginLeft: 5 }} for="expert">
-              Expert
-            </label>
-          </div>
-        </div>
-      </div>
-      <div className="applyFilter" onClick={() => Search(jobType, jobLevel)}>
-        <p>Apply Filter</p>
-      </div> */
-}

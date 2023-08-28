@@ -1,0 +1,220 @@
+.ncard {
+  height: 307px;
+  width: 748px;
+  border-radius: 10px;
+  border: 1px solid #cf1350;
+}
+.mbtn {
+  margin-top: 50px;
+}
+.ncards {
+  width: 748px;
+  height: 165px;
+  border-radius: 10px;
+  border: 1px solid #cf1350;
+}
+.ncardss {
+  width: 748px;
+  height: 72px;
+  border-radius: 10px;
+  border: 1px dashed #cf1350;
+}
+.di {
+  width: 665px;
+  height: 267px;
+  border-radius: 10px;
+  border: 1px dashed #cf1350;
+}
+
+.jbtn {
+  width: 562px;
+  height: 49px;
+  border-radius: 6px;
+  border: 1px solid #cf1350;
+  background: #cf1350;
+  color: #fffbfb;
+  font-family: Red Hat Text;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.jbtns {
+  background-color: #fff;
+
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.cbtn {
+  width: 748px;
+  height: 49px;
+}
+.bcard {
+  width: 665px;
+  height: 267px;
+  border-radius: 10px;
+  border: 1px dashed #cf1350;
+}
+
+.stp1 {
+  /* margin-top: 134px; */
+  width: 59px;
+  height: 26px;
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+  display: flex !important;
+  justify-content: start !important;
+  align-items: start !important;
+}
+.stp2 {
+  width: 63px;
+  height: 26px;
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.mdiv {
+  margin-top: 120px;
+}
+
+.dpage {
+  width: 1028px;
+  height: 986px;
+  border-radius: 20px 0px 0px 20px;
+  border: 1px solid #cf1350;
+}
+.dhead {
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120.8%; /* 36.24px */
+  text-transform: capitalize;
+
+  width: 337px;
+  height: 36px;
+}
+.phead {
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120.8%; /* 14.496px */
+  text-transform: capitalize;
+  width: 798px;
+  height: 14px;
+  top: -34638px;
+  left: 9128px;
+}
+.dli {
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.dlli {
+  margin-top: 110px;
+}
+.dheadli {
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-top: 9px;
+}
+.dbtn {
+  width: 562px;
+  height: 49px;
+  border-radius: 6px;
+  border: 1px solid #cf1350;
+  background: #cf1350;
+  margin-top: 110px;
+  margin-left: 200px;
+}
+.dbox {
+  width: 182px;
+  height: 147px;
+
+  border-radius: 10px;
+  border: 1px solid #cf1350;
+}
+.carbon {
+  width: 100px;
+  height: 100px;
+}
+.aphe {
+  width: 88px;
+  height: 19px;
+  top: -34480px;
+  left: 9872px;
+  color: #1e1ef0;
+  font-family: Red Hat Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.dhr {
+  width: 182.176px;
+  height: 0px;
+}
+.dloc {
+  width: 337px;
+  height: 61px;
+  border-radius: 10px;
+  border: 1px solid #cf1350;
+  margin-top: 30px;
+}
+.dl {
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+/* .pr {
+  width: 26px;
+  display: inline-block;
+  height: 13px;
+} */
+.dlp {
+  width: 473px;
+  height: 60px;
+  margin-top: 50px;
+}
+likbtn {
+  width: 40px;
+  height: 40px;
+  fill: #cf1350;
+  stroke-width: 1px;
+  stroke: #cf1350;
+}
+.stp{
+  margin-left: 67rem;
+}

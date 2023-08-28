@@ -1,81 +1,54 @@
-import { Container } from "react-bootstrap";
-import "../components/home.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+import { useJobContext } from "../../../useContext/jobContext";
+import Style from "../home.module.css";
+import { FaAngleRight } from "react-icons/fa";
+
 function Slider() {
+  const { setSearchLocation, setSearchSector } = useJobContext();
   const navigate = useNavigate();
-  const [showCarousel, setShowCarousel] = useState(false);
+  const [what, setWhat] = useState("");
+  const [where, setWhere] = useState("");
   function loginButton() {
     navigate("/LoginAsCompany");
   }
-  function loginButtonForCompany() {
-    navigate("/jobFeed");
-  }
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/");
+  const handleSearch = () => {
+    setSearchLocation(where);
+    setSearchSector(what);
+    navigate("/jobfeed");
   };
 
   return (
-    // <Container className="pt-4 pb-4">
-    //   <div className="sliderBox">
-    //     <Carousel>
-    //       <Carousel.Item>
-    //         <img className="d-block w-100" src={img1} alt="First slide" />
-    //         <Carousel.Caption>
-    //           <h3 className="h3">First Title</h3>
-    //         </Carousel.Caption>
-    //       </Carousel.Item>
-    //       <Carousel.Item>
-    //         <img className="d-block w-100" src={img1} alt="Second slide" />
-    //         <Carousel.Caption>
-    //           <h3 className="h3">Second Title</h3>
-    //         </Carousel.Caption>
-    //       </Carousel.Item>
-    //       <Carousel.Item>
-    //         <img className="d-block w-100" src={img1} alt="Third slide" />
-    //         <Carousel.Caption>
-    //           <h3 className="h3">Third Title</h3>
-    //         </Carousel.Caption>
-    //       </Carousel.Item>
-    //     </Carousel>
-
-    //     <Row>
-    //       <div className="col-lg text-center pt-2">
-    //         <h4>Trusted By:</h4>
-    //         <img src={logo1} width={"110px"} className="p-2" />
-    //         <img src={logo1} width={"110px"} className="p-2" />
-    //         <img src={logo1} width={"110px"} className="p-2" />
-    //         <img src={logo1} width={"110px"} className="p-2" />
-    //         <img src={logo1} width={"110px"} className="p-2" />
-    //       </div>
-    //     </Row>
-    //   </div>
-    // </Container>
-
-    <>
-      <div className="backgroundDiv text-center pt-5 pb-5" id="home">
-        <h1 className="landingpageHeading pt-5">Discover Your Dream Career</h1>
-
-        <p className="landingpageText">
-          Embrace New Opportunities and Thrive Together!
-        </p>
-
-        <div className="mt-3 d-inline-block position-relative">
-          <img src="/Group4.png" alt="nothing" className="dashonlogin" />
-          <button className="landingpageBtn mt-2" onClick={loginButton}>
-            Hire
-          </button>
-          <button
-            className="landingpageBtn mt-2"
-            onClick={loginButtonForCompany}
-          >
-            Get Hired Now!
-          </button>
+    <div className={`${Style.HomeSlider}`}>
+      <h1 className={`${Style.h1}`}>Discover Your Dream Career</h1>
+      <h3 className={`${Style.h3}`}>find a job you’ll love</h3>
+      <div>
+        <div className="d-flex flex-column">
+          <label for="what">What</label>
+          <input
+            placeholder='e.g. "teacher"'
+            value={what}
+            onChange={(e) => setWhat(e.target.value)}
+          />
+        </div>
+        <div className="d-flex flex-column">
+          <label for="where">Where</label>
+          <input
+            placeholder="town or postcode"
+            value={where}
+            onChange={(e) => setWhere(e.target.value)}
+          />
+        </div>
+        <div>
+          <button onClick={handleSearch}>Search Jobs</button>
+          <Link to="">
+            Browse Jobs
+            <FaAngleRight />
+          </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

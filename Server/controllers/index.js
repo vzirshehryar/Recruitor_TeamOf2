@@ -115,6 +115,27 @@ export const loginUser = async (req, res) => {
   }
 };
 
+export const uploadResume = async (req, res) => {
+  try {
+    const userID = req.user;
+    const resume = req.body.resume;
+
+    const user = await User.findById(userID, "-password");
+
+    user.resume = resume;
+    await user.save();
+
+    return res.status(201).json({
+      message: "Resume Saved Successfully",
+    });
+  } catch (err) {
+    console.error("Error saving Resume:", err);
+    return res.status(400).json({
+      error: "An error occurred while Saving Resume",
+    });
+  }
+};
+
 // REST API FOR FOR FORGET PASSWORD
 export const ForgetPassword = async (req, res) => {
   const { email } = req.body;

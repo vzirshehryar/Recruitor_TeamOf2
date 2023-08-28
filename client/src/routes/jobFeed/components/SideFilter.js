@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Style from "./SideFilter.module.css";
 import { Row } from "react-bootstrap";
@@ -17,35 +17,40 @@ const optionsOfJobtyp = [
   "Permanent",
   "Temporary",
   "Contract",
-  "Full-Time",
-  "Part-Time",
+  "Full Time",
+  "Part Time",
 ];
 const optionsOfPostedby = ["Agency", "Employee", "Reed"];
 
-const SideFilter = () => {
+const SideFilter = ({ Search }) => {
   const [location, setLocation] = useState("Islamabad");
   const [salaryFrom, setSalaryFrom] = useState("$ Any");
   const [salaryTo, setSalaryTo] = useState("$ Any");
   const [datePosted, setDatePosted] = useState("Anytime");
 
-  // CHECKBOXES
+  // CHECKBOXES --- START
   const [remote, setRemote] = useState(false);
   const [selectedJobtype, setSelectedJobtype] = useState([]);
   const [selectedPostedby, setSelectedPostedby] = useState([]);
   const [selectedSpecialism, setSelectedSpecialism] = useState([]);
+  // CHECKBOXES --- END
 
-  // SEE MORE AND SEE LESS
+  // SEE MORE AND SEE LESS --- START
   const [specialismeSeeMore, setSpecialSeeMore] = useState(false);
   var sizeOfSpecialism = specialismeSeeMore ? optionsOfSpecialism.length : 5;
   const [jobTypeSeeMore, setJobTypeSeeMore] = useState(false);
   var sizeOfJobType = jobTypeSeeMore ? optionsOfJobtyp.length : 5;
+  // SEE MORE AND SEE LESS --- END
+
+  useEffect(() => {
+    Search(location, salaryFrom, salaryTo, selectedJobtype, selectedSpecialism);
+  }, [location, salaryFrom, salaryTo, selectedJobtype, selectedSpecialism]);
   const handleJobtype = (option) => {
     if (selectedJobtype.includes(option)) {
       setSelectedJobtype(selectedJobtype.filter((item) => item !== option));
     } else {
       setSelectedJobtype([...selectedJobtype, option]);
     }
-    console.log(selectedJobtype);
   };
   // const handlePostedby = (option) => {
   //   if (selectedPostedby.includes(option)) {
@@ -63,7 +68,6 @@ const SideFilter = () => {
     } else {
       setSelectedSpecialism([...selectedSpecialism, option]);
     }
-    console.log(selectedSpecialism);
   };
 
   return (

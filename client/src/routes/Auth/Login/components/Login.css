@@ -17,7 +17,7 @@
   /* box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff; */
   /* background: linear-gradient(145deg, #cacaca, #f0f0f0); */
   border-radius: 0px;
-  
+
   background: #e0e0e0;
   box-shadow: 5px 5px 5px #2125296b, -5px -5px 5px #ffffffa6;
 }
@@ -52,24 +52,19 @@
 .Card {
   font-family: Poppins;
   width: 692px;
-  height: 717px;
-  padding: 10px;
-  padding-top: 0;
-  margin-top: 140px;
+  padding: 0;
+  padding-bottom: 30px;
   background: #ffffff;
   box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-  border-radius: 24px;
 }
 .signUp,
 .signIn {
   margin: 0;
-  padding: 0;
-  width: 80%;
+  padding: 25px 0;
+  width: 100%;
   display: flex;
   justify-content: center;
   font-family: Poppins;
-  background-color: #cf1350;
-  border: 1px solid #cf1350;
   color: #fff;
   font-size: 30px;
   font-style: normal;
@@ -91,7 +86,6 @@
   display: flex;
 }
 .signupsignin > div {
-  position: relative;
   width: 50%;
   height: 100%;
   font-family: Poppins;
@@ -99,11 +93,12 @@
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.72px;
-}
-.signupsignin h3 {
-  position: absolute;
-  margin-left: 25%;
-  top: 25px;
+  background-color: #cf1350;
+  border: 1px solid #cf1350;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 .loginHeading {
   color: #000;
@@ -178,7 +173,7 @@
 .accountLink {
   font-size: 15px;
   font-family: Poppins;
-  margin-top: 195px;
+  margin-top: 30px;
 }
 .accountLink a {
   text-decoration: none;

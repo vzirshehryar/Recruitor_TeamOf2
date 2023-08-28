@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import Header from "../../Home/components/header";
 function Register() {
   const navigate = useNavigate();
   const paramData = useParams();
@@ -111,8 +112,15 @@ function Register() {
 
   return (
     <>
-      <div>
-       
+      <Header page="authPage" />
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div className="container loginBox Card col-md-4   ">
           <div className="note pt-3 pb-3">
             <span className="loginHeading "> set New Password</span>
