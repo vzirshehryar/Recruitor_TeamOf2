@@ -178,7 +178,7 @@ const AppTable = () => {
                 <g clipPath="url(#clip0)">
                   <path
                     d="M12 12L20 4V0H0V4L8 12V20L12 16V12Z"
-                    fill="#8B83BA"
+                    fill="#CF1350"
                   />
                 </g>
                 <defs>

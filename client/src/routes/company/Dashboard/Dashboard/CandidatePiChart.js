@@ -56,7 +56,7 @@ const CandidatePieChart = () => {
       radius,
       startAngle,
       endAngleRejected,
-      "#D4ACE9"
+      "#960B39"
     );
     drawSlice(
       context,
@@ -65,7 +65,7 @@ const CandidatePieChart = () => {
       radius,
       endAngleRejected,
       endAngleRejected + endAngleHired,
-      "#9747FF"
+      "#C9154E"
     );
     drawSlice(
       context,
@@ -74,7 +74,7 @@ const CandidatePieChart = () => {
       radius,
       endAngleRejected + endAngleHired,
       endAngleRejected + endAngleHired + endAngleShortlisted,
-      "#6D0E9D"
+      "#EC1B5F"
     );
 
     drawHollowCircle(context, centerX, centerY, radius * 0.5, "#FFFFFF"); // Draw a white circle in the center

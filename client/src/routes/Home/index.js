@@ -20,7 +20,11 @@ function Homepage() {
       <Services />
       <BestPart />
 
+<<<<<<< HEAD
+      <WhyUs />
+=======
       {/* <WhyUs /> */}
+>>>>>>> 4a1de39c713e854b769720cd9a6bd47064f44f64
       {/*<Newsletter />*/}
 
       <Footer />

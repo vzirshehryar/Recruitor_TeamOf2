@@ -1,3 +1,16 @@
+html{
+  --color-primary: #CF1350;
+  --font-primary: "Red Hat Text";
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary) !important;
+}
 .headerNotificationBar {
   background-color: #6d0e9d;
   color: white;
@@ -479,13 +492,14 @@
   font-weight: 700;
   font-size: 47px;
   line-height: 48px;
-  color: #404145;
+  color: #000000;
 }
 
 .whyUsSecondHeading {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
+  font-size: 1.25rem !important;
   font-size: 18px;
   line-height: 26px;
   color: #62646a;
@@ -509,7 +523,7 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
-  color: #404145;
+  color: white;
 }
 
 .whyUsContText {
@@ -518,7 +532,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
-  color: #7a7d85;
+  color: white;
   padding-left: 12%;
   padding-right: 12%;
 }
@@ -530,6 +544,7 @@
   .whyUsMainHeading {
     font-size: 38px;
     line-height: 40px;
+    color: black;
   }
 
   .whyUsSecondHeading {
@@ -554,11 +569,32 @@
   }
 }
 
+.justify-content-between {
+  justify-content: space-evenly !important;
+  margin-inline: auto;
+}
+.no-mwidth {
+  padding-inline: 3rem;
+  max-width: none !important;
+  @media (min-width: 576px) {
+    max-width: 100% !important;
+  }
+  @media (min-width: 768px) {
+    max-width: 100% !important;
+  }
+  @media (min-width: 992px) {
+    max-width: 100% !important;
+  }
+}
+
 .whyUsContentCont {
   border-radius: 24px;
-  background: #eaddf1;
+  background: #CF1350;
+  color: white;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 30%;
+  padding-block: 5rem;
+  padding-inline: 3rem;
 }
 
 /* Mobile devices */
@@ -567,6 +603,7 @@
     width: 100%;
   }
   .whyUsMainHeading {
+    color: #000000;
     font-size: 30px;
     line-height: 32px;
   }
@@ -587,9 +624,11 @@
   .whyUsContHeader {
     font-size: 16px;
     line-height: 24px;
+    color: white;
   }
 
   .whyUsContText {
+    color: white;
     font-size: 10px;
     line-height: 16px;
     padding-left: 8%;

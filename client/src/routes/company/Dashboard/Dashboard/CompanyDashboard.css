@@ -28,7 +28,7 @@
   grid-column: 1 / span 2;
   display: flex;
   flex-direction: column;
-  background-color: #eaddf1;
+  background-color: #CF1350;
   padding-top: 1rem;
   padding-inline: 1rem;
   border-radius: 5px;
@@ -45,7 +45,7 @@
 
 .company-dashboard-heading {
   font-size: 2rem;
-  color: #102048 !important;
+  color: white !important;
   @media (min-width: 600px) {
     font-size: 2.1rem;
   }
@@ -61,7 +61,7 @@
 }
 
 .company-dashboard-para {
-  color: #6d0e9d;
+  color: white;
   font-weight: 500;
   font-size: 2.2rem;
 }
@@ -103,7 +103,7 @@
   position: absolute;
   inset: 0;
   width: 23%;
-  background-color: #eaddf1;
+  background-color: #CF135026;
   -webkit-mask-image: url("/public/manage-card.svg");
   mask-image: url("/public/manage-card.svg");
 }
@@ -210,17 +210,17 @@
 }
 
 .company-dashboard-recent-job-table {
-  min-width: 1187px;
+  min-width: 100%;
   margin-top: 1.2rem;
   border-radius: 4px;
 
   & thead {
-    color: #6d0e9d;
-    background-color: #eaddf1;
-    text-align: center;
+    color: #081351;
+    background-color: #F8DCE5;
+    text-align: left;
   }
   & tbody {
-    text-align: center;
+    text-align: left;
   }
 }
 .recent-job-table > tbody > tr {

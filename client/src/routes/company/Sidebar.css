@@ -10,7 +10,7 @@
 
 .sidebar {
   z-index: 3;
-  background: #6d0e9d;
+  background: #081351;
   color: #fff;
   font-family: Poppins;
   margin-top: 55px;
@@ -50,7 +50,7 @@
   color: #fff;
   font-family: Poppins;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 900;
 }
 .sidebar-head-button {
   padding: 10px;
@@ -64,8 +64,7 @@
 
 .sidebar-head-button.active {
   position: relative;
-
-  color: #fff;
+  color: #CF1350;
   text-decoration: none;
   padding-right: 25px;
   font-weight: 900;
@@ -74,12 +73,12 @@
 .sidebar-button.active {
   position: relative;
   background: #fff;
-  color: #6d0e9d;
+  color: #CF1350;
   text-decoration: none;
   padding-right: 25px;
 }
 .sidebar-button.active svg path {
-  stroke: #6d0e9d;
+  stroke: #CF1350;
 }
 
 .sidebar-button.active:before {

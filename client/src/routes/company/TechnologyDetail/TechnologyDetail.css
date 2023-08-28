@@ -1,0 +1,22 @@
+.form-button-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+.form-back-button {
+  background-color: white;
+  color: #000000;
+  border: 1px solid #cf134fa9;
+  margin-top: 0.8rem;
+  padding-inline: 2rem;
+}
+
+
+.tech-detail-submit-button {
+  margin-top: 0.8rem;
+  background-color: #cf1350;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}

@@ -27,7 +27,7 @@
   text-align: start;
   margin-left: 50px;
   margin-top: 20px;
-  color: #6d0e9d;
+  color: #CF1350;
   font-family: Poppins;
   font-size: 44px;
   font-style: normal;
@@ -74,7 +74,8 @@
 }
 
 .stage-rectangle {
-  background: #6d0e9d;
+  background: #CF1350;
+  border-color: #CF1350;
   display: inline-block;
   padding: 5px 5px;
   border-radius: 8px;
@@ -125,7 +126,7 @@
 }
 
 .pagination-apptable-button {
-  background-color: #6d0e9d;
+  background-color: #CF1350;
   font-family: Poppins;
   color: white;
   border: none;
@@ -141,9 +142,9 @@
   margin: 0 10px;
   background-color: rgba(255, 255, 255, 0.2);
   padding: 5px 15px;
-  border: 2px solid #6d0e9d;
+  border: 2px solid #CF1350;
   border-radius: 5px;
-  color: #6d0e9d;
+  color: #CF1350;
 }
 
 /* App Table CSS End */
@@ -193,7 +194,7 @@
   color: #fff;
   cursor: pointer;
   text-transform: capitalize;
-  background: #6d0e9d;
+  background: #CF1350;
 }
 
 .filter-button-app-search {
@@ -279,7 +280,7 @@
   text-align: start;
   margin-left: 50px;
   margin-top: 20px;
-  color: #6d0e9d;
+  color: #CF1350;
   font-family: Poppins;
   font-size: 48px;
   font-style: normal;
@@ -318,7 +319,7 @@
 }
 .custom-table-listings thead {
   background: #eaddf1;
-  color: #6d0e9d;
+  color: #CF1350;
   font-family: Montserrat;
   /* Optional border below the header */
 }
