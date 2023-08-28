@@ -1,0 +1,78 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.create-account-main-container {
+  background: white;
+  padding-block: 3rem;
+  padding-inline: 2rem;
+  text-align: center;
+}
+
+.create-account-heading-container {
+  margin-bottom: 1.5rem;
+}
+.create-account-heading {
+  color: #0f151a;
+  text-transform: capitalize;
+}
+
+.create-account-form-container {
+  max-width: 46rem;
+  margin-inline: auto;
+  margin-top: 2rem;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  padding-inline: 10px;
+  padding-block: 6px;
+  border-radius: 4px;
+  border: 1px solid #cf134f80;
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+label {
+  font-weight: 400;
+  display: block;
+  margin-bottom: 0.2rem;
+  text-align: left;
+  margin-top: 0.8rem;
+}
+
+.create-account-submit-button {
+  margin-top: 0.8rem;
+  width: 100%;
+  background-color: #cf1350;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+/* .horizontal-timeline{
+    margin-inline: auto;
+}
+
+.horizontal-timeline-list{
+    display: flex;
+    /* flex-direction: column; */
+/* list-style-type: none;
+    justify-content: center;
+    gap: 15rem;
+}
+.horizontal-timeline-list li{
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+    background-color: #CF1350;
+    height: 1.3rem;
+    width: 2.3rem;
+    border-radius: 100%;
+}  */

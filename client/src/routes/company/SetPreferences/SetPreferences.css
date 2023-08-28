@@ -1,0 +1,30 @@
+.form-section-heading{
+    text-align: left;
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.heading-left-align{
+    text-align: left;
+    margin-top: 1rem !important;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+input[type="checkbox"]{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 4px;
+}
+label{
+    margin: 0
+}
+
+.para-pref{
+    font-weight: 500;
+    font-size: 1rem;
+}

@@ -1,3 +1,16 @@
+html{
+  --color-primary: #CF1350;
+  --font-primary: "Red Hat Text";
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary) !important;
+}
 .headerNotificationBar {
   background-color: #6d0e9d;
   color: white;
@@ -474,6 +487,7 @@
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
+  font-size: 1.25rem !important;
   font-size: 18px;
   line-height: 26px;
   color: #62646a;

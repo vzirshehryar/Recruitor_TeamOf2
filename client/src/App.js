@@ -46,6 +46,12 @@ import ManageHiring from "./routes/company/Dashboard/ManageHiring/ManageHiring";
 import CompanyDashboard from "./routes/company/Dashboard/Dashboard/CompanyDashboard";
 import EditJob from "./routes/company/Dashboard/PostJobs/EditJob";
 
+import { CreateAcount } from "./routes/company/CreateAccount/CreateAcount";
+import { JobBasics } from "./routes/company/JobBasics/JobBasics";
+import { TechnologyDetail } from "./routes/company/TechnologyDetail/TechnologyDetail";
+import { PayBenefits } from "./routes/company/PayBenefits/PayBenefits";
+import { SetPreferences } from "./routes/company/SetPreferences/SetPreferences";
+
 const App = () => {
   return (
     <Router>
@@ -94,6 +100,13 @@ const App = () => {
         <Route path="/joblistings" element={<Listings />} />
         <Route path="/companydashboard" element={<CompanyDashboard />} />
         <Route path="/managehiring" element={<ManageHiring />} />
+
+
+        <Route path="/company/createaccount" element={<CreateAcount />} />
+        <Route path="/company/jobbasics" element={<JobBasics />} />
+        <Route path="/company/techdetail" element={<TechnologyDetail />} />
+        <Route path="/company/paybenefits" element={<PayBenefits />} />
+        <Route path="/company/setpreferences" element={<SetPreferences />} />
       </Routes>
     </Router>
   );
