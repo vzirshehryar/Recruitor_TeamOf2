@@ -19,6 +19,7 @@ const bacgroundSelect = {
 
 function JobFeed() {
   const { searchLocation, searchSector } = useJobContext();
+  const navigate = useNavigate();
 
   const [location, setLocation] = useState("");
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -71,8 +72,10 @@ function JobFeed() {
       locationMatch = job.location
         .toLowerCase()
         .includes(searchLocation.toLowerCase());
-    if (1) if (job.minSR < sideFilters.salaryFrom) minSalary = false;
-    if (1) if (job.maxSR > sideFilters.salaryTo) maxSalary = false;
+    if (sideFilters.salaryFrom !== NaN)
+      if (job.minSR < sideFilters.salaryFrom) minSalary = false;
+    if (sideFilters.salaryTo !== NaN)
+      if (job.maxSR > sideFilters.salaryTo) maxSalary = false;
     if (sideFilters.selectedJobtype.length)
       jobType = sideFilters.selectedJobtype.some((type) =>
         job.jobType.includes(type)
@@ -168,8 +171,13 @@ function JobFeed() {
     // setJobType(jt);
     // setJobLevel(jl);
   };
-  const handleEasyApply = () => {
-    console.log("handling easy apply");
+  const handleEasyApply = (item) => {
+    if (localStorage.getItem("userType") === "user") {
+      console.log(item);
+      navigate(`/jobdetail/${item._id}`);
+      return;
+    }
+    navigate("/login");
   };
 
   return (
@@ -229,7 +237,7 @@ function JobFeed() {
                     // style={forBackgroundSelection(index) ? bacgroundSelect : {}}
                   >
                     <div className="EasyApplyPortion mb-3">
-                      <button onClick={handleEasyApply}>
+                      <button onClick={() => handleEasyApply(item)}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="8"

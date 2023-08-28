@@ -64,7 +64,7 @@ const App = () => {
           <Route path="/set-profile" element={<SetProfile />} />
           <Route path="/experiences/form" element={<Experiences />} />
           <Route path="/jobFeed" element={<JobFeed />} />
-          <Route path="/jobdetail" element={<DetailPage />} />
+          <Route path="/jobdetail/:jobID" element={<DetailPage />} />
           <Route path="/experiences/submit-exp" element={<SubmitExp />} />
           <Route path="/education/form" element={<Education />} />
           <Route path="/education/submit-edu" element={<SubmitEdu />} />

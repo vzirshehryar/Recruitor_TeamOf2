@@ -79,7 +79,7 @@ const SideFilter = ({ Search }) => {
         <div>
           <h3 className={Style.h3}>Filter By</h3>
           {/* ---------- LOCATI0N ---------- */}
-          <div className="pt-4 pb-4">
+          {/* <div className="pt-4 pb-4">
             <h5 className={Style.h5}>Location</h5>
             <select
               className={Style.select}
@@ -94,7 +94,7 @@ const SideFilter = ({ Search }) => {
               <option value="Quetta">Quetta</option>
             </select>
           </div>
-          <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} />
+          <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} /> */}
           {/* ---------- SALARY RANGE ---------- */}
           <div className="pt-4 pb-2">
             <h5 className={Style.h5}>Salary Range</h5>

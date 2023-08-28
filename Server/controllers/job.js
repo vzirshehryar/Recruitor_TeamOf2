@@ -90,7 +90,6 @@ export const postJob = async (req, res) => {
 // get a single job from id in params
 export const getJob = async (req, res) => {
   try {
-    const companyID = req.company; // it is set from middleware
     const jobID = req.params.jobID;
     const job = await Job.findById(jobID, "-applications");
 

@@ -21,7 +21,7 @@ router.get("/getAllJobs", getAllJobs);
 router.post("/postJob", verifyCompanyToken, postJob);
 router.post("/editJob/:jobID", verifyCompanyToken, editJob);
 router.post("/apply/:jobID", verifyJWT, applyForJob);
-router.get("/getJob/:jobID", verifyCompanyToken, getJob);
+router.get("/getJob/:jobID", getJob);
 router.get("/deleteJob/:jobID", verifyCompanyToken, deleteJob);
 //  get jobs of a company
 router.get("/getJobs", verifyCompanyToken, getJobs);

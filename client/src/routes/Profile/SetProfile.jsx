@@ -4,8 +4,9 @@ import { useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
-import Style from "./SetProfile.module.css";
+// import Style from "./SetProfile.module.css";
 import Header from "../Home/components/header";
+import JobStep from "../jobFeed/job/JobStep";
 
 const SetProfile = () => {
   const [formData, setFormData] = useState({
@@ -111,7 +112,8 @@ const SetProfile = () => {
   return (
     <>
       <Header page="" />
-      <div className="form-container">
+      <JobStep />
+      {/* <div className="form-container d-none">
         <div style={{ width: "70%", minWidth: "350px" }}>
           <p className={`${Style.step}`}>Step 1</p>
         </div>
@@ -155,7 +157,7 @@ const SetProfile = () => {
         <div style={{ width: "70%", minWidth: "350px", marginTop: "40px" }}>
           <p className={`${Style.step}`}>Step 2</p>
         </div>
-        <div className="shadow mb-5">
+        <div className="shadow">
           <h3 className={`${Style.h3} mb-3`}>Complete your registration</h3>
           <p className={`${Style.p}`}>
             almost there... We require few more details which will be sent to
@@ -328,7 +330,7 @@ const SetProfile = () => {
           </form>
         </div>
         <ToastContainer />
-      </div>
+      </div> */}
     </>
   );
 };
