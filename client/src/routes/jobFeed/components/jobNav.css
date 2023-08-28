@@ -2,23 +2,65 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  padding: 10px;
+  gap: 20px;
+  padding: 40px 10px;
+  background: rgba(207, 19, 80, 0.02);
 }
 .jobFeedFilter .filter {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
   padding: 10px 10px;
-  width: 130px;
-  border-radius: 4px;
-  background: #fff;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  position: relative;
 }
-.jobFeedFilter .dropDown {
-  /* display: none; */
+.jobFeedFilter label {
+  color: #000;
+  text-align: center;
+  font-family: Red Hat Text;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38.4px; /* 160% */
+  margin-right: 10px;
+}
+.jobFeedFilter input {
+  border-radius: 10px;
+  border: 1.4px solid #df1a50;
+  font-size: 14px;
+  width: 300px;
+  padding: 5px 10px;
+}
+.jobFeedFilter button {
+  border-radius: 10px;
+  background: #cf1350;
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
+  width: 160px;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-right: 5px;
+}
+.jobFeedFilter a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: #1e1ef0;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+@media (max-width: 900px) {
+  .jobFeedFilter {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* .jobFeedFilter .dropDown {
+  display: none;
   position: absolute;
   top: 50px;
   left: 0;
@@ -60,4 +102,4 @@
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
-}
+} */

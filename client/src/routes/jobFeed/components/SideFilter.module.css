@@ -1,0 +1,70 @@
+.h3 {
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.h5 {
+  margin-left: 3px;
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.p {
+  margin-left: 5px;
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.select {
+  width: 200px;
+  border-radius: 10px;
+  border: 1px solid #cf1350;
+  padding: 5px 10px;
+  color: rgba(0, 0, 0, 0.49);
+  font-family: Red Hat Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: lowercase;
+}
+.JobType {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.SideFilter label {
+  margin: 3px 0;
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.moreORless {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #1e1ef0;
+  font-family: Red Hat Text;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
