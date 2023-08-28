@@ -54,6 +54,7 @@ const CompanyDashboard = () => {
         <div className="company-dashboard-job-cards-container">
           <ManageJobCard for="Post" count={allInfo.jobPosted} />
           <ManageJobCard for="Applied" count={allInfo.applied} />
+          <ManageJobCard for="View" count={allInfo.applied} />
         </div>
         <div className="company-dashboard-job-table-comp">
           <RecentJobPosts jobs={allInfo.jobs} setAllInfo={setAllInfo} />

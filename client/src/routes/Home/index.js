@@ -21,7 +21,7 @@ function Homepage() {
       <BestPart />
 
       <WhyUs />
-    {/*<Newsletter />*/}
+      {/*<Newsletter />*/}
 
       <Footer />
     </>

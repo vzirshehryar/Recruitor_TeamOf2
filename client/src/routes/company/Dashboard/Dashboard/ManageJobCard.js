@@ -10,12 +10,12 @@ const ManageJobCard = (props) => {
           <p className="company-dashbaord-job-card-top-div-para">
             Job {props.for}
           </p>
-          {/* <div className="company-dashboard-stats-with-icon">
+          <div className="company-dashboard-stats-with-icon">
             <p>
               <BsBarChartLine />
             </p>
             <p>0.0</p>
-          </div> */}
+          </div>
         </div>
         <div className="company-dashboard-job-card-middle-div">
           <p>{props.count ? props.count : 0}</p>

@@ -1,8 +1,4 @@
 import { useState, useEffect } from "react";
-import { Badge } from "react-bootstrap";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Button from "react-bootstrap/Button";
-import { FaEllipsisH } from "react-icons/fa";
 
 const RecentJobPosts = ({ jobs }) => {
   const [data, setData] = useState(jobs);
@@ -51,8 +47,11 @@ const RecentJobPosts = ({ jobs }) => {
         <table className="company-dashboard-recent-job-table">
           <thead className="manage-hiring-table-head">
             <tr>
-              <th>Job Title</th>
+              <th style={{
+                paddingLeft: "1rem"
+              }}>Job Title</th>
               <th>Category</th>
+              <th>Openings</th>
               <th>Applications</th>
               <th>Status</th>
             </tr>
@@ -62,8 +61,11 @@ const RecentJobPosts = ({ jobs }) => {
               data.map((job, i) => {
                 return (
                   <tr key={i} className="manage-hiring-table-row-body">
-                    <td>{job.jobTitle}</td>
+                    <td style={{
+                      paddingLeft: "1rem"
+                    }}>{job.jobTitle}</td>
                     <td>{job.jobType}</td>
+                    <td>{job.openings || 1}</td>
                     <td>{job.applicants}</td>
                     <td>
                       <DeadlineButton deadline={job.applicationDeadline} />

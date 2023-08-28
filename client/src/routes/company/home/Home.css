@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Text:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+html{
+  --color-primary: #CF1350;
+  --font-primary: "Red Hat Text";
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary) !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.company-home-main-container {
+}
+
+.company-home-hero-container {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-inline: 2rem;
+  padding-block: 3rem;
+  background: linear-gradient(0deg, #081351 0%, #081351 100%),
+    rgba(0, 0, 0, 0.2);
+
+  @media (min-width: 740px) {
+    flex-direction: row;
+  }
+}
+
+.company-home-welcome-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  & h1 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    letter-spacing: 0.09rem;
+    max-width: 30.8rem;
+    @media (min-width: 740px) {
+      max-width: 100%;
+      font-size: 3.5rem;
+    }
+    @media (min-width: 1085px) {
+      max-width: 100%;
+      font-size: 4rem;
+    }
+    @media (min-width: 1162px) {
+      max-width: 40rem;
+      font-size: 4rem;
+    }
+  }
+  & h3{
+    font-size: 1.5rem;
+    font-weight: 400;
+    @media (min-width: 740px) {
+      max-width: 100%;
+      font-size: 2rem;
+    }
+    @media (min-width: 1085px) {
+      max-width: 100%;
+      font-size: 2.5rem;
+    }
+    @media (min-width: 1162px) {
+      max-width: 40rem;
+      font-size: 2.8rem;
+    }
+  }
+  & button{
+    background-color: var(--color-primary);
+    font-weight: 600;
+    max-width: 16.625rem;
+  }
+}
+
+.company-home-welcome-image {
+  max-width: 25.9rem;
+  & img {
+    width: 100%;
+  }
+}
