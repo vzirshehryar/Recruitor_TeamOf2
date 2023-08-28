@@ -6,6 +6,7 @@ import { FaFacebook } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import Header from "../../Home/components/header";
 function Register() {
   const navigate = useNavigate();
 
@@ -97,9 +98,18 @@ function Register() {
             return;
           }
 
+          // Store the token in local storage
+          localStorage.setItem("token", response.token);
+          localStorage.setItem("progress", response.completionStatus);
+          localStorage.setItem("userType", "user");
+
+          // Store the user data in local storage
+          localStorage.setItem("user", JSON.stringify(response.user));
+
           setFormData(initialFormData);
           setIsValidPassword(false);
           toast.success("User is registered successfully");
+          navigate("/set-profile");
           setLoader("SIGN UP");
         })
         .catch((error) => {
@@ -113,24 +123,30 @@ function Register() {
 
   return (
     <>
-      <div>
-        <div className="container text-center loginBox Card col-md-4 pt-2">
+      <Header page="authPage" />
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div className="container text-center loginBox Card col-md-4">
           <div className="signupsignin">
-            <div
-              style={{ cursor: "pointer" }}
-              onClick={() => navigate("/signup")}
-            >
-              <h3 className="signUp" style={{ color: "#fff" }}>
-                SIGN UP
+            <div onClick={() => navigate("/login")}>
+              <h3
+                className="signIn"
+                style={{
+                  color: "rgba(0, 0, 0, 0.49)",
+                  background: "white",
+                }}
+              >
+                Sign In
               </h3>
             </div>
-            <div
-              style={{ cursor: "pointer" }}
-              onClick={() => navigate("/login")}
-            >
-              <h3 className="signIn" style={{ color: "#fff" }}>
-                Log In
-              </h3>
+            <div onClick={() => navigate("/signup")}>
+              <h3 className="signUp">Register</h3>
             </div>
           </div>
 

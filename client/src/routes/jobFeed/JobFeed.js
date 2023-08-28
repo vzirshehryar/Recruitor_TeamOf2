@@ -11,12 +11,15 @@ import JobNav from "./components/JobNav";
 import { useNavigate } from "react-router-dom";
 import { FaClock, FaFileContract, FaMapMarkerAlt } from "react-icons/fa";
 import SideFilter from "./components/SideFilter";
+import { useJobContext } from "../../useContext/jobContext";
 
 const bacgroundSelect = {
   background: "rgba(109, 14, 157, 0.19)",
 };
 
 function JobFeed() {
+  const { searchLocation, searchSector } = useJobContext();
+
   const [location, setLocation] = useState("");
   const [searchKeyword, setSearchKeyword] = useState("");
   const [jobList, setJobList] = useState([]);
@@ -25,6 +28,14 @@ function JobFeed() {
   const [selected, setSelected] = useState(0);
   const [jobType, setJobType] = useState([]);
   const [jobLevel, setJobLevel] = useState([]);
+
+  const [sideFilters, setSideFilters] = useState({
+    location: "",
+    salaryFrom: "",
+    salaryTo: "",
+    selectedJobtype: [],
+    selectedSpecialism: [],
+  });
 
   useEffect(() => {
     getAllJobs();
@@ -45,24 +56,42 @@ function JobFeed() {
   };
 
   const filteredJobs = jobList.filter((job) => {
-    // const titleMatch = job.title
-    //   .toLowerCase()
-    //   .includes(searchKeyword.toLowerCase());
-    // const locationMatch = job.companyLocation
-    //   .toLowerCase()
-    //   .includes(location.toLowerCase());
-    // return titleMatch && locationMatch;
-    console.log(!jobType.length, !jobLevel.length);
-    if (!jobType.length && !jobLevel.length) return true;
+    console.log(sideFilters);
+    var titleMatch = true,
+      locationMatch = true,
+      minSalary = true,
+      maxSalary = true,
+      jobType = true,
+      specialism = true;
+    if (searchSector)
+      titleMatch = job.jobTitle
+        .toLowerCase()
+        .includes(searchSector.toLowerCase());
+    if (searchLocation)
+      locationMatch = job.location
+        .toLowerCase()
+        .includes(searchLocation.toLowerCase());
+    if (1) if (job.minSR < sideFilters.salaryFrom) minSalary = false;
+    if (1) if (job.maxSR > sideFilters.salaryTo) maxSalary = false;
+    if (sideFilters.selectedJobtype.length)
+      jobType = sideFilters.selectedJobtype.some((type) =>
+        job.jobType.includes(type)
+      );
 
-    for (const word of jobType) {
-      if (job.jobType === word) return true;
-    }
-    for (const word of jobLevel) {
-      if (job.jobLevel === word) return true;
-    }
-    // if(jobType.lenght)
-    return false;
+    return titleMatch && locationMatch && maxSalary && minSalary && jobType;
+    // return titleMatch && locationMatch ;
+    // return true;
+    // console.log(!jobType.length, !jobLevel.length);
+    // if (!jobType.length && !jobLevel.length) return true;
+
+    // for (const word of jobType) {
+    //   if (job.jobType === word) return true;
+    // }
+    // for (const word of jobLevel) {
+    //   if (job.jobLevel === word) return true;
+    // }
+    // // if(jobType.lenght)
+    // return false;
   });
 
   const sortedCurrentJobs = [...filteredJobs].sort((a, b) => {
@@ -102,6 +131,7 @@ function JobFeed() {
   const getAllJobs = async () => {
     const newJobs = await fetch("/job/getalljobs");
     const resJobs = await newJobs.json();
+    console.log(resJobs.jobs);
     setJobList(resJobs.jobs);
     setSelectedJob(resJobs.jobs[0]);
   };
@@ -111,10 +141,35 @@ function JobFeed() {
     return false;
   };
 
-  const Search = (jt, jl) => {
-    console.log("searched called");
-    setJobType(jt);
-    setJobLevel(jl);
+  const Search = (
+    location,
+    salaryFrom,
+    salaryTo,
+    selectedJobtype,
+    selectedSpecialism
+  ) => {
+    setSideFilters((prev) => {
+      const newObject = {
+        location,
+        salaryFrom: parseInt(salaryFrom.slice(1)),
+        salaryTo: parseInt(salaryTo.slice(1)),
+        selectedJobtype: selectedJobtype,
+        selectedSpecialism: selectedSpecialism,
+      };
+      return newObject;
+    });
+    console.log(
+      location,
+      parseInt(salaryFrom.slice(1)),
+      parseInt(salaryTo.slice(1)),
+      selectedJobtype,
+      selectedSpecialism
+    );
+    // setJobType(jt);
+    // setJobLevel(jl);
+  };
+  const handleEasyApply = () => {
+    console.log("handling easy apply");
   };
 
   return (
@@ -125,7 +180,7 @@ function JobFeed() {
 
         <Container fluid className="jobFeedContainer">
           <Container style={{ display: "flex", gap: "25px", margin: "auto" }}>
-            <SideFilter />
+            <SideFilter Search={Search} />
             <Row className="pt-4 pb-5 jobFeedDisplay">
               <div className="jobCardInJobFeed">
                 <p>1,053 Account Administrator Jobs in 47080</p>
@@ -174,7 +229,7 @@ function JobFeed() {
                     // style={forBackgroundSelection(index) ? bacgroundSelect : {}}
                   >
                     <div className="EasyApplyPortion mb-3">
-                      <button>
+                      <button onClick={handleEasyApply}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="8"
@@ -254,7 +309,7 @@ function JobFeed() {
                     </div>
                     <div className="JobCardTitle mb-2">
                       <div>
-                        <h3> Account Administrator</h3>
+                        <h3>{item.jobTitle}</h3>
                         <h5>11 July by Carbon 60</h5>
                         <div
                           className="d-flex gap-1 align-items-center mb-1"
@@ -262,16 +317,16 @@ function JobFeed() {
                         >
                           <div className="d-flex gap-1 justify-content-center align-items-center">
                             <FaClock />
-                            <p>£12.90 per hour</p>
+                            <p>${item.minSR} per month</p>
                           </div>
                           <div className="d-flex gap-1 justify-content-center align-items-center ml-6">
                             <FaFileContract />
-                            <p>Contract, full-time</p>
+                            <p>{item.jobType}</p>
                           </div>
                         </div>
                         <div className="d-flex gap-1 align-items-center">
                           <FaMapMarkerAlt />
-                          <p>Perth</p>
+                          <p>{item.location}</p>
                         </div>
                       </div>
                       <div className="image">

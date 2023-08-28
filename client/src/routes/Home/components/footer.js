@@ -159,7 +159,9 @@ function Footer() {
             <Container>
               <Nav className="footerLogoText">
                 <Navbar.Text>
-                  <p className="my-auto">CopyRights&copy;Step200 2023 </p>
+                  <p className="my-auto" style={{ color: "white" }}>
+                    CopyRights&copy;Step200 2023{" "}
+                  </p>
                 </Navbar.Text>
               </Nav>
               {/* <Navbar.Collapse className="justify-content-end footerSocialLinks">
@@ -188,8 +190,6 @@ function Footer() {
           </Navbar>
         </div>
       </div>
-      <br></br>
-      <div className="footer"></div>
     </>
   );
 }

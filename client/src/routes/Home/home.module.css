@@ -1,0 +1,179 @@
+h1 {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100px; /* 104.167% */
+  letter-spacing: 1.44px;
+  text-transform: capitalize;
+  max-width: 700px;
+  padding: 10px 0;
+}
+h3 {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  padding: 10px 0;
+}
+h5 {
+  color: #0f151a;
+  text-align: center;
+  font-family: Red Hat Text;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38.4px; /* 120% */
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! SLIDER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.HomeSlider {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+    url("/public/HomeTop.png"), lightgray 50% / cover no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 10%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.HomeSlider > div {
+  margin-top: 50px;
+  align-self: center;
+  border-radius: 8px;
+  border: 1px solid #cf1350;
+  background: #cf1350;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  width: fit-content;
+  padding: 20px 30px 30px 30px;
+  gap: 20px;
+}
+.HomeSlider label {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.HomeSlider input {
+  border-radius: 4px;
+  background: #fff;
+  padding: 10px 20px;
+}
+.HomeSlider button {
+  border-radius: 4px;
+  padding: 10px 20px;
+  background: #181332;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-right: 5px;
+}
+.HomeSlider a {
+  color: #fff;
+  text-decoration: none;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! SERVICES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.TrendingJobs {
+  padding: 0 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.serviceactive {
+  border-bottom: 4px solid #a30d3d;
+}
+.JobBox {
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 0.5px solid #cf1350;
+  background: #fff;
+  color: #081351;
+  text-align: center;
+  font-family: Red Hat Text;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  cursor: pointer;
+  transition: 0.3ms;
+}
+.JobBox:hover {
+  background-color: #cf1350;
+  color: white;
+}
+.TrendingJobs p {
+  color: #000;
+  text-align: center;
+  font-family: Red Hat Text;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 27px; /* 150% */
+}
+.seemore {
+  cursor: pointer;
+  color: #cf1350;
+  text-align: center;
+  font-family: Red Hat Text;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  border-bottom: 1px solid #cf1350;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! AI SERVICES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.BestPart {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! AI SERVICES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+/* Media query for small screens (phones) */
+@media (max-width: 576px) {
+  .h1 {
+    font-size: 60px;
+  }
+  .h3 {
+    font-size: 40px;
+  }
+  .h5 {
+    font-size: 25px;
+  }
+}

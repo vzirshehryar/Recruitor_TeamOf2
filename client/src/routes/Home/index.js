@@ -14,14 +14,14 @@ import Newsletter from "./components/Newsletter";
 function Homepage() {
   return (
     <>
-      <Header />
+      <Header active="job" />
       <Slider />
       {/*<TrustedBy />*/}
       <Services />
       <BestPart />
 
-      <WhyUs />
-    {/*<Newsletter />*/}
+      {/* <WhyUs /> */}
+      {/*<Newsletter />*/}
 
       <Footer />
     </>

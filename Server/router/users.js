@@ -6,6 +6,7 @@ import {
   ForgetPassword,
   SetPassword,
   SendEmail,
+  uploadResume,
 } from "../controllers/index.js";
 
 import { verifyJWT } from "../middlewares/middleware.js";
@@ -18,6 +19,7 @@ router.post("/applyJob", ApplyJob);
 router.post("/forgetPassword", ForgetPassword);
 router.post("/setPassword", SetPassword);
 router.post("/sendEmail", SendEmail);
+router.post("/uploadresume", verifyJWT, uploadResume);
 
 // HERE ARE THE ROUTES OF PROFILE INFORMATION RELATED ROUTERS WHICH ARE INSIDE /userProfileRouter FOLDER
 import PersonalInfoRoutes from "./userProfileRouter/personalInfo.js";

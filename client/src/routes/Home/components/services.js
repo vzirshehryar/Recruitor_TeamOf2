@@ -1,159 +1,84 @@
-import service1 from "../../../assests/images/Service 1.png";
-import service2 from "../../../assests/images/Service 2.png";
-import service3 from "../../../assests/images/Service 3.png";
+import { useState } from "react";
 
-import { Card } from "react-bootstrap";
-import "../components/home.css";
+import Style from "../home.module.css";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+
+const jobs = [
+  "sdlfkj",
+  "Administrative Jobs",
+  "sdlfkj",
+  "lkjsdflkja",
+  "Part Time Jobs",
+  "sdlfkj",
+  "sdlfkj",
+  "Accountant Jobs",
+  "Warehouse",
+];
 
 function Services() {
+  const [more, setMore] = useState(false);
+  const [select, setSelect] = useState("sector");
   return (
-    <>
-      {/* <Row className="p-5">
-        <h2 className="text-center pt-5">Our Services</h2>
-        <div className="col-lg">
-          <Card className="servicesContainer mt-3 mb-3">
-            <Card.Img variant="top" src={img} />
-            <Card.Body>
-              <Card.Title>
-                <h3>Card Title</h3>
-              </Card.Title>
-              <br></br>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <br></br>
-              <button className="servicesBtn mb-3">Learn More</button>
-            </Card.Body>
-          </Card>
+    <div className={`${Style.TrendingJobs}`}>
+      <h5 className={`${Style.h5}`}>Trending Jobs</h5>
+      <div
+        className="mt-3 d-flex flex-wrap justify-content-center gap-3"
+        style={{ maxWidth: "900px" }}
+      >
+        {jobs.map((job) => (
+          <div className={`${Style.JobBox}`}>{job}</div>
+        ))}
+      </div>
+      <div className="mt-4 d-flex align-center justify-content-center gap-3 mb-2">
+        <p
+          className={`px-3 py-2 cursor-pointer ${
+            select === "sector" ? Style.serviceactive : ""
+          }`}
+          onClick={() => setSelect("sector")}
+        >
+          Search by Sector
+        </p>
+        <p
+          className={`px-3 py-2 cursor-pointer ${
+            select === "location" ? Style.serviceactive : ""
+          }`}
+          onClick={() => setSelect("location")}
+        >
+          Search by Location
+        </p>
+      </div>
+      {/*SEARCH SECTIONS STARTED */}
+      <div className="mt-3 d-flex flex-wrap justify-content-center gap-4">
+        <div>
+          <img src="/TechnologyJobs.png" alt="image" />
+          <p style={{ textAlign: "left", paddingTop: "5px" }}>Technology</p>
         </div>
-        <div className="col-lg">
-          <Card className="servicesContainer mt-3 mb-3">
-            <Card.Img variant="top" src={img} />
-            <Card.Body>
-              <Card.Title>
-                <h3>Card Title</h3>
-              </Card.Title>
-              <br></br>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <br></br>
-              <button className="servicesBtn mb-3">Learn More</button>
-            </Card.Body>
-          </Card>
+        <div>
+          <img src="/EngineeringJobs.png" alt="image" />
+          <p style={{ textAlign: "left", paddingTop: "5px" }}>Engineering</p>
         </div>
-        <div className="col-lg">
-          <Card className="servicesContainer mt-3 mb-3">
-            <Card.Img variant="top" src={img} />
-            <Card.Body>
-              <Card.Title>
-                <h3>Card Title</h3>
-              </Card.Title>
-              <br></br>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <br></br>
-              <button className="servicesBtn mb-3">Learn More</button>
-            </Card.Body>
-          </Card>
+        <div>
+          <img src="/GraduatesJobs.png" alt="image" />
+          <p style={{ textAlign: "left", paddingTop: "5px" }}>Graduates</p>
         </div>
-        <div className="col-lg">
-          <Card className="servicesContainer mt-3 mb-3">
-            <Card.Img variant="top" src={img} />
-            <Card.Body>
-              <Card.Title>
-                <h3>Card Title</h3>
-              </Card.Title>
-              <br></br>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <br></br>
-              <button className="servicesBtn mb-3">Learn More</button>
-            </Card.Body>
-          </Card>
-        </div>
-      </Row> */}
-      <div className=" pb-5 mt-8">
-        <div className="text-center pt-5">
-          <h1 id="services" className="homepageServicesHeading pt-5">
-            Our Services
-          </h1>
-        </div>
-
-        <div className="servicesCards mx-5 pt-5 pb-3">
-          <Card className="service1Card">
-            <Card.Body>
-              <Card.Title className="serviceCardTitle mb-3 p-2">
-                Counseling
-              </Card.Title>
-              <Card.Text className="serviceCardText p-2">
-                <p>
-                  Personalized 1:1 counseling for transformative growth and
-                  well-being.
-                </p>
-                <p>
-                  Unlock your potential with our empowering 1:1 counseling
-                  services.
-                </p>
-                <p>
-                  Discover personal insights and strategies for positive change
-                  through our confidential 1:1 counseling sessions.
-                </p>
-              </Card.Text>
-            </Card.Body>
-          </Card>
-
-          <Card className="service2Card">
-            <Card.Body>
-              <Card.Title className="serviceCardTitle mb-3 p-2">
-                Auto Profile matching
-              </Card.Title>
-              <Card.Text className="serviceCardText p-2">
-                <p>
-                  AI-powered job matching for efficient and accurate candidate
-                  selection.
-                </p>
-                <p>
-                  Advanced technology analyzes job requirements and candidate
-                  profiles.
-                </p>
-                <p>
-                  Increase the chances of hiring the perfect fit for your
-                  organization.
-                </p>
-              </Card.Text>
-            </Card.Body>
-          </Card>
-
-          <Card className="service3Card">
-            <Card.Body>
-              <Card.Title className="serviceCardTitle mb-3 p-2">
-                AR/VR Interview
-              </Card.Title>
-              <Card.Text className="serviceCardText p-2">
-                <p>
-                  Immersive AR/VR interviews for a unique candidate experience.
-                </p>
-                <p>
-                  Interactive assessments to evaluate technical skills and
-                  creativity.
-                </p>
-                <p>
-                  Real-time feedback and analytics for informed hiring
-                  decisions.
-                </p>
-              </Card.Text>
-            </Card.Body>
-          </Card>
+        <div>
+          <img src="/HealthJobs.png" alt="image" />
+          <p style={{ textAlign: "left", paddingTop: "5px" }}>Health</p>
         </div>
       </div>
-    </>
+      <div className={`${Style.seemore}`} onClick={() => setMore(!more)}>
+        {!more ? (
+          <>
+            See more Sectors <FaAngleDown />
+          </>
+        ) : (
+          <>
+            See less Sectors <FaAngleUp />
+          </>
+        )}
+      </div>
+      {/*SEARCH SECTIONS ENDED */}
+    </div>
   );
 }
 

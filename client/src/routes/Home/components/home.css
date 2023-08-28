@@ -33,15 +33,22 @@
   font-size: 18px;
 }
 
-.navBarLinks > a:active {
-  /* color: #6d0e9d; */
-  font-weight: bold;
+.navBarLinks a {
+  text-decoration: none;
+  color: white;
+}
+.navBarLinks > .active {
+  border-bottom: 2px solid white;
 }
 
 .logoH {
   color: #fff;
   font-size: 30px;
   font-family: Poppins;
+}
+.logoH:hover,
+.logoH:active {
+  color: white;
 }
 
 .profileBtnH {
@@ -58,8 +65,8 @@
 }
 
 .getSignUpBtn {
-  position: absolute;
-  right: 10px;
+  /* position: absolute;
+  right: 120px; */
   color: #fff;
   border: 2px solid #fff;
   padding: 10px 15px;
@@ -67,8 +74,8 @@
   /* width: 120px; */
 }
 .getLogInBtn {
-  position: absolute;
-  right: 140px;
+  /* position: absolute;
+  right: 40px; */
   color: #ffffff;
   /* border: 2px solid #6d0e9d; */
   padding: 10px 15px;
@@ -86,6 +93,11 @@
 } */
 
 @media screen and (max-width: 990px) {
+  .navBarLinks > .active {
+    border: none;
+    border-left: 2px solid white;
+    padding-left: 5px;
+  }
   .getLogInBtn {
     top: 70px;
     right: 50px;
@@ -779,6 +791,8 @@
   align-items: center;
   width: 100%;
   margin-top: 40px;
+  background: #a30d3d;
+  color: white;
 }
 
 .footerUpperSection,

@@ -7,6 +7,7 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Header from "../../Home/components/header";
 
 function Login() {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ function Login() {
 
           setFormData(initialFormData);
           setLoader("LOG IN");
-          navigate("/personal-information");
+          navigate("/");
         })
         .catch((error) => {
           // Handle error here
@@ -102,23 +103,29 @@ function Login() {
 
   return (
     <>
-      <div>
-        <div className="container Card col-lg-4 pt-2">
+      <Header page="authPage" />
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div className="container Card col-lg-4 p-0">
           <div className="signupsignin d-flex">
-            <div
-              style={{ cursor: "pointer" }}
-              onClick={() => navigate("/signup")}
-            >
-              <h3 className="signUp" style={{ color: "#fff" }}>
-                SIGN UP
-              </h3>
+            <div onClick={() => navigate("/login")}>
+              <h3 className="signIn px-2">Sign In</h3>
             </div>
-            <div
-              style={{ cursor: "pointer" }}
-              onClick={() => navigate("/login")}
-            >
-              <h3 className="signIn px-2" style={{ color: "#fff" }}>
-                LOG IN
+            <div onClick={() => navigate("/signup")}>
+              <h3
+                className="signUp"
+                style={{
+                  color: "rgba(0, 0, 0, 0.49)",
+                  background: "white",
+                }}
+              >
+                Register
               </h3>
             </div>
           </div>
