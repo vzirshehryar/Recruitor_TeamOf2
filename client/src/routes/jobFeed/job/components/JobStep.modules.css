@@ -91,10 +91,17 @@
 .mdiv {
   margin-top: 120px;
 }
+.dpad {
+  margin-top: 54px;
+}
+.lhi {
+  line-height: 12px;
+}
 
 .dpage {
-  width: 1028px;
-  height: 986px;
+  width: 1190px;
+  height: 2270px;
+  flex-shrink: 0;
   border-radius: 20px 0px 0px 20px;
   border: 1px solid #cf1350;
 }
@@ -104,24 +111,19 @@
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
-  line-height: 120.8%; /* 36.24px */
+  line-height: normal;
   text-transform: capitalize;
-
-  width: 337px;
-  height: 36px;
 }
 .phead {
   color: #000;
   font-family: Red Hat Text;
-  font-size: 12px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 120.8%; /* 14.496px */
-  text-transform: capitalize;
-  width: 798px;
-  height: 14px;
-  top: -34638px;
-  left: 9128px;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: lowercase;
+  width: 843px;
+  height: 63px;
 }
 .dli {
   color: #000;
@@ -131,6 +133,7 @@
   font-weight: 400;
   line-height: normal;
   text-transform: capitalize;
+  width: 856px;
 }
 .dlli {
   margin-top: 110px;
@@ -154,13 +157,7 @@
   margin-top: 110px;
   margin-left: 200px;
 }
-.dbox {
-  width: 182px;
-  height: 147px;
 
-  border-radius: 10px;
-  border: 1px solid #cf1350;
-}
 .carbon {
   width: 100px;
   height: 100px;
@@ -182,17 +179,19 @@
   width: 182.176px;
   height: 0px;
 }
-.dloc {
-  width: 337px;
-  height: 61px;
-  border-radius: 10px;
-  border: 1px solid #cf1350;
-  margin-top: 30px;
+.dheading {
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
 }
 .dl {
   color: #000;
   font-family: Red Hat Text;
-  font-size: 10px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -215,6 +214,84 @@ likbtn {
   stroke-width: 1px;
   stroke: #cf1350;
 }
-.stp{
+.stp {
   margin-left: 67rem;
+}
+
+.bgimg {
+  border-radius: 20px 20px 0px 0px;
+  margin: 0;
+  padding: 0;
+  background: url(D:\solitrige\Recruitor_TeamOf2\client\src\assests\images\bgimg.png);
+
+  background-size: "cover";
+  background-repeat: no-repeat;
+}
+
+.dbox {
+  width: 382px;
+  height: 186px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: linear-gradient(
+    133deg,
+    #fbf9f9 13.24%,
+    rgba(207, 19, 80, 0.8) 100%
+  );
+}
+.dcard {
+  width: 894px;
+  height: 184px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #fbf9f9;
+}
+.dp {
+  width: 894px;
+}
+bg {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 6%,
+    rgba(227, 227, 227, 1) 6%,
+    rgba(227, 228, 230, 1) 8%,
+    rgba(230, 230, 232, 1) 100%
+  );
+}
+.dloc {
+  border-radius: 20px;
+  background: #fbf9f9;
+}
+.dl {
+  color: #000;
+  font-family: Red Hat Text;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.dapp {
+  width: 894px;
+  height: 114px;
+
+  border-radius: 20px;
+  background: #fbf9f9;
+}
+.dabtn {
+  width: 558px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #cf1350;
+  background: #cf1350;
+}
+.dgabtn {
+  width: 558px;
+  height: 48px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #cf1350;
 }
