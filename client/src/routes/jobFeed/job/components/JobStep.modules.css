@@ -218,14 +218,14 @@ likbtn {
   margin-left: 67rem;
 }
 
-.bgimg {
-  border-radius: 20px 20px 0px 0px;
+.bgimg img {
+  border-radius: 20px;
   margin: 0;
   padding: 0;
-  background: url(D:\solitrige\Recruitor_TeamOf2\client\src\assests\images\bgimg.png);
 
   background-size: "cover";
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .dbox {
@@ -238,6 +238,9 @@ likbtn {
     #fbf9f9 13.24%,
     rgba(207, 19, 80, 0.8) 100%
   );
+  /* position: absolute;
+  margin: auto;
+  top: 50px; */
 }
 .dcard {
   width: 894px;

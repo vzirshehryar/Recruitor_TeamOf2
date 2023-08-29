@@ -21,14 +21,14 @@ function Services() {
   return (
     <div className={`${Style.TrendingJobs}`}>
       <h5 className={`${Style.h5}`}>Trending Jobs</h5>
-      <div
+      {/* <div
         className="mt-3 d-flex flex-wrap justify-content-center gap-3"
         style={{ maxWidth: "900px" }}
       >
         {jobs.map((job) => (
           <div className={`${Style.JobBox}`}>{job}</div>
         ))}
-      </div>
+      </div> */}
       <div className="mt-4 d-flex align-center justify-content-center gap-3 mb-2">
         <p
           className={`px-3 py-2 cursor-pointer ${

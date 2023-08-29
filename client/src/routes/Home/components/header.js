@@ -96,7 +96,10 @@ function Header({ active, page }) {
             Step200
           </Navbar.Brand>
 
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="responsive-navbar-nav"
+            style={{ background: "white" }}
+          />
           <Navbar.Collapse
             id="responsive-navbar-nav"
             style={{ justifyContent: "space-between" }}

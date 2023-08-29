@@ -7,6 +7,7 @@ import { BsShare } from "react-icons/bs";
 
 import { BiEuro } from "react-icons/bi";
 
+import ApplyJob from "../components/applyJob";
 import Header from "../../Home/components/header";
 import JobNav from "../components/JobNav";
 import Form from "react-bootstrap/Form";
@@ -15,14 +16,15 @@ import { useParams } from "react-router-dom";
 
 function DetailPage() {
   const [jobData, setJobData] = useState({});
-  const { jobId } = useParams(); // Extract jobId from URL params
-  const apiEndpoint = `http://localhost:4000/job/getJob/${jobId}`;
+  const { jobID } = useParams(); // Extract jobId from URL params
+  const apiEndpoint = `http://localhost:4000/job/getJob/${jobID}`;
 
   useEffect(() => {
     fetch(apiEndpoint)
       .then((response) => response.json())
       .then((data) => {
         setJobData(data);
+        console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching job data:", error);
@@ -37,13 +39,18 @@ function DetailPage() {
         <div className={`container dpage m-0    Card col-lg-3  `}>
           <div>
             <div className=" bgimg ">
-              <div className="dbox d-flex row m-auto   justify-content-center  ">
-                <img
-                  src={carbon}
-                  className="carbon d-flex text-center justify-content-center mt-5"
-                  alt=""
-                />
-              </div>
+              <img
+                src="/bgimg.png"
+                className="carbon d-flex text-center justify-content-center mt-5"
+                alt=""
+              />
+            </div>
+            <div className="dbox d-flex justify-content-center align-items-center  ">
+              <img
+                src={carbon}
+                className="carbon d-flex text-center justify-content-center mt-5"
+                alt=""
+              />
             </div>
             <div>
               <div className="ml-5 dp d-flex justify-content-start ">
@@ -228,9 +235,7 @@ function DetailPage() {
 
                 <div className="d-flex gap-1 justify-content-center">
                   <div className=" dpad ">
-                    <button className="dabtn d-flex text-center justify-content-center">
-                      apply
-                    </button>
+                    <ApplyJob job={jobID} />
                     <button className="dgabtn dheading mt-1 d-flex text-center justify-content-center">
                       get job alert
                     </button>

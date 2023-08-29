@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
-// import Style from "./SetProfile.module.css";
+import Style from "./SetProfile.module.css";
 import Header from "../Home/components/header";
 import JobStep from "../jobFeed/job/JobStep";
 
@@ -112,9 +112,9 @@ const SetProfile = () => {
   return (
     <>
       <Header page="" />
-      <JobStep />
-      {/* <div className="form-container d-none">
-        <div style={{ width: "70%", minWidth: "350px" }}>
+      {/* <JobStep /> */}
+      <div className="form-container">
+        {/* <div style={{ width: "70%", minWidth: "350px" }}>
           <p className={`${Style.step}`}>Step 1</p>
         </div>
         <div className="shadow p-0" style={{ boxShadow: "none" }}>
@@ -153,18 +153,18 @@ const SetProfile = () => {
             <p className={`${Style.pBold}`}>Your Current CV</p>
             <p className={`${Style.p}`}>xyz.pdf</p>
           </div>
-        </div>
+        </div> */}
         <div style={{ width: "70%", minWidth: "350px", marginTop: "40px" }}>
-          <p className={`${Style.step}`}>Step 2</p>
+          <p className={`${Style.step}`}>Step 1</p>
         </div>
-        <div className="shadow">
+        <div className="shadow" style={{ marginBottom: "40px" }}>
           <h3 className={`${Style.h3} mb-3`}>Complete your registration</h3>
           <p className={`${Style.p}`}>
             almost there... We require few more details which will be sent to
             the recruiter.
           </p>
           <p className={`${Style.p} mb-3`}>* indicates a required field</p>
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="name-container">
               <div className="input-group-profile">
                 <label className="label" htmlFor="firstName">
@@ -325,12 +325,15 @@ const SetProfile = () => {
             </div>
 
             <div className="button-container">
-              <button type="submit">Next</button>
+              <button type="submit" onClick={handleSubmit}>
+                Next
+              </button>
             </div>
           </form>
         </div>
-        <ToastContainer />
-      </div> */}
+      </div>
+
+      <ToastContainer />
     </>
   );
 };
