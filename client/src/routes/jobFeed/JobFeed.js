@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { FaClock, FaFileContract, FaMapMarkerAlt } from "react-icons/fa";
 import SideFilter from "./components/SideFilter";
 import { useJobContext } from "../../useContext/jobContext";
-
+import './jobsfeed.css'
 const bacgroundSelect = {
   background: "rgba(109, 14, 157, 0.19)",
 };
@@ -187,7 +187,7 @@ function JobFeed() {
         <JobNav Search={Search} />
 
         <Container fluid className="jobFeedContainer">
-          <Container style={{ display: "flex", gap: "25px", margin: "auto" }}>
+          <Container className="custom-style">
             <SideFilter Search={Search} />
             <Row className="pt-4 pb-5 jobFeedDisplay">
               <div className="jobCardInJobFeed">

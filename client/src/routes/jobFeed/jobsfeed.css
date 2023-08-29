@@ -1,0 +1,11 @@
+.custom-style {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (min-width: 1220px) {
+    .custom-style {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
