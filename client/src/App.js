@@ -43,6 +43,7 @@ import Profile from "./routes/company/Dashboard/CompProfile/Profile";
 import Applicants from "./routes/company/Dashboard/AllApplicants/Applicants";
 import Listings from "./routes/company/Dashboard/JobListings/Listings";
 import ManageHiring from "./routes/company/Dashboard/ManageHiring/ManageHiring";
+import UpdateProfilePage from "./routes/Profile/userprofile/UpdateProfilePage";
 
 import CompanyDashboard from "./routes/company/Dashboard/Dashboard/CompanyDashboard";
 import EditJob from "./routes/company/Dashboard/PostJobs/EditJob";
@@ -85,6 +86,7 @@ const App = () => {
           <Route path="/languages/submit-lang" element={<SubmitLang />} />
           <Route path="/skills/skillsinput" element={<Skills />} />
           <Route path="/skills/submit-skills" element={<SubmitSkills />} />
+          <Route path="/personal-information" element={<UpdateProfilePage />} />
           //ROUTES OF COMPANY
           <Route path="/registerAsCompany" element={<CompanySignUp />} />
           <Route path="/loginAsCompany" element={<LoginAsCompany />} />
