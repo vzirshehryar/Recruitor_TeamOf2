@@ -47,75 +47,17 @@ import ManageHiring from "./routes/company/Dashboard/ManageHiring/ManageHiring";
 import CompanyDashboard from "./routes/company/Dashboard/Dashboard/CompanyDashboard";
 import EditJob from "./routes/company/Dashboard/PostJobs/EditJob";
 
-<<<<<<< HEAD
 import { CreateAcount } from "./routes/company/CreateAccount/CreateAcount";
 import { JobBasics } from "./routes/company/JobBasics/JobBasics";
 import { TechnologyDetail } from "./routes/company/TechnologyDetail/TechnologyDetail";
 import { PayBenefits } from "./routes/company/PayBenefits/PayBenefits";
 import { SetPreferences } from "./routes/company/SetPreferences/SetPreferences";
-=======
 import { JobProvider } from "./useContext/jobContext";
 import SetProfile from "./routes/Profile/SetProfile";
->>>>>>> 4a1de39c713e854b769720cd9a6bd47064f44f64
 
 const App = () => {
   return (
     <Router>
-<<<<<<< HEAD
-      <Routes>
-        <Route path="/" element={<Home />} />
-        //ROUTES OF USER
-        <Route path="/login" element={<Login />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/forgetPassword" element={<ForgetPassword />} />
-        <Route path="/setNewPassword/:id" element={<SetPassword />} />
-        <Route
-          path="/jobFeed"
-          element={
-            <ProtectedRoute>
-              <JobFeed />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/personal-information" element={<PersonalInformation />} />
-        <Route path="/experiences/form" element={<Experiences />} />
-        <Route path="/experiences/submit-exp" element={<SubmitExp />} />
-        <Route path="/education/form" element={<Education />} />
-        <Route path="/education/submit-edu" element={<SubmitEdu />} />
-        <Route path="/courses/form" element={<Courses />} />
-        <Route path="/courses/submit-cour" element={<SubmitCour />} />
-        <Route path="/certifications/form" element={<Certifications />} />
-        <Route path="/certifications/submit-cert" element={<SubmitCert />} />
-        <Route path="/awards/form" element={<Awards />} />
-        <Route path="/awards/submit-awards" element={<SubmitAwards />} />
-        <Route path="/publications/form" element={<Publications />} />
-        <Route path="/publications/submit-pub" element={<SubmitPub />} />
-        <Route path="/languages/form" element={<Languages />} />
-        <Route path="/languages/submit-lang" element={<SubmitLang />} />
-        <Route path="/skills/skillsinput" element={<Skills />} />
-        <Route path="/skills/submit-skills" element={<SubmitSkills />} />
-        //ROUTES OF COMPANY
-        <Route path="/registerAsCompany" element={<CompanySignUp />} />
-        <Route path="/loginAsCompany" element={<LoginAsCompany />} />
-        <Route path="/CforgetPassword" element={<CForgetPassword />} />
-        <Route path="/CsetNewPassword/:id" element={<CSetPassword />} />
-        <Route path="/company" element={<CompanyHome />} />
-        <Route path="/postjobs" element={<Jobs />} />
-        <Route path="/editjob/:jobID" element={<EditJob />} />
-        <Route path="/compprofile" element={<Profile />} />
-        <Route path="/allapplicants" element={<Applicants />} />
-        <Route path="/joblistings" element={<Listings />} />
-        <Route path="/companydashboard" element={<CompanyDashboard />} />
-        <Route path="/managehiring" element={<ManageHiring />} />
-
-
-        <Route path="/company/createaccount" element={<CreateAcount />} />
-        <Route path="/company/jobbasics" element={<JobBasics />} />
-        <Route path="/company/techdetail" element={<TechnologyDetail />} />
-        <Route path="/company/paybenefits" element={<PayBenefits />} />
-        <Route path="/company/setpreferences" element={<SetPreferences />} />
-      </Routes>
-=======
       <JobProvider>
         <Routes>
           //ROUTES OF USER
@@ -156,9 +98,14 @@ const App = () => {
           <Route path="/joblistings" element={<Listings />} />
           <Route path="/companydashboard" element={<CompanyDashboard />} />
           <Route path="/managehiring" element={<ManageHiring />} />
+
+          <Route path="/company/createaccount" element={<CreateAcount />} />
+        <Route path="/company/jobbasics" element={<JobBasics />} />
+        <Route path="/company/techdetail" element={<TechnologyDetail />} />
+        <Route path="/company/paybenefits" element={<PayBenefits />} />
+        <Route path="/company/setpreferences" element={<SetPreferences />} />
         </Routes>
       </JobProvider>
->>>>>>> 4a1de39c713e854b769720cd9a6bd47064f44f64
     </Router>
   );
 };
