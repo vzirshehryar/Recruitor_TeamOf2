@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Pagination } from "react-bootstrap";
+import { Container, Row, Pagination, Button } from "react-bootstrap";
 import Header from "../Home/components/header";
 import Footer from "../Home/components/footer";
 import "./UserSide.css";
@@ -171,6 +171,13 @@ function JobFeed() {
     // setJobType(jt);
     // setJobLevel(jl);
   };
+  const [showFilter, setShowFilter] = useState(true);
+
+  const toggleFilter = () => {
+    const newShowFilter = !showFilter;
+    setShowFilter(newShowFilter);
+    localStorage.setItem('showFilter', newShowFilter);
+  };
   const handleEasyApply = (item) => {
     if (localStorage.getItem("userType") === "user") {
       console.log(item);
@@ -185,10 +192,10 @@ function JobFeed() {
       <Header />
       <div className="jobFeedPage">
         <JobNav Search={Search} />
-
         <Container fluid className="jobFeedContainer">
+        <Button className="filter-show-btn" onClick={toggleFilter}>Filters</Button>
           <Container className="custom-style">
-            <SideFilter Search={Search} />
+          {Search && showFilter && <SideFilter Search={Search} />}
             <Row className="pt-4 pb-5 jobFeedDisplay">
               <div className="jobCardInJobFeed">
                 <p>1,053 Account Administrator Jobs in 47080</p>
@@ -234,7 +241,7 @@ function JobFeed() {
                       // window.scrollTo({ top: 0, behavior: "smooth" });
                       // onClick(()=>)
                     }}
-                    // style={forBackgroundSelection(index) ? bacgroundSelect : {}}
+                  // style={forBackgroundSelection(index) ? bacgroundSelect : {}}
                   >
                     <div className="EasyApplyPortion mb-3">
                       <button onClick={() => handleEasyApply(item)}>
@@ -316,7 +323,7 @@ function JobFeed() {
                       </div>
                     </div>
                     <div className="JobCardTitle mb-2">
-                      <div>
+                      <div className="JobCardTitle-carbon"> 
                         <h3>{item.jobTitle}</h3>
                         <h5>11 July by Carbon 60</h5>
                         <div
