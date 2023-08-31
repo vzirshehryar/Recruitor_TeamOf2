@@ -56,23 +56,55 @@ export const postJob = async (req, res) => {
   try {
     const data = req.body;
     const companyID = req.company; // it is set from middleware
+
     if (
+      !data.industry ||
       !data.jobTitle ||
       !data.jobType ||
-      !data.jobLevel ||
+      !data.location ||
+      !data.jobDescription ||
+      !data.technologyDetails ||
+      !data.openings ||
+      !data.applicationDeadline ||
       !data.maxSR ||
       !data.minSR ||
-      !data.location ||
-      !data.Experience ||
-      !data.qualification ||
-      !data.applicationDeadline ||
-      !data.jobDescription
+      !data.Benefits ||
+      !data.skills
     ) {
-      res.status(400).json({ error: "data in body is not complete" });
-      return;
+      return res.status(400).json({ error: "Missing required fields" });
     }
-
-    data.company = companyID;
+    if (
+      typeof data.industry !== "string" ||
+      typeof data.jobTitle !== "string" ||
+      typeof data.jobType !== "string" ||
+      typeof data.location !== "string" ||
+      typeof data.jobDescription !== "string" ||
+      typeof data.technologyDetails !== "string" ||
+      typeof data.openings !== "number" ||
+      typeof data.applicationDeadline !== "string" ||
+      typeof data.maxSR !== "number" ||
+      typeof data.minSR !== "number" ||
+      !Array.isArray(data.Benefits) ||
+      !Array.isArray(data.skills)
+    ) {
+      return res.status(400).json({ error: "Invalid data types" });
+    }
+    if (data.skills.length === 0) {
+      return res.status(400).json({ error: "Skills array cannot be empty" });
+    }
+    for (const skill of data.skills) {
+      if (
+        !skill.skill ||
+        typeof skill.skill !== "string" ||
+        typeof skill.isMustHave !== "boolean" ||
+        typeof skill.isNiceToHave !== "boolean"
+      ) {
+        return res.status(400).json({ error: "Invalid skill data" });
+      }
+    }
+    
+    data.company = req.body.company;
+    // data.company = companyID;
     const jobObj = new Job(data);
     const job = await jobObj.save();
 

@@ -160,12 +160,12 @@ export const setProfile = async (req, res) => {
     if (
       !data.name ||
       !data.teamSize ||
-      !data.phNo ||
-      !data.website ||
-      !data.country ||
-      !data.city ||
-      !data.address ||
-      !data.about
+      !data.phNo 
+      // !data.website ||
+      // !data.country ||
+      // !data.city ||
+      // !data.address ||
+      // !data.about
     ) {
       res.status(400).json({ error: "data in body is not complete" });
       return;
@@ -175,11 +175,11 @@ export const setProfile = async (req, res) => {
     company.name = data.name;
     company.teamSize = data.teamSize;
     company.phNo = data.phNo;
-    company.website = data.website;
-    company.country = data.country;
-    company.city = data.city;
-    company.address = data.address;
-    company.about = data.about;
+    // company.website = data.website;
+    // company.country = data.country;
+    // company.city = data.city;
+    // company.address = data.address;
+    // company.about = data.about;
     await company.save();
 
     return res.status(201).json({

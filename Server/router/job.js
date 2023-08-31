@@ -18,7 +18,7 @@ import {
 const router = express.Router();
 
 router.get("/getAllJobs", getAllJobs);
-router.post("/postJob", verifyCompanyToken, postJob);
+router.post("/postJob",  postJob);
 router.post("/editJob/:jobID", verifyCompanyToken, editJob);
 router.post("/apply/:jobID", verifyJWT, applyForJob);
 router.get("/getJob/:jobID", getJob);
