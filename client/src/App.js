@@ -55,6 +55,10 @@ import { PayBenefits } from "./routes/company/PayBenefits/PayBenefits";
 import { SetPreferences } from "./routes/company/SetPreferences/SetPreferences";
 import { JobProvider } from "./useContext/jobContext";
 import SetProfile from "./routes/Profile/SetProfile";
+import ReviewJob from "./routes/company/Dashboard/PostJobs/PostJobReview/PostJobReview";
+import KeyQualities from "./routes/company/Dashboard/PostJobs/keyQualification/KeyQuality";
+import FinishPost from "./routes/company/Dashboard/PostJobs/finishPost/finishPost";
+import { UserContextProvider } from "./routes/company/companyContext";
 
 const App = () => {
   return (
@@ -100,12 +104,15 @@ const App = () => {
           <Route path="/joblistings" element={<Listings />} />
           <Route path="/companydashboard" element={<CompanyDashboard />} />
           <Route path="/managehiring" element={<ManageHiring />} />
-
-          <Route path="/company/createaccount" element={<CreateAcount />} />
-        <Route path="/company/jobbasics" element={<JobBasics />} />
-        <Route path="/company/techdetail" element={<TechnologyDetail />} />
-        <Route path="/company/paybenefits" element={<PayBenefits />} />
-        <Route path="/company/setpreferences" element={<SetPreferences />} />
+          
+          <Route path="/company/createaccount" element={<UserContextProvider><CreateAcount /></UserContextProvider>} />
+          <Route path="/company/jobbasics" element={<UserContextProvider><JobBasics /></UserContextProvider>} />
+          <Route path="/company/techdetail" element={<UserContextProvider><TechnologyDetail /></UserContextProvider>} />
+          <Route path="/company/paybenefits" element={<UserContextProvider><PayBenefits /></UserContextProvider>} />
+          <Route path="/company/setpreferences" element={<UserContextProvider><SetPreferences /></UserContextProvider>} />
+          <Route path="/company/postJobReview" element={<UserContextProvider><ReviewJob /></UserContextProvider>} />
+          <Route path="/company/keyQualities" element={<UserContextProvider><KeyQualities /></UserContextProvider>} />
+          <Route path="/company/finishPostfinal" element={<UserContextProvider><FinishPost /></UserContextProvider>} />
         </Routes>
       </JobProvider>
     </Router>
@@ -113,3 +120,4 @@ const App = () => {
 };
 
 export default App;
+
