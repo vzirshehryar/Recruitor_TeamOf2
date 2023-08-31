@@ -13,7 +13,7 @@ export const postData = async (req, res) => {
       progress = 10;
       await user.save();
     }
-
+    console.log(data);
     if (
       !data.school ||
       !data.degree ||
@@ -21,8 +21,7 @@ export const postData = async (req, res) => {
       !data.startYear ||
       !data.startMonth ||
       !data.endYear ||
-      !data.endMonth ||
-      !data.description
+      !data.endMonth
     ) {
       res.status(400).json({ error: "data in body is not complete" });
       return;

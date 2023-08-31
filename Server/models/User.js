@@ -31,6 +31,10 @@ const userSchema = Schema({
     type: Number,
     default: 0,
   },
+  desiredJob: String,
+  minSalary: String,
+  payment: String,
+  desiredLocation: String,
 });
 
 export const User = mongoose.model("User", userSchema);
