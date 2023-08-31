@@ -28,7 +28,14 @@ const Home = () => {
             Discover Your Dream Career
           </h1>
           <h3 className="company-home-welcome-para">Find Top Talent!</h3>
-          <button className="company-home-action-button">Post Job</button>
+          <button
+            className="company-home-action-button"
+            onClick={() => {
+              navigate("/company/createaccount");
+            }}
+          >
+            Post Job
+          </button>
         </div>
         <div className="company-home-welcome-image">
           <img src={guyWithMic} alt="" />
@@ -113,7 +120,14 @@ const Home = () => {
             dream team. Our streamlined process ensures you find the right
             candidates quickly and efficiently.
           </p>
-          <button className="company-home-action-button">Post Job</button>
+          <button
+            className="company-home-action-button"
+            onClick={() => {
+              navigate("/company/createaccount");
+            }}
+          >
+            Post Job
+          </button>
         </div>
         <div className="company-home-perfect-fit-image">
           <img src={womenInRedDress} alt="" />

@@ -17,9 +17,9 @@ const jobSchema = new mongoose.Schema({
   jobDescription: String,
 
   //Tech Details
-  technologyDetails: String, //tech details
+  jobSchedule: String, //tech details
   openings: Number, //number of people to hire
-  applicationDeadline: String, //recruitment timeline
+  jobTimeline: String, //recruitment timeline
 
   //Pay & Benefits
   maxSR: Number,
