@@ -8,7 +8,12 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../companyContext";
 import { useContext } from "react";
 
-const PopUp = ({ closePopUp }) => {
+const PopUp = ({ closePopUp, title, cont, input }) => {
+    const handleInputChange = (event) => {
+        input = event.target.value;
+        console.log(input);
+    };
+
     return (
         <div className="Parent-Container-PopUp">
             <div className="PopUp-Container">
@@ -16,14 +21,18 @@ const PopUp = ({ closePopUp }) => {
                     <Cross />
                 </div>
                 <div className="Edit-JobPost-Heading">Edit Job Post</div>
-                <div className="Job-Title-Heading">Job Title</div>
+
                 <input
                     className="input-field-pop-up-box"
                     placeholder="Designer"
                     id="changeJobTitle"
+                    onChange={handleInputChange}
                 />
                 <div className="popUpBox-Button-Container">
-                    <button className="Done-button" onClick={closePopUp}>
+                    <button
+                        className="Done-button"
+                        onClick={() => closePopUp(input)}
+                    >
                         Done
                     </button>
                     <button className="Close-button" onClick={closePopUp}>
@@ -34,10 +43,25 @@ const PopUp = ({ closePopUp }) => {
         </div>
     );
 };
-
 function ReviewJob() {
-    const { postJobReview, setPostJobReview } = useContext(UserContext);
-    console.log(postJobReview);
+    const {
+        companyInfo,
+        setcompanyInfo,
+        jobBasics,
+        setjobBasics,
+        techDetails,
+        setTechDetails,
+        payBenefits,
+        setPayBenefits,
+        preferences,
+        setPreferences,
+        postJobReview,
+        setPostJobReview,
+        keyQualities,
+        setKeyQualities,
+    } = useContext(UserContext);
+
+    console.log("data: ", companyInfo, jobBasics);
 
     const handleInputChange = (e) => {
         setPostJobReview({ ...postJobReview, [e.target.id]: e.target.value });
@@ -63,13 +87,31 @@ function ReviewJob() {
     const openPopUp = () => {
         setShowPopUp(true);
     };
-    const closePopUp = () => {
+    const closePopUp = (e) => {
+        console.log(e);
+        if (formField === "jobTitle") {
+            setcompanyInfo({
+                ...companyInfo,
+                [formField]: e,
+            });
+        }
         setShowPopUp(false);
     };
 
+    const [formState, setFormState] = useState();
+    const [formField, setFormField] = useState();
+    const [inputValue, setInputValue] = useState("");
+
     return (
         <div>
-            {showPopUp && <PopUp closePopUp={closePopUp} />}
+            {showPopUp && (
+                <PopUp
+                    closePopUp={closePopUp}
+                    state={formState}
+                    field={formField}
+                    input={inputValue}
+                />
+            )}
             <div className="Header">
                 Upload Header here It is already created just needs to be
                 implemented here
@@ -80,8 +122,15 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Job Title</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
-                    <div onClick={openPopUp} className="Pen-Container">
+                    <div className="Option-Heading-2">{jobBasics.jobTitle}</div>
+                    <div
+                        className="Pen-Container"
+                        onClick={() => {
+                            setFormState("jobBasics");
+                            setFormField("jobTitle");
+                            openPopUp("jobTitle", jobBasics);
+                        }}
+                    >
                         <Pen className="Pen-Icon" />
                     </div>
                 </div>
@@ -90,7 +139,7 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Company For This Job</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">{companyInfo.name}</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -98,7 +147,9 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Number Of Openings</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">
+                        {techDetails.openings}
+                    </div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -106,7 +157,7 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Location</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">{jobBasics.location}</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -116,7 +167,7 @@ function ReviewJob() {
                     <div className="Option-Heading">
                         Part-time hours per week
                     </div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">No Option</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -124,7 +175,9 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Pay</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">
+                        {payBenefits.salaryRange}
+                    </div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -132,7 +185,9 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Schedule</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">
+                        {techDetails.jobSchedule}
+                    </div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -140,7 +195,7 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Benefits</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">Yearly Bonus (!)</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -148,15 +203,7 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Job Description </div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
-                    <div onClick={openPopUp} className="Pen-Container">
-                        <Pen className="Pen-Icon" />
-                    </div>
-                </div>
-                <Line />
-                <div className="Option-Heading-Container">
-                    <div className="Option-Heading">Job Title</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">No Option</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -171,7 +218,7 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Require CV</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">{preferences.cv}</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -180,7 +227,7 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Application updates</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">No Option</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -188,7 +235,9 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Application deadline</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">
+                        {preferences.applicationDeadline}
+                    </div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -198,7 +247,7 @@ function ReviewJob() {
                     <div className="Option-Heading">
                         Candidates contact you (Phone)
                     </div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">{companyInfo.phNo}</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -206,7 +255,7 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Reference ID</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">No Option</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -214,7 +263,7 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Application method</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">No Option</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -229,7 +278,7 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Contact</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">No Option</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -238,7 +287,9 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Name</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">
+                        {companyInfo.firstAndLastName}
+                    </div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -246,7 +297,7 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Phone Number</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">{companyInfo.phNo}</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
@@ -254,7 +305,7 @@ function ReviewJob() {
                 <Line />
                 <div className="Option-Heading-Container">
                     <div className="Option-Heading">Company name</div>
-                    <div className="Option-Heading-2">Microsoft Office</div>
+                    <div className="Option-Heading-2">{companyInfo.name}</div>
                     <div onClick={openPopUp} className="Pen-Container">
                         <Pen className="Pen-Icon" />
                     </div>
