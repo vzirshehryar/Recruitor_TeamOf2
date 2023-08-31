@@ -17,7 +17,7 @@ export const SetPreferences = () => {
     const handleAddEmail = () => {
         if (preferences.email) {
             setEmails((prevEmails) => [...prevEmails, preferences.email]);
-            setPreferences({ ...preferences, email: "" });
+            setPreferences({ ...preferences, email: emails });
         }
     };
     const navigate = useNavigate();
@@ -132,6 +132,7 @@ export const SetPreferences = () => {
                         <button
                             type="submit"
                             className="tech-detail-submit-button"
+                            onClick={NextPage}
                         >
                             Continue
                         </button>

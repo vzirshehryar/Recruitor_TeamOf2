@@ -53,7 +53,7 @@ export const PayBenefits = () => {
     };
 
     return (
-        <div className="create-account-main-container">
+        <div>
             {/* <div className="horizontal-timeline">
         <ul className="horizontal-timeline-list">
           <li className="li1">1</li>
@@ -63,9 +63,19 @@ export const PayBenefits = () => {
           <li className="li5">5</li>
         </ul>
       </div> */}
-            <div className="create-account-heading-container">
-                <h1 className="create-account-heading">Add pay benefits</h1>
+            <div className="Header">Add Header here</div>
+            <div className="Horizontal-Line-below-header-parent">
+                <div className="round-horizontal-1">1</div>
+                <div className="line-horizontal"></div>
+                <div className="round-horizontal-1">2</div>
+                <div className="line-horizontal"></div>
+                <div className="round-horizontal-1">3</div>
+                <div className="line-horizontal"></div>
+                <div className="round-horizontal-2">4</div>
+                <div className="line-horizontal-2"></div>
+                <div className="round-horizontal-1">5</div>
             </div>
+            <div className="PayBenefits-Title">Add Pay and Benefits</div>
             <div className="create-account-form-container">
                 <form action="" onSubmit={handleSubmit}>
                     <div className="pay-benefits-input-container">
@@ -78,8 +88,9 @@ export const PayBenefits = () => {
                                     type="text"
                                     name=""
                                     id="salaryRange"
-                                    placeholder="XYZ"
+                                    placeholder="Range"
                                     onChange={handleInputChange}
+                                    className="payBenefits-salaryRange"
                                 />
                             </div>
                             <div className="small-div">
@@ -87,22 +98,24 @@ export const PayBenefits = () => {
                                     type="text"
                                     name=""
                                     id="mininmunSalary"
-                                    placeholder="MIN"
+                                    placeholder="Min"
                                     onChange={handleInputChange}
                                 />
-                                <label htmlFor="">to</label>
+                                <div className="payBenefits-to-text">to</div>
                                 <input
                                     type="text"
                                     name=""
                                     id="maximunSalary"
-                                    placeholder="MAX"
+                                    placeholder="Max"
                                     onChange={handleInputChange}
                                 />
                             </div>
                         </div>
                         <div className="input-container-bottom-div">
                             <div className="long-div">
-                                <label htmlFor="">Benefits</label>
+                                <div className="payBenefits-Benefits-Text">
+                                    Benefits
+                                </div>
                                 <div className="tags-holder">
                                     <div className="custom-checkbox">
                                         <input
@@ -113,7 +126,10 @@ export const PayBenefits = () => {
                                             )}
                                             onChange={handleSelectAll}
                                         />
-                                        <label htmlFor="select-all">
+                                        <label
+                                            htmlFor="select-all"
+                                            className="payBenefits-SelectAll"
+                                        >
                                             Select All
                                         </label>
                                     </div>

@@ -10,20 +10,20 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../companyContext";
 import { useContext } from "react";
 
-function Checkbox() {
-    const [checked, setChecked] = useState(false);
+function Checkbox({ id }) {
+    const [isChecked, setIsChecked] = useState(false);
 
     const toggleCheckbox = () => {
-        setChecked(!checked);
+        setIsChecked(!isChecked);
+        console.log(`Checkbox ${id} is checked: ${!isChecked}`);
     };
 
     return (
         <div className="checkbox-container" onClick={toggleCheckbox}>
-            {checked ? <CheckedBox /> : <Unchecked />}
+            {isChecked ? <CheckedBox /> : <Unchecked />}
         </div>
     );
 }
-
 function KeyQualities() {
     const { keyQualities, setKeyQualities } = useContext(UserContext);
     console.log(keyQualities);
@@ -132,50 +132,67 @@ function KeyQualities() {
                 <div className="Line-Container">
                     <Line />
                 </div>
+                {/* Add more key quality mini containers as needed */}
                 <div className="keyQuality-mini-container-2">
-                    <div className="keyQuality-Skill-1">Skill: Social</div>
+                    <div className="keyQuality-Skill-1">Skill: [SkillName]</div>
                     <div className="keyQuality-mini-sub-container-2">
                         <div className="keyQuality-MustHave-1">
-                            <Checkbox id="Skill4MustHave" />
+                            <Checkbox id="[SkillName]MustHave" />
                         </div>
                         <div className="keyQuality-NiceToHave-1">
-                            <Checkbox id="Skill4NiceToHave" />
+                            <Checkbox id="[SkillName]NiceToHave" />
                         </div>
                         <div className="keyQuality-TrashContainer">
-                            <Trash id="TrashSkill4" />
+                            <Trash id="Trash[SkillName]" />
                         </div>
                     </div>
                 </div>
                 <div className="Line-Container">
                     <Line />
                 </div>
-                <div className="keyQuality-Additional">
-                    What additional criteria are important to the role?
+            </div>
+            <div className="keyQuality-mini-container-2">
+                <div className="keyQuality-Skill-1">Skill: [SkillName]</div>
+                <div className="keyQuality-mini-sub-container-2">
+                    <div className="keyQuality-MustHave-1">
+                        <Checkbox id="[SkillName]MustHave" />
+                    </div>
+                    <div className="keyQuality-NiceToHave-1">
+                        <Checkbox id="[SkillName]NiceToHave" />
+                    </div>
+                    <div className="keyQuality-TrashContainer">
+                        <Trash id="Trash[SkillName]" />
+                    </div>
                 </div>
-                <div className="keyQuality-max-criteria">
-                    10 criteria max. Search for skills like communication, Excel
-                    or customer service.
+            </div>
+            {/* Add more key quality mini containers as needed */}
+            <div className="Line-Container">
+                <Line />
+            </div>
+            <div className="keyQuality-mini-container-2">
+                <div className="keyQuality-Skill-1">Skill: [SkillName]</div>
+                <div className="keyQuality-mini-sub-container-2">
+                    <div className="keyQuality-MustHave-1">
+                        <Checkbox id="[SkillName]MustHave" />
+                    </div>
+                    <div className="keyQuality-NiceToHave-1">
+                        <Checkbox id="[SkillName]NiceToHave" />
+                    </div>
+                    <div className="keyQuality-TrashContainer">
+                        <Trash id="Trash[SkillName]" />
+                    </div>
                 </div>
-                <input
-                    className="keyQuality-input"
-                    id="criteriaInput"
-                    onChange={handleInputChange}
-                />
-                <div className="footer-keyQuality"></div>
-                <div className="keyQuality-Button-Container">
-                    <button
-                        className="keyQuality-Back-Button"
-                        onClick={PreviousPage}
-                    >
-                        Back
-                    </button>
-                    <button
-                        className="keyQuality-Continue-Button"
-                        onClick={NextPage}
-                    >
-                        Save and Continue
-                    </button>
-                </div>
+            </div>
+            <div className="Line-Container">
+                <Line />
+            </div>
+            <div className="button-container">
+                <button className="previous-button" onClick={PreviousPage}>
+                    Previous
+                </button>
+                <button className="next-button" onClick={NextPage}>
+                    Next
+                </button>
             </div>
         </div>
     );

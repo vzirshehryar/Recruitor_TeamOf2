@@ -198,6 +198,14 @@ body {
 .footer-keyQuality {
     height: 100px;
 }
+.keyQuality-CheckBox {
+    margin-top: 15px;
+    margin-left: 15px;
+    transform: scale(4); /* Increase or decrease the scale factor as needed */
+    -webkit-transform: scale(4); /* For Safari and older versions of Chrome */
+    background-color: #cf1350;
+    border: 1px solid #cf1350;
+}
 @media (max-width: 768px) {
     body {
         width: 100%;
