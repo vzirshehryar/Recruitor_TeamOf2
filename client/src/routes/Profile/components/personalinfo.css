@@ -71,6 +71,12 @@
   flex-direction: column;
 }
 
+.input-group-profile,
+name-container,
+input-group-profile {
+  margin-top: 20px;
+}
+
 .label {
   color: #000;
   font-family: Red Hat Text;
@@ -131,9 +137,6 @@ input[type="date"].input-field::-webkit-datetime-edit-year-field {
   width: 100%;
   cursor: pointer;
   margin-top: 20px;
-}
-.button-container button:hover {
-  background-color: #9639d4;
 }
 
 /* Sidenav CSS Start */

@@ -104,23 +104,37 @@ function Header({ active, page }) {
             id="responsive-navbar-nav"
             style={{ justifyContent: "space-between" }}
           >
-            <Nav className="navBarLinks">
+            <Nav className="navBarLinks px-3 gap-4">
               <Link
-                className={`mx-2 ${active === "job" ? "active" : ""}`}
+                className={`${active === "job" ? "active" : ""}`}
                 style={{ color: "white" }}
-                to="/"
+                to="/jobfeed"
               >
                 Jobs
               </Link>
               <Link
-                className={`mx-2 ${active === "careerAdvise" ? "active" : ""}`}
+                className={`${active === "career" ? "active" : ""}`}
                 style={{ color: "white" }}
                 to="/"
               >
-                Career Advise
+                Career Coach
               </Link>
               <Link
-                className={`mx-2 ${active === "company" ? "active" : ""}`}
+                className={`${active === "salary" ? "active" : ""}`}
+                style={{ color: "white" }}
+                to="/"
+              >
+                Salary Module
+              </Link>
+              <Link
+                className={`${active === "cover" ? "active" : ""}`}
+                style={{ color: "white" }}
+                to="/"
+              >
+                Cover Letter
+              </Link>
+              <Link
+                className={`${active === "company" ? "active" : ""}`}
                 style={{ color: "white" }}
                 to="/company"
               >
