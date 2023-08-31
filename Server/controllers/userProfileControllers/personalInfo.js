@@ -24,7 +24,11 @@ export const postData = async (req, res) => {
       !city ||
       !zipCode ||
       !linkednLink ||
-      !twitterLink
+      !twitterLink ||
+      !desiredJob ||
+      !desiredLocation ||
+      !payment ||
+      !minSalary
     ) {
       res.status(400).json({ error: "data in body is not complete" });
       return;
@@ -49,6 +53,10 @@ export const postData = async (req, res) => {
     user.zipCode = zipCode;
     user.linkednLink = linkednLink;
     user.twitterLink = twitterLink;
+    user.desiredJob = desiredJob;
+    user.minSalary = minSalary;
+    user.payment = payment;
+    user.desiredLocation = desiredLocation;
 
     user.save();
 

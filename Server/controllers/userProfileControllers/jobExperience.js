@@ -13,13 +13,12 @@ export const postData = async (req, res) => {
       progress = 10;
       await user.save();
     }
-
+    console.log(data);
     if (
       !data.jobTitle ||
       !data.employmentType ||
       !data.industry ||
       !data.startDate ||
-      !data.currentlyWorking ||
       !data.company ||
       !data.companyWebsite ||
       !data.country ||

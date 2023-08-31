@@ -1,21 +1,51 @@
 import mongoose from "mongoose";
 
+const contactOptions = ["phone", "email", "both"];
+
 const jobSchema = new mongoose.Schema({
   company: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Company",
     required: true,
   },
-  jobTitle: String,
-  jobType: String,
-  jobLevel: String,
+  //Job Basics
+  industry: String, //company's industry
+  jobTitle: String,  //job title
+  jobType: String, //job type
+  // jobLevel: String, 
+  location: String,
+  jobDescription: String,
+
+  //Tech Details
+  jobSchedule: String, //tech details
+  openings: Number, //number of people to hire
+  jobTimeline: String, //recruitment timeline
+
+  //Pay & Benefits
   maxSR: Number,
   minSR: Number,
-  location: String,
-  Experience: String,
-  qualification: String,
-  applicationDeadline: String,
-  jobDescription: String,
+  Benefits: [String], //array of string type benefits
+
+  //Preferences
+  reminderEmails: [String], //daily updates emails
+  sendIndividualReminder: Boolean,
+  contactMethod: {
+    type: String,
+    enum: contactOptions,
+  },
+  askForCV: Boolean,
+
+  //qualifications:
+  skills: [{
+    skill:{
+      type: String,
+    },
+    isMustHave: Boolean,
+    isNiceToHave: Boolean
+  }],
+
+  // Experience: String,
+  // qualification: String,
   applications: [
     {
       user: {

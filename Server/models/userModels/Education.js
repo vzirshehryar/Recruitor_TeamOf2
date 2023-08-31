@@ -36,10 +36,6 @@ const educationSchema = new mongoose.Schema({
   activities_societies: {
     type: String,
   },
-  description: {
-    type: String,
-    required: true,
-  },
 });
 
 const Education = mongoose.model("Education", educationSchema);

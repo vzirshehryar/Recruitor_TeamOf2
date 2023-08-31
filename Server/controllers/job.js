@@ -56,22 +56,56 @@ export const postJob = async (req, res) => {
   try {
     const data = req.body;
     const companyID = req.company; // it is set from middleware
-    if (
-      !data.jobTitle ||
-      !data.jobType ||
-      !data.jobLevel ||
-      !data.maxSR ||
-      !data.minSR ||
-      !data.location ||
-      !data.Experience ||
-      !data.qualification ||
-      !data.applicationDeadline ||
-      !data.jobDescription
-    ) {
-      res.status(400).json({ error: "data in body is not complete" });
-      return;
-    }
 
+    // if (
+    //   !data.industry ||
+    //   !data.jobTitle ||
+    //   !data.jobType ||
+    //   !data.location ||
+    //   !data.jobDescription ||
+    //   !data.jobSchedule ||
+    //   !data.openings ||
+    //   !data.applicationDeadline ||
+    //   !data.salaryRange ||
+    //   !data.maximumSalary ||
+    //   !data.minimumSalary
+    //   // !data.Benefits ||
+    //   // !data.skills
+    // ) {
+    //   return res.status(400).json({ error: "Missing required fields" });
+    // }
+
+    
+    // if (
+    //   typeof data.industry !== "string" ||
+    //   typeof data.jobTitle !== "string" ||
+    //   typeof data.jobType !== "string" ||
+    //   typeof data.location !== "string" ||
+    //   typeof data.jobDescription !== "string" ||
+    //   typeof data.technologyDetails !== "string" ||
+    //   typeof data.openings !== "number" ||
+    //   typeof data.applicationDeadline !== "string" ||
+    //   typeof data.maxSR !== "number" ||
+    //   typeof data.minSR !== "number" ||
+    //   !Array.isArray(data.Benefits) ||
+    //   !Array.isArray(data.skills)
+    // ) {
+    //   return res.status(400).json({ error: "Invalid data types" });
+    // }
+    // if (data.skills.length === 0) {
+    //   return res.status(400).json({ error: "Skills array cannot be empty" });
+    // }
+    // for (const skill of data.skills) {
+    //   if (
+    //     !skill.skill ||
+    //     typeof skill.skill !== "string" ||
+    //     typeof skill.isMustHave !== "boolean" ||
+    //     typeof skill.isNiceToHave !== "boolean"
+    //   ) {
+    //     return res.status(400).json({ error: "Invalid skill data" });
+    //   }
+    // }
+    
     data.company = companyID;
     const jobObj = new Job(data);
     const job = await jobObj.save();

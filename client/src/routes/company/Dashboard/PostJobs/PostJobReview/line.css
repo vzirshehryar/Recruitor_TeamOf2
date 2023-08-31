@@ -1,0 +1,15 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.Line {
+    background-color: black;
+    width: 937px;
+    height: 1px;
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .Line {
+        width: auto;
+    }
+}
