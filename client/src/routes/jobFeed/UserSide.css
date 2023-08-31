@@ -411,7 +411,7 @@
 .jobFeedList {
   border-radius: 20px;
   border: 0.6px solid #cf1350;
-  max-height: 880px;
+  max-height: auto;
   min-width: 810px;
   overflow-y: auto;
 }
@@ -536,3 +536,50 @@
 }
 
 /* ------------------------------------------------------------------------------- */
+/* Media query for screens with max width 1024px */
+@media (max-width: 1024px) {
+  .jobFeedList {
+    max-height: none; /* Reset max height */
+    min-width: 100%; /* Make it full width */
+    overflow-y: visible; /* Allow vertical overflow */
+  }
+  .jobCardInJobFeed {
+    display: flex;
+    flex-direction: column;
+  }
+  .displayJobs {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Media query for screens with max width 768px */
+@media (max-width: 768px) {
+  .jobFeedList {
+    border: none; /* Remove the border */
+    min-width: auto; /* Allow natural width */
+  }
+  .displayJobs {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Media query for screens with max width 780px */
+@media (max-width: 780px) {
+  .displayJobs .JobCardTitle {
+    text-align: center;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .displayJobs {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+

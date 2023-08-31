@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
-// import Style from "./SetProfile.module.css";
+import Style from "./SetProfile.module.css";
 import Header from "../Home/components/header";
 import JobStep from "../jobFeed/job/JobStep";
 
@@ -20,6 +20,10 @@ const SetProfile = () => {
     zipCode: "",
     linkedInLink: "",
     twitterLink: "",
+    desiredJob: "",
+    minSalary: "",
+    payment: "",
+    desiredLocation: "",
   });
 
   const handleData = () => {
@@ -89,6 +93,10 @@ const SetProfile = () => {
       zipCode: formData.zipCode,
       linkednLink: formData.linkedInLink,
       twitterLink: formData.twitterLink,
+      desiredJob: formData.desiredJob,
+      minSalary: formData.minSalary,
+      payment: formData.payment,
+      desiredLocation: formData.desiredLocation,
     };
 
     const token = localStorage.getItem("token");
@@ -112,9 +120,9 @@ const SetProfile = () => {
   return (
     <>
       <Header page="" />
-      <JobStep />
-      {/* <div className="form-container d-none">
-        <div style={{ width: "70%", minWidth: "350px" }}>
+      {/* <JobStep /> */}
+      <div className="form-container">
+        {/* <div style={{ width: "70%", minWidth: "350px" }}>
           <p className={`${Style.step}`}>Step 1</p>
         </div>
         <div className="shadow p-0" style={{ boxShadow: "none" }}>
@@ -153,18 +161,18 @@ const SetProfile = () => {
             <p className={`${Style.pBold}`}>Your Current CV</p>
             <p className={`${Style.p}`}>xyz.pdf</p>
           </div>
-        </div>
+        </div> */}
         <div style={{ width: "70%", minWidth: "350px", marginTop: "40px" }}>
-          <p className={`${Style.step}`}>Step 2</p>
+          <p className={`${Style.step}`}>Step 1</p>
         </div>
-        <div className="shadow">
+        <div className="shadow" style={{ marginBottom: "40px" }}>
           <h3 className={`${Style.h3} mb-3`}>Complete your registration</h3>
           <p className={`${Style.p}`}>
             almost there... We require few more details which will be sent to
             the recruiter.
           </p>
           <p className={`${Style.p} mb-3`}>* indicates a required field</p>
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="name-container">
               <div className="input-group-profile">
                 <label className="label" htmlFor="firstName">
@@ -323,14 +331,91 @@ const SetProfile = () => {
                 onChange={handleChange}
               />
             </div>
-
+          </form>
+        </div>
+        <div style={{ width: "70%", minWidth: "350px", marginTop: "40px" }}>
+          <p className={`${Style.step}`}>Step 2</p>
+        </div>
+        <div className="shadow" style={{ marginBottom: "40px" }}>
+          <p className={`${Style.label}`}>What are you looking for?</p>
+          <p className={`${Style.p}`}>
+            This will help us improve the jobs we recommend you.
+          </p>
+          <form>
+            <div className="input-group-profile">
+              <label className="label" htmlFor="desiredJob">
+                Desired Job Title
+                <span className="required">*</span>
+              </label>
+              <input
+                type="text"
+                id="desiredJob"
+                className="input-field"
+                placeholder="UI/UX Designer"
+                required
+                value={formData.desiredJob}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="name-container">
+              <div className="input-group-profile">
+                <label className="label" htmlFor="minSalary">
+                  Desired Minimum Salary
+                  <span className="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="minSalary"
+                  className="input-field"
+                  placeholder="Enter your first name"
+                  required
+                  value={formData.minSalary}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="input-group-profile">
+                <label className="label" htmlFor="lastName">
+                  <span className="required"></span>
+                </label>
+                <select
+                  className="input-field"
+                  placeholder="Enter your last name"
+                  required
+                  value={formData.payment}
+                  onChange={handleChange}
+                >
+                  <option value=""></option>
+                  <option value="Per Annum">Per Annum</option>
+                  <option value="Per Month">Per Month</option>
+                  <option value="Per Hour">Per Hour</option>
+                  <option value="Project Base">Project Base</option>
+                </select>
+              </div>
+            </div>
+            <div className="input-group-profile">
+              <label className="label" htmlFor="desiredLocation">
+                Desired Job Location
+                <span className="required">*</span>
+              </label>
+              <input
+                type="text"
+                id="desiredLocation"
+                className="input-field"
+                placeholder="eg. Islamabad"
+                required
+                value={formData.desiredLocation}
+                onChange={handleChange}
+              />
+            </div>
             <div className="button-container">
-              <button type="submit">Next</button>
+              <button type="submit" onClick={handleSubmit}>
+                Next
+              </button>
             </div>
           </form>
         </div>
-        <ToastContainer />
-      </div> */}
+      </div>
+      <ToastContainer />
     </>
   );
 };

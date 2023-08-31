@@ -1,0 +1,28 @@
+/* Base styles */
+.custom-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.filter-show-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 1204px) {
+
+
+  .custom-style {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 786px) {
+  .filter-show-btn {
+    display: none;
+  }
+}

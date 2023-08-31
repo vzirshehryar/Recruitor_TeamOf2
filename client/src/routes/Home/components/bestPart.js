@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
 import Style from "../home.module.css";
+import "./home.css";
+import { Button } from "react-bootstrap";
 
 function BestPart() {
   return (

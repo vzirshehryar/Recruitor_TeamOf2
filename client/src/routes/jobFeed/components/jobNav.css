@@ -1,43 +1,51 @@
+/* Default styles */
 .jobFeedFilter {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
   padding: 40px 10px;
   background: rgba(207, 19, 80, 0.02);
 }
+
 .jobFeedFilter .filter {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px 10px;
 }
+
 .jobFeedFilter label {
   color: #000;
   text-align: center;
   font-family: Red Hat Text;
   font-size: 24px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 38.4px; /* 160% */
+  line-height: 1.6; 
   margin-right: 10px;
 }
+
 .jobFeedFilter input {
   border-radius: 10px;
   border: 1.4px solid #df1a50;
   font-size: 14px;
-  width: 300px;
+  width: 100%; /* Make the input element full width */
+  max-width: 300px; /* Add a maximum width */
   padding: 5px 10px;
 }
+
 .jobFeedFilter button {
   border-radius: 10px;
   background: #cf1350;
   box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
-  width: 160px;
+  width: 100%; /* Make the button full width */
+  max-width: 160px; /* Add a maximum width */
   font-size: 16px;
   padding: 10px 20px;
   margin-right: 5px;
 }
+
 .jobFeedFilter a {
   display: flex;
   justify-content: center;
@@ -47,59 +55,20 @@
   color: #1e1ef0;
   font-family: Poppins;
   font-size: 16px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
   text-transform: capitalize;
 }
-@media (max-width: 900px) {
-  .jobFeedFilter {
-    flex-direction: column;
-    gap: 10px;
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .jobFeedFilter label {
+    font-size: 20px;
+    margin-right: 0;
+    margin-bottom: 10px; /* Add some spacing between label and input */
+  }
+
+  .jobFeedFilter input,
+  .jobFeedFilter button {
+    max-width: 100%; /* Remove max-width to allow elements to take full width */
   }
 }
-
-/* .jobFeedFilter .dropDown {
-  display: none;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  padding: 10px 10px;
-  width: 130px;
-  border-radius: 4px;
-  background: #fff;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-}
-.jobFeedFilter .filter p {
-  color: #6d0e9d;
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-}
-.jobFeedFilter .applyFilter {
-  padding: 10px 10px;
-  width: 130px;
-  border-radius: 4px;
-  background-color: #6d0e9d;
-  cursor: pointer;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-.jobFeedFilter .applyFilter p {
-  color: #fff;
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  text-align: center;
-}
-.jobFeedFilter .dropDown label {
-  color: #6d0e9d;
-  font-family: Poppins;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-} */

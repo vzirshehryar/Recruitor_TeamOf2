@@ -58,7 +58,7 @@ const ApplyJob = ({ job }) => {
         // userId: user._id,
       };
 
-      fetch(`/job/apply/${job._id}`, {
+      fetch(`/job/apply/${job}`, {
         method: "POST",
         headers: {
           Authorization: token,
@@ -116,15 +116,21 @@ const ApplyJob = ({ job }) => {
 
   return (
     <div>
-      <div className="col-lg">
+      <button
+        className="dabtn d-flex text-center justify-content-center"
+        onClick={handleModal}
+      >
+        Apply Now
+      </button>
+      {/* <div className="col-lg">
         <button className="selectedJobApplyBtn" onClick={handleModal}>
           Apply Now
         </button>
-      </div>
+      </div> */}
 
       <Modal show={showModal} onHide={handleModal}>
         <Modal.Header closeButton>
-          <Modal.Title style={{ marginLeft: 150, color: "#6D0E9D" }}>
+          <Modal.Title style={{ marginLeft: 150, color: "#cf1350" }}>
             Apply Job
           </Modal.Title>
         </Modal.Header>
@@ -153,7 +159,7 @@ const ApplyJob = ({ job }) => {
               />
             </Form.Group> */}
             <Form.Group className=" my-2" controlId="formBasicEmail">
-              <p>Job Application</p>
+              {/* <p>Job Application</p>
               <Form.Control
                 type="text"
                 name="job"
@@ -161,7 +167,7 @@ const ApplyJob = ({ job }) => {
                 disabled
                 onChange={handleChange}
                 placeholder="Job title"
-              />
+              /> */}
             </Form.Group>
             {/* <Form.Group className="my-3" controlId="phone">
               <p>Enter Mobile Number</p>
@@ -192,8 +198,9 @@ const ApplyJob = ({ job }) => {
               style={{
                 width: "100%",
                 height: "60px",
-                background: "#660099",
+                background: "#cf1350",
                 color: "#FFFFFF",
+                border: "none",
                 fontSize: "30px",
               }}
               type="submit"

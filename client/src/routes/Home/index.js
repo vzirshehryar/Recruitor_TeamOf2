@@ -20,7 +20,7 @@ function Homepage() {
       <Services />
       <BestPart />
 
-      <WhyUs />
+      {/* <WhyUs /> */}
       {/* <WhyUs /> */}
       {/*<Newsletter />*/}
 
