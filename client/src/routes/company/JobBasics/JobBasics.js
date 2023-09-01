@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../companyContext";
 import { useNavigate } from "react-router-dom";
+import "./JobBasicst.css";
 
 export const JobBasics = () => {
     const { jobBasics, setjobBasics } = useContext(UserContext);
@@ -20,13 +21,30 @@ export const JobBasics = () => {
 
     return (
         <div className="create-account-main-container">
+            <div className="Header-jobBasics">Header</div>
+            <div className="Horizontal-Line-below-header-parent-jobBasics">
+                <div className="round-horizontal-1-jobBasics">1</div>
+                <div className="line-horizontal-jobBasics"></div>
+                <div className="round-horizontal-2-jobBasics">2</div>
+                <div className="line-horizontal-2-jobBasics"></div>
+                <div className="round-horizontal-1-jobBasics">3</div>
+                <div className="line-horizontal-jobBasics"></div>
+                <div className="round-horizontal-1-jobBasics">4</div>
+                <div className="line-horizontal-jobBasics"></div>
+                <div className="round-horizontal-1-jobBasics">5</div>
+            </div>
             <div className="create-account-heading-container">
                 <h1 className="create-account-heading">Add job Basics</h1>
             </div>
             <div className="create-account-form-container">
                 <form action="" onSubmit={NextPage}>
                     <div>
-                        <label htmlFor="industry">Company's Industry</label>
+                        <label
+                            htmlFor="industry"
+                            className="companyIndustry-jobBasics"
+                        >
+                            Company's Industry
+                        </label>
                         <input
                             type="text"
                             name="industry"
@@ -36,7 +54,12 @@ export const JobBasics = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="jobTitle">Job Title</label>
+                        <label
+                            htmlFor="jobTitle"
+                            className="companyIndustry-jobBasics"
+                        >
+                            Job Title
+                        </label>
                         <input
                             type="text"
                             name="jobTitle"
@@ -46,7 +69,12 @@ export const JobBasics = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="jobType">Job Type</label>
+                        <label
+                            htmlFor="jobType"
+                            className="companyIndustry-jobBasics"
+                        >
+                            Job Type
+                        </label>
                         <input
                             type="text"
                             name="jobType"
@@ -56,7 +84,12 @@ export const JobBasics = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="location">Location</label>
+                        <label
+                            htmlFor="location"
+                            className="companyIndustry-jobBasics"
+                        >
+                            Location
+                        </label>
                         <input
                             type="text"
                             name="location"
@@ -66,7 +99,10 @@ export const JobBasics = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="jobDescription">
+                        <label
+                            htmlFor="jobDescription"
+                            className="companyIndustry-jobBasics"
+                        >
                             Company Description
                         </label>
                         <textarea

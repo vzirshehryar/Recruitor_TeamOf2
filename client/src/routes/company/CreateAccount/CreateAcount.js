@@ -36,6 +36,7 @@ export const CreateAcount = () => {
 
     return (
         <div className="create-account-main-container">
+            <div className="Header-create">Header</div>
             <div className="Horizontal-Line-below-header-parent-create">
                 <div className="round-horizontal-2-create">1</div>
                 <div className="line-horizontal-2-create"></div>

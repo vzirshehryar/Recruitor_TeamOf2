@@ -1,32 +1,6 @@
-/* Reset default styles for all elements */
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* Main container for the create account section */
-.create-account-main-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: white;
-    padding: 3rem 2rem; /* Combined padding shorthand */
-    text-align: center;
-    background: white;
-    padding-block: 3rem;
-    padding-inline: 2rem;
-    text-align: center;
-}
 
 /* Styling for the heading container */
-.create-account-heading-container {
-    margin-bottom: 1.5rem;
-}
 
 /* Styling for the heading text */
 .create-account-heading {
@@ -189,8 +163,24 @@ label {
     margin-top: 12px;
 }
 
+.Header-create {
+    height: 70px;
+    background-color: #cf1350;
+    width: 1526px;
+    margin-top: -48px;
+}
+
 /* Media query for responsiveness */
 @media (max-width: 768px) {
+    .Horizontal-Line-below-header-parent-create {
+        width: 100%;
+    }
+    .round-horizontal-1-create {
+        width: 60px;
+    }
+    .round-horizontal-2-create {
+        width: 60px;
+    }
     .create-account-form-container {
         max-width: 100%;
         padding: 0 1rem;

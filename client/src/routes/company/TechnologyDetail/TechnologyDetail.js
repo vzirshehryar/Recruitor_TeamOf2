@@ -37,16 +37,17 @@ export const TechnologyDetail = () => {
           <li className="li5">5</li>
         </ul>
       </div> */}
-            <div className="Horizontal-Line-below-header-parent">
-                <div className="round-horizontal opacity">1</div>
-                <div className="line-horizontal"></div>
-                <div className="round-horizontal opacity">2</div>
-                <div className="line-horizontal "></div>
-                <div className="round-horizontal ">3</div>
-                <div className="line-horizontal"></div>
-                <div className="round-horizontal opacity">4</div>
-                <div className="line-horizontal"></div>
-                <div className="round-horizontal opacity">5</div>
+            <div className="Header-tech">Header</div>
+            <div className="Horizontal-Line-below-header-parent-tech">
+                <div className="round-horizontal-1-tech">1</div>
+                <div className="line-horizontal-tech"></div>
+                <div className="round-horizontal-1-tech">2</div>
+                <div className="line-horizontal-tech"></div>
+                <div className="round-horizontal-2-tech">3</div>
+                <div className="line-horizontal-2-tech"></div>
+                <div className="round-horizontal-1-tech">4</div>
+                <div className="line-horizontal-tech"></div>
+                <div className="round-horizontal-1-tech">5</div>
             </div>
 
             <div className="create-account-heading-container">
@@ -55,7 +56,9 @@ export const TechnologyDetail = () => {
             <div className="create-account-form-container">
                 <form action="" onSubmit={NextPage}>
                     <div>
-                        <label htmlFor="">Job schedule</label>
+                        <label htmlFor="" className="job-schedule-tech">
+                            Job schedule
+                        </label>
                         <select
                             name=""
                             id="jobSchedule"
@@ -67,7 +70,7 @@ export const TechnologyDetail = () => {
                         </select>
                     </div>
                     <div>
-                        <label htmlFor="">
+                        <label htmlFor="" className="job-schedule-tech">
                             Number of people you wish to hire for this job
                         </label>
                         <select
@@ -82,7 +85,7 @@ export const TechnologyDetail = () => {
                         </select>
                     </div>
                     <div>
-                        <label htmlFor="">
+                        <label htmlFor="" className="job-schedule-tech">
                             Recruitment timeline for this job
                         </label>
                         <select

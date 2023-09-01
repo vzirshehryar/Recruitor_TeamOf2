@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../companyContext";
+import "./SetPreferences.css";
 
 export const SetPreferences = () => {
     const { preferences, setPreferences } = useContext(UserContext);
@@ -35,13 +36,27 @@ export const SetPreferences = () => {
 
     return (
         <div className="create-account-main-container">
+            <div className="Header-tech">Header</div>
+            <div className="Horizontal-Line-below-header-parent-tech">
+                <div className="round-horizontal-1-tech">1</div>
+                <div className="line-horizontal-tech"></div>
+                <div className="round-horizontal-1-tech">2</div>
+                <div className="line-horizontal-tech"></div>
+                <div className="round-horizontal-1-tech">3</div>
+                <div className="line-horizontal-tech"></div>
+                <div className="round-horizontal-1-tech">4</div>
+                <div className="line-horizontal-2-tech"></div>
+                <div className="round-horizontal-2-tech">5</div>
+            </div>
             <div className="create-account-heading-container">
                 <h1 className="create-account-heading">Set Preferences</h1>
             </div>
             <div className="create-account-form-container">
                 <form action="">
                     <div>
-                        <label htmlFor="email">Send daily updates to</label>
+                        <label htmlFor="email" className="sendUpdates-pref">
+                            Send daily updates to
+                        </label>
                         <input
                             type="text"
                             id="email"
@@ -65,7 +80,11 @@ export const SetPreferences = () => {
                             </ul>
                         )}
                         <div className="flex">
-                            <input type="checkbox" id="sendIndividualEmails" />
+                            <input
+                                type="checkbox"
+                                id="sendIndividualEmails"
+                                className="input-pref"
+                            />
                             <label htmlFor="sendIndividualEmails">
                                 Plus, send an individual email update each time
                                 someone applies.
@@ -75,13 +94,21 @@ export const SetPreferences = () => {
                             Let potential candidates contact you about this job
                         </p>
                         <div className="flex">
-                            <input type="checkbox" id="ByEmailToTheAddress" />
+                            <input
+                                type="checkbox"
+                                id="ByEmailToTheAddress"
+                                className="input-pref"
+                            />
                             <label htmlFor="ByEmailToTheAddress">
                                 By email to the address provided
                             </label>
                         </div>
                         <div className="flex">
-                            <input type="checkbox" id="ByPhone" />
+                            <input
+                                type="checkbox"
+                                id="ByPhone"
+                                className="input-pref"
+                            />
                             <label htmlFor="ByPhone">By Phone</label>
                         </div>
                     </div>
