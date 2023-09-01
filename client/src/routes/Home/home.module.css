@@ -75,6 +75,7 @@ h5 {
   border-radius: 4px;
   background: #fff;
   padding: 10px 20px;
+  width: 300px;
 }
 .HomeSlider button {
   border-radius: 4px;
@@ -156,7 +157,6 @@ h5 {
   gap: 5px;
 }
 
-
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! AI SERVICES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 .BestPart {
@@ -165,6 +165,22 @@ h5 {
 }
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! AI SERVICES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.AiImages {
+  background: lightgray 0px 0px / 100% 100% no-repeat, #081351;
+  width: 260px;
+  height: 180px;
+  object-fit: contain;
+}
+.linkToAi {
+  color: #1e1ef0;
+  font-family: Red Hat Text;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 27px; /* 150% */
+  text-decoration: none;
+}
 
 /* Media query for small screens (phones) */
 @media (max-width: 576px) {

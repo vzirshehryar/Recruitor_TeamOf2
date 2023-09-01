@@ -14,7 +14,7 @@ import Newsletter from "./components/Newsletter";
 function Homepage() {
   return (
     <>
-      <Header active="job" />
+      <Header />
       <Slider />
       {/*<TrustedBy />*/}
       <Services />
