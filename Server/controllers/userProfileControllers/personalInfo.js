@@ -12,6 +12,10 @@ export const postData = async (req, res) => {
       zipCode,
       linkednLink,
       twitterLink,
+      desiredJob,
+      desiredLocation,
+      payment,
+      minSalary,
     } = req.body;
     const userID = req.user;
     var progress = 0;

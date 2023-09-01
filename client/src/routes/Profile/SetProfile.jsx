@@ -35,20 +35,8 @@ const SetProfile = () => {
     axios
       .get(newUrl, { headers })
       .then((getResponse) => {
-        if (!getResponse.data) {
-          setFormData({
-            firstName: "",
-            lastName: "",
-            emailAddress: "",
-            phoneNumber: "",
-            address: "",
-            country: "",
-            city: "",
-            zipCode: "",
-            linkedInLink: "",
-            twitterLink: "",
-          });
-        } else {
+        if (getResponse.data) {
+          console.log(getResponse.data);
           setFormData({
             firstName: getResponse.data.firstName,
             lastName: getResponse.data.lastName,
@@ -60,6 +48,10 @@ const SetProfile = () => {
             zipCode: getResponse.data.zipCode,
             linkedInLink: getResponse.data.linkednLink,
             twitterLink: getResponse.data.twitterLink,
+            desiredJob: getResponse.data.desiredJob,
+            minSalary: getResponse.data.minSalary,
+            payment: getResponse.data.payment,
+            desiredLocation: getResponse.data.desiredLocation,
           });
         }
       })
@@ -99,6 +91,8 @@ const SetProfile = () => {
       desiredLocation: formData.desiredLocation,
     };
 
+    console.log(formattedData);
+
     const token = localStorage.getItem("token");
     const apiUrl = "/user/personalInfo/postData";
 
@@ -109,7 +103,7 @@ const SetProfile = () => {
       .post(apiUrl, formattedData, { headers })
       .then((response) => {
         localStorage.setItem("progress", "15");
-        toast.success(response.data.message);
+        toast.success("Data Updated Successfully");
       })
       .catch((error) => {
         console.error(error);
@@ -165,7 +159,7 @@ const SetProfile = () => {
         <div style={{ width: "70%", minWidth: "350px", marginTop: "40px" }}>
           <p className={`${Style.step}`}>Step 1</p>
         </div>
-        <div className="shadow" style={{ marginBottom: "40px" }}>
+        <div className="shadow">
           <h3 className={`${Style.h3} mb-3`}>Complete your registration</h3>
           <p className={`${Style.p}`}>
             almost there... We require few more details which will be sent to
@@ -350,6 +344,7 @@ const SetProfile = () => {
               <input
                 type="text"
                 id="desiredJob"
+                name="desiredJob"
                 className="input-field"
                 placeholder="UI/UX Designer"
                 required
@@ -366,6 +361,7 @@ const SetProfile = () => {
                 <input
                   type="text"
                   id="minSalary"
+                  name="minSalary"
                   className="input-field"
                   placeholder="Enter your first name"
                   required
@@ -374,11 +370,14 @@ const SetProfile = () => {
                 />
               </div>
               <div className="input-group-profile">
-                <label className="label" htmlFor="lastName">
-                  <span className="required"></span>
+                <label className="label" htmlFor="payment">
+                  Per
+                  <span className="required">*</span>
                 </label>
                 <select
                   className="input-field"
+                  id="payment"
+                  name="payment"
                   placeholder="Enter your last name"
                   required
                   value={formData.payment}
@@ -400,6 +399,7 @@ const SetProfile = () => {
               <input
                 type="text"
                 id="desiredLocation"
+                name="desiredLocation"
                 className="input-field"
                 placeholder="eg. Islamabad"
                 required
@@ -407,7 +407,7 @@ const SetProfile = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="button-container">
+            <div className="button-container mt-4">
               <button type="submit" onClick={handleSubmit}>
                 Next
               </button>

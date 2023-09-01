@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import editProfileStyle from "./EditProfileCV.module.css";
 import profileStyles from "./UpdateProfilePage.module.css";
 import AboutYouForm from "./AboutYouForm";
+import { useNavigate } from "react-router-dom";
 
 const ProfileSideBar = () => {
   const [showDisplay, setDisplay] = useState(false);
+  const navigate = useNavigate();
 
   const userStored = localStorage.getItem("user");
   const user = JSON.parse(userStored);
@@ -36,7 +38,7 @@ const ProfileSideBar = () => {
             }}
           >
             <h4>About You</h4>
-            <a
+            {/* <a
               href="#"
               className={profileStyles["buttons"]}
               style={{ marginRight: "10px", fontSize: "10px" }}
@@ -46,7 +48,7 @@ const ProfileSideBar = () => {
               }}
             >
               Edit
-            </a>
+            </a> */}
           </div>
           <div style={{ padding: "10px" }}>
             <ul style={{ marginBottom: "20px" }}>
@@ -108,7 +110,9 @@ const ProfileSideBar = () => {
               </li>
             </ul>
             <button className={editProfileStyle.button}>
-              <h3>Update My Profile</h3>
+              <h3 onClick={() => navigate("/set-profile")}>
+                Update My Profile
+              </h3>
             </button>
           </div>
         </div>

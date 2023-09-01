@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { FaClock, FaFileContract, FaMapMarkerAlt } from "react-icons/fa";
 import SideFilter from "./components/SideFilter";
 import { useJobContext } from "../../useContext/jobContext";
-import './jobsfeed.css'
+import "./jobsfeed.css";
 const bacgroundSelect = {
   background: "rgba(109, 14, 157, 0.19)",
 };
@@ -176,7 +176,7 @@ function JobFeed() {
   const toggleFilter = () => {
     const newShowFilter = !showFilter;
     setShowFilter(newShowFilter);
-    localStorage.setItem('showFilter', newShowFilter);
+    localStorage.setItem("showFilter", newShowFilter);
   };
   const handleEasyApply = (item) => {
     if (localStorage.getItem("userType") === "user") {
@@ -189,13 +189,15 @@ function JobFeed() {
 
   return (
     <>
-      <Header />
+      <Header active="job" />
       <div className="jobFeedPage">
         <JobNav Search={Search} />
         <Container fluid className="jobFeedContainer">
-        <Button className="filter-show-btn" onClick={toggleFilter}>Filters</Button>
+          <Button className="filter-show-btn" onClick={toggleFilter}>
+            Filters
+          </Button>
           <Container className="custom-style">
-          {Search && showFilter && <SideFilter Search={Search} />}
+            {Search && showFilter && <SideFilter Search={Search} />}
             <Row className="pt-4 pb-5 jobFeedDisplay">
               <div className="jobCardInJobFeed">
                 <p>1,053 Account Administrator Jobs in 47080</p>
@@ -241,7 +243,7 @@ function JobFeed() {
                       // window.scrollTo({ top: 0, behavior: "smooth" });
                       // onClick(()=>)
                     }}
-                  // style={forBackgroundSelection(index) ? bacgroundSelect : {}}
+                    // style={forBackgroundSelection(index) ? bacgroundSelect : {}}
                   >
                     <div className="EasyApplyPortion mb-3">
                       <button onClick={() => handleEasyApply(item)}>
@@ -323,7 +325,7 @@ function JobFeed() {
                       </div>
                     </div>
                     <div className="JobCardTitle mb-2">
-                      <div className="JobCardTitle-carbon"> 
+                      <div className="JobCardTitle-carbon">
                         <h3>{item.jobTitle}</h3>
                         <h5>11 July by Carbon 60</h5>
                         <div

@@ -20,7 +20,7 @@ function Services() {
   const [select, setSelect] = useState("sector");
   return (
     <div className={`${Style.TrendingJobs}`}>
-      <h5 className={`${Style.h5}`}>Trending Jobs</h5>
+      {/* <h5 className={`${Style.h5}`}>Trending Jobs</h5> */}
       {/* <div
         className="mt-3 d-flex flex-wrap justify-content-center gap-3"
         style={{ maxWidth: "900px" }}
@@ -38,14 +38,14 @@ function Services() {
         >
           Search by Sector
         </p>
-        <p
+        {/* <p
           className={`px-3 py-2 cursor-pointer ${
             select === "location" ? Style.serviceactive : ""
           }`}
           onClick={() => setSelect("location")}
         >
           Search by Location
-        </p>
+        </p> */}
       </div>
       {/*SEARCH SECTIONS STARTED */}
       <div className="mt-3 d-flex flex-wrap justify-content-center gap-4">
