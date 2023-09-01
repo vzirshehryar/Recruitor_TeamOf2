@@ -61,7 +61,7 @@ function ReviewJob() {
         setKeyQualities,
     } = useContext(UserContext);
 
-    console.log("data: ", companyInfo, jobBasics);
+    console.log("data2: ", preferences.email);
 
     const handleInputChange = (e) => {
         setPostJobReview({ ...postJobReview, [e.target.id]: e.target.value });
@@ -243,6 +243,7 @@ function ReviewJob() {
                             setFormState("jobBasics");
                             setFormField("location");
                             openPopUp("location", jobBasics);
+                            console.log(jobBasics.location);
                         }}
                         className="Pen-Container"
                     >
