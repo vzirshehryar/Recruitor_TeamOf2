@@ -36,3 +36,14 @@ label {
     margin-right: auto;
     margin-left: -20px;
 }
+.sendUpdates-pref {
+    color: #000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 125% */
+}
+.input-pref {
+    margin-top: 8px;
+}
