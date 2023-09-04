@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "../companyContext";
 import { useContext } from "react";
+
 import axios from "axios";
 import "./CreateAccount.css";
 
@@ -12,6 +13,7 @@ export const CreateAcount = () => {
 
     async function NextPage(e) {
         e.preventDefault();
+        console.log("company: ", companyInfo);
         console.log("Running");
         try {
             const response = await fetch("/company/setProfile", {
@@ -23,6 +25,14 @@ export const CreateAcount = () => {
                 body: JSON.stringify(companyInfo),
             });
             console.log("response: ", response);
+            response = await response.json();
+
+            // Store the token in local storage
+            localStorage.setItem("token", response.token);
+            localStorage.setItem("userType", "user");
+            // Store the user data in local storage
+            localStorage.setItem("user", JSON.stringify(response.user));
+
             navigate("/company/jobbasics");
         } catch (e) {
             console.log(e);

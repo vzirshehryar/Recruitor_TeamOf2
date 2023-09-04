@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { UserContext } from "../companyContext";
 import { useNavigate } from "react-router-dom";
 import "./JobBasicst.css";
@@ -18,6 +18,11 @@ export const JobBasics = () => {
         console.log("Running");
         navigate("/company/techdetail");
     };
+
+    useEffect(() => {
+        const gettoken = localStorage.getItem("token");
+        console.log(gettoken);
+    }, []);
 
     return (
         <div className="create-account-main-container">

@@ -2,7 +2,7 @@ import "./TechnologyDetail.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "../companyContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 export const TechnologyDetail = () => {
     const { techDetails, setTechDetails } = useContext(UserContext);
@@ -25,7 +25,15 @@ export const TechnologyDetail = () => {
         console.log("Running");
         navigate("/company/jobbasics");
     }
-
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token === null && !token) {
+            console.log("token not found");
+            navigate("/company/createaccount");
+        } else {
+            console.log("Token found!");
+        }
+    }, []);
     return (
         <div className="create-account-main-container">
             {/* <div className="horizontal-timeline">

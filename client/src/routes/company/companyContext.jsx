@@ -15,7 +15,7 @@ export const UserContextProvider = ({ children }) => {
 
     const [postJobReview, setPostJobReview] = useState({});
 
-    const [keyQualities, setKeyQualities] = useState({});
+    const [keyQualities, setKeyQualities] = useState([]);
 
     /*const updateUser = (newUserInfo) => {
         setUserInfo((prevState) => ({

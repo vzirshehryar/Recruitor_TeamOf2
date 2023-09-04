@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../companyContext";
 import "./SetPreferences.css";
@@ -33,6 +33,16 @@ export const SetPreferences = () => {
         console.log("Running");
         navigate("/company/paybenefits");
     };
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token === null && !token) {
+            console.log("token not found");
+            navigate("/company/createaccount");
+        } else {
+            console.log("Token found!");
+        }
+    }, []);
 
     return (
         <div className="create-account-main-container">
