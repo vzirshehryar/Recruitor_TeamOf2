@@ -49,7 +49,6 @@ export const SetPreferences = () => {
     <>
       <Header active="company" />
       <div className="create-account-main-container">
-        <div className="Header-tech">Header</div>
         <div className="Horizontal-Line-below-header-parent-tech">
           <div className="round-horizontal-1-tech">1</div>
           <div className="line-horizontal-tech"></div>

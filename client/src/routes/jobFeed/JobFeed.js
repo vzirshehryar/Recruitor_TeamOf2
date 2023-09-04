@@ -97,17 +97,18 @@ function JobFeed() {
     // return false;
   });
 
-  const sortedCurrentJobs = [...filteredJobs].sort((a, b) => {
-    const titleA = a.jobTitle.toLowerCase();
-    const titleB = b.jobTitle.toLowerCase();
-    if (titleA < titleB) {
-      return -1;
-    }
-    if (titleA > titleB) {
-      return 1;
-    }
-    return 0;
-  });
+  // const sortedCurrentJobs = [...filteredJobs].sort((a, b) => {
+  //   const titleA = a.jobTitle.toLowerCase();
+  //   const titleB = b.jobTitle.toLowerCase();
+  //   if (titleA < titleB) {
+  //     return -1;
+  //   }
+  //   if (titleA > titleB) {
+  //     return 1;
+  //   }
+  //   return 0;
+  // });
+  const sortedCurrentJobs = filteredJobs;
 
   // const totalJobs = filteredJobs.length;
   const totalJobs = sortedCurrentJobs.length;

@@ -22,6 +22,14 @@ const styleH2 = {
 const Home = () => {
   const navigate = useNavigate();
 
+  const handlePostJob = () => {
+    if (
+      localStorage.getItem("userType") === "company" &&
+      localStorage.getItem("token")
+    )
+      navigate("/company/jobbasics");
+    else navigate("/company/createaccount");
+  };
   return (
     <>
       <Header active="company" />
@@ -34,9 +42,7 @@ const Home = () => {
             <h3 className="company-home-welcome-para">Find Top Talent!</h3>
             <button
               className="company-home-action-button"
-              onClick={() => {
-                navigate("/company/createaccount");
-              }}
+              onClick={handlePostJob}
             >
               Post Job
             </button>

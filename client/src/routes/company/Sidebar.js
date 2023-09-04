@@ -70,7 +70,7 @@ const Sidebar = () => {
             &nbsp;&nbsp;&nbsp;Company Profile
           </NavLink>
           <NavLink
-            to="/postjobs"
+            to="/company/jobbasics"
             activeClassName="active"
             className="sidebar-button"
           >

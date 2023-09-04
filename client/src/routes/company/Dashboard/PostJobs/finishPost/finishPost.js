@@ -1,8 +1,9 @@
 import "./finish.css";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../../companyContext";
 import { useNavigate } from "react-router-dom";
 import Header from "../../../../Home/components/header";
+import { toast } from "react-toastify";
 
 function FinishPost() {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ function FinishPost() {
     postJobReview,
     keyQualities,
   } = useContext(UserContext);
+
+  console.log(keyQualities);
 
   async function NextPage() {
     console.log("Running");
@@ -36,11 +39,27 @@ function FinishPost() {
         }),
       });
       console.log("response: ", response);
-      //   navigate("/companydashboard");
+      if (!response.ok) {
+        throw new Error("Backend Error Occured");
+      }
+      const data = await response.json();
+      console.log(data);
+      toast.success("Job Posted Successfully");
+      // navigate("/companydashboard");
     } catch (e) {
       console.log(e);
+      toast.error("Backend Error Occured");
     }
   }
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token === null && !token) {
+      console.log("token not found");
+      navigate("/company/createaccount");
+    } else {
+      console.log("Token found!");
+    }
+  }, []);
 
   return (
     <>

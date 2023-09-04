@@ -42,7 +42,18 @@ const PopUp = ({ closePopUpTwo, closePopUp, title, cont, input }) => {
     </>
   );
 };
+
 function ReviewJob() {
+  useEffect(() => {
+    //check for token
+    const token = localStorage.getItem("token");
+    if (token === null && !token) {
+      console.log("token not found");
+      navigate("/company/createaccount");
+    } else {
+      console.log("Token found!");
+    }
+  }, []);
   const {
     companyInfo,
     setcompanyInfo,
@@ -158,16 +169,6 @@ function ReviewJob() {
         firstAndLastName: e,
       });
     }
-    useEffect(() => {
-        //check for token
-        const token = localStorage.getItem("token");
-        if (token === null && !token) {
-            console.log("token not found");
-            navigate("/company/createaccount");
-        } else {
-            console.log("Token found!");
-        }
-    }, []);
 
     setShowPopUp(false);
   };
