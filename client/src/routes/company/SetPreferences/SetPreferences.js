@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../companyContext";
 import "./SetPreferences.css";
@@ -35,10 +35,21 @@ export const SetPreferences = () => {
     navigate("/company/paybenefits");
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token === null && !token) {
+      console.log("token not found");
+      navigate("/company/createaccount");
+    } else {
+      console.log("Token found!");
+    }
+  }, []);
+
   return (
     <>
       <Header active="company" />
       <div className="create-account-main-container">
+        <div className="Header-tech">Header</div>
         <div className="Horizontal-Line-below-header-parent-tech">
           <div className="round-horizontal-1-tech">1</div>
           <div className="line-horizontal-tech"></div>

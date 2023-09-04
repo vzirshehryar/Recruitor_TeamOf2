@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ReviewJob.css";
 import Header from "../../../../Home/components/header";
 import Line from "./line";
@@ -158,6 +158,16 @@ function ReviewJob() {
         firstAndLastName: e,
       });
     }
+    useEffect(() => {
+        //check for token
+        const token = localStorage.getItem("token");
+        if (token === null && !token) {
+            console.log("token not found");
+            navigate("/company/createaccount");
+        } else {
+            console.log("Token found!");
+        }
+    }, []);
 
     setShowPopUp(false);
   };
