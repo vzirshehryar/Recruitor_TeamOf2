@@ -117,14 +117,13 @@ function Login() {
             <div onClick={() => navigate("/login")}>
               <h3 className="signIn px-2">Sign In</h3>
             </div>
-            <div onClick={() => navigate("/signup")}>
-              <h3
-                className="signUp"
-                style={{
-                  color: "rgba(0, 0, 0, 0.49)",
-                  background: "white",
-                }}
-              >
+            <div
+              style={{
+                background: "white",
+              }}
+              onClick={() => navigate("/signup")}
+            >
+              <h3 className="signUp" style={{ color: "rgba(0, 0, 0, 0.49)" }}>
                 Register
               </h3>
             </div>

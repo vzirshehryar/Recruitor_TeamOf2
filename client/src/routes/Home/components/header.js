@@ -18,7 +18,7 @@ function Header({ active, page }) {
     navigate("/Login");
   }
   function signUpButton() {
-    navigate("/signUp");
+    navigate("/registerAsCompany");
   }
   const handleSearch = (event) => {
     setCurrentPage(1);
@@ -29,7 +29,7 @@ function Header({ active, page }) {
     navigate("/");
   };
   const user = localStorage.getItem("user");
-  const userType = localStorage.getItem("userType") === "user";
+  const isUser = localStorage.getItem("userType") === "user";
   let data = JSON.parse(user);
 
   const [email, setEmail] = useState("");
@@ -115,23 +115,30 @@ function Header({ active, page }) {
               <Link
                 className={`${active === "career" ? "active" : ""}`}
                 style={{ color: "white" }}
-                to="/"
+                to="/career-form"
               >
-                Career Coach
+                Career Advice
               </Link>
               <Link
                 className={`${active === "salary" ? "active" : ""}`}
                 style={{ color: "white" }}
-                to="/"
+                to="/salary-module"
               >
                 Salary Module
               </Link>
               <Link
                 className={`${active === "cover" ? "active" : ""}`}
                 style={{ color: "white" }}
-                to="/"
+                to="/coverletter"
               >
                 Cover Letter
+              </Link>
+              <Link
+                className={`${active === "path" ? "active" : ""}`}
+                style={{ color: "white" }}
+                to="/career-path"
+              >
+                Career Path
               </Link>
               <Link
                 className={`${active === "company" ? "active" : ""}`}
@@ -186,13 +193,16 @@ function Header({ active, page }) {
                           textAlign: "center",
                           borderBottom: "1px solid black",
                         }}
-                        onClick={() => navigate("/personal-information")}
+                        onClick={() => {
+                          if (isUser) navigate("/personal-information");
+                          else navigate("/companydashboard");
+                        }}
                       >
                         {/* <i
                           className="ri-account-box-fill"
                           style={{ marginRight: "2%" }}
                         ></i> */}
-                        Profile
+                        Dashboard
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={handleLogout}

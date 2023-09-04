@@ -37,11 +37,14 @@ function DetailPage() {
       <JobNav />
       <div className=" d-flex justify-content-center p-3 ">
         <div className={`container dpage m-0    Card col-lg-3  `}>
-          <div>
-            <div className=" bgimg ">
+          <div className="position-relative d-flex flex-column align-items-center">
+            <div
+              className=" bgimg"
+              style={{ marginBottom: "120px", width: "100%" }}
+            >
               <img
                 src="/bgimg.png"
-                className="carbon d-flex text-center justify-content-center mt-5"
+                className="carbon d-flex text-center justify-content-center"
                 alt=""
               />
             </div>
@@ -52,6 +55,7 @@ function DetailPage() {
                 alt=""
               />
             </div>
+            {/* TITLE PART AND SMALL INFORMATIONS*/}
             <div>
               <div className="ml-5 dp d-flex justify-content-start ">
                 <p className="dheading   ">Featured</p>
@@ -96,13 +100,14 @@ function DetailPage() {
                 </Container>
               </div>
             </div>
-            <div className="d-flex justify-content-center">
+            {/* Overview, Background/Requirements, Required Skills, Application Questions */}
+            <div className="d-flex justify-content-center px-5">
               <div className="dpad">
                 <h2 className="dheading mt-5 ">
                   {" "}
                   Graphic Designer, Oldbury, £25-27k
                 </h2>
-                <p className="phead mt-4 ">
+                <p className="phead mt-4 px-3">
                   I am currently working with a warm and friendly company, who
                   due to increased work are now seeking an additional Graphic
                   Designer to bring fresh ideas and concepts to fit both Print
@@ -111,7 +116,7 @@ function DetailPage() {
                   is the possibility it could develop into a permanent position.
                 </p>
                 <h2 className="dheading dpad ">Overview:</h2>
-                <ul className="dli lh-lg  mt-4">
+                <ul className="dli lh-lg  mt-4 px-3">
                   <li className="">
                     Working closely with the In-House Team and Directors as well
                     as an external Creative Agency, to expand and execute
@@ -158,7 +163,7 @@ function DetailPage() {
                   </li>
                 </ul>
                 <h2 className="dheading dpad">Required skills</h2>
-                <div className="mt-4 d-flex gap-4  text-center">
+                <div className="mt-4 d-flex gap-4  text-center flex-wrap">
                   <p className="dl text-center p-3   ">Adobe</p>
                   <h4 className="dl text-center p-3">Creative</h4>
                   <h4 className="dl text-center p-3">Website</h4>
@@ -242,7 +247,7 @@ function DetailPage() {
                   </div>
                 </div>
 
-                <Container className="mt-5">
+                {/* <Container className="mt-5">
                   <h5>
                     Not quite what you are looking for? Try these similar
                     searches
@@ -255,7 +260,7 @@ function DetailPage() {
                       <a href="">something</a>
                     </Col>
                   </Row>
-                </Container>
+                </Container> */}
               </div>
             </div>
           </div>

@@ -120,7 +120,6 @@
 
 .displayJobs {
   background: #ffffff;
-  cursor: pointer;
   border-bottom: 1px solid #cf1350;
   padding: 30px;
 }
@@ -411,7 +410,7 @@
 .jobFeedList {
   border-radius: 20px;
   border: 0.6px solid #cf1350;
-  max-height: auto;
+  max-height: 800px;
   min-width: 810px;
   overflow-y: auto;
 }
@@ -522,6 +521,7 @@
 .displayJobs .SeeMore {
   display: flex;
   align-items: center;
+  cursor: pointer;
   gap: 5px;
   color: #1e1ef0;
   font-family: Red Hat Text;
@@ -538,6 +538,9 @@
 /* ------------------------------------------------------------------------------- */
 /* Media query for screens with max width 1024px */
 @media (max-width: 1024px) {
+  .jobFeedDisplay {
+    max-height: none;
+  }
   .jobFeedList {
     max-height: none; /* Reset max height */
     min-width: 100%; /* Make it full width */
@@ -582,4 +585,3 @@
     flex-direction: column;
   }
 }
-

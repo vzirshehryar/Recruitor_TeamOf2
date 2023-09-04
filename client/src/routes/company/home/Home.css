@@ -13,13 +13,13 @@ html {
   box-sizing: border-box;
   font-family: var(--font-primary) !important;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+.company-home-main-container h1,
+.company-home-main-container h2,
+.company-home-main-container h3,
+.company-home-main-container h4,
+.company-home-main-container h5,
+.company-home-main-container h6,
+.company-home-main-container p {
   margin: 0 !important;
   padding: 0 !important;
 }

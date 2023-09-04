@@ -6,6 +6,8 @@ import { Button } from "react-bootstrap";
 import { FaAngleRight } from "react-icons/fa";
 
 function BestPart() {
+  const navigate = useNavigate();
+
   return (
     <div className={`${Style.BestPart}`}>
       <h5 className={`${Style.h5}`}>AI Services</h5>
@@ -30,7 +32,12 @@ function BestPart() {
           >
             Career Coach
           </p>
-          <div className="mt-4">
+          <div
+            className="mt-4"
+            onClick={() => {
+              navigate("/career-form");
+            }}
+          >
             <Link to="careerCoach">Career Coach</Link>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +73,7 @@ function BestPart() {
           >
             Salary Module
           </p>
-          <div className="mt-4">
+          <div className="mt-4" onClick={() => navigate("/salary-module")}>
             <Link to="salarymodule">Salary Module</Link>
             <svg
               xmlns="http://www.w3.org/2000/svg"

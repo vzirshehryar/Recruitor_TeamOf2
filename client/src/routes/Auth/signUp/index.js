@@ -134,14 +134,13 @@ function Register() {
       >
         <div className="container text-center loginBox Card col-md-4">
           <div className="signupsignin">
-            <div onClick={() => navigate("/login")}>
-              <h3
-                className="signIn"
-                style={{
-                  color: "rgba(0, 0, 0, 0.49)",
-                  background: "white",
-                }}
-              >
+            <div
+              style={{
+                background: "white",
+              }}
+              onClick={() => navigate("/login")}
+            >
+              <h3 className="signIn" style={{ color: "rgba(0, 0, 0, 0.49)" }}>
                 Sign In
               </h3>
             </div>

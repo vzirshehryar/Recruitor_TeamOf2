@@ -60,6 +60,12 @@ import KeyQualities from "./routes/company/Dashboard/PostJobs/keyQualification/K
 import FinishPost from "./routes/company/Dashboard/PostJobs/finishPost/finishPost";
 import { UserContextProvider } from "./routes/company/companyContext";
 
+// AI ROUTES
+import SalaryForm from "./routes/AI Models/SalaryModules/SalaryForm";
+import DisplaySalary from "./routes/AI Models/SalaryModules/DisplaySalary";
+import CareerForm from "./routes/AI Models/CareerCouching/CareerForm";
+import CareerPath from "./routes/AI Models/CareerPath/CareerPath";
+
 const App = () => {
   return (
     <Router>
@@ -104,15 +110,75 @@ const App = () => {
           <Route path="/joblistings" element={<Listings />} />
           <Route path="/companydashboard" element={<CompanyDashboard />} />
           <Route path="/managehiring" element={<ManageHiring />} />
-          
-          <Route path="/company/createaccount" element={<UserContextProvider><CreateAcount /></UserContextProvider>} />
-          <Route path="/company/jobbasics" element={<UserContextProvider><JobBasics /></UserContextProvider>} />
-          <Route path="/company/techdetail" element={<UserContextProvider><TechnologyDetail /></UserContextProvider>} />
-          <Route path="/company/paybenefits" element={<UserContextProvider><PayBenefits /></UserContextProvider>} />
-          <Route path="/company/setpreferences" element={<UserContextProvider><SetPreferences /></UserContextProvider>} />
-          <Route path="/company/postJobReview" element={<UserContextProvider><ReviewJob /></UserContextProvider>} />
-          <Route path="/company/keyQualities" element={<UserContextProvider><KeyQualities /></UserContextProvider>} />
-          <Route path="/company/finishPostfinal" element={<UserContextProvider><FinishPost /></UserContextProvider>} />
+          <Route
+            path="/company/createaccount"
+            element={
+              <UserContextProvider>
+                <CreateAcount />
+              </UserContextProvider>
+            }
+          />
+          <Route
+            path="/company/jobbasics"
+            element={
+              <UserContextProvider>
+                <JobBasics />
+              </UserContextProvider>
+            }
+          />
+          <Route
+            path="/company/techdetail"
+            element={
+              <UserContextProvider>
+                <TechnologyDetail />
+              </UserContextProvider>
+            }
+          />
+          <Route
+            path="/company/paybenefits"
+            element={
+              <UserContextProvider>
+                <PayBenefits />
+              </UserContextProvider>
+            }
+          />
+          <Route
+            path="/company/setpreferences"
+            element={
+              <UserContextProvider>
+                <SetPreferences />
+              </UserContextProvider>
+            }
+          />
+          <Route
+            path="/company/postJobReview"
+            element={
+              <UserContextProvider>
+                <ReviewJob />
+              </UserContextProvider>
+            }
+          />
+          <Route
+            path="/company/keyQualities"
+            element={
+              <UserContextProvider>
+                <KeyQualities />
+              </UserContextProvider>
+            }
+          />
+          <Route
+            path="/company/finishPostfinal"
+            element={
+              <UserContextProvider>
+                <FinishPost />
+              </UserContextProvider>
+            }
+          />
+          //ROUTES OF AI MODELS
+          <Route path="salary-module" element={<SalaryForm />} />
+          <Route path="salarydisplay/:salary" element={<DisplaySalary />} />
+          <Route path="career-form" element={<CareerForm />} />
+          <Route path="career-path" element={<CareerPath />} />
         </Routes>
       </JobProvider>
     </Router>
@@ -120,4 +186,3 @@ const App = () => {
 };
 
 export default App;
-

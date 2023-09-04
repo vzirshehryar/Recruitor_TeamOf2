@@ -10,9 +10,9 @@ const jobSchema = new mongoose.Schema({
   },
   //Job Basics
   industry: String, //company's industry
-  jobTitle: String,  //job title
+  jobTitle: String, //job title
   jobType: String, //job type
-  // jobLevel: String, 
+  // jobLevel: String,
   location: String,
   jobDescription: String,
 
@@ -20,6 +20,10 @@ const jobSchema = new mongoose.Schema({
   jobSchedule: String, //tech details
   openings: Number, //number of people to hire
   jobTimeline: String, //recruitment timeline
+  postedOn: {
+    type: Number,
+    default: Date.now(),
+  },
 
   //Pay & Benefits
   maxSR: Number,
@@ -36,13 +40,15 @@ const jobSchema = new mongoose.Schema({
   askForCV: Boolean,
 
   //qualifications:
-  skills: [{
-    skill:{
-      type: String,
+  skills: [
+    {
+      skill: {
+        type: String,
+      },
+      isMustHave: Boolean,
+      isNiceToHave: Boolean,
     },
-    isMustHave: Boolean,
-    isNiceToHave: Boolean
-  }],
+  ],
 
   // Experience: String,
   // qualification: String,

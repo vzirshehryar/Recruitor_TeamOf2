@@ -49,6 +49,8 @@
   margin: 3px 0;
   color: #000;
   font-family: Red Hat Text;
+  display: flex;
+  gap: 5px;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

@@ -199,7 +199,7 @@ function JobFeed() {
           <Container className="custom-style">
             {Search && showFilter && <SideFilter Search={Search} />}
             <Row className="pt-4 pb-5 jobFeedDisplay">
-              <div className="jobCardInJobFeed">
+              {/* <div className="jobCardInJobFeed">
                 <p>1,053 Account Administrator Jobs in 47080</p>
                 <button>
                   <svg
@@ -231,7 +231,7 @@ function JobFeed() {
                   </svg>{" "}
                   Get Job Alert
                 </button>
-              </div>
+              </div> */}
               <div className="col-lg-5 jobFeedList px-0">
                 {currentJobs.map((item, index) => (
                   <div
@@ -289,7 +289,7 @@ function JobFeed() {
                             />
                           </svg>
                         </div>
-                        <div
+                        {/* <div
                           style={{
                             background: "white",
                             border: "1px solid #CF1350",
@@ -321,7 +321,7 @@ function JobFeed() {
                               </clipPath>
                             </defs>
                           </svg>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     <div className="JobCardTitle mb-2">
@@ -350,7 +350,10 @@ function JobFeed() {
                         <img src="/rightToJobCard.png" alt="image" />
                       </div>
                     </div>
-                    <div className="SeeMore">
+                    <div
+                      className="SeeMore"
+                      onClick={() => handleEasyApply(item)}
+                    >
                       <p>See More</p>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

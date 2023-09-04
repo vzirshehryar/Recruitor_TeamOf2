@@ -40,7 +40,7 @@ function Slider() {
             onChange={(e) => setWhere(e.target.value)}
           />
         </div>
-        <div>
+        <div className="px-1">
           <button onClick={handleSearch}>Search Jobs</button>
           <Link to="">
             Browse Jobs

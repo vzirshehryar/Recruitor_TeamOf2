@@ -112,50 +112,23 @@ function LoginAsCompany() {
     <>
       <Navbar page="authPage" />
       <div>
-        <div className="backgroundIMAGE">
-          <h2 className="topHeadingOfAuth">TAKE YOUR HIRING TO NEW HEIGHTS</h2>
+        <div className="backgroundIMAGE d-flex justify-content-center">
+          <h2 className="topHeadingOfAuth" style={{ color: "#cf1350" }}>
+            TAKE YOUR HIRING TO NEW HEIGHTS
+          </h2>
         </div>
-        <div className="container Card col-lg-4 pt-2">
+        <div className="container Card col-lg-4">
           <div className="signupsignin">
             <div
-              style={{ cursor: "pointer" }}
+              style={{ background: "white" }}
               onClick={() => navigate("/registerAsCompany")}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                height="80%"
-                viewBox="0 0 342 111"
-                fill="none"
-              >
-                <path
-                  d="M0 24C0 10.7452 10.7452 0 24 0H342V57.9757C342 70.3881 332.535 80.7526 320.174 81.877L0 111V24Z"
-                  fill="#F5F7FA"
-                />
-              </svg>
-              <h3 className="signUp" style={{ color: "#6d0e9d" }}>
+              <h3 className="signUp" style={{ color: "rgba(0, 0, 0, 0.49)" }}>
                 SIGN UP
               </h3>
             </div>
-            <div
-              style={{ cursor: "pointer" }}
-              onClick={() => navigate("/loginAsCompany")}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                height="80%"
-                viewBox="0 0 342 110"
-                fill="none"
-              >
-                <path
-                  d="M0 0H318C331.255 0 342 10.7452 342 24V110L21.8454 81.1411C9.47562 80.0261 0 69.6579 0 57.238V0Z"
-                  fill="#6D0E9D"
-                />
-              </svg>
-              <h3 className="signIn" style={{ color: "#fff" }}>
-                LOG IN
-              </h3>
+            <div onClick={() => navigate("/loginAsCompany")}>
+              <h3 className="signIn">LOG IN</h3>
             </div>
           </div>
           <div class="note pb-3">
