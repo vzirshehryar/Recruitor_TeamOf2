@@ -26,29 +26,31 @@ export const TechnologyDetail = () => {
         console.log("Running");
         navigate("/company/jobbasics");
     }
-    /*useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token === null && !token) {
-      console.log("token not found");
-      navigate("/company/createaccount");
-    } else {
-      console.log("Token found!");
-    }
-  }, []);*/
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (localStorage.getItem("userType") !== "company")
+            navigate("/loginAsCompany");
+        if (token === null && !token) {
+            console.log("token not found");
+            navigate("/company/createaccount");
+        } else {
+            console.log("Token found!");
+        }
+    }, []);
 
     return (
         <>
             <Header active="company" />
             <div className="create-account-main-container">
                 {/* <div className="horizontal-timeline">
-          <ul className="horizontal-timeline-list">
-            <li className="li1">1</li>
-            <li className="li2">2</li>
-            <li className="li3">3</li>
-            <li className="li4">4</li>
-            <li className="li5">5</li>
-          </ul>
-        </div> */}
+        <ul className="horizontal-timeline-list">
+          <li className="li1">1</li>
+          <li className="li2">2</li>
+          <li className="li3">3</li>
+          <li className="li4">4</li>
+          <li className="li5">5</li>
+        </ul>
+      </div> */}
                 <div className="Header-tech">Header</div>
                 <div className="Horizontal-Line-below-header-parent-tech">
                     <div className="round-horizontal-1-tech">1</div>
@@ -70,10 +72,7 @@ export const TechnologyDetail = () => {
                 <div className="create-account-form-container">
                     <form action="" onSubmit={NextPage}>
                         <div>
-                            <label
-                                htmlFor="jobSchedule"
-                                className="job-schedule-tech"
-                            >
+                            <label htmlFor="" className="job-schedule-tech">
                                 Job schedule
                             </label>
                             <select
@@ -88,10 +87,7 @@ export const TechnologyDetail = () => {
                             </select>
                         </div>
                         <div>
-                            <label
-                                htmlFor="openings"
-                                className="job-schedule-tech"
-                            >
+                            <label htmlFor="" className="job-schedule-tech">
                                 Number of people you wish to hire for this job
                             </label>
                             <select
@@ -107,10 +103,7 @@ export const TechnologyDetail = () => {
                             </select>
                         </div>
                         <div>
-                            <label
-                                htmlFor="jobTimeline"
-                                className="job-schedule-tech"
-                            >
+                            <label htmlFor="" className="job-schedule-tech">
                                 Recruitment timeline for this job
                             </label>
                             <select

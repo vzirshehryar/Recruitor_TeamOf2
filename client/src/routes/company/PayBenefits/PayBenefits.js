@@ -30,56 +30,32 @@ export const PayBenefits = () => {
         navigate("/company/techdetail");
     }
 
-    /* useEffect(() => {
-     const token = localStorage.getItem("token");
-     if (token === null && !token) {
-       console.log("token not found");
-       navigate("/company/createaccount");
-     } else {
-       console.log("Token found!");
-     }
-   }, []);*/
-    const bonuses = [
-        "bonus1",
-        "bonus2",
-        "bonus3",
-        "bonus4",
-        "bonus5",
-        "bonus6",
-        "bonus7",
-        "bonus8",
-        "bonu9",
-        "bonus10",
-    ];
-    const [checkedCheckboxes, setCheckedCheckboxes] = useState({});
-    const [checkboxStates, setCheckboxStates] = useState(bonuses);
-    const [checkedArray, setCheckedArray] = useState([]);
-    const handleCheckboxChange = (index) => {
-        setCheckedCheckboxes((prevState) => ({
-            ...prevState,
-            [index]: !prevState[index],
-        }));
-        const value = checkboxStates[index];
-        console.log(value, index);
-        const updatedCheckedArray = [...checkedArray];
-        const indexOfValue = updatedCheckedArray.indexOf(value);
-        if (indexOfValue === -1) {
-            updatedCheckedArray.push(value);
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (localStorage.getItem("userType") !== "company")
+            navigate("/loginAsCompany");
+        if (token === null && !token) {
+            console.log("token not found");
+            navigate("/company/createaccount");
         } else {
-            updatedCheckedArray.splice(indexOfValue, 1);
+            console.log("Token found!");
         }
+    }, []);
 
-        setCheckedArray(updatedCheckedArray);
+    const [checkboxStates, setCheckboxStates] = useState(
+        Array.from({ length: 9 }, () => false)
+    );
 
-        console.log(updatedCheckedArray);
+    const handleCheckboxChange = (index) => {
+        const newCheckboxStates = [...checkboxStates];
+        newCheckboxStates[index] = !newCheckboxStates[index];
+        setCheckboxStates(newCheckboxStates);
     };
 
     const handleSelectAll = () => {
         const allChecked = checkboxStates.every((isChecked) => isChecked);
         const newCheckboxStates = checkboxStates.map(() => !allChecked);
         setCheckboxStates(newCheckboxStates);
-        const updatedCheckedArray = allChecked ? [] : [...bonuses];
-        setCheckedArray(updatedCheckedArray);
     };
 
     const handleSubmit = (e) => {
@@ -137,6 +113,7 @@ export const PayBenefits = () => {
                                         placeholder="Range"
                                         onChange={handleInputChange}
                                         className="payBenefits-salaryRange"
+                                        required
                                     />
                                 </div>
                                 <div className="small-div">
@@ -146,6 +123,7 @@ export const PayBenefits = () => {
                                         id="mininmunSalary"
                                         placeholder="Min"
                                         onChange={handleInputChange}
+                                        required
                                     />
                                     <div className="payBenefits-to-text">
                                         to
@@ -156,6 +134,7 @@ export const PayBenefits = () => {
                                         id="maximunSalary"
                                         placeholder="Max"
                                         onChange={handleInputChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -169,45 +148,46 @@ export const PayBenefits = () => {
                                             <input
                                                 type="checkbox"
                                                 id="select-all"
+                                                checked={checkboxStates.every(
+                                                    (isChecked) => isChecked
+                                                )}
+                                                onChange={handleSelectAll}
                                             />
                                             <label
                                                 htmlFor="select-all"
                                                 className="payBenefits-SelectAll"
                                             >
-                                                <h4>Add bonuses</h4>
+                                                Select All
                                             </label>
                                         </div>
-
-                                        {checkboxStates.map((bonus, index) => (
-                                            <div
-                                                className={`custom-checkbox ${
-                                                    checkedCheckboxes[index]
-                                                        ? "checked"
-                                                        : ""
-                                                }`}
-                                                key={index}
-                                            >
-                                                <input
-                                                    type="checkbox"
-                                                    id={`checkbox-${index}`}
-                                                    checked={
-                                                        checkedCheckboxes[
-                                                            index
-                                                        ] || false
-                                                    }
-                                                    onChange={() =>
-                                                        handleCheckboxChange(
-                                                            index
-                                                        )
-                                                    }
-                                                />
-                                                <label
-                                                    htmlFor={`checkbox-${index}`}
+                                        {checkboxStates.map(
+                                            (isChecked, index) => (
+                                                <div
+                                                    className={`custom-checkbox ${
+                                                        isChecked
+                                                            ? "checked"
+                                                            : ""
+                                                    }`}
+                                                    key={index}
                                                 >
-                                                    <h4>+{bonus}</h4>
-                                                </label>
-                                            </div>
-                                        ))}
+                                                    <input
+                                                        type="checkbox"
+                                                        id={`checkbox-${index}`}
+                                                        checked={isChecked}
+                                                        onChange={() =>
+                                                            handleCheckboxChange(
+                                                                index
+                                                            )
+                                                        }
+                                                    />
+                                                    <label
+                                                        htmlFor={`checkbox-${index}`}
+                                                    >
+                                                        + Yearly Bonus
+                                                    </label>
+                                                </div>
+                                            )
+                                        )}
                                     </div>
                                 </div>
                             </div>

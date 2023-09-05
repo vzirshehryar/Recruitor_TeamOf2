@@ -54,6 +54,9 @@ const PopUp = ({ closePopUpTwo, closePopUp, title, cont, input }) => {
 
 function ReviewJob() {
     useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (localStorage.getItem("userType") !== "company")
+            navigate("/loginAsCompany");
         //check for token
         const token = localStorage.getItem("token");
         if (token === null && !token) {

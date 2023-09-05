@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "../companyContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import axios from "axios";
 import "./CreateAccount.css";
@@ -25,8 +25,13 @@ export const CreateAcount = () => {
                 },
                 body: JSON.stringify(companyInfo),
             });
+
+            console.log("response: ", response);
+            response = await response.json();
+
             const data = await response.json();
             console.log("nav");
+          
             navigate("/company/jobbasics");
         } catch (e) {
             console.log(e);
@@ -37,6 +42,18 @@ export const CreateAcount = () => {
         setcompanyInfo({ ...companyInfo, [e.target.id]: e.target.value });
         console.log(companyInfo);
     };
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (localStorage.getItem("userType") !== "company")
+            navigate("/loginAsCompany");
+        if (token === null && !token) {
+            console.log("token not found");
+            navigate("/company/createaccount");
+        } else {
+            console.log("Token found!");
+        }
+    }, []);
 
     return (
         <>

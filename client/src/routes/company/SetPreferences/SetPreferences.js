@@ -22,11 +22,8 @@ export const SetPreferences = () => {
         }
     };
     const navigate = useNavigate();
-    console.log(preferences.email);
+
     const NextPage = (e) => {
-        if (preferences.email === "" || preferences.email === undefined) {
-            return;
-        }
         e.preventDefault();
         console.log("Running");
         navigate("/company/postJobReview");
@@ -38,19 +35,21 @@ export const SetPreferences = () => {
         navigate("/company/paybenefits");
     };
 
-    /*useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token === null && !token) {
-      console.log("token not found");
-      navigate("/company/createaccount");
-    } else {
-      console.log("Token found!");
-    }
-  }, []);*/
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (localStorage.getItem("userType") !== "company")
+            navigate("/loginAsCompany");
+        if (token === null && !token) {
+            console.log("token not found");
+            navigate("/company/createaccount");
+        } else {
+            console.log("Token found!");
+        }
+    }, []);
 
     return (
         <>
-        <Header active="company" />
+            <Header active="company" />
             <div className="create-account-main-container">
                 <div className="Horizontal-Line-below-header-parent-tech">
                     <div className="round-horizontal-1-tech">1</div>
@@ -67,7 +66,7 @@ export const SetPreferences = () => {
                     <h1 className="create-account-heading">Set Preferences</h1>
                 </div>
                 <div className="create-account-form-container">
-                    <form action="">
+                    <form action="" onSubmit={NextPage}>
                         <div>
                             <label htmlFor="email" className="sendUpdates-pref">
                                 Send daily updates to
@@ -141,9 +140,9 @@ export const SetPreferences = () => {
                                 onChange={handleInputChange}
                                 required
                             >
-                                <option value="">select an option</option>
-                                <option value="yes">yes</option>
-                                <option value="no">no</option>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </select>
                         </div>
                         <div>
@@ -168,7 +167,6 @@ export const SetPreferences = () => {
                             <button
                                 type="submit"
                                 className="tech-detail-submit-button"
-                                onClick={NextPage}
                             >
                                 Continue
                             </button>

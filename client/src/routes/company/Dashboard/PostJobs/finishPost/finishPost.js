@@ -22,14 +22,7 @@ function FinishPost() {
 
     async function NextPage() {
         console.log("Running");
-        console.log(
-            jobBasics,
-            techDetails,
-            payBenefits,
-            preferences,
-            postJobReview,
-            keyQualities
-        );
+
         try {
             const response = await fetch("/job/postJob", {
                 method: "POST",
@@ -53,9 +46,11 @@ function FinishPost() {
             const data = await response.json();
             console.log(data);
             toast.success("Job Posted Successfully");
+
             if (response.ok) {
                 navigate("/companydashboard");
             }
+          
         } catch (e) {
             console.log(e);
             toast.error("Backend Error Occured");
@@ -63,9 +58,12 @@ function FinishPost() {
     }
     useEffect(() => {
         const token = localStorage.getItem("token");
+
+        if (localStorage.getItem("userType") !== "company")
+            navigate("/loginAsCompany");
         if (token === null && !token) {
             console.log("token not found");
-            navigate("/company/createaccount");
+            navigate("/loginAsCompany");
         } else {
             console.log("Token found!");
         }
@@ -75,6 +73,7 @@ function FinishPost() {
         <>
             <div>
                 <Header active="company" />
+
                 <div className="parent-Container">
                     <div className="finishPost-Title">
                         Welcome to the Step200 Employer Center!
