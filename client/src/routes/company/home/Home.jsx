@@ -9,258 +9,205 @@ import Header from "../../Home/components/header";
 import Footer from "../../Home/components/footer";
 
 const styleH2 = {
-    color: "#3E055B",
-    fontFamily: "Poppins",
-    fontSize: "50px",
-    fontStyle: "normal",
-    fontWeight: 400,
-    letterSpacing: "1.44px",
-    maxWidth: "500px",
-    textAlign: "left",
+  color: "#3E055B",
+  fontFamily: "Poppins",
+  fontSize: "50px",
+  fontStyle: "normal",
+  fontWeight: 400,
+  letterSpacing: "1.44px",
+  maxWidth: "500px",
+  textAlign: "left",
 };
 
 const Home = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handlePostJob = () => {
-        if (
-            localStorage.getItem("userType") === "company" &&
-            localStorage.getItem("token")
-        )
-            navigate("/company/jobbasics");
-        else navigate("/company/createaccount");
-    };
-    return (
-        <>
-            <div className="company-home-main-container">
-                <div className="company-home-hero-container">
-                    <div className="company-home-welcome-container">
-                        <h1 className="company-home-welcome-heading">
-                            Discover Your Dream Career
-                        </h1>
-                        <h3 className="company-home-welcome-para">
-                            Find Top Talent!
-                        </h3>
-                        <button
-                            className="company-home-action-button"
-                            onClick={handlePostJob}
-                        >
-                            Post Job
-                        </button>
-                    </div>
-                    <div className="company-home-welcome-image">
-                        <img src={guyWithMic} alt="" />
-                    </div>
+  const handlePostJob = () => {
+    if (
+      localStorage.getItem("userType") === "company" &&
+      localStorage.getItem("token")
+    )
+      navigate("/company/jobbasics");
+    else navigate("/company/createaccount");
+  };
+  return (
+    <>
+      <Header active="company" />
+      <div className="company-home-main-container">
+        <div className="company-home-hero-container">
+          <div className="company-home-welcome-container">
+            <h1 className="company-home-welcome-heading">
+              Discover Your Dream Career
+            </h1>
+            <h3 className="company-home-welcome-para">Find Top Talent!</h3>
+            <button
+              className="company-home-action-button"
+              onClick={handlePostJob}
+            >
+              Post Job
+            </button>
+          </div>
+          <div className="company-home-welcome-image">
+            <img src={guyWithMic} alt="" />
+          </div>
+        </div>
+        <div id="whyus" className="py-5 p-3 no-mwidth">
+          <h1 className="text-center whyUsMainHeading">Our Approach</h1>
+          <br></br>
+          <div className="whyUsSecondHeadingCont">
+            <h2
+              className="text-center whyUsSecondHeading"
+              style={{ color: "#404145", maxWidth: "900px" }}
+            >
+              Experience the difference with our unparalleled recruitment
+              solutions that connect talent with opportunity.
+            </h2>
+          </div>
+          <div className="pt-5 pb-5 no-mwidth">
+            <div className="d-flex justify-content-between flex-wrap text-center p-3 gap-3">
+              <div className="whyUsContentCont">
+                <h1 className="whyUsContHeader pt-2">Understand who you are</h1>
+                <p className="whyUsContText pt-2">
+                  You tell us what your DNA is and we will match you with the
+                  right candidate.
+                </p>
+              </div>
+              <div className="whyUsContentCont">
+                <h1 className="whyUsContHeader pt-2">Identify your needs</h1>
+                <p className="whyUsContText pt-2">
+                  What skills, but above all what qualities will make it
+                  possible to establish a harmonious and positive working
+                  environment between you and your future employee?
+                </p>
+              </div>
+              <div className="whyUsContentCont">
+                <h1 className="whyUsContHeader pt-2">
+                  Select the right candidates
+                </h1>
+                <p className="whyUsContText pt-2">
+                  Deside Recrutement favours quality over quantity. We will
+                  present you with the best and the most relevant candidates to
+                  match your requirement
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="discover-candidates-section">
+            <div>
+              <h2>Discover how many canidatates are in your area</h2>
+            </div>
+            <div className="discover-candidates-select-container">
+              <div style={{ width: "100%" }}>
+                <label htmlFor="candidate-sector">Choose a sector</label>
+                <select name="" id="candidate-sector">
+                  <option value="">Sector</option>
+                  <option value="Example Sector"> Example sector</option>
+                </select>
+              </div>
+              <div style={{ width: "100%" }}>
+                <label htmlFor="candidate-location">Choose a location</label>
+                <select name="" id="candidate-location">
+                  <option value="">Location</option>
+                  <option value="London">London</option>
+                </select>
+              </div>
+              <div className="divider-div" />
+              <div className="candidates-label-div">
+                <p className="candidates-para">15000</p>
+                <p className="candidates-para-text">Registered Candidates</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="company-home-perfect-fit-container">
+          <div className="company-home-perfect-fit-desc-container">
+            <h1 className="company-home-perfect-fit-heading">
+              Find your perfect fit
+            </h1>
+            <p className="company-home-perfect-fit-para">
+              Unlock the power of our platform to discover exceptional talent
+              for your company. Post your job openings today and start building
+              your dream team. Our streamlined process ensures you find the
+              right candidates quickly and efficiently.
+            </p>
+            <button
+              className="company-home-action-button"
+              onClick={() => {
+                navigate("/company/createaccount");
+              }}
+            >
+              Post Job
+            </button>
+          </div>
+          <div className="company-home-perfect-fit-image">
+            <img src={womenInRedDress} alt="" />
+          </div>
+        </div>
+        <div className="company-home-consultant-container">
+          <div className="company-home-consultant-heading-container">
+            <h1 className="company-home-consultant-heading">
+              Request a consultant
+            </h1>
+          </div>
+          <div className="company-home-consultant-para-container">
+            <p className="company-home-consultant-para">
+              Get in touch with our recruitment specialists to discuss your
+              hiring needs
+            </p>
+          </div>
+          <div className="company-home-consultant-form-container">
+            <form action="" className="company-home-consultant-form">
+              <div className="consultant-form-top-div">
+                <div>
+                  <label htmlFor="">Name</label>
+                  <input type="text" name="" id="" placeholder="name" />
                 </div>
-                <div id="whyus" className="py-5 p-3 no-mwidth">
-                    <h1 className="text-center whyUsMainHeading">
-                        Our Approach
-                    </h1>
-                    <br></br>
-                    <div className="whyUsSecondHeadingCont">
-                        <h2
-                            className="text-center whyUsSecondHeading"
-                            style={{ color: "#404145", maxWidth: "900px" }}
-                        >
-                            Experience the difference with our unparalleled
-                            recruitment solutions that connect talent with
-                            opportunity.
-                        </h2>
-                    </div>
-                    <div className="pt-5 pb-5 no-mwidth">
-                        <div className="d-flex justify-content-between flex-wrap text-center p-3 gap-3">
-                            <div className="whyUsContentCont">
-                                <h1 className="whyUsContHeader pt-2">
-                                    Understand who you are
-                                </h1>
-                                <p className="whyUsContText pt-2">
-                                    You tell us what your DNA is and we will
-                                    match you with the right candidate.
-                                </p>
-                            </div>
-                            <div className="whyUsContentCont">
-                                <h1 className="whyUsContHeader pt-2">
-                                    Identify your needs
-                                </h1>
-                                <p className="whyUsContText pt-2">
-                                    What skills, but above all what qualities
-                                    will make it possible to establish a
-                                    harmonious and positive working environment
-                                    between you and your future employee?
-                                </p>
-                            </div>
-                            <div className="whyUsContentCont">
-                                <h1 className="whyUsContHeader pt-2">
-                                    Select the right candidates
-                                </h1>
-                                <p className="whyUsContText pt-2">
-                                    Deside Recrutement favours quality over
-                                    quantity. We will present you with the best
-                                    and the most relevant candidates to match
-                                    your requirement
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="discover-candidates-section">
-                        <div>
-                            <h2>
-                                Discover how many canidatates are in your area
-                            </h2>
-                        </div>
-                        <div className="discover-candidates-select-container">
-                            <div style={{ width: "100%" }}>
-                                <label htmlFor="candidate-sector">
-                                    Choose a sector
-                                </label>
-                                <select name="" id="candidate-sector">
-                                    <option value="">Sector</option>
-                                    <option value="Example Sector">
-                                        {" "}
-                                        Example sector
-                                    </option>
-                                </select>
-                            </div>
-                            <div style={{ width: "100%" }}>
-                                <label htmlFor="candidate-location">
-                                    Choose a location
-                                </label>
-                                <select name="" id="candidate-location">
-                                    <option value="">Location</option>
-                                    <option value="London">London</option>
-                                </select>
-                            </div>
-                            <div className="divider-div" />
-                            <div className="candidates-label-div">
-                                <p className="candidates-para">15000</p>
-                                <p className="candidates-para-text">
-                                    Registered Candidates
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                  <label htmlFor="">Company Name</label>
+                  <input type="text" name="" id="" placeholder="company name" />
                 </div>
-                <div className="company-home-perfect-fit-container">
-                    <div className="company-home-perfect-fit-desc-container">
-                        <h1 className="company-home-perfect-fit-heading">
-                            Find your perfect fit
-                        </h1>
-                        <p className="company-home-perfect-fit-para">
-                            Unlock the power of our platform to discover
-                            exceptional talent for your company. Post your job
-                            openings today and start building your dream team.
-                            Our streamlined process ensures you find the right
-                            candidates quickly and efficiently.
-                        </p>
-                        <button
-                            className="company-home-action-button"
-                            onClick={() => {
-                                navigate("/company/createaccount");
-                            }}
-                        >
-                            Post Job
-                        </button>
-                    </div>
-                    <div className="company-home-perfect-fit-image">
-                        <img src={womenInRedDress} alt="" />
-                    </div>
-                </div>
-                <div className="company-home-consultant-container">
-                    <div className="company-home-consultant-heading-container">
-                        <h1 className="company-home-consultant-heading">
-                            Request a consultant
-                        </h1>
-                    </div>
-                    <div className="company-home-consultant-para-container">
-                        <p className="company-home-consultant-para">
-                            Get in touch with our recruitment specialists to
-                            discuss your hiring needs
-                        </p>
-                    </div>
-                    <div className="company-home-consultant-form-container">
-                        <form
-                            action=""
-                            className="company-home-consultant-form"
-                        >
-                            <div className="consultant-form-top-div">
-                                <div>
-                                    <label htmlFor="">Name</label>
-                                    <input
-                                        type="text"
-                                        name=""
-                                        id=""
-                                        placeholder="name"
-                                    />
-                                </div>
-                                <div>
-                                    <label htmlFor="">Company Name</label>
-                                    <input
-                                        type="text"
-                                        name=""
-                                        id=""
-                                        placeholder="company name"
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <label htmlFor="">Email Address</label>
-                                <input
-                                    type="text"
-                                    name=""
-                                    id=""
-                                    placeholder="email@gmail.com"
-                                />
-                            </div>{" "}
-                            <div>
-                                <label htmlFor="">Location</label>
-                                <input
-                                    type="text"
-                                    name=""
-                                    id=""
-                                    placeholder="location"
-                                />
-                            </div>{" "}
-                            <div>
-                                <label htmlFor="">Industry</label>
-                                <input
-                                    type="text"
-                                    name=""
-                                    id=""
-                                    placeholder="Information Technology"
-                                />
-                            </div>{" "}
-                            <div>
-                                <label htmlFor="">Phone No</label>
-                                <input
-                                    type="text"
-                                    name=""
-                                    id=""
-                                    placeholder="00000000000"
-                                />
-                            </div>{" "}
-                            <div>
-                                <label htmlFor="">Date</label>
-                                <input
-                                    type="date"
-                                    name=""
-                                    id=""
-                                    placeholder="mm/dd/yyyy"
-                                />
-                            </div>{" "}
-                            <div>
-                                <label htmlFor="">Message</label>
-                                <textarea type="text" name="" id="" />
-                            </div>
-                            <button
-                                type="submit"
-                                className="consultant-form-submit-button"
-                            >
-                                SUBMIT
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                {/* <div className="company-home-links-container">
+              </div>
+              <div>
+                <label htmlFor="">Email Address</label>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="email@gmail.com"
+                />
+              </div>{" "}
+              <div>
+                <label htmlFor="">Location</label>
+                <input type="text" name="" id="" placeholder="location" />
+              </div>{" "}
+              <div>
+                <label htmlFor="">Industry</label>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Information Technology"
+                />
+              </div>{" "}
+              <div>
+                <label htmlFor="">Phone No</label>
+                <input type="text" name="" id="" placeholder="00000000000" />
+              </div>{" "}
+              <div>
+                <label htmlFor="">Date</label>
+                <input type="date" name="" id="" placeholder="mm/dd/yyyy" />
+              </div>{" "}
+              <div>
+                <label htmlFor="">Message</label>
+                <textarea type="text" name="" id="" />
+              </div>
+              <button type="submit" className="consultant-form-submit-button">
+                SUBMIT
+              </button>
+            </form>
+          </div>
+        </div>
+        {/* <div className="company-home-links-container">
           <div className="company-home-link-holder">
             <h6>Jobs</h6>
             <ul>
@@ -404,10 +351,10 @@ const Home = () => {
             </ul>
           </div>
         </div> */}
-            </div>
-            <Footer />
-        </>
-    );
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default Home;
