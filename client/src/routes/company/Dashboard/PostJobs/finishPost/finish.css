@@ -86,7 +86,7 @@ body {
     }
     .finishPost-SubText {
         font-size: 15px;
-        width: 390px;
+        width: 100%;
         margin-left: 0px;
         line-height: 2;
     }
