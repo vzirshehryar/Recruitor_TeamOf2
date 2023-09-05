@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { UserContext } from "../companyContext";
 import { useNavigate } from "react-router-dom";
 import "./JobBasicst.css";
-import Header from "../../Home/components/header";
 
 export const JobBasics = () => {
     const { jobBasics, setjobBasics } = useContext(UserContext);

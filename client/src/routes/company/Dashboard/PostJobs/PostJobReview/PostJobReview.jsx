@@ -57,6 +57,8 @@ function ReviewJob() {
         const token = localStorage.getItem("token");
         if (localStorage.getItem("userType") !== "company")
             navigate("/loginAsCompany");
+        //check for token
+        const token = localStorage.getItem("token");
         if (token === null && !token) {
             console.log("token not found");
             navigate("/company/createaccount");
@@ -189,8 +191,8 @@ function ReviewJob() {
 
     return (
         <>
-            <Header active="company" />
             <div>
+                <Header active="company" />
                 {showPopUp && (
                     <PopUp
                         closePopUpTwo={closePopUpTwo}

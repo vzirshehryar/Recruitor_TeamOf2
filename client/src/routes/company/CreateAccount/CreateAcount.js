@@ -25,15 +25,13 @@ export const CreateAcount = () => {
                 },
                 body: JSON.stringify(companyInfo),
             });
+
             console.log("response: ", response);
             response = await response.json();
 
-            // Store the token in local storage
-            localStorage.setItem("token", response.token);
-            localStorage.setItem("userType", "user");
-            // Store the user data in local storage
-            localStorage.setItem("user", JSON.stringify(response.user));
-
+            const data = await response.json();
+            console.log("nav");
+          
             navigate("/company/jobbasics");
         } catch (e) {
             console.log(e);

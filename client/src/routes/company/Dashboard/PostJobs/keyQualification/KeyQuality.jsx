@@ -28,6 +28,7 @@ function Checkbox({ id }) {
     );
 }
 
+
 const PopUpKey = ({ closePopUpKey, addStringToArray, state, value }) => {
     let inputSave = "";
     const handleInputChangeKey = (event) => {
@@ -48,7 +49,6 @@ const PopUpKey = ({ closePopUpKey, addStringToArray, state, value }) => {
                     <Cross />
                 </div>
                 <div className="Edit-JobPost-Heading">Add New Skill</div>
-
                 <input
                     className="input-field-pop-up-box"
                     placeholder="New Skill"
@@ -174,7 +174,6 @@ function KeyQualities() {
                 <div className="Line-Container">
                     <Line />
                 </div>
-
                 {input.map((skill, index) => (
                     <div key={index}>
                         <div className="keyQuality-mini-container-2">
