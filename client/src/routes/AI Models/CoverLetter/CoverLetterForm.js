@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./CoverLetterForm.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../Home/components/header";
-import { UserContextProvider1 } from "../CoverLetterContext";
+import { useLetterContext } from "../CoverLetterContext";
 const data = `I am writing to express my strong interest in the [Job Title] position at [Company.Name]. With my [relevant skills/experience/education] and a passion for 
 [industry/field], I am confident in my ability to contribute to your team and help [Company.Name] achieve its goals. Over the course of my career, I have honed valuable skills in [mention a few key skills relevant to the job]. 
 This experience has equipped me with a solid foundation in [specific skills/areas] and a proven track record of [achievement/relevant results]. Additionally, my academic background in 
@@ -13,14 +13,9 @@ these efforts. As a [Job Title], I am confident in my ability to [mention a few 
 [Company Name]'s success. Enclosed is my resume, which provides additional details about my professional background and accomplishments. I welcome the
  opportunity to discuss how my skills and experiences align with the needs of [Company Name] in greater detail. Please feel free to reach out to me at 
  [Your Phone Number] or [Your Email Address] to schedule an interview.Thank you for considering my application. I look forward to the opportunity to further 
- discuss how my qualifications make me an ideal candidate for the [Job Title] position at [Company Name].`
-
-
-
-
+ discuss how my qualifications make me an ideal candidate for the [Job Title] position at [Company Name].`;
 
 export const CoverLetterForm = () => {
-  
   const [formData, setFormData] = useState({
     name: "",
     jobTitle: "",
@@ -30,6 +25,9 @@ export const CoverLetterForm = () => {
     hiringManager: "",
     letterDetails: "",
   });
+
+  const navigate = useNavigate();
+  const { setLetter } = useLetterContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,6 +44,8 @@ export const CoverLetterForm = () => {
       if (response.ok) {
         const data = await response.json();
         console.log("Response:", data);
+        setLetter(data[0]);
+        navigate("/coverletterview");
       } else {
         console.error("Error:", response.statusText);
       }
@@ -165,7 +165,7 @@ export const CoverLetterForm = () => {
               <Link to="/resume-final">
                 <button className="cover-letter-back-button">Back</button>
               </Link>
-              <Link to="/coverletterview">
+              <Link to="" onClick={handleSubmit}>
                 <button className="cover-letter-next-button">Next</button>
               </Link>
             </div>

@@ -1,77 +1,95 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-export const UserContext = createContext();
+const LetterContext = createContext();
 
-export const UserContextProvider1 = ({ children }) => {
-    const [name, setName] = useState({});
+export function useLetterContext() {
+  return useContext(LetterContext);
+}
 
-    const [jobTitle, setjobTitle] = useState({});
+export function LetterProvider({ children }) {
+  const [letter, setLetter] = useState("");
 
-    const [email, setEmail] = useState({});
+  const contextValue = {
+    letter,
+    setLetter,
+  };
 
-    const [address, setAddress] = useState({});
+  return (
+    <LetterContext.Provider value={contextValue}>
+      {children}
+    </LetterContext.Provider>
+  );
+}
 
-    const [companyName, setCompanyName] = useState({});
+// export const UserContext = createContext();
 
-    const [hiringManagerName, setHiringManagerName] = useState({});
+// export const UserContextProvider1 = ({ children }) => {
+//     const [name, setName] = useState({});
 
-    const [introduction, setIntroduction] = useState([]);
+//     const [jobTitle, setjobTitle] = useState({});
 
+//     const [email, setEmail] = useState({});
 
+//     const [address, setAddress] = useState({});
 
-    return (
-        <UserContext.Provider1
-            value={{
-                name,
-                setName,
-                jobTitle,    
-                setjobTitle,
-                email,
-                setEmail,
-                address,
-                setAddress,
-                companyName,
-                setCompanyName,
-                hiringManagerName,
-                setHiringManagerName,
-                introduction,
-                setIntroduction,
-            }}
-        >
-            {children}
-        </UserContext.Provider1>
-    );
-};
+//     const [companyName, setCompanyName] = useState({});
 
+//     const [hiringManagerName, setHiringManagerName] = useState({});
 
-// FormDataContext.js
+//     const [introduction, setIntroduction] = useState([]);
 
-// import React, { createContext, useContext, useState } from "react";
-
-// const FormDataContext = createContext();
-
-// export const FormDataProvider = ({ children }) => {
-//   const [formData, setFormData] = useState({
-//     name: "",
-//     jobTitle: "",
-//     email: "",
-//     address: "",
-//     companyName: "",
-//     hiringManager: "",
-//     letterDetails: "",
-//   });
-
-//   const updateFormData = (newData) => {
-//     setFormData(newData);
-//   };
-
-//   return (
-//     <FormDataContext.Provider value={{ formData, updateFormData }}>
-//       {children}
-//     </FormDataContext.Provider>
-//   );
+//     return (
+//         <UserContext.Provider1
+//             value={{
+//                 name,
+//                 setName,
+//                 jobTitle,
+//                 setjobTitle,
+//                 email,
+//                 setEmail,
+//                 address,
+//                 setAddress,
+//                 companyName,
+//                 setCompanyName,
+//                 hiringManagerName,
+//                 setHiringManagerName,
+//                 introduction,
+//                 setIntroduction,
+//             }}
+//         >
+//             {children}
+//         </UserContext.Provider1>
+//     );
 // };
 
-// export const useFormData = () => {
-//   return useContext(FormDataContext);
-// };
+// // FormDataContext.js
+
+// // import React, { createContext, useContext, useState } from "react";
+
+// // const FormDataContext = createContext();
+
+// // export const FormDataProvider = ({ children }) => {
+// //   const [formData, setFormData] = useState({
+// //     name: "",
+// //     jobTitle: "",
+// //     email: "",
+// //     address: "",
+// //     companyName: "",
+// //     hiringManager: "",
+// //     letterDetails: "",
+// //   });
+
+// //   const updateFormData = (newData) => {
+// //     setFormData(newData);
+// //   };
+
+// //   return (
+// //     <FormDataContext.Provider value={{ formData, updateFormData }}>
+// //       {children}
+// //     </FormDataContext.Provider>
+// //   );
+// // };
+
+// // export const useFormData = () => {
+// //   return useContext(FormDataContext);
+// // };

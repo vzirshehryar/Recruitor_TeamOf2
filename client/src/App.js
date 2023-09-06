@@ -67,7 +67,7 @@ import CareerForm from "./routes/AI Models/CareerCouching/CareerForm";
 import CareerPath from "./routes/AI Models/CareerPath/CareerPath";
 import { CoverLetterForm } from "./routes/AI Models/CoverLetter/CoverLetterForm";
 import { CoverLetterView } from "./routes/AI Models/CoverLetter/CoverLetterView";
-import {  UserContextProvider1 } from "./routes/AI Models/CoverLetterContext";
+import { LetterProvider } from "./routes/AI Models/CoverLetterContext";
 
 const App = () => {
   return (
@@ -182,10 +182,23 @@ const App = () => {
           <Route path="salarydisplay/:salary" element={<DisplaySalary />} />
           <Route path="career-form" element={<CareerForm />} />
           <Route path="career-path" element={<CareerPath />} />
-          <Route path="coverletter" element={
-           <UserContextProvider1> <CoverLetterForm /></UserContextProvider1>} />
-            
-          <Route path="coverletterview" element={<UserContextProvider1><CoverLetterView /></UserContextProvider1>} />
+          <Route
+            path="coverletter"
+            element={
+              <LetterProvider>
+                {" "}
+                <CoverLetterForm />
+              </LetterProvider>
+            }
+          />
+          <Route
+            path="coverletterview"
+            element={
+              <LetterProvider>
+                <CoverLetterView />
+              </LetterProvider>
+            }
+          />
         </Routes>
       </JobProvider>
     </Router>

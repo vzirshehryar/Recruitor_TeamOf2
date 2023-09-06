@@ -66,7 +66,7 @@ function JobFeed() {
       jobType = true,
       specialism = true;
     if (searchSector)
-      titleMatch = job.jobTitle
+      titleMatch = job.industry
         .toLowerCase()
         .includes(searchSector.toLowerCase());
     if (searchLocation)
@@ -82,9 +82,10 @@ function JobFeed() {
         job.jobType.includes(type)
       );
     if (sideFilters.selectedSpecialism.length)
-      specialism = sideFilters.selectedSpecialism.some((type) =>
-        job.industry.includes(type)
-      );
+      specialism = sideFilters.selectedSpecialism.some((type) => {
+        console.log(job.industry, sideFilters.selectedSpecialism);
+        return job.industry.includes(type);
+      });
 
     return titleMatch && locationMatch && maxSalary && minSalary && jobType;
     // return titleMatch && locationMatch ;
