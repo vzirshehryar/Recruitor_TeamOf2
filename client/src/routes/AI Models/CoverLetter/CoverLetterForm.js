@@ -2,8 +2,25 @@ import React, { useState } from "react";
 import "./CoverLetterForm.css";
 import { Link } from "react-router-dom";
 import Header from "../../Home/components/header";
+import { UserContextProvider1 } from "../CoverLetterContext";
+const data = `I am writing to express my strong interest in the [Job Title] position at [Company.Name]. With my [relevant skills/experience/education] and a passion for 
+[industry/field], I am confident in my ability to contribute to your team and help [Company.Name] achieve its goals. Over the course of my career, I have honed valuable skills in [mention a few key skills relevant to the job]. 
+This experience has equipped me with a solid foundation in [specific skills/areas] and a proven track record of [achievement/relevant results]. Additionally, my academic background in 
+[your degree and university] has provided me with a strong theoretical understanding of[relevant subject matter]. What particularly excites me about 
+[Company Name] is [mention something specific about the company, such as its mission, innovative projects, or culture].I believe that my skills and 
+enthusiasm align perfectly with [Company Name]'s values and objectives, making me a valuable asset to your team. I am impressed by [Company Name]'s commitment to [mention something specific about the company's values or goals], and I am eager to contribute to 
+these efforts. As a [Job Title], I am confident in my ability to [mention a few responsibilities or contributions you would make] and help drive 
+[Company Name]'s success. Enclosed is my resume, which provides additional details about my professional background and accomplishments. I welcome the
+ opportunity to discuss how my skills and experiences align with the needs of [Company Name] in greater detail. Please feel free to reach out to me at 
+ [Your Phone Number] or [Your Email Address] to schedule an interview.Thank you for considering my application. I look forward to the opportunity to further 
+ discuss how my qualifications make me an ideal candidate for the [Job Title] position at [Company Name].`
+
+
+
+
 
 export const CoverLetterForm = () => {
+  
   const [formData, setFormData] = useState({
     name: "",
     jobTitle: "",
@@ -104,7 +121,7 @@ export const CoverLetterForm = () => {
             </div>
             <div className="cover-letter-form-div">
               <div className="cover-letter-form-section-heading heading-size">
-                <h4 class>Employer Details</h4>
+                <h4 className="Employer Details">Employer Details</h4>
               </div>
               <div>
                 <label htmlFor="">Company Name</label>
