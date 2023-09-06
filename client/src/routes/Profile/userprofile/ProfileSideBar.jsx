@@ -64,8 +64,8 @@ const ProfileSideBar = () => {
                   }}
                 >
                   <h3>
-                    {user.firstName[0]}
-                    {user.lastName[0]}
+                    {user.firstName ? user.firstName[0] : "F"}
+                    {user.lastName ? user.lastName[0] : "L"}
                   </h3>
                 </div>
               </li>

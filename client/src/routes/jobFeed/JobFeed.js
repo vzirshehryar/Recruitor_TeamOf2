@@ -56,6 +56,7 @@ function JobFeed() {
     setLocation(event.target.value);
   };
 
+  // THIS FUNCTION IS FOR THE PURPOSE OF FILTERS ON SOME VALUES WHICH IS COMING FROM SIDEFILTER.JS COMPONENT WHICH IS IN jobFeed/components/SideFilter.js
   const filteredJobs = jobList.filter((job) => {
     console.log(sideFilters);
     var titleMatch = true,
@@ -79,6 +80,10 @@ function JobFeed() {
     if (sideFilters.selectedJobtype.length)
       jobType = sideFilters.selectedJobtype.some((type) =>
         job.jobType.includes(type)
+      );
+    if (sideFilters.selectedSpecialism.length)
+      specialism = sideFilters.selectedSpecialism.some((type) =>
+        job.industry.includes(type)
       );
 
     return titleMatch && locationMatch && maxSalary && minSalary && jobType;
@@ -140,11 +145,7 @@ function JobFeed() {
     setSelectedJob(resJobs.jobs[0]);
   };
 
-  const forBackgroundSelection = (index) => {
-    if (index === selected) return true;
-    return false;
-  };
-
+  // THIS FUNCITON IS CALLED WHENEVER A FILTER IS APPLIED FROM SIDEFILTER.JS (passed as props to SideFilter.js) COMPONENT WHICH IS IN jobFeed/components/SideFilter.js
   const Search = (
     location,
     salaryFrom,

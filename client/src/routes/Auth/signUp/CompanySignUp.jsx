@@ -108,7 +108,7 @@ function CompanySignUp() {
 
           setFormData(initialFormData);
           setIsValidPassword(false);
-          navigate("/companydashboard");
+          navigate("/company/createaccount");
           toast.success("User is registered successfully");
           setLoader("SIGN UP");
         })

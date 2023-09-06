@@ -14,6 +14,19 @@ import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
+function calculateDaysSincePosted(dateposted) {
+  const currentDate = Date.now();
+
+  // Calculate the time difference in milliseconds
+  const timeDifference = currentDate - dateposted;
+
+  console.log(timeDifference);
+  // Calculate the number of days
+  const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60));
+
+  return daysDifference;
+}
+
 function DetailPage() {
   const [jobData, setJobData] = useState({});
   const { jobID } = useParams(); // Extract jobId from URL params
@@ -23,8 +36,8 @@ function DetailPage() {
     fetch(apiEndpoint)
       .then((response) => response.json())
       .then((data) => {
-        setJobData(data);
-        console.log(data);
+        setJobData(data.job);
+        console.log(data.job);
       })
       .catch((error) => {
         console.error("Error fetching job data:", error);
@@ -65,11 +78,10 @@ function DetailPage() {
                   <Row>
                     <Col className=" " md={{ span: 6, offset: 4 }}>
                       <div>
-                        <h1 className="dhead  m-0 p-0">
-                          Graphic Designer{jobData.jobTitle}
-                        </h1>
+                        <h1 className="dhead  m-0 p-0">{jobData.jobTitle}</h1>
                         <p className="phead   m-0 p-0">
-                          Posted 3 days ago by Carbon 60 Easy Apply
+                          Posted on {calculateDaysSincePosted(jobData.postedOn)}{" "}
+                          Days
                         </p>
                       </div>
                     </Col>
@@ -89,10 +101,11 @@ function DetailPage() {
                         <div className="d-flex  grid text-center gap-4  justify-content-center ">
                           <p className="dl p-2">
                             <BiEuro />
-                            £12.90 per hour
+                            {jobData.maxSR ? "$ " + jobData.maxSR : "$ 30"} per
+                            hours
                           </p>
-                          <p className="dl p-2 ">Contract, full-time</p>
-                          <p className=" p-2 dl ">Swisterland</p>
+                          <p className="dl p-2 ">{jobData.jobType}</p>
+                          <p className=" p-2 dl ">{jobData.location}</p>
                         </div>
                       </div>
                     </Col>
@@ -105,15 +118,17 @@ function DetailPage() {
               <div className="dpad">
                 <h2 className="dheading mt-5 ">
                   {" "}
-                  Graphic Designer, Oldbury, £25-27k
+                  {jobData.jobTitle + " " + jobData.location + " "}
                 </h2>
                 <p className="phead mt-4 px-3">
-                  I am currently working with a warm and friendly company, who
+                  {jobData.jobDescription
+                    ? jobData.jobDescription
+                    : `I am currently working with a warm and friendly company, who
                   due to increased work are now seeking an additional Graphic
                   Designer to bring fresh ideas and concepts to fit both Print
                   and Digital briefs.Based at company’s Head Office in Oldbury
                   this is initially a 3-month full time contract, however there
-                  is the possibility it could develop into a permanent position.
+                  is the possibility it could develop into a permanent position`}
                 </p>
                 <h2 className="dheading dpad ">Overview:</h2>
                 <ul className="dli lh-lg  mt-4 px-3">
@@ -164,13 +179,21 @@ function DetailPage() {
                 </ul>
                 <h2 className="dheading dpad">Required skills</h2>
                 <div className="mt-4 d-flex gap-4  text-center flex-wrap">
-                  <p className="dl text-center p-3   ">Adobe</p>
+                  {jobData.skills &&
+                    jobData.skills.map((val, ind) => {
+                      return (
+                        <h4 className="dl text-center p-3" key={ind}>
+                          {val.skill}
+                        </h4>
+                      );
+                    })}
+                  {/* <p className="dl text-center p-3   ">Adobe</p>
                   <h4 className="dl text-center p-3">Creative</h4>
                   <h4 className="dl text-center p-3">Website</h4>
                   <h4 className="dl text-center p-3">Mac</h4>
-                  <h4 className="dl text-center p-3">Digital Designs</h4>
+                  <h4 className="dl text-center p-3">Digital Designs</h4> */}
                 </div>
-                <h1 className="dheading dpad"> Application questions</h1>
+                {/* <h1 className="dheading dpad"> Application questions</h1>
                 <div className="">
                   <Container className=" dapp   Card ">
                     <div className="text-center ">
@@ -236,7 +259,7 @@ function DetailPage() {
                       </Row>
                     </div>
                   </Container>
-                </div>
+                </div> */}
 
                 <div className="d-flex gap-1 justify-content-center">
                   <div className=" dpad ">

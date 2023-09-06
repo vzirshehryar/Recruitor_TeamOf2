@@ -26,11 +26,11 @@ app.use(cors());
 
 // DEALING WITH THE SIZE OF URL ENCODED BODIES COMING FROM CLIENT
 app.use(
-  bodyParser.urlencoded({
-    limit: "50mb",
-    extended: true,
-    parameterLimit: 50000,
-  })
+    bodyParser.urlencoded({
+        limit: "50mb",
+        extended: true,
+        parameterLimit: 50000,
+    })
 );
 
 // DEALING WITH THE SIZE OF URL JSON BODIES COMING FROM CLIENT
@@ -54,10 +54,10 @@ app.use("/job", JobRoutes);
 
 // SCRIPT OF PRODUCTION
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(__dirname, "client", "build", "index.html");
-  });
+    app.use(express.static("client/build"));
+    app.get("*", (req, res) => {
+        res.sendFile(__dirname, "client", "build", "index.html");
+    });
 }
 
 // LISTENING TO THE PORT
