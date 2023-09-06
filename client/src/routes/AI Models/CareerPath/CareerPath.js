@@ -47,20 +47,20 @@ const CareerPath = () => {
   return (
     <>
       <Header active="path" />
-      <div className="career-container">
-        <div className="rectangle-career">
-          <h1 className="heading-career">Career Path</h1>
+      <div className="career-container1">
+        <div className="rectangle-career1">
+          <h1 className="heading-career1">Career Path</h1>
         </div>
-        <div className="new-heading-career-container">
-          <h2 className="new-heading-career">
+        <div className="new-heading-career-container1">
+          <h2 className="new-heading-career1">
             Answer a few simple questions, and the right path to the Career you
             like
           </h2>
         </div>
-        <div className="form-career-container">
-          <form className="career-form" onSubmit={handleSubmit}>
-            <div className="career-form-field">
-              <label htmlFor="priority" className="career-form-label">
+        <div className="form-career-container1">
+          <form className="career-form1" onSubmit={handleSubmit}>
+            <div className="career-form-field1">
+              <label htmlFor="priority" className="career-form-label1">
                 Seeking Priority
               </label>
               <textarea
@@ -75,8 +75,8 @@ const CareerPath = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="career-form-field">
-              <label htmlFor="interests" className="career-form-label">
+            <div className="career-form-field1">
+              <label htmlFor="interests" className="career-form-label1">
                 Interests
               </label>
               <textarea
@@ -91,8 +91,8 @@ const CareerPath = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="career-form-field">
-              <label htmlFor="jobPref" className="career-form-label">
+            <div className="career-form-field12">
+              <label htmlFor="jobPref" className="career-form-label1">
                 Job Preferences
               </label>
               <textarea
@@ -107,11 +107,11 @@ const CareerPath = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="button-field">
+            <div className="button-field12">
               <Link to="">
                 <button
                   type="submit"
-                  className="submit-button"
+                  className="submit-button12"
                   onClick={handleSubmit}
                 >
                   Submit
@@ -119,15 +119,16 @@ const CareerPath = () => {
               </Link>
             </div>
           </form>
+          <div className="career-form-field123"> 
           <textarea
             type="text"
-            className="mt-5"
+            className="career-form-input23"
             placeholder="Your Result will show here"
             contentEditable={false}
-            rows="5"
-            cols="33"
+            
             value={result}
           />
+          </div>
         </div>
       </div>
     </>

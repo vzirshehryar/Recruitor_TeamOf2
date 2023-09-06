@@ -78,10 +78,10 @@ export const CoverLetterForm = () => {
           </h2>
         </div>
 
-        <div className="cover-letter-info-container">
+        <div className="cover-letter-info-container1">
           <form action="" className="cover-letter-form" onSubmit={handleSubmit}>
             <div className="cover-letter-form-div">
-              <div className="heading-size">Personal Details</div>
+              <div className="heading-size1">Personal Details</div>
               <div>
                 <label htmlFor="">Fullname</label>
                 <input
@@ -120,8 +120,8 @@ export const CoverLetterForm = () => {
               </div>
             </div>
             <div className="cover-letter-form-div">
-              <div className="cover-letter-form-section-heading heading-size">
-                <h4 className="Employer Details">Employer Details</h4>
+              <div className="cover-letter-form-section-heading1">
+                <div className="Employer Details">Employer Details</div>
               </div>
               <div>
                 <label htmlFor="">Company Name</label>
@@ -143,11 +143,11 @@ export const CoverLetterForm = () => {
               </div>
             </div>
             <div className="cover-letter-form-div">
-              <div className="cover-letter-form-section-heading heading-size">
-                <h4>Letter Details</h4>
+              <div className="cover-letter-form-section-heading12">
+                <div>Letter Details</div>
               </div>
-              <div>
-                <label htmlFor="">
+              <div className="label-for-life">
+                <label htmlFor="" className="lalle">
                   3–4 paragraphs explaining why you're the perfect candidate for
                   a specific job.
                 </label>
@@ -163,10 +163,10 @@ export const CoverLetterForm = () => {
             </div>
             <div className="cover-letter-button-container">
               <Link to="/resume-final">
-                <button className="cover-letter-back-button">Back</button>
+                <button className="cover-letter-back-button1">Back</button>
               </Link>
               <Link to="" onClick={handleSubmit}>
-                <button className="cover-letter-next-button">Next</button>
+                <button className="cover-letter-next-button1">Next</button>
               </Link>
             </div>
           </form>

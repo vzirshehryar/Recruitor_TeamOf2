@@ -3,10 +3,12 @@
 .cover-sample-heading111 {
   display: flex;
   justify-content: center;
-  color: #6d0e9d;
+  color: #cf1350;
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
+    font-family: "Poppins", sans-serif;
+
 }
 .headings-2 {
   padding: 0px 100px 0 100px;
@@ -69,7 +71,7 @@
 
 .cover-letter-heading-container {
   width: 100%;
-  height: 321px;
+  height: 200px;
   background: #cf1350;
   display: flex;
   justify-content: center;
@@ -114,6 +116,9 @@
   width: 60%;
   margin-top: 70px;
   align-items: start;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .cover-letter-form {
@@ -200,6 +205,8 @@ label {
   border: 1px solid #cf1350;
   width: 136px;
   height: 64px;
+  font-size: 18px;
+  font-weight: 600;
 }
 .cover-letter-back-button11 {
   background: transparent;
@@ -207,7 +214,7 @@ label {
   border: 1px solid #cf1350;
   width: 178px;
   height: 56px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .cover-letter-back-button:hover {
@@ -221,6 +228,8 @@ label {
   border: 1px solid #cf1350;
   width: 136px;
   height: 64px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 /* COVER LETTER VIEW PAGE */

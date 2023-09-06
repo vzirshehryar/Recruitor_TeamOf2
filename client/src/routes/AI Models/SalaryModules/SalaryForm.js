@@ -56,7 +56,7 @@ const SalaryForm = () => {
           <h1 className="heading-salary">Salary Module</h1>
         </div>
         <div className="new-heading-salary-container">
-          <h3 className="new-heading-salary">Calculate your salary</h3>
+          <h3 className="new-heading-salary1">Calculate your salary</h3>
           <p className="new-heading-salary2">
             Get paid what you&apos;re worth in today&apos;s job market
           </p>
@@ -127,18 +127,16 @@ const SalaryForm = () => {
                 flexDirection: "column",
               }}
             >
-              <Link to="">
+             
                 <button
                   type="submit"
-                  className="submit-button-salar"
-                  style={{
-                    alignSelf: "flex-end",
-                  }}
+                  className="next-button-Salrry112"
+                  
                   onClick={handleSubmit}
                 >
-                  {loading ? "loading..." : "NEXT"}
+                  {loading ? "loading..." : "Find Salary"}
                 </button>
-              </Link>
+              
             </div>
           </form>
         </div>
