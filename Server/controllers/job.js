@@ -107,6 +107,7 @@ export const postJob = async (req, res) => {
 
         data.company = companyID;
         const jobObj = new Job(data);
+
         const job = await jobObj.save();
 
         return res.status(201).json({
