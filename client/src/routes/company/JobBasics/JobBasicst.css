@@ -49,6 +49,7 @@
     font-size: 1.2rem; /* Adjust font size */
     border: none; /* Remove default button border */
     cursor: pointer;
+    text-transform: capitalize !important;
 }
 create-account-form-container textarea {
     display: block;
@@ -64,7 +65,8 @@ create-account-form-container textarea {
 
 /* Styling for labels */
 .create-account-form-container label {
-    font-weight: 500;
+    /* changed font-weigth to initial */
+    font-weight: initial;
     color: #0f151a;
     display: block;
     margin-bottom: 0.5rem;
@@ -78,8 +80,10 @@ create-account-form-container textarea {
     width: 100%;
     background-color: #cf1350;
     color: white;
-    text-transform: uppercase;
+    /* text-transform: lowercase !important; */
     font-size: 1rem;
+    /* change font-weight */
+    font-weight: 500;
     border: none;
     cursor: pointer;
 }

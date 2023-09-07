@@ -32,9 +32,16 @@
     font-family: Poppins;
     font-size: 24px;
     font-style: normal;
-    font-weight: 400;
+    /* set font-weigth to initial */
+    font-weight: initial;
     line-height: 30px; /* 125% */
     padding-bottom: 10px;
+}
+
+/* change the font size */
+.Your-company-name-create span {
+    
+    font-size: 0.6em;
 }
 .create-account-para {
     color: #404145;
@@ -87,6 +94,7 @@
     padding: 10px; /* Add padding to the button */
     width: 100%;
     background-color: #cf1350;
+    text-transform: capitalize !important;
     color: white; /* Set text color for better contrast */
     text-transform: uppercase;
     font-size: 38px; /* Adjust font size */
@@ -95,7 +103,7 @@
     margin-top: 0.8rem;
     width: 100%;
     background-color: #cf1350;
-    text-transform: uppercase;
+   
 }
 
 .Horizontal-Line-below-header-parent {

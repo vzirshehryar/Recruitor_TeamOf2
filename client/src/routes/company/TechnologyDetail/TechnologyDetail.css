@@ -10,6 +10,7 @@
     border: 1px solid #cf134fa9;
     margin-top: 0.8rem;
     padding-inline: 2rem;
+    text-transform: capitalize !important;
 }
 
 .tech-detail-submit-button {
@@ -17,6 +18,8 @@
     background-color: #cf1350;
     text-transform: uppercase;
     font-size: 1.2rem;
+    text-transform: capitalize !important;
+
 }
 
 .create-account-heading-container {
@@ -50,7 +53,8 @@
 .create-account-form-container {
     max-width: 46rem;
     width: 100%;
-    margin: 2rem auto;
+    /* adjust the margin*/
+    margin: 0rem auto;
 }
 
 /* Styling for select inputs */
@@ -68,7 +72,8 @@
 
 /* Styling for labels */
 .create-account-form-container label {
-    font-weight: 400;
+    /* increase font-weight */
+    font-weight: 500;
     display: block;
     margin-bottom: 0.5rem;
     text-align: left;
