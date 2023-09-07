@@ -14,6 +14,14 @@
     /* 125% */
 }
 
+.small-div  {
+    @media (max-width: 400px) {
+        display: flex;
+       flex-direction: column;
+       width: 100% !important;
+    }
+}
+
 .input-container-bottom-div {
     margin-top: 20px;
     display: flex;
@@ -22,6 +30,7 @@
 
     @media (min-width: 500px) {
         flex-direction: row;
+
     }
 }
 
@@ -30,13 +39,17 @@
     display: flex;
     flex-direction: column;
 }
+.small-div input{
+   
+}
 
 .small-div {
     display: flex;
     gap: 0.5rem;
+    width: 500px;
 
     @media (min-width: 500px) {
-        width: 40%;
+        width: 100%;
     }
 }
 

@@ -51,7 +51,8 @@ export const TechnologyDetail = () => {
           <li className="li5">5</li>
         </ul>
       </div> */}
-                <div className="Header-tech">Header</div>
+                {/* commented out head tag */}
+                {/* <div className="Header-tech">Header</div> */}
                 <div className="Horizontal-Line-below-header-parent-tech">
                     <div className="round-horizontal-1-tech">1</div>
                     <div className="line-horizontal-tech"></div>

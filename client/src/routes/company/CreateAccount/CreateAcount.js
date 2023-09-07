@@ -29,7 +29,7 @@ export const CreateAcount = () => {
       console.log("response: ", response);
       response = await response.json();
 
-      const data = await response.json();
+    
       console.log("nav");
 
       navigate("/company/jobbasics");
@@ -124,8 +124,12 @@ export const CreateAcount = () => {
             <div>
               <label htmlFor="" className="Your-company-name-create">
                 Your phone number <br />
+                {/* added the text in a span tag */}
+                <span>
                 (For account management communication. Not visible to
                 jobseekers.)
+                </span>
+
               </label>
               <input
                 type="text"

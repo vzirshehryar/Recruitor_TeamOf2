@@ -24,7 +24,31 @@ html {
   padding: 0 !important;
 }
 
-.company-home-main-container {
+/* added some style to position h1 tag */
+.company-home-h1{
+    
+      position: relative;
+      
+      bottom: 40px
+}
+/* styling the icons */
+.icons-section{
+  width: 100%;
+  /* font-size: 7.2rem; */
+  justify-content: center;
+  align-items: center;
+  gap: 10em;
+  color: rgb(138, 23, 100) !important;
+  
+}
+icons-section svg{
+  color: #cf1350;
+}
+
+.company-home-perfect-fit-desc-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .company-home-hero-container {
@@ -49,13 +73,20 @@ html {
   flex-direction: column;
   gap: 2rem;
   & h1 {
-    font-size: 3.2rem;
+    /* adjust the font-size */
+    font-size: 2.0rem;
     font-weight: 600;
     letter-spacing: 0.09rem;
     max-width: 30.8rem;
+    line-height: 1.6;
+   
+    
     @media (min-width: 740px) {
       max-width: 100%;
-      font-size: 3.5rem;
+       /* adjust the font-size */
+      font-size: 2.8rem;
+      line-height: 1.6;
+     
     }
     @media (min-width: 1085px) {
       max-width: 100%;
@@ -66,6 +97,7 @@ html {
       font-size: 4rem;
     }
   }
+ 
   & h3 {
     font-size: 1.5rem;
     font-weight: 400;
@@ -197,7 +229,14 @@ select {
   background-color: var(--color-primary);
   font-weight: 600;
   min-width: 16.625rem;
+  font-size: larger;
+  padding: 15px 35px !important;
 }
+.company-home-action-button:hover{
+
+  background-color: #c0174d;
+}
+
 
 .company-home-consultant-container {
   padding-block: 3rem;
@@ -225,10 +264,14 @@ textarea {
   padding-inline: 10px;
   padding-block: 6px;
   border-radius: 4px;
-  border: 1px solid #cf134f80;
+  border: 1px solid #cf134f80 !important;
   background: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
+}
+/* border color for input tags */
+input {
+  border: 1px solid #cf134f80 !important;
 }
 
 label {

@@ -11,18 +11,9 @@ export const PayBenefits = () => {
         setPayBenefits({
             ...payBenefits,
             [e.target.id]: e.target.value,
-            benefits: checkboxStates,
         });
         console.log(payBenefits);
     };
-
-    const navigate = useNavigate();
-
-    function NextPage(e) {
-        e.preventDefault();
-        console.log("Running");
-        navigate("/company/setpreferences");
-    }
 
     function PrevPage(e) {
         e.preventDefault();
@@ -30,32 +21,54 @@ export const PayBenefits = () => {
         navigate("/company/techdetail");
     }
 
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (localStorage.getItem("userType") !== "company")
-            navigate("/loginAsCompany");
-        if (token === null && !token) {
-            console.log("token not found");
-            navigate("/company/createaccount");
-        } else {
-            console.log("Token found!");
-        }
-    }, []);
-
-    const [checkboxStates, setCheckboxStates] = useState(
-        Array.from({ length: 9 }, () => false)
-    );
-
+     useEffect(() => {
+     const token = localStorage.getItem("token");
+     if (token === null && !token) {
+       console.log("token not found");
+       navigate("/company/createaccount");
+     } else {
+       console.log("Token found!");
+     }
+   }, []);
+    const bonuses = [
+        "Yearly bonus",
+        "Monthly bonus",
+        "Vacation",
+        "Heath benefits",
+        "Gym Facility",
+        "Overtime",
+  
+    ];
+    const [checkedCheckboxes, setCheckedCheckboxes] = useState({});
+    const [checkboxStates, setCheckboxStates] = useState(bonuses);
+    const [checkedArray, setCheckedArray] = useState([]);
     const handleCheckboxChange = (index) => {
-        const newCheckboxStates = [...checkboxStates];
-        newCheckboxStates[index] = !newCheckboxStates[index];
-        setCheckboxStates(newCheckboxStates);
+        setCheckedCheckboxes((prevState) => ({
+            ...prevState,
+            [index]: !prevState[index],
+        }));
+        const value = checkboxStates[index];
+        console.log(value, index);
+        const updatedCheckedArray = [...checkedArray];
+        const indexOfValue = updatedCheckedArray.indexOf(value);
+        if (indexOfValue === -1) {
+            updatedCheckedArray.push(value);
+        } else {
+            updatedCheckedArray.splice(indexOfValue, 1);
+        }
+
+        setCheckedArray(updatedCheckedArray);
+
+        console.log(updatedCheckedArray);
+        console.log("Checked array", checkedArray);
     };
 
     const handleSelectAll = () => {
         const allChecked = checkboxStates.every((isChecked) => isChecked);
         const newCheckboxStates = checkboxStates.map(() => !allChecked);
         setCheckboxStates(newCheckboxStates);
+        const updatedCheckedArray = allChecked ? [] : [...bonuses];
+        setCheckedArray(updatedCheckedArray);
     };
 
     const handleSubmit = (e) => {
@@ -68,6 +81,17 @@ export const PayBenefits = () => {
 
         NextPage(e);
     };
+    const navigate = useNavigate();
+    function NextPage(e) {
+        e.preventDefault();
+        setPayBenefits({
+            ...payBenefits,
+            Benefits: checkedArray,
+        });
+        console.log("Running");
+        console.log("paybenefits:: ", payBenefits);
+        navigate("/company/setpreferences");
+    }
 
     return (
         <>
@@ -85,7 +109,7 @@ export const PayBenefits = () => {
           <li className="li5">5</li>
         </ul>
       </div> */}
-                <div className="Header">Add Header here</div>
+                {/* <div className="Header">Add Header here</div> */}
                 <div className="Horizontal-Line-below-header-parent">
                     <div className="round-horizontal-1">1</div>
                     <div className="line-horizontal"></div>
@@ -105,25 +129,16 @@ export const PayBenefits = () => {
                                 <label htmlFor="">Salary Range</label>
                             </div>
                             <div className="input-container-bottom-div">
-                                <div className="long-div">
-                                    <input
-                                        type="text"
-                                        name=""
-                                        id="salaryRange"
-                                        placeholder="Range"
-                                        onChange={handleInputChange}
-                                        className="payBenefits-salaryRange"
-                                        required
-                                    />
-                                </div>
+                                {/* <div className="input-container-top-div">
+                                   <span>Range</span>
+                                </div> */}
                                 <div className="small-div">
                                     <input
                                         type="text"
                                         name=""
-                                        id="mininmunSalary"
+                                        id="miniSR"
                                         placeholder="Min"
                                         onChange={handleInputChange}
-                                        required
                                     />
                                     <div className="payBenefits-to-text">
                                         to
@@ -131,10 +146,9 @@ export const PayBenefits = () => {
                                     <input
                                         type="text"
                                         name=""
-                                        id="maximunSalary"
+                                        id="maxSR"
                                         placeholder="Max"
                                         onChange={handleInputChange}
-                                        required
                                     />
                                 </div>
                             </div>
@@ -144,50 +158,49 @@ export const PayBenefits = () => {
                                         Benefits
                                     </div>
                                     <div className="tags-holder">
-                                        <div className="custom-checkbox">
+                                        {/* <div className="custom-checkbox d-flex justify-content-center">
                                             <input
                                                 type="checkbox"
                                                 id="select-all"
-                                                checked={checkboxStates.every(
-                                                    (isChecked) => isChecked
-                                                )}
-                                                onChange={handleSelectAll}
                                             />
                                             <label
                                                 htmlFor="select-all"
                                                 className="payBenefits-SelectAll"
                                             >
-                                                Select All
+                                                <h4>Add bonuses</h4>
                                             </label>
-                                        </div>
-                                        {checkboxStates.map(
-                                            (isChecked, index) => (
-                                                <div
-                                                    className={`custom-checkbox ${
-                                                        isChecked
-                                                            ? "checked"
-                                                            : ""
-                                                    }`}
-                                                    key={index}
+                                        </div> */}
+
+                                        {checkboxStates.map((bonus, index) => (
+                                            <div
+                                                className={`custom-checkbox d-flex justify-content-center ${
+                                                    checkedCheckboxes[index]
+                                                        ? "checked"
+                                                        : ""
+                                                }`}
+                                                key={index}
+                                            >
+                                                <input
+                                                    type="checkbox"
+                                                    id={`checkbox-${index}`}
+                                                    checked={
+                                                        checkedCheckboxes[
+                                                            index
+                                                        ] || false
+                                                    }
+                                                    onChange={() =>
+                                                        handleCheckboxChange(
+                                                            index
+                                                        )
+                                                    }
+                                                />
+                                                <label
+                                                    htmlFor={`checkbox-${index}`}
                                                 >
-                                                    <input
-                                                        type="checkbox"
-                                                        id={`checkbox-${index}`}
-                                                        checked={isChecked}
-                                                        onChange={() =>
-                                                            handleCheckboxChange(
-                                                                index
-                                                            )
-                                                        }
-                                                    />
-                                                    <label
-                                                        htmlFor={`checkbox-${index}`}
-                                                    >
-                                                        + Yearly Bonus
-                                                    </label>
-                                                </div>
-                                            )
-                                        )}
+                                                    <h4>+{bonus}</h4>
+                                                </label>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
@@ -209,6 +222,6 @@ export const PayBenefits = () => {
                     </form>
                 </div>
             </div>
-        </>
-    );
+        </>
+    );
 };

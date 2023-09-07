@@ -7,6 +7,7 @@ import guyWithMic from "../../../assests/images/guy-with-microphone.png";
 import womenInRedDress from "../../../assests/images/women-in-red-dress.png";
 import Header from "../../Home/components/header";
 import Footer from "../../Home/components/footer";
+import HandShake from "../../../assests/svg/handshakeSvg";
 
 const styleH2 = {
   color: "#3E055B",
@@ -37,9 +38,14 @@ const Home = () => {
         <div className="company-home-hero-container">
           <div className="company-home-welcome-container">
             <h1 className="company-home-welcome-heading">
-              Discover Your Dream Career
+              Discover Your
             </h1>
-            <h3 className="company-home-welcome-para">Find Top Talent!</h3>
+            {/* added h1 tag in a div for styling purposes */}
+            <div className="company-home-h1">
+
+            <h1 className="">Dream Career</h1>
+            </div>
+            <h3 className="company-home-welcome-para mb-4">Find Top Talent!</h3>
             <button
               className="company-home-action-button"
               onClick={handlePostJob}
@@ -51,8 +57,32 @@ const Home = () => {
             <img src={guyWithMic} alt="" />
           </div>
         </div>
-        <div id="whyus" className="py-5 p-3 no-mwidth">
-          <h1 className="text-center whyUsMainHeading">Our Approach</h1>
+        {/* added bootstrap styles to adjust the margin */}
+        {/* added an icon-sention */}
+        <div className="icons-section d-flex mt-3">
+                  <div className="icon-handshake">
+                        <div><HandShake/></div>
+                        <h2>wer'e trusted</h2>
+                        <p>something text somtinh</p>
+                  </div>
+                  <div className="icon-handshake">
+                        <div><HandShake/></div>
+                        <h2>wer'e trusted</h2>
+                        <p>something text somtinh</p>
+                  </div>
+                  <div className="icon-handshake">
+                        <div><HandShake/></div>
+                        <h2>wer'e trusted</h2>
+                        <p>something text somtinh</p>
+                  </div>
+        </div>
+            
+        <div id="whyus" className="py-5 p-3 no-mwidth mb-5">
+          {/* added bootstrap styles to adjust the content in center */}
+          <div className=" d-flex justify-content-center">
+          <h1 className="text-center whyUsMainHeading ">Our Approach</h1>
+
+          </div>
           <br></br>
           <div className="whyUsSecondHeadingCont">
             <h2
@@ -92,7 +122,8 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="discover-candidates-section">
+          {/* commented bacause no static values */}
+          {/* <div className="discover-candidates-section">
             <div>
               <h2>Discover how many canidatates are in your area</h2>
             </div>
@@ -117,21 +148,27 @@ const Home = () => {
                 <p className="candidates-para-text">Registered Candidates</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="company-home-perfect-fit-container">
           <div className="company-home-perfect-fit-desc-container">
-            <h1 className="company-home-perfect-fit-heading">
+            {/* added margin-bottom bootstrap */}
+            <h3 className="company-home-perfect-fit-heading mb-3 
+            ">
               Find your perfect fit
-            </h1>
+            </h3>
+            {/* added margin-top bootstrap and added a p tag in a div */}
+            <div className="mt-5">
             <p className="company-home-perfect-fit-para">
               Unlock the power of our platform to discover exceptional talent
               for your company. Post your job openings today and start building
               your dream team. Our streamlined process ensures you find the
               right candidates quickly and efficiently.
             </p>
+            </div>
             <button
-              className="company-home-action-button"
+            // added the margin-top
+              className="company-home-action-button mt-5"
               onClick={() => {
                 navigate("/company/createaccount");
               }}
@@ -145,11 +182,12 @@ const Home = () => {
         </div>
         <div className="company-home-consultant-container">
           <div className="company-home-consultant-heading-container">
-            <h1 className="company-home-consultant-heading">
+            <h2 className="company-home-consultant-heading">
               Request a consultant
-            </h1>
+            </h2>
           </div>
-          <div className="company-home-consultant-para-container">
+          <div className="company-home-consultant-para-container ">
+            
             <p className="company-home-consultant-para">
               Get in touch with our recruitment specialists to discuss your
               hiring needs

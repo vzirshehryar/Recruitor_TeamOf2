@@ -308,7 +308,7 @@ function ReviewJob() {
           <Line />
           <div className="Option-Heading-Container">
             <div className="Option-Heading">Benefits</div>
-            <div className="Option-Heading-2">Yearly Bonus (!)</div>
+            <div className="Option-Heading-2">{payBenefits.Benefits}</div>
             <div onClick={openPopUp} className="Pen-Container">
               <Pen className="Pen-Icon" />
             </div>
