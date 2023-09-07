@@ -182,6 +182,7 @@ const App = () => {
           <Route path="salarydisplay/:salary" element={<DisplaySalary />} />
           <Route path="career-form" element={<CareerForm />} />
           <Route path="career-path" element={<CareerPath />} />
+       
           <Route
             path="coverletter"
             element={

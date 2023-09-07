@@ -12,6 +12,7 @@ const JobCard = ({ selectedJob }) => {
         overflowY: "auto",
       }}
     >
+      {/* Header section with job title, pay, and ApplyJob component */}
       <div
         className="d-flex align-items-center justify-content-center px-2 py-3 mb-3"
         style={{
@@ -31,10 +32,14 @@ const JobCard = ({ selectedJob }) => {
           </p>
         </div>
         <div className="d-flex align-items-center">
+          {/* ApplyJob component */}
           <ApplyJob job={selectedJob} />
         </div>
       </div>
+
+      {/* Location section */}
       <div className="selectedJobLocation p-0 mb-3 d-flex gap-3 align-items-center">
+        {/* Location icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="21"
@@ -49,6 +54,8 @@ const JobCard = ({ selectedJob }) => {
         </svg>
         <p className="m-0">{selectedJob.jobType}</p>
       </div>
+
+      {/* Location text */}
       <div className="selectedJobLocation p-0 mb-3 d-flex gap-3 align-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -69,22 +76,28 @@ const JobCard = ({ selectedJob }) => {
         <p className="m-0">location: </p>
         <p className="m-0">{selectedJob.location}</p>
       </div>
+
+      {/* Skills section */}
       <div className="selectedJobLocation p-0 mb-3 d-flex gap-3">
         <img src="/skillIcon.png" alt="skill icon" height={30} />
         <p className="m-0">Skills: </p>
         <p className="m-0 fs-0.25 w-60">
+          {/* Skill description */}
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy eirmod tempor invidunt ut labore......
         </p>
       </div>
 
+      {/* About the Job section */}
       <div className="aboutTheJob mb-3 mt-2">About The Job</div>
 
+      {/* Job Description */}
       <div className="mb-3">
         <h5 className="selectedJobDescription">Job Description:</h5>
         <p className="insideDescription">{selectedJob.jobDescription}</p>
       </div>
 
+      {/* Responsibilities */}
       <div className="mb-3">
         <h5 className="selectedJobDescription">Responsibilities:</h5>
         <ul className="insideDescription">
@@ -95,6 +108,7 @@ const JobCard = ({ selectedJob }) => {
         </ul>
       </div>
 
+      {/* Qualifications */}
       <div>
         <h5 className="selectedJobDescription">Qualifications:</h5>
         <ul className="insideDescription">

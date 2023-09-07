@@ -8,26 +8,36 @@ import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import "./home.css";
 
+// Header component with props active and page
 function Header({ active, page }) {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook for programmatic navigation
   const [showCarousel, setShowCarousel] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchKeyword, setSearchKeyword] = useState("");
 
+  // Function to navigate to the Login page
   function loginButton() {
     navigate("/Login");
   }
+
+  // Function to navigate to the Register as Company page
   function signUpButton() {
     navigate("/registerAsCompany");
   }
+
+  // Function to handle the search input
   const handleSearch = (event) => {
     setCurrentPage(1);
     setSearchKeyword(event.target.value);
   };
+
+  // Function to handle user logout
   const handleLogout = () => {
     localStorage.clear();
     navigate("/");
   };
+
+  // Get user information from local storage
   const user = localStorage.getItem("user");
   const isUser = localStorage.getItem("userType") === "user";
   let data = JSON.parse(user);
@@ -36,6 +46,7 @@ function Header({ active, page }) {
   const [userInfo, setUserInfo] = useState(null); // Define the userInfo state variable
 
   useEffect(() => {
+    // Load user info from local storage when the component mounts
     const storedUserInfo = localStorage.getItem("user-info");
     if (storedUserInfo) {
       const parsedUserInfo = JSON.parse(storedUserInfo);
@@ -68,6 +79,8 @@ function Header({ active, page }) {
   };
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // Conditional rendering based on the page prop
   if (page === "authPage") {
     return (
       <Navbar collapseOnSelect expand="lg" className="NavbarTop">
@@ -182,7 +195,6 @@ function Header({ active, page }) {
                           cursor: "pointer",
                           color: "white",
                         }}
-                        // className="ri-account-circle-line"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                       />
                     </div>
@@ -198,20 +210,12 @@ function Header({ active, page }) {
                           else navigate("/companydashboard");
                         }}
                       >
-                        {/* <i
-                          className="ri-account-box-fill"
-                          style={{ marginRight: "2%" }}
-                        ></i> */}
                         Dashboard
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={handleLogout}
                         style={{ textAlign: "center" }}
                       >
-                        {/* <i
-                          className="ri-logout-box-r-line"
-                          style={{ marginRight: "2%" }}
-                        ></i> */}
                         Logout
                       </Dropdown.Item>
                     </Dropdown.Menu>

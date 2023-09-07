@@ -1,3 +1,4 @@
+// Import necessary dependencies and styles
 import "./components/Login.css";
 import React, { useState } from "react";
 import { Form, InputGroup } from "react-bootstrap";
@@ -10,27 +11,39 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../Home/components/header";
 
 function Login() {
+  // Initialize React Router's navigation hook
   const navigate = useNavigate();
+
+  // Initialize state variables
   const [loader, setLoader] = useState("Continue");
 
+  // Initialize form data
   const initialFormData = {
     email: "",
     password: "",
   };
   const [formData, setFormData] = useState(initialFormData);
+
+  // Handle form input changes
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+
+  // Destructure email and password from the form data
   const { email, password } = formData;
 
+  // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Update the button text to indicate loading
     setLoader("loading...");
 
+    // Check if email and password are provided
     if (!email || !password) {
       toast.error("Please enter all fields");
     } else {
+      // Send a POST request to the server for user login
       fetch("/user/login", {
         method: "POST",
         headers: {
@@ -41,10 +54,6 @@ function Login() {
         body: JSON.stringify(formData),
       })
         .then((response) => {
-          // if (!response.ok) {
-          //   toast.error();
-          //   return;
-          // }
           return response.json(); // Parse the response JSON
         })
         .then((data) => {
@@ -54,56 +63,59 @@ function Login() {
             return;
           }
 
-          // Store the token in local storage
+          // Store user data and token in local storage
           localStorage.setItem("token", data.token);
           localStorage.setItem("progress", data.completionStatus);
           localStorage.setItem("userType", "user");
-
-          // Store the user data in local storage
           localStorage.setItem("user", JSON.stringify(data.user));
 
+          // Reset the form and navigate to the homepage
           setFormData(initialFormData);
           setLoader("LOG IN");
           navigate("/");
         })
         .catch((error) => {
           // Handle error here
-          toast.error("Some error occured");
-
+          toast.error("Some error occurred");
           console.log("Error sending data:", error);
           setLoader("LOG IN");
         });
     }
   };
 
+  // Handle Google login
   const google = () => {
     window.open("/auth/google", "_self");
   };
 
+  // Navigate to the registration page
   function registerBtn() {
     navigate("/signUp");
   }
 
+  // Navigate to the forgot password page
   function forgetPasswordPage() {
     navigate("/forgetPassword");
   }
 
-  // Company Login
-
-  const [error, setError] = useState("");
+  // Toggle password visibility
   const [showPassword, setShowPassword] = useState(false);
-
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
+  // Handle going back to the previous page
   const handleGoBack = () => {
     navigate(-1);
   };
 
+  // Render the login component
   return (
     <>
+      {/* Header component for authentication page */}
       <Header page="authPage" />
+
+      {/* Main content */}
       <div
         style={{
           height: "100vh",
@@ -128,25 +140,16 @@ function Login() {
               </h3>
             </div>
           </div>
-          {/* <div class="note pb-3">
-            <span className="loginHeading mt-0 ">Apply for Jobs</span>
-            {/* <div className="pt-3">
-              <button className="LoginBtn mx-2" onClick={handle1}>
-                Hire a Team
-              </button>
-              <button className="LoginBtn mx-2" onClick={handle2}>
-                Apply for Jobs
-              </button>
-            </div> 
-          </div> */}
+
           <div>
             <div class="col-sm-10 p-2 mx-auto">
               <div className="text-center mt-5 form-group">
+                {/* Login form */}
                 <Form onSubmit={handleSubmit}>
                   <p>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       <label
-                        className="form-label d-flex justify-content-start  mt-1"
+                        className="form-label d-flex justify-content-start mt-1"
                         htmlFor="form3Example3"
                         style={{
                           fontWeight: "600",
@@ -161,7 +164,7 @@ function Login() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="email"
+                        placeholder="Email"
                         style={{ borderRadius: "10px" }}
                       />
                     </Form.Group>
@@ -224,30 +227,10 @@ function Login() {
                     {loader}
                   </button>
                 </Form>
-                {/* <div className="text-with-lines py-3">
-                  <div className="line"></div>
-                  <span className="text">Or continue with</span>
-                  <div className="line"></div>
-                </div>
-                <div className=" d-flex justify-content-center gap-3 ">
-                  <div>
-                    <button className="inputIcons">
-                      <p className="icons">
-                        {" "}
-                        <FcGoogle fill="#3B5998" size={20} />
-                        <span onClick={google}>Google</span>
-                      </p>
-                    </button>
-                  </div>
-                  <button className=" inputIcons  ">
-                    <p className="icons ">
-                      {" "}
-                      <FaFacebook fill="#3B5998" size={20} />
-                      <span>Facebook</span>{" "}
-                    </p>
-                  </button>
-                </div> */}
+
+                {/* Toast container for displaying notifications */}
                 <ToastContainer />
+
                 <div className="accountLink ">
                   Don't have an account?{" "}
                   <a

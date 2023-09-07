@@ -6,71 +6,68 @@ import { useLetterContext } from "../CoverLetterContext";
 import Header from "../../Home/components/header";
 
 export const CoverLetterView = () => {
+  // Retrieve the cover letter content using the context API
   const { letter } = useLetterContext();
 
   return (
     <>
+      {/* Render the Header component with 'cover' as the active tab */}
       <Header active="cover" />
+
+      {/* Main container for the cover letter view */}
       <div className="cover-letter-main-container11">
+        {/* Container for the heading section */}
         <div className="cover-letter-heading-container">
+          {/* Heading for the cover letter view */}
           <h1 className="cover-letter-heading">Build Your Cover Letter</h1>
         </div>
+
+        {/* Container for the contact information */}
         <div className="cover-letter-contact-container">
+          {/* Question about the best way for employers to contact */}
           <h3 className="cover-letter-contact-question">
             What&apos;s the best way for employers to contact you?
           </h3>
+          {/* Paragraph suggesting including an Email and Phone Number */}
           <p className="cover-letter-contact-para">
             We suggest including an Email and Phone Number.
           </p>
         </div>
-        <div className="cover-letter-info-container ">
+
+        {/* Container for the cover letter content */}
+        <div className="cover-letter-info-container">
+          {/* Heading for the cover letter sample */}
           <h1 className="cover-sample-heading111">Cover Letter Sample</h1>
+
+          {/* Container for the cover letter content */}
           <div className="headings-2">
-            {/* <h2 className="To-h">To</h2>
-          <h2 className="To-h">Company.Name</h2>
-          <h2 className="To-h">Company.Addressi</h2>
-          <h3 className="To-h2">Sub: Application for the post of assitant </h3>
-          <h2 className="dearsir">Dear Sir</h2> */}
+            {/* Render the cover letter content */}
             <p className="para-cover-letter">
               <p>{letter}</p>
             </p>
-            {/* <div className="endd">
-            <h2 className="yf-end">Yours FaithFully,</h2>
-            <h2 className="yf-end">Jonny Uncle</h2>
-          </div> */}
-            {/* <div className="lstt">
-            <h2 className="lst-h">Enclosed:</h2>
-            <ol>
-              <li className="lst-h">
-                <h4 className="lst-h">Two Copies of passport</h4>
-              </li>
-              <li className="lst-h">
-                <h4 className="lst-h">Two Copies of passport</h4>
-              </li>
-              <li className="lst-h">
-                <h4 className="lst-h">Two Copies of passport</h4>
-              </li>
-              <li className="lst-h">
-                <h4 className="lst-h">Two Copies of passport</h4>
-              </li>
-            </ol>
-          </div> */}
           </div>
         </div>
+
+        {/* Container for the buttons */}
         <div className="buttons-containerss111">
+          {/* Buttons for changing the template (currently commented out) */}
           {/* <div className="cover-letter-view-template-button111">
-          <Link to="/coverbuilder">
-            <button className="cover-letter-back-button11">
-              Change template
-            </button>
-          </Link>
-        </div> */}
+            <Link to="/coverbuilder">
+              <button className="cover-letter-back-button11">
+                Change template
+              </button>
+            </Link>
+          </div> */}
         </div>
+
+        {/* Container for the navigation buttons */}
         <div className="buttons-containerss1">
           <div className="custom-cover-letter-button-container">
+            {/* Button to navigate back to the cover letter form */}
             <Link to="/coverletterform">
               <button className="cover-letter-back-button">BACK</button>
             </Link>
+            {/* Button to navigate to the career coach page */}
             <Link to="/careercoach">
               <button className="cover-letter-next-button">SUBMIT</button>
             </Link>
@@ -80,3 +77,4 @@ export const CoverLetterView = () => {
     </>
   );
 };
+                    

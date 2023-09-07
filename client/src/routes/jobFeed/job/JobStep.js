@@ -1,26 +1,31 @@
 import React, { useRef, useState } from "react";
-import Styles from "./components/JobStep.modules.css";
-import DetailPage from "./DetailPage";
+import Styles from "./components/JobStep.modules.css"; // Importing CSS styles (assuming it's for styling this component).
+import DetailPage from "./DetailPage"; // Importing a DetailPage component (currently commented out).
 
 function JobStep() {
-  const fileInputRef = useRef(null);
-  const [selectedFileName, setSelectedFileName] = useState("");
+  const fileInputRef = useRef(null); // Create a reference to the file input element.
+  const [selectedFileName, setSelectedFileName] = useState(""); // State to track the selected file name.
+
+  // Function to handle file input change event.
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
     setSelectedFileName(selectedFile.name);
   };
+
+  // Function to trigger a click on the file input element when a button is clicked.
   const handleButtonClick = () => {
     fileInputRef.current.click();
   };
+
   return (
-    // <div>
-    //   <DetailPage />
-    // </div>
-    <div className="d-flex flex-column justify-content-center align-items-center  mdiv">
-      <div className=" p-0 w-100 stp ">
-        <h2 className="stp1 ">Step 1</h2>
+    <div className="d-flex flex-column justify-content-center align-items-center mdiv">
+      {/* Step 1 */}
+      <div className="p-0 w-100 stp">
+        <h2 className="stp1">Step 1</h2>
       </div>
-      <div className={`container ncard m-0    Card col-lg-3 pt-2 `}>
+
+      {/* File Upload Card */}
+      <div className={`container ncard m-0 Card col-lg-3 pt-2`}>
         <div className="text-center bcard mt-1 m-auto">
           {selectedFileName ? (
             <p className="mt-4">{selectedFileName}</p>
@@ -30,12 +35,15 @@ function JobStep() {
             </h3>
           )}
 
+          {/* Hidden file input element */}
           <input
             type="file"
             ref={fileInputRef}
             onChange={handleFileChange}
             style={{ display: "none" }}
           />
+
+          {/* File upload icon */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="30"
@@ -48,32 +56,35 @@ function JobStep() {
               fill="black"
             />
           </svg>
+
           <div className="mt-2">
             <p>File types: .docx, .doc, .pdf, .txt, .odt or .rtf.</p>
             <p>Up to 2.5 MB</p>
           </div>
-          {/* <input
-            class="form-control jbtn mbtn "
-            type="file"
-            id="formFileMultiple"
-          ></input> */}
-          <button onClick={handleButtonClick} className=" jbtn mbtn">
-            {" "}
+
+          {/* Button to trigger file input */}
+          <button onClick={handleButtonClick} className="jbtn mbtn">
             choose your file
           </button>
         </div>
       </div>
+
+      {/* Build CV Card */}
       <div className={`container ncards m-0 mt-3 Card col-lg-3 pt-2`}>
         <div className="text-center">
           <h3>Build your CV</h3>
           <p>We can help you create a CV in minutes.</p>
-          <button className=" jbtn mt-4"> build your cv</button>
+          <button className="jbtn mt-4">build your cv</button>
         </div>
       </div>
+
+      {/* Step 2 */}
       <h2 className="stp2 w-100 stp mt-3">Step 2</h2>
-      <div className={`container ncardss m-0  Card col-lg-3 pt-2`}>
+
+      {/* Complete Registration Card */}
+      <div className={`container ncardss m-0 Card col-lg-3 pt-2`}>
         <div className="text-center">
-          <button className="jbtns ">Complete your registration</button>
+          <button className="jbtns">Complete your registration</button>
         </div>
         <button className="jbtn text-center mt-5 cbtn">create account</button>
       </div>

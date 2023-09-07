@@ -1,9 +1,12 @@
+// Import necessary dependencies and components
 import React, { useState } from "react";
-import "./CareerForm.css";
+import "./CareerForm.css"; // Import CSS styles for this component
 import { Link } from "react-router-dom";
-import Header from "../../Home/components/header";
+import Header from "../../Home/components/header"; // Assuming a header component is being used
 
+// Define the CareerForm functional component
 const CareerForm = () => {
+  // Define the state variables using the useState hook
   const [formData, setFormData] = useState({
     currentRole: "",
     skills: "",
@@ -14,56 +17,62 @@ const CareerForm = () => {
   });
   const [result, setResult] = useState("");
 
+  // Define a function to handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submission behavior
     console.log("Form data: ", formData);
     try {
+      // Send a POST request to a local server endpoint (http://localhost:5000/career-advice)
       const response = await fetch("http://localhost:5000/career-advice", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData), // Convert formData to JSON and send it in the request body
       });
 
       if (response.ok) {
-        const data = await response.json();
+        const data = await response.json(); // Parse the JSON response
         console.log("Response:", data);
-        setResult(data[0]);
+        setResult(data[0]); // Set the result state with the received data
       } else {
-        console.error("Error:", response.statusText);
+        console.error("Error:", response.statusText); // Log an error if the response is not OK
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error); // Log any other errors that may occur during the request
     }
   };
 
+  // Define a function to handle input changes in the form
   const handleInputChange = (event) => {
-    //this funciton is running, but I'm unable to edit my inputs
     const { id, value } = event.target;
+    // Update the formData state with the new value for the corresponding input field
     setFormData((prevData) => ({
       ...prevData,
       [id]: value,
     }));
   };
 
+  // Render the JSX for the CareerForm component
   return (
     <>
-      <Header active="career" />
-      <div className="career-container1">
-        <div className="rectangle-career1">
+      <Header active="career" /> {/* Render the header component with an "active" prop */}
+      <div className="career-container11">
+        <div className="rectangle-career11">
           <h1 className="heading-career1">Career Coach</h1>
         </div>
-        <div className="new-heading-career-container1">
-          <h2 className="new-heading-career1">
+        <div className="new-heading-career-container11">
+          <h2 className="new-heading-career11">
             Answer a few simple questions, and receive personalized advice to
             elevate your career to new heights.
           </h2>
         </div>
         <div className="form-career-container1">
-          <form className="career-form1" onSubmit={handleSubmit}>
+          {/* Render the career form */}
+          <form className="career-form11" onSubmit={handleSubmit}>
+            {/* Input field for Current Role */}
             <div className="career-form-field1">
-              <label htmlFor="currentRole" className="career-form-label1">
+              <label htmlFor="currentRole" className="career-form-label11">
                 Current Role
               </label>
               <input
@@ -76,8 +85,9 @@ const CareerForm = () => {
                 onChange={handleInputChange}
               />
             </div>
+            {/* Input field for Skills */}
             <div className="career-form-field1">
-              <label htmlFor="skill" className="career-form-label1">
+              <label htmlFor="skills" className="career-form-label11">
                 Skill
               </label>
               <input
@@ -90,91 +100,90 @@ const CareerForm = () => {
                 onChange={handleInputChange}
               />
             </div>
+            {/* Textarea field for Career Goal */}
             <div className="career-form-field1">
-              <label htmlFor="careerGoal" className="career-form-label1">
+              <label htmlFor="careerGoal" className="career-form-label11">
                 Career Goal
               </label>
-              <textarea
+              <input
                 type="text"
                 id="careerGoal"
-                className="career-form-input23"
+                className="career-form-input12"
                 placeholder="What is Your Career Goal?"
-                rows="5"
-                cols="33"
+    
                 required
                 value={formData?.careerGoal}
                 onChange={handleInputChange}
               />
             </div>
-            <div className="career-form-field1">
-              <label htmlFor="priority" className="career-form-label1">
+            {/* Textarea field for Seeking Priority */}
+            <div className="career-form-field12">
+              <label htmlFor="priority" className="career-form-label11">
                 Seeking Priority
               </label>
-              <textarea
+              <input
                 type="text"
                 id="priority"
-                className="career-form-input23"
+                className="career-form-input1"
                 placeholder="What is The Most Important Thing You Are Looking For In A Job?"
-                rows="5"
-                cols="33"
+                
                 required
                 value={formData?.priority}
                 onChange={handleInputChange}
               />
             </div>
+            {/* Textarea field for Interests */}
             <div className="career-form-field1">
-              <label htmlFor="interests" className="career-form-label1">
+              <label htmlFor="interests" className="career-form-label11">
                 Interests
               </label>
-              <textarea
+              <input
                 type="text"
                 id="interests"
-                className="career-form-input23"
+                className="career-form-input12"
                 placeholder="What Are Your Interests?"
-                rows="5"
-                cols="33"
+               
                 required
                 value={formData?.interests}
                 onChange={handleInputChange}
               />
             </div>
+            {/* Textarea field for Job Preferences */}
             <div className="career-form-field12">
-              <label htmlFor="jobPref" className="career-form-label1">
+              <label htmlFor="jobPrefrences" className="career-form-label11">
                 Job Preferences
               </label>
-              <textarea
+              <input
                 type="text"
                 id="jobPrefrences"
-                className="career-form-input23"
+                className="career-form-input12"
                 placeholder="What Are Your Job Preferences?"
-                rows="5"
-                cols="33"
+                
                 required
                 value={formData?.jobPrefrences}
                 onChange={handleInputChange}
               />
             </div>
-            <div className="button-field12">
-              <Link to="">
-                <button
-                  type="submit"
-                  className="submit-button12"
-                  onClick={handleSubmit}
-                >
-                  Submit
-                </button>
-              </Link>
+            {/* Submit button */}
+            <div className="button-field123">
+              <button
+                type="submit"
+                className="submit-button123"
+                onClick={handleSubmit} // Trigger form submission when the button is clicked
+              >
+                Submit
+              </button>
             </div>
           </form>
-          <div className="career-form-field123"> 
-          <textarea
-            type="text"
-            className="career-form-input23"
-            placeholder="Your Result will show here"
-            contentEditable={false}
-            
-            value={result}
-          />
+          {/* Display the result */}
+          <div className="career-form-field12345">
+            <textarea
+              type="text"
+              className="career-form-input123"
+              placeholder="Your Result will show here"
+              contentEditable={false}
+              value={result}
+            />
           </div>
         </div>
       </div>
@@ -182,4 +191,4 @@ const CareerForm = () => {
   );
 };
 
-export default CareerForm;
+export default CareerForm; // Export the CareerForm component for use in other parts of the application

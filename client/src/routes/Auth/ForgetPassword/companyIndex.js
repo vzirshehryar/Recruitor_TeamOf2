@@ -1,3 +1,4 @@
+// Import necessary dependencies and styles
 import "../Login/components/Login.css";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
@@ -6,23 +7,35 @@ import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
+  // Initialize React Router's navigation hook
   const navigate = useNavigate();
+
+  // Initialize state variables
   const [loader, setLoader] = useState("FORGOT PASSWORD");
   const initialFormData = {
     email: "",
   };
   const [formData, setFormData] = useState(initialFormData);
+
+  // Handle form input changes
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+
+  // Destructure email from the form data
   const { email } = formData;
+
+  // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Check if the email field is empty
     if (!email) {
       toast.error("Please enter all fields");
     } else {
       setLoader("LOADING ...");
+
+      // Send a POST request to the server for password recovery
       fetch("/company/forgetPassword", {
         method: "POST",
         headers: {
@@ -34,7 +47,7 @@ function Login() {
       })
         .then((response) => {
           if (!response.ok) {
-            toast.error("invalid email");
+            toast.error("Invalid email");
             setLoader("FORGOT PASSWORD");
           }
           return response.json(); // Parse the response JSON
@@ -44,60 +57,57 @@ function Login() {
           // Check if the response contains the token and user data
           if (data) {
             setFormData(initialFormData);
-            toast.success("Email is sended on account Please check gmail");
+            toast.success("Email is sent to your account. Please check your Gmail");
             setLoader("FORGOT PASSWORD");
           }
         })
         .catch((error) => {
           // Handle error here
           setLoader("FORGOT PASSWORD");
-
           console.log("Error sending data:", error);
         });
     }
   };
 
+  // Handle Google login
   const google = () => {
     window.open("/auth/google", "_self");
   };
 
+  // Navigate to the company login page
   function registerBtn() {
     navigate("/loginAsCompany");
   }
 
+  // Navigate to the job feed page
   function jobFeedPage() {
     navigate("/jobFeed");
   }
 
-  // Company Login
-
+  // Handle going back to the previous page
   const handleGoBack = () => {
     navigate(-1);
   };
 
+  // Render the login component
   return (
     <>
       <div>
+        {/* Background image */}
         <div className="backgroundIMAGE"></div>
-        <div class="container Card col-lg-4 pt-2  ">
+
+        {/* Login container */}
+        <div class="container Card col-lg-4 pt-2">
           <div class="note pb-3">
-            <span className="loginHeading ">Recover Password</span>
-            {/* <div className="pt-3">
-              <button className="LoginBtn mx-2" onClick={handle1}>
-                Hire a Team
-              </button>
-              <button className="LoginBtn mx-2" onClick={handle2}>
-                Apply for Jobs
-              </button>
-            </div> */}
+            <span className="loginHeading">Recover Password</span>
           </div>
 
           <div>
             <div class="col-sm-10 offset-1 p-2">
-              <div className="text-center  form-group">
+              <div className="text-center form-group">
+                {/* Login form */}
                 <Form onSubmit={handleSubmit}>
                   <p>
-                    {" "}
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       <Form.Control
                         className="form-control loginInput"
@@ -105,7 +115,7 @@ function Login() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="email"
+                        placeholder="Email"
                       />
                     </Form.Group>
                   </p>
@@ -115,6 +125,7 @@ function Login() {
                   </button>
                 </Form>
 
+                {/* Link to go back to login */}
                 <div className="accountLink mt-3">
                   Back to{" "}
                   <a

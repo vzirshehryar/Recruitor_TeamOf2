@@ -1,3 +1,4 @@
+// Import necessary dependencies and styles
 import img from "../../../assests/images/Rectangle-6475.png";
 import { ReactComponent as Logo } from "../../../assests/images/Ellipse-38.svg";
 import { ReactComponent as SMS } from "../../../assests/images/sms.svg";
@@ -5,7 +6,6 @@ import "./components/Login.css";
 import React, { useState } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import { FaTwitter } from "react-icons/fa";
-
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,12 +13,16 @@ import { useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa/";
 
 function Indexx() {
+  // Initialize React Router's navigation hook
   const navigate = useNavigate();
+
+  // Render the component
   return (
     <div>
       <section className="vh-100">
-        <div className="container-fluid h-custom ">
+        <div className="container-fluid h-custom">
           <div className="row d-flex gap-5 align-items-center h-100">
+            {/* Left Column */}
             <div className="col-md-8 col-lg-6 col-xl-5  p-0">
               <img
                 src={img}
@@ -27,6 +31,7 @@ function Indexx() {
               />
             </div>
 
+            {/* Right Column */}
             <div className="col-md-9 col-lg-6 col-xl-6 ">
               <form>
                 <div className=" d-flex justify-content-center mb-6">
@@ -37,6 +42,8 @@ function Indexx() {
                 <p className="p-head mb-4">
                   enter the information you entered while registering.
                 </p>
+
+                {/* Email Input */}
                 <div className="form-outline mb-4">
                   <label className="form-label" htmlFor="form3Example3">
                     Email address
@@ -53,6 +60,8 @@ function Indexx() {
                     </span>
                   </div>
                 </div>
+
+                {/* Password Input */}
                 <div className="form-outline mb-3">
                   <label className="form-label" htmlFor="form3Example4">
                     Password
@@ -64,6 +73,8 @@ function Indexx() {
                     placeholder="Enter password"
                   />
                 </div>
+
+                {/* Remember Me and Forgot Password */}
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="form-check mb-0">
                     <input
@@ -80,6 +91,8 @@ function Indexx() {
                     Forgot password?
                   </a>
                 </div>
+
+                {/* Login Button */}
                 <div className="text-center text-lg-start mt-4 pt-2">
                   <button
                     type="button"
@@ -88,9 +101,13 @@ function Indexx() {
                   >
                     Login
                   </button>
+
+                  {/* Divider */}
                   <div className="divider d-flex align-items-center my-4">
                     <p className="text-center fw-bold mx-3 mb-0">Or</p>
                   </div>
+
+                  {/* Social Login Buttons */}
                   <div className="d-flex flex-row align-items-center justify-content-center gap-5 ">
                     <button
                       type="button"
@@ -113,6 +130,8 @@ function Indexx() {
                   </div>
                 </div>
               </form>
+
+              {/* Register Link */}
               <p className="small fw-bold mt-2 pt-1 mb-0 ">
                 Don't have an account?{" "}
                 <a href="#!" className="link-danger">
@@ -124,70 +143,6 @@ function Indexx() {
         </div>
       </section>
     </div>
-
-    //  </div>
-
-    // <div className="d-flex">
-    //   <div>
-    //     <img src={img} alt=" Login Image" />
-    //   </div>
-    //   <div className="">
-    //     <div className=" d-flex justify-content-center">
-    //       <Logo />
-    //     </div>
-    //     <h1 className="l-head">hey, hello</h1>
-    //     <p className="p-head">
-    //       enter the information you entered while registering.
-    //     </p>
-    //     <div>
-    //       <label htmlFor="Email">Email</label>
-    //       <input type="email" />
-    //     </div>
-    //     <div>
-    //       <label htmlFor="password">Password</label>
-    //       <input type="email" />
-    //     </div>
-    //     <div className="signupsignin">
-    //       <div
-    //         style={{ cursor: "pointer" }}
-    //         onClick={() => navigate("/signup")}
-    //       >
-    //         <svg
-    //           xmlns="http://www.w3.org/2000/svg"
-    //           width="100%"
-    //           height="80%"
-    //           viewBox="0 0 342 111"
-    //           fill="none"
-    //         >
-    //           <path
-    //             d="M0 24C0 10.7452 10.7452 0 24 0H342V57.9757C342 70.3881 332.535 80.7526 320.174 81.877L0 111V24Z"
-    //             fill="#F5F7FA"
-    //           />
-    //         </svg>
-    //         <h3 className="signUp" style={{ color: "#6d0e9d" }}>
-    //           SIGN UP
-    //         </h3>
-    //       </div>
-    //       <div style={{ cursor: "pointer" }} onClick={() => navigate("/login")}>
-    //         <svg
-    //           xmlns="http://www.w3.org/2000/svg"
-    //           width="100%"
-    //           height="80%"
-    //           viewBox="0 0 342 110"
-    //           fill="none"
-    //         >
-    //           <path
-    //             d="M0 0H318C331.255 0 342 10.7452 342 24V110L21.8454 81.1411C9.47562 80.0261 0 69.6579 0 57.238V0Z"
-    //             fill="#6D0E9D"
-    //           />
-    //         </svg>
-    //         <h3 className="signIn" style={{ color: "#fff" }}>
-    //           LOG IN
-    //         </h3>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 }
 

@@ -6,19 +6,24 @@ import { Link } from "react-router-dom";
 import { useJobContext } from "../../../useContext/jobContext";
 
 const JobNav = ({ Search }) => {
+  // State variables for the "What" and "Where" search inputs
   const [what, setWhat] = useState("");
   const [where, setWhere] = useState("");
 
+  // Destructuring values from the job context
   const { setSearchLocation, setSearchSector, searchLocation, searchSector } =
     useJobContext();
 
+  // Function to handle the search button click
   const handleSearch = () => {
+    // Update the search location and sector in the job context
     setSearchLocation(where);
     setSearchSector(what);
   };
 
   return (
     <div className="jobFeedFilter">
+      {/* "What" filter input */}
       <div className="filter">
         <label for="what">What</label>
         <input
@@ -28,6 +33,8 @@ const JobNav = ({ Search }) => {
           onChange={(e) => setWhat(e.target.value)}
         />
       </div>
+
+      {/* "Where" filter input */}
       <div className="filter">
         <label for="where">Where</label>
         <input
@@ -37,6 +44,8 @@ const JobNav = ({ Search }) => {
           onChange={(e) => setWhere(e.target.value)}
         />
       </div>
+
+      {/* Search button and Browse Jobs link */}
       <div className="filter">
         <button onClick={handleSearch}>Search Jobs</button>
         <Link to="">

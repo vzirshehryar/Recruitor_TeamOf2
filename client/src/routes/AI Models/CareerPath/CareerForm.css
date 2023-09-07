@@ -1,44 +1,43 @@
-.career-container1{
+/* Define styles for the career container */
+.career-container1 {
     display: flex;
     flex-direction: column; /* Stack children vertically */
     align-items: center;
     width: 100%;
-}
-
-.rectangle-career1{
+  }
+  
+  /* Define styles for the header rectangle */
+  .rectangle-career1 {
     width: 100%;
-    height: 200px;
+    height: 120px;
     background: #CF1350;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-
-.heading-career1{
+  }
+  
+  /* Define styles for the heading in the header rectangle */
+  .heading-career1 {
     color: #FFF;
     font-family: 'Poppins', sans-serif;
     font-size: 64px;
     font-style: normal;
     font-weight: 500;
-    
-    
-}
-
-.new-heading-career-container1{
-    width: 90%;
+  }
+  
+  /* Define styles for the new heading container */
+  .new-heading-career-container1 {
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FFF; 
+    background-color: #FFF;
     margin-top: 60px;
     margin-bottom: 60px;
-    
-    
-    
-}
-
-.new-heading-career1{
+  }
+  
+  /* Define styles for the new heading */
+  .new-heading-career1 {
     color: #000;
     font-family: 'Poppins', sans-serif;
     font-size: 48px;
@@ -48,88 +47,79 @@
     text-transform: capitalize;
     text-align: center;
     margin-top: -5px;
-    
-}
-.form-career-container1{
-    width: 60%; 
+  }
+  
+  /* Define styles for the main form container */
+  .form-career-container1 {
+    width: 60%;
     background: #FCFCFC;
     border-radius: 13px;
     box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.15);
     padding: 20px;
-    margin-top: 20px; 
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 100px ;
-   
-     
-}
-
-.career-form1{
-    width: 80%;
+    margin-bottom: 100px;
+  }
+  
+  /* Define styles for the career form */
+  .career-form1 {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-left: 80px;
-    
-    
-}
-.career-form-field1{
+  }
+  
+  /* Define styles for form fields */
+  .career-form-field1 {
     align-items: center;
     width: 100%;
     display: flex;
     flex-direction: column;
-    
     align-items: start;
+  }
   
-  
-   
-    
-}
-.career-form-field123{
+  /* Define styles for another form field */
+  .career-form-field12 {
     align-items: center;
-    width: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    align-items: start;
+  }
+  
+  /* Define styles for result display field */
+  .career-form-field123 {
+    align-items: center;
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
     align-items: start;
     margin-top: 20px;
     margin-left: 70px;
+  }
   
-  
-   
-    
-}
-
-.career-form-field12{
-    align-items: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    align-items: start;
-  
-  
-   
-    
-}
-
-.career-form-label1{
+  /* Define styles for form labels */
+  .career-form-label1 {
     color: #000;
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 500;
     text-transform: capitalize;
     margin-bottom: 10px;
     display: flex;
     align-items: start;
-    
-}
-
-.career-form-input {
-    width:90%;
+  }
+  
+  /* Define styles for text inputs */
+  .career-form-input {
+    width: 90%;
     height: 40px;
     padding: 10px;
     border-radius: 8px;
@@ -138,10 +128,10 @@
     box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.10);
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
- 
-    
-}
-.career-form-input2 {
+  }
+  
+  /* Define styles for larger text inputs */
+  .career-form-input2 {
     width: 90%;
     height: 90px;
     padding: 10px;
@@ -151,207 +141,44 @@
     box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.10);
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
-    
-}
-.button-field12{
-    width: 80%;
+  }
+  
+  /* Define styles for button container */
+  .button-field12 {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    
-}
-.submit-button12{
-    border-radius: 4px;
+    align-items: start;
+  }
+  
+  /* Define styles for submit button */
+  .submit-button12 {
+    border-radius: 8px;
     background: #CF1350;
     color: #FFF;
     font-family: 'Poppins', sans-serif;
-    font-size: 32px;
+    font-size: 20px;
     border: none;
     cursor: pointer;
-    width: 178px;
-    height: 64px;
+    width: 150px;
+    height: 50px;
     font-weight: 600;
-    
-    
-}
-.submit-button12:hover{
-    background: #CF1350;
-}
-
-@media (max-width: 768px) {
-    .career-container1{
-     display: flex;
-          flex-direction: column; /* Stack children vertically */
-          align-items: center;
-          width: 100%;
+    border:solid 1px #CF1350;
   }
   
-  .rectangle-career1{
-      width: 100%;
-          height: 85px;
-          background: #CF1350;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-      
+  /* Define hover styles for the submit button */
+  .submit-button12:hover {
+    background: #a81241;
   }
   
-  .heading-career1{
-     color: #FFF;
-          font-family: 'Poppins', sans-serif;
-          font-size: 24px;
-          font-style: normal;
-          line-height: 36px;
-          font-weight: 500;
-      
-      
-  }
+  @media (max-width: 768px) {
+    /* Media query for screens with a maximum width of 768px */
   
-  .new-heading-career-container1{
-      width: 90%;
+    .career-container1 {
       display: flex;
-      justify-content: center;
+      flex-direction: column; /* Stack children vertically */
       align-items: center;
-      background-color: #FFF; 
-      
-      
-      
-  }
-  
-  .new-heading-career1{
-      color: #000;
-      font-family: 'Poppins', sans-serif;
-      font-size:20px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 36px;
-      text-transform: capitalize;
-      text-align: center;
-      margin-bottom: 10px  ;
-      
-  }
-  .form-career-container1{
-      width: 80%; 
-      background: #FCFCFC;
-      border-radius: 13px;
-      box-shadow: none;
-  
-      
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin-bottom: 100px ;
-     
-       
-  }
-  
-  .career-form1{
-      display: flex;
       width: 100%;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      
-      
-      
-  }
-  .career-form-field1{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      margin-right: 50px;
-      margin-top: 20px;
-      margin-bottom: 30px;
-     
-      
-  }
-  .career-form-field12{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      margin-right: 50px;
-      margin-top: 20px;
-      margin-bottom: 30px;
-     
-      
-  }
-  .career-form-field123{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      margin-right: 50px;
-      margin-top: 20px;
-      margin-bottom: 30px;
-     
-      
-  }
+    }
   
-  .career-form-label1{
-      color: #000;
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      text-transform: capitalize;
-      margin-bottom: 10px;
-      
-  }
-  
-  .career-form-input1{
-      width:90%;
-      height: 64px;
-      
-      border-radius: 8px;
-      border: 2px solid #0000001A;
-      background: #FFF;
-      box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.10);
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-   
-      
-  }
-  
-  .career-form-input23 {
-      width: 90%;
-      height: 90px;
-      padding: 10px;
-      border-radius: 8px;
-      border: 2px solid #0000001A;
-      background: #FFF;
-      box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.10);
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      
-  }
-  .button-field12{
-      width: 91%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      
-  }
-  .submit-button12{
-      border-radius: 4px;
-      background: #CF1350;
-      color: #FFF;
-      font-family: 'Poppins', sans-serif;
-      font-size: 18px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      width: 130px;
-      height: 64px;
-      margin-right: 50px;
-      
-      
-  }
-  .submit-button12:hover{
-      background: #CF1350;
-  }
-  }
-  
-
-@media (min-width: 769px) and (max-width: 991px) {
-  /* Add specific styles for medium-sized screens */
 }

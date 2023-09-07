@@ -3,7 +3,10 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
 const CompProfile = () => {
+  // State for the company's profile image, initially set to a default image.
   const [profileImage, setProfileImage] = useState("default_profile_image.jpg");
+
+  // Function to handle the change of the profile image when a file is selected.
   const handleProfileImageChange = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -14,6 +17,8 @@ const CompProfile = () => {
       reader.readAsDataURL(file);
     }
   };
+
+  // State for form data containing various company profile information.
   const [formData, setFormData] = useState({
     name: "",
     teamSize: "",
@@ -26,16 +31,19 @@ const CompProfile = () => {
     email: "",
   });
 
+  // Function to fetch and update company profile data.
   const handleData = () => {
     const comptoken = localStorage.getItem("token");
     const headers = {
       Authorization: comptoken,
     };
     const newUrl = "/company/getProfile";
+
     axios
       .get(newUrl, { headers })
       .then((getResponse) => {
         if (!getResponse.data) {
+          // If no data is received, reset the form data.
           setFormData({
             name: "",
             teamSize: "",
@@ -48,6 +56,7 @@ const CompProfile = () => {
             email: "",
           });
         } else {
+          // Populate the form data with the received company information.
           setFormData({
             name: getResponse.data.company.name,
             teamSize: getResponse.data.company.teamSize,
@@ -63,24 +72,30 @@ const CompProfile = () => {
       })
       .catch((getError) => {
         console.error(getError);
-        // Handle error from the GET request
+        // Handle error from the GET request here.
       });
   };
+
+  // Use the useEffect hook to call handleData when the component mounts.
   useEffect(() => {
     handleData();
   }, []);
 
+  // Function to handle changes in the form input fields.
   const handleChange = (e) => {
     const { id, value } = e.target;
+    // Update the form data based on the changed input field.
     setFormData((prevFormData) => ({
       ...prevFormData,
       [id]: value,
     }));
   };
 
+  // Function to handle the form submission.
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Format the form data for submission.
     const formattedData = {
       name: formData.name,
       teamSize: formData.teamSize,
@@ -94,6 +109,7 @@ const CompProfile = () => {
 
     console.log(formattedData);
 
+    // Retrieve the token from local storage.
     const token = localStorage.getItem("token");
     console.log(token);
     const apiUrl = "/company/setProfile";
@@ -101,14 +117,18 @@ const CompProfile = () => {
     const headers = {
       Authorization: token,
     };
+
+    // Make a POST request to update the company profile.
     axios
       .post(apiUrl, formattedData, { headers })
       .then((response) => {
         console.log(response.data);
+        // Show a success toast message.
         toast.success(response.data.message);
       })
       .catch((error) => {
         console.error(error);
+        // Show an error toast message if the request fails.
         toast.error("Error sending data to the backend.");
       });
   };
@@ -117,32 +137,17 @@ const CompProfile = () => {
     <div className="form-container-compprofile">
       <div className="shadow2">
         <form onSubmit={handleSubmit}>
-          {/* <div className="compprofile-image-box">
-                
-                <div className="default-compprofile-text">
-                CP
-                </div>
-                
-                <label htmlFor="profile-input" className="compprofile-edit-icon">
-                    
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-                    <path d="M10.8189 3.8318L7.99805 1.22555L8.92728 0.356807C9.18172 0.118936 9.49434 0 9.86514 0C10.236 0 10.5484 0.118936 10.8023 0.356807L11.7316 1.22555C11.986 1.46343 12.1188 1.75053 12.1298 2.08686C12.1409 2.42318 12.0192 2.71008 11.7648 2.94754L10.8189 3.8318ZM9.85652 4.74708L2.82089 11.3247H0V8.68747L7.03563 2.10982L9.85652 4.74708Z" fill="#6D0E9D"/>
-                    </svg>
-                </label>
-                <input
-                    type="file"
-                    accept="image/*"
-                    id="profile-input"
-                    onChange={handleProfileImageChange}
-                    style={{ display: 'none' }}
-                />
-              </div> */}
-
+          {/* Commented out section for profile image upload */}
+          {/* ... */}
+          
+          {/* Form for editing company profile information */}
           <div className="postjobs-heading">Company Profile</div>
           <div className="name-container">
+            {/* Input field for company name */}
             <div className="input-group-profile">
               <label className="label" htmlFor="name">
                 Company Name
+                {/* Add a required indicator if needed */}
                 {/* <span className="required">*</span> */}
               </label>
               <input
@@ -155,6 +160,7 @@ const CompProfile = () => {
                 onChange={handleChange}
               />
             </div>
+            {/* Select field for team size */}
             <div className="input-group-profile">
               <label className="label" htmlFor="teamSize">
                 Team Size
@@ -174,6 +180,7 @@ const CompProfile = () => {
             </div>
           </div>
 
+          {/* Input field for email */}
           <div className="email-container">
             <label className="label" htmlFor="email">
               Email Address
@@ -188,6 +195,8 @@ const CompProfile = () => {
               onChange={handleChange}
             />
           </div>
+
+          {/* Input field for phone number */}
           <div className="phone-container">
             <label className="label" htmlFor="phNo">
               Phone Number
@@ -202,6 +211,8 @@ const CompProfile = () => {
               onChange={handleChange}
             />
           </div>
+
+          {/* Input field for website */}
           <div className="email-container">
             <label className="label" htmlFor="website">
               Website
@@ -216,6 +227,8 @@ const CompProfile = () => {
               onChange={handleChange}
             />
           </div>
+
+          {/* Select field for country */}
           <div className="email-container">
             <label className="label" htmlFor="country">
               Country
@@ -233,6 +246,8 @@ const CompProfile = () => {
               <option value="UK">UK</option>
             </select>
           </div>
+
+          {/* Select field for city */}
           <div className="email-container">
             <label className="label" htmlFor="city">
               City
@@ -251,6 +266,7 @@ const CompProfile = () => {
             </select>
           </div>
 
+          {/* Input field for address */}
           <div className="address-container">
             <label className="label" htmlFor="address">
               Address
@@ -266,6 +282,7 @@ const CompProfile = () => {
             />
           </div>
 
+          {/* Textarea field for company description */}
           <div className="description-container-exp">
             <label className="label-exp" htmlFor="about">
               About Company
@@ -282,11 +299,13 @@ const CompProfile = () => {
             />
           </div>
 
+          {/* Button to submit the form */}
           <div className="button-container">
             <button type="submit">Save</button>
           </div>
         </form>
       </div>
+      {/* ToastContainer for displaying success/error messages */}
       <ToastContainer />
     </div>
   );

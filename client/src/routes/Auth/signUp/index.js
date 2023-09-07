@@ -1,3 +1,4 @@
+// Import necessary dependencies and styles
 import "../Login/components/Login.css";
 import { FcGoogle } from "react-icons/fc";
 import React, { useState } from "react";
@@ -6,41 +7,59 @@ import { FaFacebook } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+
+// Import the Header component
 import Header from "../../Home/components/header";
+
 function Register() {
+  // Initialize the React Router's navigation hook
   const navigate = useNavigate();
 
+  // Function to navigate back to the login page
   function loginButton() {
     navigate("/Login");
   }
 
+  // State variables for password and confirm password fields
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [loader, setLoader] = useState("Next");
+
+  // Console log the password validity (for debugging purposes)
   console.log("===password", isValidPassword);
+
+  // Function to toggle the password visibility
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
+  // Function to toggle the confirm password visibility
   const handleToggleConfirmPassword = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
   // User Registration
 
+  // State variable for displaying messages
   const [message, setMessage] = useState("");
 
+  // Function to define the route for user registration
   const UserRegister = () => {
-    return "/login";
+    return "/login"; // Placeholder return value, should be updated as needed
   };
+
+  // Initial form data state
   const initialFormData = {
     email: "",
     password: "",
     confirmPassword: "",
   };
+
+  // State to manage form data
   const [formData, setFormData] = useState(initialFormData);
 
+  // Function to handle form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -50,6 +69,8 @@ function Register() {
         /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
       const isValid = regexPattern.test(value);
       console.log("===", isValid);
+
+      // Update the state with the new value
       setFormData((prevState) => ({
         ...prevState,
         [name]: value,
@@ -66,20 +87,19 @@ function Register() {
     }
   };
 
+  // Destructure form data from state
   const { email, password, confirmPassword } = formData;
+
+  // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (!email || !password || !confirmPassword) {
       toast.error("Please enter all fields");
-    }
-    // else if (!isValidPassword) {
-    //   toast.error(
-    //     "password should be one letter, one digit, and is at least 8 characters "
-    //   );
-    // }
-    else {
+    } else {
       setLoader("SIGNING UP...");
+
+      // Send a POST request to register the user
       fetch("/user/register", {
         method: "POST",
         headers: {
@@ -98,14 +118,13 @@ function Register() {
             return;
           }
 
-          // Store the token in local storage
+          // Store user data and token in local storage
           localStorage.setItem("token", response.token);
           localStorage.setItem("progress", response.completionStatus);
           localStorage.setItem("userType", "user");
-
-          // Store the user data in local storage
           localStorage.setItem("user", JSON.stringify(response.user));
 
+          // Reset the form and show success message
           setFormData(initialFormData);
           setIsValidPassword(false);
           toast.success("User is registered successfully");
@@ -121,8 +140,10 @@ function Register() {
     }
   };
 
+  // Return the JSX for the component
   return (
     <>
+      {/* Render the Header component with a specific page prop */}
       <Header page="authPage" />
       <div
         style={{
@@ -153,7 +174,6 @@ function Register() {
             <div class="col-sm-10 p-2 mx-auto">
               <div class="text-center">
                 <Form onSubmit={handleSubmit}>
-                  {" "}
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <label
                       className="form-label d-flex justify-content-start  mt-1"
@@ -260,6 +280,7 @@ function Register() {
                   </button>
                 </Form>
 
+                {/* Uncomment the following section to enable social login options */}
                 {/* <div className="text-with-lines py-3">
                   <div className="line"></div>
                   <span className="text">Or continue with</span>
@@ -283,6 +304,8 @@ function Register() {
                     </p>
                   </button>
                 </div> */}
+
+                {/* Render a link to the login page */}
                 <div className="accountLink pt-3">
                   Already have an account?{" "}
                   <a
@@ -307,4 +330,5 @@ function Register() {
   );
 }
 
+// Export the Register component
 export default Register;

@@ -1,45 +1,62 @@
+// Import necessary dependencies and styles
 import "../Login/components/Login.css";
-
 import React, { useState } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+
+// Import the Header component
 import Header from "../../Home/components/header";
+
 function Register() {
+  // Initialize the React Router's navigation hook
   const navigate = useNavigate();
+
+  // Extract token from the URL params
   const paramData = useParams();
   const token = paramData && paramData.id;
 
+  // Console log the token (for debugging purposes)
   console.log("====", token);
+
+  // Function to navigate back to the login page
   function loginButton() {
     navigate("/Login");
   }
 
+  // State variables for password and confirm password fields
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [loader, setLoader] = useState("SET PASSWORD");
+
+  // Function to toggle the password visibility
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
+  // Function to toggle the confirm password visibility
   const handleToggleConfirmPassword = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
   // User Registration
-
   const UserRegister = () => {
-    return "/login";
+    return "/login"; // Placeholder return value, should be updated as needed
   };
+
+  // Initial form data state
   const initialFormData = {
     password: "",
     confirmPassword: "",
   };
+
+  // State to manage form data
   const [formData, setFormData] = useState(initialFormData);
 
+  // Function to handle form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -49,6 +66,8 @@ function Register() {
         /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
       const isValid = regexPattern.test(value);
       console.log("===", isValid);
+
+      // Update the state with the new value
       setFormData((prevState) => ({
         ...prevState,
         [name]: value,
@@ -64,20 +83,20 @@ function Register() {
       }));
     }
   };
+
+  // Destructure form data from state
   const { password, confirmPassword } = formData;
+
+  // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (!password || !confirmPassword) {
       toast.error("Please enter all fields");
-    }
-    // else if (!isValidPassword) {
-    //   toast.error(
-    //     "password should be one letter, one digit, and is at least 8 characters "
-    //   );
-    // }
-    else {
+    } else {
       setLoader("LOADING ...");
+
+      // Send a POST request to set the new password
       let passwords = formData.password;
       fetch("/user/setPassword", {
         method: "POST",
@@ -86,7 +105,6 @@ function Register() {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "*",
         },
-
         body: JSON.stringify({ token, passwords }),
       })
         .then((response) => {
@@ -96,6 +114,7 @@ function Register() {
             throw new Error("Error sending data to the backend.");
           }
 
+          // Reset the form and show success message
           setFormData(initialFormData);
           toast.success("New Password is set Successfully");
           setLoader("SET PASSWORD");
@@ -103,15 +122,17 @@ function Register() {
         .catch((error) => {
           // Handle error here
           setLoader("SET PASSWORD");
-          toast.error("Some error occured");
+          toast.error("Some error occurred");
 
           console.log("Error sending data:", error);
         });
     }
   };
 
+  // Return the JSX for the component
   return (
     <>
+      {/* Render the Header component with a specific page prop */}
       <Header page="authPage" />
       <div
         style={{
@@ -130,7 +151,6 @@ function Register() {
             <div class="col-sm-10 offset-1 p-2">
               <div class="text-center">
                 <Form onSubmit={handleSubmit}>
-                  {" "}
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <InputGroup>
                       <Form.Control
@@ -235,4 +255,5 @@ function Register() {
   );
 }
 
+// Export the Register component
 export default Register;
