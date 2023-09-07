@@ -5,7 +5,8 @@ h1 {
   font-style: normal;
   font-weight: 600;
   line-height: 100px; /* 104.167% */
-  letter-spacing: 1.44px;
+  /* remove letter spacing */
+  /* letter-spacing: 1.44px; */
   text-transform: capitalize;
   max-width: 700px;
   padding: 10px 0;
