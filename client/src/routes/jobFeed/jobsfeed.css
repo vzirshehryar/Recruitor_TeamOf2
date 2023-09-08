@@ -5,11 +5,20 @@
   justify-content: center;
 }
 
-.filter-show-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.btn {
+ width: 37%;
+ height: 30px;
+ border: 4px solid grey;
+ border-radius: 0.1px;
+ font-size: 18px;
+ margin-left: 31%;
+ text-align: center;
+ padding: 0.1px  8px 2px 2px;
+
+ 
 }
+
+
 
 /* Media queries for responsiveness */
 @media (min-width: 1204px) {
@@ -17,12 +26,15 @@
 
   .custom-style {
     flex-direction: row;
+    width: auto;
     justify-content: space-between;
   }
 }
 
-@media (min-width: 786px) {
-  .filter-show-btn {
+@media (min-width: 836px) {
+  .btn {
     display: none;
+   
+   
   }
 }

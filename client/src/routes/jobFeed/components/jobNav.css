@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 40px 10px;
+  gap: 5px;
+  padding: 0px 3px;
   background: rgba(207, 19, 80, 0.02);
 }
 
@@ -32,7 +32,7 @@
   font-size: 14px;
   width: 250px; /* Make the input element full width */
   max-width: 300px; /* Add a maximum width */
-  padding: 8px 15px;
+  padding: 5px 15px;
 }
 
 .jobFeedFilter button {
@@ -42,7 +42,7 @@
   width: 100%; /* Make the button full width */
   max-width: 160px; /* Add a maximum width */
   font-size: 16px;
-  padding: 8px 30px;
+  padding: 5px 30px;
   margin-right: 5px;
 }
 
