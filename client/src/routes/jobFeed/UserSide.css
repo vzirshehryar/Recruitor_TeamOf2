@@ -516,7 +516,14 @@
 .displayJobs .JobCardTitle .image {
   border-radius: 10px;
   border: 0.6px solid #e32424;
-  padding: 5px 40px;
+  padding: 0px 28px;
+  height: 90px;
+  width: 160px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
 }
 .displayJobs .SeeMore {
   display: flex;

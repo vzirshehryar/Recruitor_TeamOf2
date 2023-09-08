@@ -117,45 +117,45 @@ function Header({ active, page }) {
             id="responsive-navbar-nav"
             style={{ justifyContent: "space-between" }}
           >
-            <Nav className="navBarLinks px-3 gap-4">
+            <Nav className="navBarLinks px-5 gap-4 ">
               <Link
                 className={`${active === "job" ? "active" : ""}`}
-                style={{ color: "white" }}
+                style={{ color: "white", fontSize: 16 }}
                 to="/jobfeed"
               >
                 Jobs
               </Link>
               <Link
                 className={`${active === "career" ? "active" : ""}`}
-                style={{ color: "white" }}
+                style={{ color: "white", fontSize: 16 }}
                 to="/career-form"
               >
                 Career Advice
               </Link>
               <Link
                 className={`${active === "salary" ? "active" : ""}`}
-                style={{ color: "white" }}
+                style={{ color: "white", fontSize: 16 }}
                 to="/salary-module"
               >
                 Salary Module
               </Link>
               <Link
                 className={`${active === "cover" ? "active" : ""}`}
-                style={{ color: "white" }}
+                style={{ color: "white", fontSize: 16 }}
                 to="/coverletter"
               >
                 Cover Letter
               </Link>
               <Link
                 className={`${active === "path" ? "active" : ""}`}
-                style={{ color: "white" }}
+                style={{ color: "white", fontSize: 16 }}
                 to="/career-path"
               >
                 Career Path
               </Link>
               <Link
                 className={`${active === "company" ? "active" : ""}`}
-                style={{ color: "white" }}
+                style={{ color: "white", fontSize: 16 }}
                 to="/company"
               >
                 Recruiting? Post A Job
@@ -165,14 +165,14 @@ function Header({ active, page }) {
               <Nav>
                 <button
                   className="getSignUpBtn"
-                  style={{ background: "transparent" }}
+                  style={{ background: "transparent", fontSize: 16 }}
                   onClick={signUpButton}
                 >
                   Register CV
                 </button>
                 <button
                   className="getLogInBtn"
-                  style={{ background: "transparent" }}
+                  style={{ background: "transparent", fontSize: 16 }}
                   onClick={loginButton}
                 >
                   Sign In
@@ -195,6 +195,7 @@ function Header({ active, page }) {
                           cursor: "pointer",
                           color: "white",
                         }}
+                        // className="ri-account-circle-line"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                       />
                     </div>
@@ -210,12 +211,20 @@ function Header({ active, page }) {
                           else navigate("/companydashboard");
                         }}
                       >
+                        {/* <i
+                          className="ri-account-box-fill"
+                          style={{ marginRight: "2%" }}
+                        ></i> */}
                         Dashboard
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={handleLogout}
                         style={{ textAlign: "center" }}
                       >
+                        {/* <i
+                          className="ri-logout-box-r-line"
+                          style={{ marginRight: "2%" }}
+                        ></i> */}
                         Logout
                       </Dropdown.Item>
                     </Dropdown.Menu>

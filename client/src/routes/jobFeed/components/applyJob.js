@@ -117,7 +117,7 @@ const ApplyJob = ({ job }) => {
   return (
     <div>
       <button
-        className="dabtn d-flex text-center justify-content-center"
+        className="dabtn appbt d-flex text-center justify-content-center"
         onClick={handleModal}
       >
         Apply Now

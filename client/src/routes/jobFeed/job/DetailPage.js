@@ -22,7 +22,7 @@ function calculateDaysSincePosted(dateposted) {
 
   console.log(timeDifference);
   // Calculate the number of days
-  const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60));
+  const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
   return daysDifference;
 }
@@ -80,17 +80,17 @@ function DetailPage() {
                       <div>
                         <h1 className="dhead  m-0 p-0">{jobData.jobTitle}</h1>
                         <p className="phead   m-0 p-0">
-                          Posted on {calculateDaysSincePosted(jobData.postedOn)}{" "}
-                          Days
+                          Posted {calculateDaysSincePosted(jobData.postedOn)}{" "}
+                          days ago
                         </p>
                       </div>
                     </Col>
-                    <Col>
+                    {/* <Col>
                       <div className="  gap-3 " md={{ span: 3, offset: 3 }}>
                         <AiOutlineLike className="" />
                         <BsShare />
                       </div>
-                    </Col>
+                    </Col> */}
                   </Row>
                   <Row>
                     <Col></Col>
@@ -100,7 +100,6 @@ function DetailPage() {
                       <div className="dloc ">
                         <div className="d-flex  grid text-center gap-4  justify-content-center ">
                           <p className="dl p-2">
-                            <BiEuro />
                             {jobData.maxSR ? "$ " + jobData.maxSR : "$ 30"} per
                             hours
                           </p>
@@ -116,10 +115,7 @@ function DetailPage() {
             {/* Overview, Background/Requirements, Required Skills, Application Questions */}
             <div className="d-flex justify-content-center px-5">
               <div className="dpad">
-                <h2 className="dheading mt-5 ">
-                  {" "}
-                  {jobData.jobTitle + " " + jobData.location + " "}
-                </h2>
+                <h2 className="dheading mt-5 "> Job Description</h2>
                 <p className="phead mt-4 px-3">
                   {jobData.jobDescription
                     ? jobData.jobDescription
@@ -130,7 +126,7 @@ function DetailPage() {
                   this is initially a 3-month full time contract, however there
                   is the possibility it could develop into a permanent position`}
                 </p>
-                <h2 className="dheading dpad ">Overview:</h2>
+                {/* <h2 className="dheading dpad ">Overview:</h2>
                 <ul className="dli lh-lg  mt-4 px-3">
                   <li className="">
                     Working closely with the In-House Team and Directors as well
@@ -176,13 +172,17 @@ function DetailPage() {
                   <li>
                     Ability to communicate your creative vision across the team.
                   </li>
-                </ul>
+                </ul> */}
                 <h2 className="dheading dpad">Required skills</h2>
-                <div className="mt-4 d-flex gap-4  text-center flex-wrap">
+                <div className="mt-4 px-5 d-flex gap-3  text-center flex-wrap">
                   {jobData.skills &&
                     jobData.skills.map((val, ind) => {
                       return (
-                        <h4 className="dl text-center p-3" key={ind}>
+                        <h4
+                          style={{ background: "#D3D3D3" }}
+                          className="dl text-center px-2 py-1 border rounded"
+                          key={ind}
+                        >
                           {val.skill}
                         </h4>
                       );
@@ -264,9 +264,9 @@ function DetailPage() {
                 <div className="d-flex gap-1 justify-content-center">
                   <div className=" dpad ">
                     <ApplyJob job={jobID} />
-                    <button className="dgabtn dheading mt-1 d-flex text-center justify-content-center">
+                    {/* <button className="dgabtn dheading mt-1 d-flex text-center justify-content-center">
                       get job alert
-                    </button>
+                    </button> */}
                   </div>
                 </div>
 

@@ -48,7 +48,7 @@ const JobNav = ({ Search }) => {
       {/* Search button and Browse Jobs link */}
       <div className="filter">
         <button onClick={handleSearch}>Search Jobs</button>
-        <Link to="">
+        {/* <Link to="">
           Browse Jobs
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ const JobNav = ({ Search }) => {
               fill="#1E1EF0"
             />
           </svg>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

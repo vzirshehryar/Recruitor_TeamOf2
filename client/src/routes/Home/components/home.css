@@ -1,5 +1,5 @@
 html {
-  --color-primary: #CF1350;
+  --color-primary: #cf1350;
   --font-primary: "Red Hat Text";
 }
 
@@ -57,14 +57,15 @@ html {
   color: black;
 }
 
-.navBarLinks>.active {
+.navBarLinks > .active {
   border-bottom: 2px solid white;
 }
 
 .logoH {
   color: #fff;
-  font-size: 30px;
+  font-size: 27px;
   font-family: Poppins;
+  font-weight: 500;
 }
 
 .logoH:hover,
@@ -115,7 +116,7 @@ html {
 } */
 
 @media screen and (max-width: 990px) {
-  .navBarLinks>.active {
+  .navBarLinks > .active {
     border: none;
     border-left: 2px solid white;
     padding-left: 5px;
@@ -254,7 +255,6 @@ html {
 }
 
 @media (max-width: 480px) {
-
   .backgroundDiv::before,
   .backgroundDiv::after {
     width: 200px;
@@ -418,7 +418,7 @@ html {
 
 .ai-h2 {
   font-family: Red Hat Text;
-  color: #0F151A;
+  color: #0f151a;
   font-size: 40px;
   font-weight: 800;
   line-height: 50px;
@@ -434,11 +434,10 @@ html {
   line-height: 27px;
   letter-spacing: 0em;
   text-align: left;
-
 }
 .ai-btn {
   margin-top: 20px;
-  background-color: #CF1350;
+  background-color: #cf1350;
   width: 250px;
   height: 42px;
   top: 243px;
@@ -447,7 +446,6 @@ html {
   border-radius: 5px;
   border: 1px solid;
 }
-
 
 @media (max-width: 1000px) {
   .right-section {
@@ -470,7 +468,6 @@ html {
     gap: 20px;
   }
 }
-
 
 /* Responsive Styles */
 
@@ -558,7 +555,6 @@ html {
 
 /* Small devices (landscape phones) */
 @media (max-width: 576px) {
-
   .bestPartCompHeading1,
   .bestPartTalentHeading1,
   .bestPartCompHeading2,
@@ -582,7 +578,6 @@ html {
 
 /* Medium devices (tablets) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-
   .bestPartCompHeading1,
   .bestPartTalentHeading1,
   .bestPartCompHeading2,
@@ -717,7 +712,7 @@ html {
 
 .whyUsContentCont {
   border-radius: 24px;
-  background: #CF1350;
+  background: #cf1350;
   color: white;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 30%;

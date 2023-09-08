@@ -58,34 +58,36 @@ function JobFeed() {
 
   // THIS FUNCTION IS FOR THE PURPOSE OF FILTERS ON SOME VALUES WHICH IS COMING FROM SIDEFILTER.JS COMPONENT WHICH IS IN jobFeed/components/SideFilter.js
   const filteredJobs = jobList.filter((job) => {
-    console.log(sideFilters);
+    console.log(job);
     var titleMatch = true,
       locationMatch = true,
       minSalary = true,
       maxSalary = true,
       jobType = true,
       specialism = true;
-    if (searchSector)
+    if (searchSector) {
+      console.log(job.industry);
       titleMatch = job.industry
         .toLowerCase()
         .includes(searchSector.toLowerCase());
-    if (searchLocation)
-      locationMatch = job.location
-        .toLowerCase()
-        .includes(searchLocation.toLowerCase());
-    if (sideFilters.salaryFrom !== NaN)
-      if (job.minSR < sideFilters.salaryFrom) minSalary = false;
-    if (sideFilters.salaryTo !== NaN)
-      if (job.maxSR > sideFilters.salaryTo) maxSalary = false;
-    if (sideFilters.selectedJobtype.length)
-      jobType = sideFilters.selectedJobtype.some((type) =>
-        job.jobType.includes(type)
-      );
-    if (sideFilters.selectedSpecialism.length)
-      specialism = sideFilters.selectedSpecialism.some((type) => {
-        console.log(job.industry, sideFilters.selectedSpecialism);
-        return job.industry.includes(type);
-      });
+    }
+    // if (searchLocation)
+    //   locationMatch = job.location
+    //     .toLowerCase()
+    //     .includes(searchLocation.toLowerCase());
+    // if (sideFilters.salaryFrom !== NaN)
+    //   if (job.minSR < sideFilters.salaryFrom) minSalary = false;
+    // if (sideFilters.salaryTo !== NaN)
+    //   if (job.maxSR > sideFilters.salaryTo) maxSalary = false;
+    // if (sideFilters.selectedJobtype.length)
+    //   jobType = sideFilters.selectedJobtype.some((type) =>
+    //     job.jobType.includes(type)
+    //   );
+    // if (sideFilters.selectedSpecialism.length)
+    //   specialism = sideFilters.selectedSpecialism.some((type) => {
+    //     console.log(job.industry, sideFilters.selectedSpecialism);
+    //     return job.industry.includes(type);
+    //   });
 
     return titleMatch && locationMatch && maxSalary && minSalary && jobType;
     // return titleMatch && locationMatch ;
@@ -330,7 +332,7 @@ function JobFeed() {
                     <div className="JobCardTitle mb-2">
                       <div className="JobCardTitle-carbon">
                         <h3>{item.jobTitle}</h3>
-                        <h5>11 July by Carbon 60</h5>
+                        <h5>{Date(item.postedOn).toString().slice(0, 11)}</h5>
                         <div
                           className="d-flex gap-1 align-items-center mb-1"
                           style={{ width: "400px" }}
@@ -350,7 +352,8 @@ function JobFeed() {
                         </div>
                       </div>
                       <div className="image">
-                        <img src="/rightToJobCard.png" alt="image" />
+                        CN
+                        {/* <img src="/rightToJobCard.png" alt="image" /> */}
                       </div>
                     </div>
                     <div

@@ -160,7 +160,7 @@ const SideFilter = ({ Search }) => {
           </div>
           <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} />
           {/* ---------- WORK FROM HOME ---------- */}
-          <div className="pt-4 pb-4">
+          {/* <div className="pt-4 pb-4">
             <label>
               <input
                 type="checkbox"
@@ -170,7 +170,7 @@ const SideFilter = ({ Search }) => {
               Work From Home
             </label>
           </div>
-          <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} />
+          <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} /> */}
           {/* ---------- DATE POSTED ---------- */}
           <div className="pt-4 pb-4">
             <h5 className={Style.h5}>Date Posted</h5>

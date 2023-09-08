@@ -20,29 +20,29 @@
   color: #000;
   text-align: center;
   font-family: Red Hat Text;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.6; 
+  line-height: 1.6;
   margin-right: 10px;
 }
 
 .jobFeedFilter input {
-  border-radius: 10px;
-  border: 1.4px solid #df1a50;
+  /* border-radius: 10px; */
+  border: 1.7px solid #df1a50;
   font-size: 14px;
-  width: 100%; /* Make the input element full width */
+  width: 250px; /* Make the input element full width */
   max-width: 300px; /* Add a maximum width */
-  padding: 5px 10px;
+  padding: 8px 15px;
 }
 
 .jobFeedFilter button {
-  border-radius: 10px;
+  /* border-radius: 10px; */
   background: #cf1350;
   box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
   width: 100%; /* Make the button full width */
   max-width: 160px; /* Add a maximum width */
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 8px 30px;
   margin-right: 5px;
 }
 
