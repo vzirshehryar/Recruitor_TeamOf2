@@ -140,6 +140,7 @@
 }
 
 .loginBtn {
+  top: 0;
   border: none;
   cursor: pointer;
   width: 100%;

@@ -209,7 +209,7 @@ function KeyQualities() {
                 <div
                     className="keyQuality-plus-button-container-parent "
                     onClick={openPopUpKey}
-                >
+                >   <p className="skill-ptag">Add Skills</p>
                     <Plus />
                 </div>
             </div>

@@ -80,6 +80,13 @@ body {
 .Line-Container {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
+}
+.skill-ptag{
+    position: relative;
+    top: 10px;
+    font-size: 25px;
+    left: 48px;
 }
 
 .keyQuality-mini-container-2 {
@@ -216,7 +223,7 @@ body {
 .button-container-key {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 130px;
     width: 950px;
     margin-left: auto;
     margin-right: auto;
@@ -248,8 +255,60 @@ body {
 .keyQuality-plus-button-container-parent {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    /* margin-top: 40px; */
+    border: 1px solid #cf1350;
+    border-radius: 4px ;
+    width: 12%;
+    padding: 5px 10px;
+    background-color: #fff;
+    margin: auto;
 }
+/* .keyQuality-plus-button-container-parent  svg{
+    position: relative;
+    left: 20rem;
+    
+} */
+ @media (max-width:700px) {
+    .keyQuality-plus-button-container-parent  svg{
+        position: relative;
+        left: 4rem;
+        
+    }
+} 
+
+.keyQuality-plus-button-container-parent  svg{
+        position: relative;
+        right: 165px;
+        bottom: 22px;
+        width: 400px;
+        
+    }
+    @media (max-width:400px) {
+        .keyQuality-plus-button-container-parent  svg{
+            position: relative;
+            /* right: 50px !important; */
+             bottom: 7px;
+            width: 100px !important;
+            left: -38px;
+        
+
+            
+        }
+        .skill-ptag{
+            position: relative;
+            left: 20px !important;
+            font-size: small;
+            font-weight: 500;
+            top: 16px !important;
+        }
+        .keyQuality-plus-button-container-parent {
+            width: 25%;
+            padding: 3px 5px;
+            margin-top: -41px;
+        }
+        
+    }
+
 
 .Parent-Container-PopUpKey {
     width: 100%;
@@ -397,9 +456,11 @@ body {
         font-size: 12px;
     }
     .keyQuality-mini-container-1 {
-        width: 100%;
+        /* adjust the width */
+        width: 80%;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 19px;
     }
     .fix-keyQuality-mini-con-1 {
         display: flex;
@@ -459,6 +520,8 @@ body {
         font-style: normal;
         font-weight: 400;
         line-height: 30px; /* 83.333% */
+        margin-top: 70px !important;
+        line-height: 17px;
     }
     .next-button-key {
         width: 200px;
@@ -470,12 +533,15 @@ body {
         font-style: normal;
         font-weight: 400;
         line-height: 30px; /* 83.333% */
+        margin-top: 69px !important;
+        line-height: 17px;
     }
     .button-container-key {
         display: flex;
         justify-content: space-between;
         margin-top: 50px;
-        width: 100%;
+        /* adjust the width */
+        width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
