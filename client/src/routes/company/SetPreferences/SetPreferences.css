@@ -15,13 +15,17 @@
     gap: 0.5rem;
 }
 
-input[type="checkbox"] {
+ input[type="checkbox"] {
     width: fit-content;
     height: fit-content;
     border-radius: 4px;
-    /* change the color of checkbox */
+    /* change the color of checkbox */ 
+    color:#cf1350;
+}
+.input-pref123{
     accent-color:#cf1350;
 }
+
 
 label {
     margin: 0;

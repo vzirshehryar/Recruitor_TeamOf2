@@ -27,13 +27,13 @@
   
   /* Define styles for the new heading container */
   .new-heading-career-container1 {
-    width: 60%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #FFF;
     margin-top: 60px;
-    margin-bottom: 60px;
+    
   }
   
   /* Define styles for the new heading */
@@ -93,7 +93,7 @@
   }
   
   /* Define styles for result display field */
-  .career-form-field123 {
+  .career-form-field1233345 {
     align-items: center;
     width: 100%;
     display: flex;
@@ -102,10 +102,11 @@
     align-items: start;
     margin-top: 20px;
     margin-left: 70px;
+   
   }
   
   /* Define styles for form labels */
-  .career-form-label1 {
+  .career-form-label11111 {
     color: #000;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
@@ -172,13 +173,156 @@
   }
   
   @media (max-width: 768px) {
-    /* Media query for screens with a maximum width of 768px */
-  
-    .career-container1 {
-      display: flex;
-      flex-direction: column; /* Stack children vertically */
-      align-items: center;
-      width: 100%;
+    /* Adjust styles for smaller screens */
+    body{
+        overflow-x: hidden
     }
-  
+    .career-container1 {
+        display: flex;
+        flex-direction: column; /* Stack children vertically */
+        align-items: center;
+        width: 100%;
+    
+    /* ... (Adjust other styles as needed for smaller screens) */
 }
+
+.rectangle-career11{
+    width: 100%;
+    height: 80px;
+    background: #CF1350;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heading-career1 {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size:24px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.new-heading-career-container11{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Styles for the subheading outside the red rectangle */
+.new-heading-career1 {
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    width: 100%;
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: -5px;
+}
+.form-career-container1 {
+    width: 100%;
+    background: #FCFCFC;
+    border-radius: 1px;
+    box-shadow: none;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+   
+}
+
+/* Styles for the form itself */
+.career-form1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;/* Add spacing between fields */
+   
+}
+.career-form-label11111{
+  font-size: 20px;
+  margin-top: 0px;
+  font-weight: 500;
+}
+
+.career-form-field1{
+    align-items: center;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+   
+
+}
+.career-form-input1 {
+    width: 100%;
+    height: 38px;
+    padding: 10px;
+    border-radius: 8px;
+    border-color: #a8a8a8;
+    border: 2px solid #0000001A;
+    background: #FFF;
+    box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.10);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.career-form-field1233345{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Reduce spacing for this field */
+    align-items: start;
+    margin-top: 20px;
+    margin-left: 0;
+    text-align: start;
+}
+.career-form-input23 {
+    width: 100%;
+    height:60px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #0000001A;
+    background: #FFF;
+    box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.10);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    display: flex;
+    text-align: start;
+}
+
+
+.button-field12 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+/* Styles for the submit button */
+.submit-button12 {
+    border-radius: 4px;
+    background: #CF1350;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 35px;
+    font-weight: 600;
+    border:solid 1px #CF1350;
+}
+}
+
+  

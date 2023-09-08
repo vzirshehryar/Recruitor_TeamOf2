@@ -76,7 +76,7 @@
 }
 
 h4 {
-    margin-right: 40px;
+    margin-right: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,14 +91,17 @@ h4 {
     text-align: left;
     padding-inline: 0 !important;
 }
+
+
 .bg {
     background-color: #cf1350;
     color: white;
 }
-
+.bo
 .checked {
-    background-color: #cf1350;
+    background-color: #cf134f;
     color: white;
+    
 }
 
 body {

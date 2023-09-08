@@ -68,6 +68,13 @@
   font-style: normal;
   font-weight: 600;
   margin-top: 3%;
+  @media (max-width: 700px) {
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+  }
 
   text-transform: capitalize;
  text-align: center;
@@ -79,6 +86,15 @@
   font-weight: 400;
   font-size: 32px;
   margin-top: 25px;
+  @media (max-width: 700px) {
+    color: black;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+  
  
 }
 .cover-letter-contact-para {
@@ -99,7 +115,7 @@
   margin-top: 40px;
   align-items: start;
   @media (max-width: 480px) {
-    width: 110%; 
+    width: 100%; 
     
     
 }
@@ -158,6 +174,14 @@ label {
   font-weight: 600;
   align-self: start;
   margin-bottom: 20px;
+  @media (max-width: 700px) {
+    font-size: 28px;
+  font-weight: 700;
+  align-self: start;
+  margin-bottom: 0px;
+  
+      
+  }
 }
 .cover-letter-form-section-heading1{
   margin-top: 60px;

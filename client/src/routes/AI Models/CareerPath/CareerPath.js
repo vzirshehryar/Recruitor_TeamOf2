@@ -68,7 +68,7 @@ const CareerPath = () => {
           <form className="career-form1" onSubmit={handleSubmit}>
             {/* Textarea field for Seeking Priority */}
             <div className="career-form-field1">
-              <label htmlFor="priority" className="career-form-label1">
+              <label htmlFor="priority" className="career-form-label11111">
                 Seeking Priority
               </label>
               <input
@@ -85,7 +85,7 @@ const CareerPath = () => {
             </div>
             {/* Textarea field for Interests */}
             <div className="career-form-field1">
-              <label htmlFor="interests" className="career-form-label1">
+              <label htmlFor="interests" className="career-form-label11111">
                 Interests
               </label>
               <input
@@ -102,7 +102,7 @@ const CareerPath = () => {
             </div>
             {/* Textarea field for Job Preferences */}
             <div className="career-form-field12">
-              <label htmlFor="jobPrefrences" className="career-form-label1">
+              <label htmlFor="jobPrefrences" className="career-form-label11111">
                 Job Preferences
               </label>
               <input
@@ -131,7 +131,7 @@ const CareerPath = () => {
             </div>
           </form>
           {/* Display the result */}
-          <div className="career-form-field123">
+          <div className="career-form-field1233345">
             <textarea
               type="text"
               className="career-form-input23"

@@ -98,7 +98,7 @@ export const SetPreferences = () => {
                                 <input
                                     type="checkbox"
                                     id="sendIndividualEmails"
-                                    className="input-pref"
+                                    className="input-pref123"
                                 />
                                 <label htmlFor="sendIndividualEmails">
                                     Plus, send an individual email update each
@@ -113,7 +113,7 @@ export const SetPreferences = () => {
                                 <input
                                     type="checkbox"
                                     id="ByEmailToTheAddress"
-                                    className="input-pref"
+                                    className="input-pref123"
                                 />
                                 <label htmlFor="ByEmailToTheAddress">
                                     By email to the address provided
@@ -123,7 +123,7 @@ export const SetPreferences = () => {
                                 <input
                                     type="checkbox"
                                     id="ByPhone"
-                                    className="input-pref"
+                                    className="input-pref123"
                                 />
                                 <label htmlFor="ByPhone">By Phone</label>
                             </div>

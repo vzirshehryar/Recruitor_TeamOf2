@@ -137,7 +137,7 @@
              {/* Employer Details Section */}
              <div className="cover-letter-form-div">
                <div className="cover-letter-form-section-heading1">
-                 <div className="Employer Details">Employer Details</div>
+                 <div className="heading-size1">Employer Details</div>
                </div>
                <div>
                  <label htmlFor="">Company Name</label>
@@ -161,7 +161,7 @@
              {/* Letter Details Section */}
              <div className="cover-letter-form-div">
                <div className="cover-letter-form-section-heading12">
-                 <div>Letter Details</div>
+                 <div className="heading-size1">Letter Details</div>
                </div>
                <div className="label-for-life">
                  <label htmlFor="" className="lalle">

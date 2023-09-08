@@ -59,19 +59,19 @@ const CareerForm = () => {
       <Header active="career" /> {/* Render the header component with an "active" prop */}
       <div className="career-container11">
         <div className="rectangle-career11">
-          <h1 className="heading-career1">Career Coach</h1>
+          <div className="heading-career11">Career Coach</div>
         </div>
         <div className="new-heading-career-container11">
-          <h2 className="new-heading-career11">
+          <div className="new-heading-career11">
             Answer a few simple questions, and receive personalized advice to
             elevate your career to new heights.
-          </h2>
+          </div>
         </div>
-        <div className="form-career-container1">
+        <div className="form-career-container11">
           {/* Render the career form */}
           <form className="career-form11" onSubmit={handleSubmit}>
             {/* Input field for Current Role */}
-            <div className="career-form-field1">
+            <div className="career-form-field11">
               <label htmlFor="currentRole" className="career-form-label11">
                 Current Role
               </label>
@@ -86,7 +86,7 @@ const CareerForm = () => {
               />
             </div>
             {/* Input field for Skills */}
-            <div className="career-form-field1">
+            <div className="career-form-field11">
               <label htmlFor="skills" className="career-form-label11">
                 Skill
               </label>
@@ -101,14 +101,14 @@ const CareerForm = () => {
               />
             </div>
             {/* Textarea field for Career Goal */}
-            <div className="career-form-field1">
+            <div className="career-form-field11">
               <label htmlFor="careerGoal" className="career-form-label11">
                 Career Goal
               </label>
               <input
                 type="text"
                 id="careerGoal"
-                className="career-form-input12"
+                className="career-form-input1"
                 placeholder="What is Your Career Goal?"
     
                 required
@@ -117,7 +117,7 @@ const CareerForm = () => {
               />
             </div>
             {/* Textarea field for Seeking Priority */}
-            <div className="career-form-field12">
+            <div className="career-form-field11">
               <label htmlFor="priority" className="career-form-label11">
                 Seeking Priority
               </label>
@@ -133,14 +133,14 @@ const CareerForm = () => {
               />
             </div>
             {/* Textarea field for Interests */}
-            <div className="career-form-field1">
+            <div className="career-form-field11">
               <label htmlFor="interests" className="career-form-label11">
                 Interests
               </label>
               <input
                 type="text"
                 id="interests"
-                className="career-form-input12"
+                className="career-form-input1"
                 placeholder="What Are Your Interests?"
                
                 required
@@ -149,14 +149,14 @@ const CareerForm = () => {
               />
             </div>
             {/* Textarea field for Job Preferences */}
-            <div className="career-form-field12">
+            <div className="career-form-field11">
               <label htmlFor="jobPrefrences" className="career-form-label11">
                 Job Preferences
               </label>
               <input
                 type="text"
                 id="jobPrefrences"
-                className="career-form-input12"
+                className="career-form-input1"
                 placeholder="What Are Your Job Preferences?"
                 
                 required
@@ -176,7 +176,7 @@ const CareerForm = () => {
             </div>
           </form>
           {/* Display the result */}
-          <div className="career-form-field12345">
+          <div className="career-form-field13233345">
             <textarea
               type="text"
               className="career-form-input123"

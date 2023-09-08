@@ -50,8 +50,8 @@
 }
 
 /* Styles for the main form container */
-.form-career-container1 {
-    width: 80%;
+.form-career-container11 {
+    width: 60%;
     background: #FCFCFC;
     border-radius: 13px;
     box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.15);
@@ -70,11 +70,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 80px;
+    margin-left: 100px;
 }
 
 /* Styles for each form field */
-.career-form-field1 {
+.career-form-field11 {
     align-items: center;
     width: 100%;
     display: flex;
@@ -94,14 +94,14 @@
 }
 
 /* Styles for the result display field */
-.career-form-field12345{
+.career-form-field13233345{
     width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 20px; /* Reduce spacing for this field */
     align-items: start;
     margin-top: 20px;
-    margin-left: 70px;
+ align-items: center;
     text-align: start;
 }
 
@@ -199,15 +199,157 @@
 /* Media query for screens with a maximum width of 768px */
 @media (max-width: 768px) {
     /* Adjust styles for smaller screens */
-    
-    .career-container1 {
-        /* ... (Add modified styles here) */
+    body{
+        overflow-x: hidden
     }
+    .career-container11 {
+        display: flex;
+        flex-direction: column; /* Stack children vertically */
+        align-items: center;
+        width: 100%;
     
     /* ... (Adjust other styles as needed for smaller screens) */
 }
 
-/* Media query for screens with a width between 769px and 991px */
-@media (min-width: 769px) and (max-width: 991px) {
-    /* Add specific styles for medium-sized screens */
+.rectangle-career11{
+    width: 100%;
+    height: 80px;
+    background: #CF1350;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heading-career1 {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size:24px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.new-heading-career-container11{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Styles for the subheading outside the red rectangle */
+.new-heading-career11 {
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: -5px;
+}
+.form-career-container11 {
+    width: 100%;
+    background: #FCFCFC;
+    border-radius: 1px;
+    box-shadow: none;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+   
+}
+
+/* Styles for the form itself */
+.career-form11 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;/* Add spacing between fields */
+   
+}
+
+/* Styles for each form field */
+.career-form-field1 {
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 30px; 
+    
+}
+.career-form-field11{
+    align-items: center;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 30px; 
+
+}
+.career-form-input1 {
+    width: 100%;
+    height: 38px;
+    padding: 10px;
+    border-radius: 8px;
+    border-color: #a8a8a8;
+    border: 2px solid #0000001A;
+    background: #FFF;
+    box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.10);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.career-form-field1233345{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Reduce spacing for this field */
+    align-items: start;
+    margin-top: 20px;
+    
+    text-align: start;
+}
+.career-form-input123 {
+    width: 100%;
+    height:60px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #0000001A;
+    background: #FFF;
+    box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.10);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    display: flex;
+    text-align: start;
+}
+
+
+.button-field123 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+/* Styles for the submit button */
+.submit-button123 {
+    border-radius: 4px;
+    background: #CF1350;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 35px;
+    font-weight: 600;
+    border:solid 1px #CF1350;
+}
 }

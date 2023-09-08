@@ -197,7 +197,7 @@ export const PayBenefits = () => {
                                                 <label
                                                     htmlFor={`checkbox-${index}`}
                                                 >
-                                                    <h4>+{bonus}</h4>
+                                                    <div className="bonus-container22">+{bonus}</div>
                                                 </label>
                                             </div>
                                         ))}
