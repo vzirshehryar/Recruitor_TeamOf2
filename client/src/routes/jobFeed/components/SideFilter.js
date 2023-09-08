@@ -73,11 +73,11 @@ const SideFilter = ({ Search }) => {
   return (
     <>
       <Row
-        className={`pt-4 pb-5 SideFilter ${Style.SideFilter}`}
-        style={{ minWidth: "230px" }}
+        className={`pt-4 pb-1 SideFilter ${Style.SideFilter}`}
+        style={{ minWidth: "220px" }}
       >
-        <div>
-          <h3 className={Style.h3}>Filter By</h3>
+        <div className="sliders">
+        <h5 className={Style.h3}>Filter by</h5>
           {/* ---------- LOCATI0N ---------- */}
           {/* <div className="pt-4 pb-4">
             <h5 className={Style.h5}>Location</h5>
@@ -97,6 +97,7 @@ const SideFilter = ({ Search }) => {
           <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} /> */}
           {/* ---------- SALARY RANGE ---------- */}
           <div className="pt-4 pb-2">
+           
             <h5 className={Style.h5}>Salary Range</h5>
             <p className={`${Style.p} mt-2 mb-1`}>From</p>
             <select

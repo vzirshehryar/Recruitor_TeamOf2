@@ -198,8 +198,8 @@ function JobFeed() {
       <div className="jobFeedPage">
         <JobNav Search={Search} />
         <Container fluid className="jobFeedContainer">
-          <Button className="filter-show-btn" onClick={toggleFilter}>
-            Filters
+          <Button className="btn btn-light  mt-2" onClick={toggleFilter}>
+           Filters
           </Button>
           <Container className="custom-style">
             {Search && showFilter && <SideFilter Search={Search} />}
