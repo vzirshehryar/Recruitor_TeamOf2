@@ -27,7 +27,7 @@ function Services() {
       <div className="mt-4 d-flex align-center justify-content-center gap-3 mb-2">
         {/* Search by Sector option */}
         <p
-          className={`px-3 py-2 cursor-pointer ${
+          className={`px-3 py-0 cursor-pointer ${
             select === "sector" ? Style.serviceactive : ""
           }`}
           onClick={() => setSelect("sector")} // Set "sector" as the selected option
@@ -46,38 +46,38 @@ function Services() {
       </div>
 
       {/* Job search sections */}
-      <div className="mt-3 d-flex flex-wrap justify-content-center gap-4">
+      <div className="mt-3 d-flex flex-wrap justify-content-center gap-3">
         {/* Sample job categories */}
         <div>
-          <img src="/TechnologyJobs.png" alt="image" />
-          <p style={{ textAlign: "left", paddingTop: "5px" }}>Technology</p>
+          <img  style={{ width:"220px" }}src="/TechnologyJobs.png" alt="image" />
+          <p style={{ textAlign: "left", paddingTop: "5px" }}>IT & TELECOM</p>
         </div>
         <div>
-          <img src="/EngineeringJobs.png" alt="image" />
-          <p style={{ textAlign: "left", paddingTop: "5px" }}>Engineering</p>
+          <img style={{ width:"220px" }} src="/EngineeringJobs.png" alt="image" />
+          <p style={{ textAlign: "left", paddingTop: "5px" }}>Customer Service</p>
         </div>
         <div>
-          <img src="/GraduatesJobs.png" alt="image" />
-          <p style={{ textAlign: "left", paddingTop: "5px" }}>Graduates</p>
+          <img style={{ width:"220px" }} src="/GraduatesJobs.png" alt="image" />
+          <p style={{ textAlign: "left", paddingTop: "5px" }}>Art</p>
         </div>
         <div>
-          <img src="/HealthJobs.png" alt="image" />
-          <p style={{ textAlign: "left", paddingTop: "5px" }}>Health</p>
+          <img style={{ width:"220px" }} src="/HealthJobs.png" alt="image" />
+          <p style={{ textAlign: "left", paddingTop: "5px" }}>Admin, Secreterial & PA</p>
         </div>
       </div>
-
-      {/* "See more" or "See less" button */}
+{/*
       <div className={`${Style.seemore}`} onClick={() => setMore(!more)}>
         {!more ? (
           <>
-            See more Sectors <FaAngleDown /> {/* Displayed when "See more" */}
+            See more Sectors <FaAngleDown />
           </>
         ) : (
           <>
-            See less Sectors <FaAngleUp /> {/* Displayed when "See less" */}
+            See less Sectors <FaAngleUp /> 
           </>
         )}
       </div>
+      */}
     </div>
   );
 }
