@@ -66,6 +66,7 @@ export const postData = async (req, res) => {
 
     return res.status(201).json({
       progress: progress,
+      user: user,
       message: "Personal Information Added Successfully",
     });
   } catch (error) {

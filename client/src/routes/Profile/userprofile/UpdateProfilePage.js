@@ -28,7 +28,9 @@ export default function UpdateProfilePage() {
           <div className={profileStyles["right"]}>
             <div className={profileStyles["personal-information-container"]}>
               <div className={profileStyles["heading-container"]}>
-                <h3>Looking For</h3>
+                <h3 className="p-0 m-2" style={{ fontSize: "20px" }}>
+                  Looking For
+                </h3>
                 <Link to="/set-profile" className={profileStyles["buttons"]}>
                   Edit
                 </Link>
@@ -57,9 +59,9 @@ export default function UpdateProfilePage() {
                       <h3>Job type</h3>
                       <p>Full-time, Part-time</p>
                     </li>
-                    <li>
+                    {/* <li>
                       <h3 style={{ marginBottom: "20px" }}>Sectors & roles</h3>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
                 <a

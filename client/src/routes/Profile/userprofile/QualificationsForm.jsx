@@ -62,7 +62,9 @@ function QualificationsForm() {
         style={{ position: "relative" }}
       >
         <div className={profileStyles["heading-container-dotted"]}>
-          <h3>Qualifications</h3>
+          <h3 className="p-0 m-2" style={{ fontSize: "20px" }}>
+            Qualifications
+          </h3>
         </div>
         <div className={profileStyles["details-container"]} style={{}}>
           <div className={profileStyles["lower-container"]}>
@@ -73,13 +75,12 @@ function QualificationsForm() {
           <a
             href="#"
             className={`${profileStyles["absolute-buttons"]}`}
-            style={{ position: "absolute" }}
             onClick={(e) => {
               e.preventDefault();
               setDisplay(true);
             }}
           >
-            Add Language +
+            Add Qualification +
           </a>
         </div>
       </div>
@@ -89,7 +90,7 @@ function QualificationsForm() {
         }`}
       >
         <div className={profileStyles["edit-form"]}>
-          <h3 style={{ color: "black", fontSize: "28px" }}>
+          <h3 style={{ color: "black", fontSize: "18px" }} className="p-0">
             Add Qualification
           </h3>
           <form onSubmit={handleSubmit}>

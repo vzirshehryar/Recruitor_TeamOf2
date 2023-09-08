@@ -54,7 +54,9 @@ function LanguagesForm() {
         style={{ position: "relative" }}
       >
         <div className={profileStyles["heading-container-dotted"]}>
-          <h3>Languages</h3>
+          <h3 className="p-0 m-2" style={{ fontSize: "20px" }}>
+            Languages
+          </h3>
         </div>
         <div className={profileStyles["details-container"]} style={{}}>
           <div className={profileStyles["lower-container"]}>
@@ -63,7 +65,6 @@ function LanguagesForm() {
           <a
             href="#"
             className={`${profileStyles["absolute-buttons"]}`}
-            style={{ position: "absolute" }}
             onClick={(e) => {
               e.preventDefault();
               setDisplay(true);
@@ -79,7 +80,9 @@ function LanguagesForm() {
         }`}
       >
         <div className={profileStyles["edit-form"]}>
-          <h3 style={{ color: "black", fontSize: "28px" }}>Add Language</h3>
+          <h3 style={{ color: "black", fontSize: "18px" }} className="p-0">
+            Add Language
+          </h3>
           <form onSubmit={handleSubmit}>
             <ul>
               <li>

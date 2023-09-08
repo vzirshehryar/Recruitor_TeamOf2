@@ -32,7 +32,6 @@ const ProfileSideBar = () => {
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
               alignItems: "center",
               padding: "10px",
             }}
@@ -50,7 +49,24 @@ const ProfileSideBar = () => {
               Edit
             </a> */}
           </div>
-          <div style={{ padding: "10px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              padding: "10px",
+            }}
+          >
+            <div>
+              <h5 style={{ color: "black" }}>{user.lastName}</h5>
+              <p>{user.email}</p>
+              <p>{user.phNo}</p>
+            </div>
+            <div className={editProfileStyle["FLimage"]}>
+              {user.firstName ? user.firstName[0] : "F"}
+              {user.lastName ? user.lastName[0] : "L"}
+            </div>
+          </div>
+          {/* <div style={{ padding: "10px" }}>
             <ul style={{ marginBottom: "20px" }}>
               <li>
                 <h3 style={{ color: "black" }}>{user.lastName}</h3>
@@ -76,7 +92,7 @@ const ProfileSideBar = () => {
                 <p>{user.email}</p>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
         <div className={editProfileStyle["second-div"]}>
           <div style={{ padding: "10px" }}>
@@ -84,10 +100,10 @@ const ProfileSideBar = () => {
           </div>
           <div style={{ padding: "10px" }}>
             <ul>
-              <li>
+              {/* <li>
                 <p>CV Upload</p>
                 <input type="checkbox" checked disabled />
-              </li>
+              </li> */}
               <li>
                 <p>About You</p>
                 <input type="checkbox" checked disabled />
@@ -96,10 +112,10 @@ const ProfileSideBar = () => {
                 <p>Looking For</p>
                 <input type="checkbox" checked disabled />
               </li>
-              <li>
+              {/* <li>
                 <p>Status And Availability</p>
                 <input type="checkbox" disabled />
-              </li>
+              </li> */}
               <li>
                 <p>Work Experience</p>
                 <input type="checkbox" disabled />

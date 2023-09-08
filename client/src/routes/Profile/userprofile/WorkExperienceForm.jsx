@@ -62,7 +62,9 @@ function WorkExperienceForm() {
         style={{ position: "relative" }}
       >
         <div className={profileStyles["heading-container-dotted"]}>
-          <h3>Work Experience</h3>
+          <h3 className="p-0 m-2" style={{ fontSize: "20px" }}>
+            Work Experience
+          </h3>
         </div>
         <div className={profileStyles["details-container"]} style={{}}>
           <div className={profileStyles["lower-container"]}>
@@ -73,13 +75,12 @@ function WorkExperienceForm() {
           <a
             href="#"
             className={`${profileStyles["absolute-buttons"]}`}
-            style={{ position: "absolute" }}
             onClick={(e) => {
               e.preventDefault();
               setDisplay(true);
             }}
           >
-            Add Language +
+            Add Work Experience +
           </a>
         </div>
       </div>
@@ -89,7 +90,7 @@ function WorkExperienceForm() {
         }`}
       >
         <div className={profileStyles["edit-form"]}>
-          <h3 style={{ color: "black", fontSize: "28px" }}>
+          <h3 style={{ color: "black", fontSize: "18px" }} className="p-0">
             Add Work Experience
           </h3>
           <form onSubmit={handleSubmit}>
@@ -138,7 +139,9 @@ function WorkExperienceForm() {
                   </select>
                 </label>
               </li>
-              <li className={profileStyles["special-item"]}>
+              <li
+                className={`${profileStyles["special-item"]} ${profileStyles["special-item2"]}`}
+              >
                 <label>
                   <p>Start Date*</p>
                   <input
@@ -150,7 +153,7 @@ function WorkExperienceForm() {
                   />
                 </label>
                 <label className={profileStyles["slider-label"]}>
-                  <p>Currently Working?</p>
+                  <p>Working?</p>
                   <input
                     name="currentlyWorking"
                     value={formData.currentlyWorking}
