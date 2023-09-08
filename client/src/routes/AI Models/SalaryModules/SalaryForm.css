@@ -264,6 +264,7 @@
     height: 50px;
     font-weight: 600;
     border:solid 1px #CF1350;
+    margin-top: 62px;
 }
 .next-button-Salrry112:hover {
   background: #a81241;
@@ -294,7 +295,24 @@
     line-height: 36px;
     font-weight: 500;
   }
-
+  .heading-salary1233 {
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    line-height: 36px;
+    font-weight: 500;
+  }
+  .new-heading-salary1{
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    font-size: 33px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 62px;
+    text-transform: capitalize;
+    text-align: center;
+  }
   .new-heading-salary-container {
     width: 90%;
     display: flex;

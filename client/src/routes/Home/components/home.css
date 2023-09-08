@@ -94,6 +94,7 @@ html {
   padding: 10px 15px;
   border-radius: 5px;
   /* width: 120px; */
+  top: 0;
 }
 
 .getLogInBtn {
@@ -104,6 +105,7 @@ html {
   padding: 10px 15px;
   border-radius: 5px;
   /* width: 120px; */
+  top: 0;
 }
 
 /* .getLogInBtn:hover {

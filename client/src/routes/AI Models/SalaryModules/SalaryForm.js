@@ -79,12 +79,12 @@ const SalaryForm = () => {
         {/* Container for the top rectangle with the heading */}
         <div className="rectangle-salary">
           {/* Heading for the Salary Module */}
-          <h1 className="heading-salary">Salary Module</h1>
+          <div className="heading-salary1233">Salary Module</div>
         </div>
 
         {/* Container for the new heading */}
         <div className="new-heading-salary-container">
-          <h3 className="new-heading-salary1">Calculate your salary</h3>
+          <div className="new-heading-salary1">Calculate your salary</div>
           <p className="new-heading-salary2">
             Get paid what you&apos;re worth in today&apos;s job market
           </p>

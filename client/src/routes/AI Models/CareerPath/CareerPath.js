@@ -55,7 +55,7 @@ const CareerPath = () => {
     <>
       <Header active="path" /> {/* Render the header component with an "active" prop */}
       <div className="career-container1">
-        <div className="rectangle-career1">
+        <div className="rectangle-career11">
           <h1 className="heading-career1">Career Path</h1>
         </div>
         <div className="new-heading-career-container1">

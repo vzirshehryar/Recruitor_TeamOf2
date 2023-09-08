@@ -7,7 +7,9 @@ import guyWithMic from "../../../assests/images/guy-with-microphone.png";
 import womenInRedDress from "../../../assests/images/women-in-red-dress.png";
 import Header from "../../Home/components/header";
 import Footer from "../../Home/components/footer";
+import Bulb from "../../../assests/svg/Bulb";
 import HandShake from "../../../assests/svg/handshakeSvg";
+import Chart from "../../../assests/svg/chart";
 
 const styleH2 = {
   color: "#3E055B",
@@ -45,9 +47,9 @@ const Home = () => {
 
             <h1 className="">Dream Career</h1>
             </div>
-            <h3 className="company-home-welcome-para mb-4">Find Top Talent!</h3>
+            <h3 className="company-home-welcome-para mb-4 ">Find Top Talent!</h3>
             <button
-              className="company-home-action-button"
+              className="company-home-action-button_1"
               onClick={handlePostJob}
             >
               Post Job
@@ -59,23 +61,7 @@ const Home = () => {
         </div>
         {/* added bootstrap styles to adjust the margin */}
         {/* added an icon-sention */}
-        <div className="icons-section d-flex mt-3">
-                  <div className="icon-handshake">
-                        <div><HandShake/></div>
-                        <h2>wer'e trusted</h2>
-                        <p>something text somtinh</p>
-                  </div>
-                  <div className="icon-handshake">
-                        <div><HandShake/></div>
-                        <h2>wer'e trusted</h2>
-                        <p>something text somtinh</p>
-                  </div>
-                  <div className="icon-handshake">
-                        <div><HandShake/></div>
-                        <h2>wer'e trusted</h2>
-                        <p>something text somtinh</p>
-                  </div>
-        </div>
+        
             
         <div id="whyus" className="py-5 p-3 no-mwidth mb-5">
           {/* added bootstrap styles to adjust the content in center */}
@@ -84,7 +70,28 @@ const Home = () => {
 
           </div>
           <br></br>
-          <div className="whyUsSecondHeadingCont">
+
+          <div className="icons-section d-flex mt-5">
+                  <div className="icon-handshake">
+                        <div><HandShake/></div>
+                        <h4>Wer'e trusted</h4>
+                        
+                  </div>
+
+                  <div className="icon-handshake">
+                        <div><Bulb/></div>
+                        <h4>We're #1 choice!</h4>
+                        
+                  </div>
+
+                  <div className="icon-handshake">
+                        <div><Chart/></div>
+                        <h4>We deliever results!</h4>
+                        
+                  </div>
+                 
+        </div>
+          {/* <div className="whyUsSecondHeadingCont">
             <h2
               className="text-center whyUsSecondHeading"
               style={{ color: "#404145", maxWidth: "900px" }}
@@ -92,8 +99,8 @@ const Home = () => {
               Experience the difference with our unparalleled recruitment
               solutions that connect talent with opportunity.
             </h2>
-          </div>
-          <div className="pt-5 pb-5 no-mwidth">
+          </div> */}
+          {/* <div className="pt-5 pb-5 no-mwidth">
             <div className="d-flex justify-content-between flex-wrap text-center p-3 gap-3">
               <div className="whyUsContentCont">
                 <h1 className="whyUsContHeader pt-2">Understand who you are</h1>
@@ -121,7 +128,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* commented bacause no static values */}
           {/* <div className="discover-candidates-section">
             <div>
@@ -150,6 +157,8 @@ const Home = () => {
             </div>
           </div> */}
         </div>
+
+        
         <div className="company-home-perfect-fit-container">
           <div className="company-home-perfect-fit-desc-container">
             {/* added margin-bottom bootstrap */}
@@ -160,10 +169,10 @@ const Home = () => {
             {/* added margin-top bootstrap and added a p tag in a div */}
             <div className="mt-5">
             <p className="company-home-perfect-fit-para">
-              Unlock the power of our platform to discover exceptional talent
-              for your company. Post your job openings today and start building
-              your dream team. Our streamlined process ensures you find the
-              right candidates quickly and efficiently.
+              
+               Post your job openings today and start building
+              your dream team! 
+              
             </p>
             </div>
             <button
@@ -198,11 +207,11 @@ const Home = () => {
               <div className="consultant-form-top-div">
                 <div>
                   <label htmlFor="">Name</label>
-                  <input type="text" name="" id="" placeholder="name" />
+                  <input type="text" name="" id="" placeholder="Name" />
                 </div>
                 <div>
                   <label htmlFor="">Company Name</label>
-                  <input type="text" name="" id="" placeholder="company name" />
+                  <input type="text" name="" id="" placeholder="Company name" />
                 </div>
               </div>
               <div>
@@ -211,12 +220,12 @@ const Home = () => {
                   type="text"
                   name=""
                   id=""
-                  placeholder="email@gmail.com"
+                  placeholder="Email@gmail.com"
                 />
               </div>{" "}
               <div>
                 <label htmlFor="">Location</label>
-                <input type="text" name="" id="" placeholder="location" />
+                <input type="text" name="" id="" placeholder="Location" />
               </div>{" "}
               <div>
                 <label htmlFor="">Industry</label>
@@ -229,7 +238,7 @@ const Home = () => {
               </div>{" "}
               <div>
                 <label htmlFor="">Phone No</label>
-                <input type="text" name="" id="" placeholder="00000000000" />
+                <input type="text" name="" id="" placeholder="Your phone" />
               </div>{" "}
               <div>
                 <label htmlFor="">Date</label>

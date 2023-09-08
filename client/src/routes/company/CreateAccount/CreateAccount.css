@@ -57,7 +57,7 @@
 .create-account-form-container textarea {
     display: block;
     width: 100%;
-    padding: 10px; /* Use shorthand for padding */
+    padding: 16px !important; /* Use shorthand for padding */
     margin-bottom: 1rem; /* Add some vertical spacing between fields */
     border-radius: 4px;
     border: 1px solid #cf134f80;

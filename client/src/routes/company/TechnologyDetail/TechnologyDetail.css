@@ -12,6 +12,13 @@
     padding-inline: 2rem;
     text-transform: capitalize !important;
 }
+/* adjust the margin for small screen */
+@media (max-width:500px) {
+    .tech-detail-submit-button{
+        margin-top: 28px !important;
+
+    }
+}
 
 .tech-detail-submit-button {
     margin-top: 0.8rem;
@@ -61,7 +68,7 @@
 .create-account-form-container select {
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 17px;
     margin-bottom: 1rem;
     border-radius: 4px;
     border: 1px solid #cf134f80;
@@ -84,7 +91,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-top: 1.5rem;
+    margin-top: 4.5rem;
 }
 
 .form-back-button,
