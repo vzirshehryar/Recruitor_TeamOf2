@@ -7,6 +7,7 @@ body {
 }
 .finishPost-Title {
     margin-top: 80px;
+    margin-right: 40rem;
     color: #0f151a;
     text-align: center;
     font-family: Red Hat Display;
@@ -15,16 +16,17 @@ body {
     font-weight: 700;
     line-height: 48px;
 }
+
 .finishPost-SubText {
     color: #0f151a;
-    text-align: center;
+    text-align: inherit;
     font-family: Red Hat Display;
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
     line-height: 48px; /* 200% */
     width: 900px;
-    margin-left: 300px;
+    margin-left: 236px;
 
     margin-top: 20px;
     line-height: 3;
@@ -83,11 +85,12 @@ body {
     }
     .finishPost-Title {
         font-size: 20px;
+        width: 100%;
     }
     .finishPost-SubText {
         font-size: 15px;
-        width: 100%;
-        margin-left: 0px;
+        width: 95%;
+        margin-left: 12px;
         line-height: 2;
     }
     .finishPost-Next {
@@ -111,5 +114,6 @@ body {
         height: 40px;
         font-size: 17px;
         line-height: 0;
+        top: 35px;
     }
 }
