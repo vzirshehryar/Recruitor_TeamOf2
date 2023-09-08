@@ -84,7 +84,7 @@ const SalaryForm = () => {
 
         {/* Container for the new heading */}
         <div className="new-heading-salary-container">
-          <h3 className="new-heading-salary1">Calculate your salary</h3>
+          <div className="new-heading-salary1">Calculate your salary</div>
           <p className="new-heading-salary2">
             Get paid what you&apos;re worth in today&apos;s job market
           </p>
