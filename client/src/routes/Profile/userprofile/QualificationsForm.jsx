@@ -4,6 +4,7 @@ import editProfileStyle from "./EditProfileCV.module.css";
 import profileStyles from "./UpdateProfilePage.module.css";
 import axios from "axios";
 import { toast } from "react-toastify";
+import DisplayEdu from "../components/Education/DisplayEducation";
 
 const data = {
   school: "",
@@ -20,6 +21,43 @@ const data = {
 
 function QualificationsForm() {
   const [showDisplay, setDisplay] = useState(false);
+
+  return (
+    <>
+      <div
+        className={profileStyles["personal-information-container-dotted"]}
+        style={{ position: "relative" }}
+      >
+        <div className={profileStyles["heading-container-dotted"]}>
+          <h3 className="p-0 m-2" style={{ fontSize: "20px" }}>
+            Qualifications
+          </h3>
+        </div>
+        <DisplayEdu />
+        <div className={profileStyles["details-container"]} style={{}}>
+          <div className={profileStyles["lower-container"]}>
+            <p className={profileStyles["additional-details"]}>
+              Adding Qulatifications improves your chances of being discovered
+            </p>
+          </div>
+          <a
+            href="#"
+            className={`${profileStyles["absolute-buttons"]}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setDisplay(true);
+            }}
+          >
+            Add Qualification +
+          </a>
+        </div>
+      </div>
+      <QualificationModel showDisplay={showDisplay} setDisplay={setDisplay} />
+    </>
+  );
+}
+
+export const QualificationModel = ({ showDisplay, setDisplay }) => {
   const [formData, setFormData] = useState(data);
 
   const handleSubmit = (e) => {
@@ -56,170 +94,139 @@ function QualificationsForm() {
   };
 
   return (
-    <>
-      <div
-        className={profileStyles["personal-information-container-dotted"]}
-        style={{ position: "relative" }}
-      >
-        <div className={profileStyles["heading-container-dotted"]}>
-          <h3 className="p-0 m-2" style={{ fontSize: "20px" }}>
-            Qualifications
-          </h3>
-        </div>
-        <div className={profileStyles["details-container"]} style={{}}>
-          <div className={profileStyles["lower-container"]}>
-            <p className={profileStyles["additional-details"]}>
-              Adding Qulatifications improves your chances of being discovered
-            </p>
+    <div
+      className={`${profileStyles["edit-form-container"]}  ${
+        showDisplay === true ? profileStyles["show"] : profileStyles["hidden"]
+      }`}
+    >
+      <div className={profileStyles["edit-form"]}>
+        <h3 style={{ color: "black", fontSize: "18px" }} className="p-0">
+          Add Qualification
+        </h3>
+        <form onSubmit={handleSubmit}>
+          <ul>
+            <li>
+              <label>
+                <p>School*</p>
+                <input
+                  name="school"
+                  type="text"
+                  required
+                  value={formData.school}
+                  onChange={handleChange}
+                />
+              </label>
+            </li>
+            <li>
+              <label>
+                <p>Degree*</p>
+                <input
+                  name="degree"
+                  value={formData.degree}
+                  type="text"
+                  required
+                  onChange={handleChange}
+                />
+              </label>
+            </li>
+            <li>
+              <label>
+                <p>Field Of Study*</p>
+                <input
+                  name="fieldOfStudy"
+                  value={formData.fieldOfStudy}
+                  type="text"
+                  required
+                  onChange={handleChange}
+                />
+              </label>
+            </li>
+            <li className={profileStyles["special-item"]}>
+              <label>
+                <p>Start Month</p>
+                <input
+                  name="startMonth"
+                  type="text"
+                  value={formData.startMonth}
+                  required
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                <p>Year</p>
+                <input
+                  name="startYear"
+                  value={FormData.startYear}
+                  type="number"
+                  required
+                  onChange={handleChange}
+                />
+              </label>
+            </li>
+            <li className={profileStyles["special-item"]}>
+              <label>
+                <p>End Month</p>
+                <input
+                  name="endMonth"
+                  value={formData.endMonth}
+                  type="text"
+                  required
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                <p>Year</p>
+                <input
+                  name="endYear"
+                  value={formData.endYear}
+                  type="number"
+                  required
+                  onChange={handleChange}
+                />
+              </label>
+            </li>
+            <li>
+              <label>
+                <p>Grades*</p>
+                <input
+                  name="grades"
+                  value={formData.grades}
+                  type="text"
+                  required
+                  onChange={handleChange}
+                />
+              </label>
+            </li>
+            <li>
+              <label>
+                <p>Activities And Scocieties</p>
+                <input
+                  name="activities_societies"
+                  value={formData.activities_societies}
+                  type="text"
+                  required
+                  onChange={handleChange}
+                />
+              </label>
+            </li>
+          </ul>
+          <div className={profileStyles["edit-form-buttons"]}>
+            <button
+              className={profileStyles["form-button-cancel"]}
+              onClick={(e) => {
+                e.preventDefault();
+                setFormData(data);
+                setDisplay(false);
+              }}
+            >
+              Cancel
+            </button>
+            <button className={profileStyles["form-button-save"]}>Save</button>
           </div>
-          <a
-            href="#"
-            className={`${profileStyles["absolute-buttons"]}`}
-            onClick={(e) => {
-              e.preventDefault();
-              setDisplay(true);
-            }}
-          >
-            Add Qualification +
-          </a>
-        </div>
+        </form>
       </div>
-      <div
-        className={`${profileStyles["edit-form-container"]}  ${
-          showDisplay === true ? profileStyles["show"] : profileStyles["hidden"]
-        }`}
-      >
-        <div className={profileStyles["edit-form"]}>
-          <h3 style={{ color: "black", fontSize: "18px" }} className="p-0">
-            Add Qualification
-          </h3>
-          <form onSubmit={handleSubmit}>
-            <ul>
-              <li>
-                <label>
-                  <p>School*</p>
-                  <input
-                    name="school"
-                    type="text"
-                    required
-                    value={formData.school}
-                    onChange={handleChange}
-                  />
-                </label>
-              </li>
-              <li>
-                <label>
-                  <p>Degree*</p>
-                  <input
-                    name="degree"
-                    value={formData.degree}
-                    type="text"
-                    required
-                    onChange={handleChange}
-                  />
-                </label>
-              </li>
-              <li>
-                <label>
-                  <p>Field Of Study*</p>
-                  <input
-                    name="fieldOfStudy"
-                    value={formData.fieldOfStudy}
-                    type="text"
-                    required
-                    onChange={handleChange}
-                  />
-                </label>
-              </li>
-              <li className={profileStyles["special-item"]}>
-                <label>
-                  <p>Start Month</p>
-                  <input
-                    name="startMonth"
-                    type="text"
-                    value={formData.startMonth}
-                    required
-                    onChange={handleChange}
-                  />
-                </label>
-                <label>
-                  <p>Year</p>
-                  <input
-                    name="startYear"
-                    value={FormData.startYear}
-                    type="number"
-                    required
-                    onChange={handleChange}
-                  />
-                </label>
-              </li>
-              <li className={profileStyles["special-item"]}>
-                <label>
-                  <p>End Month</p>
-                  <input
-                    name="endMonth"
-                    value={formData.endMonth}
-                    type="text"
-                    required
-                    onChange={handleChange}
-                  />
-                </label>
-                <label>
-                  <p>Year</p>
-                  <input
-                    name="endYear"
-                    value={formData.endYear}
-                    type="number"
-                    required
-                    onChange={handleChange}
-                  />
-                </label>
-              </li>
-              <li>
-                <label>
-                  <p>Grades*</p>
-                  <input
-                    name="grades"
-                    value={formData.grades}
-                    type="text"
-                    required
-                    onChange={handleChange}
-                  />
-                </label>
-              </li>
-              <li>
-                <label>
-                  <p>Activities And Scocieties</p>
-                  <input
-                    name="activities_societies"
-                    value={formData.activities_societies}
-                    type="text"
-                    required
-                    onChange={handleChange}
-                  />
-                </label>
-              </li>
-            </ul>
-            <div className={profileStyles["edit-form-buttons"]}>
-              <button
-                className={profileStyles["form-button-cancel"]}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setFormData(data);
-                  setDisplay(false);
-                }}
-              >
-                Cancel
-              </button>
-              <button className={profileStyles["form-button-save"]}>
-                Save
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </>
+    </div>
   );
-}
+};
 
 export default QualificationsForm;

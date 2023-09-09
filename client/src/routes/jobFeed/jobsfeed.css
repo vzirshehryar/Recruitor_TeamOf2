@@ -5,26 +5,20 @@
   justify-content: center;
 }
 
-.btn {
- width: 37%;
- height: 30px;
- border: 4px solid grey;
- border-radius: 0.1px;
- font-size: 18px;
- margin-left: 31%;
- text-align: center;
- padding: 0.1px  8px 2px 2px;
-min-width: 150px;
-
- 
+.btn1 {
+  width: 37%;
+  height: 30px;
+  border: 2px solid grey;
+  border-radius: 0.1px;
+  font-size: 18px;
+  margin-left: 28%;
+  text-align: center;
+  padding: 0.1px 8px 2px 2px;
+  min-width: 150px;
 }
-
-
 
 /* Media queries for responsiveness */
 @media (min-width: 1204px) {
-
-
   .custom-style {
     flex-direction: row;
     width: auto;
@@ -33,9 +27,7 @@ min-width: 150px;
 }
 
 @media (min-width: 836px) {
-  .btn {
+  .btn1 {
     display: none;
-   
-   
   }
 }

@@ -448,7 +448,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
 .displayJobs .EasyApplyPortion button {
   display: flex;
@@ -465,6 +464,8 @@
   font-weight: 700;
   line-height: normal;
   text-transform: capitalize;
+  padding: 10px 10px;
+  border: none;
 }
 .displayJobs .EasyApplyPortion .iconsForJobCard {
   display: flex;
@@ -575,6 +576,9 @@
     width: auto;
     display: flex;
     flex-direction: column;
+    border: 1px solid #cf1350;
+    border-radius: 12px;
+    margin-bottom: 10px;
   }
 }
 
@@ -583,13 +587,17 @@
   .displayJobs .JobCardTitle {
     text-align: center;
     width: auto;
-    display: flex;
-    flex-direction: column;
     gap: 10px;
+  }
+  .displayJobs .JobCardTitle .image {
+    display: none;
   }
   .displayJobs {
     width: auto;
     display: flex;
     flex-direction: column;
+    border: 1px solid #cf1350;
+    border-radius: 12px;
+    margin-bottom: 10px;
   }
 }

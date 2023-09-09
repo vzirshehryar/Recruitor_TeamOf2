@@ -4,80 +4,68 @@
   display: flex;
   flex-direction: column; /* Stack children vertically */
   align-items: center;
-  height:198vh; /* Adjust the height as needed */
+  height: 198vh; /* Adjust the height as needed */
 }
 
 .cover-letter-heading-container {
   width: 100%;
   height: 200px;
-  background: #CF1350;
+  background: #cf1350;
   display: flex;
   justify-content: center;
   align-items: center;
   @media (max-width: 480px) {
-    width: 110%; 
+    width: 110%;
 
     justify-content: center;
     align-items: center;
-    
-}
-@media (max-width: 700px) {
-  width: 110%; 
-  justify-content: center;
-  align-items: center;
-
-    
-}
-
-    
+  }
+  @media (max-width: 700px) {
+    width: 110%;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .cover-letter-heading {
-  color: #FFF;
-  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
   font-size: 50px;
   font-style: normal;
   font-weight: 500;
   @media (max-width: 480px) {
- 
-
     font-size: 32px;
-  font-style: normal;
-  font-weight: 400;
-    
-}
-@media (max-width: 700px) {
-
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 400;
-
-    
-}
+    font-style: normal;
+    font-weight: 400;
+  }
+  @media (max-width: 700px) {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+  }
 }
 
 .cover-letter-contact-container {
   align-items: center;
-  
 }
 
 .cover-letter-contact-question1 {
   color: #000;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 48px;
   font-style: normal;
   font-weight: 600;
   margin-top: 3%;
   @media (max-width: 700px) {
     color: #000;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
   }
 
   text-transform: capitalize;
- text-align: center;
+  text-align: center;
 }
 .cover-letter-contact-question2 {
   color: black;
@@ -94,42 +82,31 @@
     font-size: 20px;
     margin-top: 15px;
   }
-  
- 
 }
 .cover-letter-contact-para {
   text-align: start;
   text-transform: capitalize;
   font-size: 0.9rem;
   font-weight: 400;
- 
 }
 
-.cover-letter-info-container1{
-  background: #FCFCFC;
-  box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.15);  
+.cover-letter-info-container1 {
+  background: #fcfcfc;
+  box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.15);
   border-radius: 13px;
- 
-  
+
   width: 60%;
   margin-top: 40px;
   align-items: start;
   @media (max-width: 480px) {
-    width: 100%; 
-    
-    
-}
-@media (max-width: 700px) {
-  width: 110%; 
-  
-
-    
-}
- 
+    width: 100%;
+  }
+  @media (max-width: 700px) {
+    width: 110%;
+  }
 }
 
 .cover-letter-form {
-  
   padding: 60px;
   align-items: start;
 }
@@ -138,61 +115,57 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  
 }
 
-input,
-textarea {
+.cover-letter-info-container1 input,
+.cover-letter-info-container1 textarea {
   display: block;
   width: 100%;
-  
+
   padding-inline: 10px;
   padding-block: 6px;
   border-radius: 4px;
-  border: 1px solid #0000001A;
+  border: 1px solid #0000001a;
   background: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
 }
-.label-for-life{
+.label-for-life {
   font-weight: 400;
 }
-.lalle{
+.lalle {
   font-weight: 400;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
 }
-label {
+.cover-letter-info-container1 label {
   display: flex;
- align-items: start;
- margin-top: 10px;
- margin-bottom: 10px;
+  align-items: start;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.heading-size1{
+.heading-size1 {
   font-size: 40px;
   font-weight: 600;
   align-self: start;
   margin-bottom: 20px;
   @media (max-width: 700px) {
     font-size: 28px;
-  font-weight: 700;
-  align-self: start;
-  margin-bottom: 0px;
-  
-      
+    font-weight: 700;
+    align-self: start;
+    margin-bottom: 0px;
   }
 }
-.cover-letter-form-section-heading1{
+.cover-letter-form-section-heading1 {
   margin-top: 60px;
   align-self: start;
   font-size: 40px;
   font-weight: 500;
   padding: 0;
   display: flex;
-  
 }
-.cover-letter-form-section-heading12{
+.cover-letter-form-section-heading12 {
   margin-top: 60px;
   align-self: start;
   font-size: 40px;
@@ -200,12 +173,9 @@ label {
   padding: 0;
   display: flex;
   margin-bottom: 10px;
-  
 }
 
-
 .cover-letter-button-container {
- 
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -214,54 +184,51 @@ label {
 .cover-letter-back-button1 {
   background: transparent;
   color: black;
-  border: 1px solid #CF1350;
+  border: 1px solid #cf1350;
   height: 64px;
   width: 136px;
   font-family: Poppins;
-font-size: 16px;
-font-weight: 400;
-line-height: 39px;
-letter-spacing: 0em;
-text-align: center;
-
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: center;
 }
 .cover-letter-next-button1 {
   background: transparent;
-  color: #FFF;
-  border: 1px solid #CF1350;
+  color: #fff;
+  border: 1px solid #cf1350;
   height: 64px;
   width: 136px;
   font-family: Poppins;
-font-size: 18px;
-font-weight: 600;
-line-height: 39px;
-letter-spacing: 0em;
-text-align: center;
-
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: center;
 }
 .cover-letter-back-button1:hover {
-  background: #CF1350;
+  background: #cf1350;
   color: white;
-  border: 1px solid #CF1350;
+  border: 1px solid #cf1350;
 }
-.cover-letter-next-button1{
-  background: #CF1350;
-  border: 1px solid #CF1350;
+.cover-letter-next-button1 {
+  background: #cf1350;
+  border: 1px solid #cf1350;
 }
 
 /* COVER LETTER VIEW PAGE */
 .cover-letter-view {
-    display: flex;
-    flex-direction: column;
-    background-color: transparent !important;
-    & img{
-        width: 100%;
-    }
+  display: flex;
+  flex-direction: column;
+  background-color: transparent !important;
+  & img {
+    width: 100%;
+  }
 }
-.cover-letter-view-template-button{
-    padding-inline: 1rem;
-    align-self: flex-end;
-    margin-top: 0.5rem;
-    margin-bottom: 2rem;
-
+.cover-letter-view-template-button {
+  padding-inline: 1rem;
+  align-self: flex-end;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
 }

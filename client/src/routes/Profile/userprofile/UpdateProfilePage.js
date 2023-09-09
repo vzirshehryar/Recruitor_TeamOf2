@@ -64,13 +64,13 @@ export default function UpdateProfilePage() {
                     </li> */}
                   </ul>
                 </div>
-                <a
+                {/* <a
                   href="#"
                   className={profileStyles["buttons"]}
                   style={{ position: "absolute", right: "20px", top: "88%" }}
                 >
                   Add Sector & Roles +
-                </a>
+                </a> */}
               </div>
             </div>
             <WorkExperienceForm />

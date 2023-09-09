@@ -118,11 +118,27 @@ const ProfileSideBar = () => {
               </li> */}
               <li>
                 <p>Work Experience</p>
-                <input type="checkbox" disabled />
+                <input
+                  type="checkbox"
+                  disabled
+                  checked={localStorage.getItem("experience")}
+                />
               </li>
               <li>
                 <p>Qualifications</p>
-                <input type="checkbox" disabled />
+                <input
+                  type="checkbox"
+                  disabled
+                  checked={localStorage.getItem("qualification")}
+                />
+              </li>
+              <li>
+                <p>Languages</p>
+                <input
+                  type="checkbox"
+                  disabled
+                  checked={localStorage.getItem("language")}
+                />
               </li>
             </ul>
             <button className={editProfileStyle.button}>

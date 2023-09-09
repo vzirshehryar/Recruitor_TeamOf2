@@ -281,11 +281,13 @@ bg {
 }
 .dabtn {
   width: 558px;
-  height: 48px;
   flex-shrink: 0;
   border-radius: 10px;
-  border: 1px solid #cf1350;
   background: #cf1350;
+  border: none;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
 }
 .dgabtn {
   width: 558px;

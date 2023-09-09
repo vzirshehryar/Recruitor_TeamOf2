@@ -2,6 +2,8 @@ import { useState } from "react"; // Importing useState from React
 
 import Style from "../home.module.css"; // Importing CSS styles
 import { FaAngleDown, FaAngleUp } from "react-icons/fa"; // Importing icons
+import { useJobContext } from "../../../useContext/jobContext";
+import { useNavigate } from "react-router-dom";
 
 // Sample job categories
 const jobs = [
@@ -20,6 +22,14 @@ const jobs = [
 function Services() {
   const [more, setMore] = useState(false); // State variable to track whether "See more" is clicked
   const [select, setSelect] = useState("sector"); // State variable to track the selected search option
+
+  const { setSearchSector } = useJobContext();
+  const navigate = useNavigate();
+
+  const searchSector = (sector) => {
+    setSearchSector(sector);
+    navigate("/jobfeed");
+  };
 
   return (
     <div className={`${Style.TrendingJobs}`}>
@@ -49,23 +59,55 @@ function Services() {
       <div className="mt-3 d-flex flex-wrap justify-content-center gap-3">
         {/* Sample job categories */}
         <div>
-          <img  style={{ width:"220px" }}src="/TechnologyJobs.png" alt="image" />
-          <p style={{ textAlign: "left", paddingTop: "5px" }}>IT & TELECOM</p>
+          <img
+            style={{ width: "220px" }}
+            src="/TechnologyJobs.png"
+            alt="image"
+          />
+          <p
+            style={{ textAlign: "left", paddingTop: "5px", cursor: "pointer" }}
+            onClick={() => searchSector("IT & TELECOM")}
+          >
+            IT & TELECOM
+          </p>
         </div>
         <div>
-          <img style={{ width:"220px" }} src="/EngineeringJobs.png" alt="image" />
-          <p style={{ textAlign: "left", paddingTop: "5px" }}>Customer Service</p>
+          <img
+            style={{ width: "220px" }}
+            src="/EngineeringJobs.png"
+            alt="image"
+          />
+          <p
+            style={{ textAlign: "left", paddingTop: "5px", cursor: "pointer" }}
+            onClick={() => searchSector("Customer Service")}
+          >
+            Customer Service
+          </p>
         </div>
         <div>
-          <img style={{ width:"220px" }} src="/GraduatesJobs.png" alt="image" />
-          <p style={{ textAlign: "left", paddingTop: "5px" }}>Art</p>
+          <img
+            style={{ width: "220px" }}
+            src="/GraduatesJobs.png"
+            alt="image"
+          />
+          <p
+            style={{ textAlign: "left", paddingTop: "5px", cursor: "pointer" }}
+            onClick={() => searchSector("Art")}
+          >
+            Art
+          </p>
         </div>
         <div>
-          <img style={{ width:"220px" }} src="/HealthJobs.png" alt="image" />
-          <p style={{ textAlign: "left", paddingTop: "5px" }}>Admin, Secreterial & PA</p>
+          <img style={{ width: "220px" }} src="/HealthJobs.png" alt="image" />
+          <p
+            style={{ textAlign: "left", paddingTop: "5px", cursor: "pointer" }}
+            onClick={() => searchSector("Admin, Secreterial & PA")}
+          >
+            Admin, Secreterial & PA
+          </p>
         </div>
       </div>
-{/*
+      {/*
       <div className={`${Style.seemore}`} onClick={() => setMore(!more)}>
         {!more ? (
           <>

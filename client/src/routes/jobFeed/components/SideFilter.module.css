@@ -6,9 +6,8 @@
   font-weight: 500;
   line-height: normal;
   justify-content: left;
-  
+
   text-transform: capitalize;
- 
 }
 .h5 {
   margin-left: 1px;
@@ -19,6 +18,7 @@
   font-weight: 500;
   line-height: normal;
   text-transform: capitalize;
+  text-align: left;
 }
 .p {
   margin-left: 5px;
@@ -30,12 +30,12 @@
   line-height: normal;
   text-transform: capitalize;
 }
-.SideFilter{
+.SideFilter {
   border: 1px solid rgb(244, 238, 238);
   border-radius: 10px;
   background-color: rgb(240, 237, 237);
-   margin-top: 30px;
-   width: 26%;
+  margin-top: 30px;
+  width: 26%;
 }
 .select {
   width: 200px;
@@ -81,15 +81,9 @@
   text-transform: capitalize;
 }
 
-
 @media (max-width: 700px) {
-  .SideFilter{
-  
-     width: 80%;
-     margin-left: 32px;
-
+  .SideFilter {
+    width: 80%;
+    margin-left: 32px;
   }
-   
-   
-  }
-
+}

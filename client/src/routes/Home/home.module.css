@@ -1,4 +1,4 @@
-h1 {
+.h1 {
   color: #fff;
   font-family: Poppins;
   font-size: 70px;
@@ -13,7 +13,7 @@ h1 {
   padding: 20px 5px 0px 130px;
   margin-top: 20px;
 }
-h3 {
+.h3 {
   color: #fff;
   font-family: Poppins;
   font-size: 30px;
@@ -63,7 +63,7 @@ h5 {
   justify-content: center;
   align-items: flex-end;
   width: fit-content;
-  padding: 2px 15px 25px 25px;
+  padding: 10px 15px 25px 25px;
   gap: 20px;
 }
 .HomeSlider label {
@@ -80,8 +80,10 @@ h5 {
   background: #fff;
   padding: 10px 20px;
   width: 300px;
+  border: none;
 }
 .HomeSlider button {
+  border: none;
   border-radius: 4px;
   padding: 13px 20px;
   background: #181332;
@@ -186,22 +188,20 @@ h5 {
   font-weight: 500;
   line-height: 1px; /* 150% */
   text-decoration: none;
-  
 }
 
 /* Media query for small screens (phones) */
 @media (max-width: 576px) {
   .h1 {
     font-size: 60px;
-    padding: 10px 0px
-    ;
+    padding: 10px 0px;
   }
   .h3 {
     font-size: 40px;
-    padding: 10px 0px
+    padding: 10px 0px;
   }
   .h5 {
     font-size: 25px;
-    padding: 10px 0px
+    padding: 10px 0px;
   }
 }
