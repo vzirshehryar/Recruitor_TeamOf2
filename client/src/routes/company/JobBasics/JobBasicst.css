@@ -41,7 +41,7 @@
 
 /* Styling for input and textarea elements */
 .job-basics-submit-button {
-    margin-top: 1rem; /* Increase top margin for separation */
+    margin-top: 7rem; /* Increase top margin for separation */
     padding: 10px; /* Add padding to the button */
     width: 100%;
     background-color: #cf1350;
@@ -75,7 +75,7 @@ create-account-form-container textarea {
 
 /* Styling for the submit button */
 .create-account-submit-button {
-    margin-top: 1rem;
+    margin-top: 7rem;
     padding: 10px;
     width: 100%;
     background-color: #cf1350;

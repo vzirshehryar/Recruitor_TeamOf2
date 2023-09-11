@@ -26,7 +26,7 @@ const SideFilter = ({ Search }) => {
   const [location, setLocation] = useState("Islamabad");
   const [salaryFrom, setSalaryFrom] = useState("$ Any");
   const [salaryTo, setSalaryTo] = useState("$ Any");
-  const [datePosted, setDatePosted] = useState("Anytime");
+  const [datePosted, setDatePosted] = useState("All");
 
   // CHECKBOXES --- START
   const [remote, setRemote] = useState(false);
@@ -43,8 +43,22 @@ const SideFilter = ({ Search }) => {
   // SEE MORE AND SEE LESS --- END
 
   useEffect(() => {
-    Search(location, salaryFrom, salaryTo, selectedJobtype, selectedSpecialism);
-  }, [location, salaryFrom, salaryTo, selectedJobtype, selectedSpecialism]);
+    Search(
+      location,
+      salaryFrom,
+      salaryTo,
+      selectedJobtype,
+      selectedSpecialism,
+      datePosted
+    );
+  }, [
+    location,
+    salaryFrom,
+    salaryTo,
+    selectedJobtype,
+    selectedSpecialism,
+    datePosted,
+  ]);
   const handleJobtype = (option) => {
     if (selectedJobtype.includes(option)) {
       setSelectedJobtype(selectedJobtype.filter((item) => item !== option));
@@ -73,11 +87,11 @@ const SideFilter = ({ Search }) => {
   return (
     <>
       <Row
-        className={`pt-4 pb-5 SideFilter ${Style.SideFilter}`}
-        style={{ minWidth: "230px" }}
+        className={`pt-4 pb-1 SideFilter ${Style.SideFilter}`}
+        style={{ minWidth: "220px" }}
       >
-        <div>
-          <h3 className={Style.h3}>Filter By</h3>
+        <div className="sliders">
+          <h5 className={Style.h3}>Filter by</h5>
           {/* ---------- LOCATI0N ---------- */}
           {/* <div className="pt-4 pb-4">
             <h5 className={Style.h5}>Location</h5>
@@ -179,9 +193,10 @@ const SideFilter = ({ Search }) => {
               value={datePosted}
               onChange={(e) => setDatePosted(e.target.value)}
             >
-              <option value="Today">Today</option>
-              <option value="Last Week">Last Week</option>
-              <option value="Last Month">Last Month</option>
+              <option value="">All</option>
+              <option value={1}>Today</option>
+              <option value={7}>Last Week</option>
+              <option value={30}>Last Month</option>
             </select>
           </div>
           <hr style={{ borderTop: "1px solid #CF1350", margin: 0 }} />

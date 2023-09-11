@@ -58,38 +58,57 @@ function JobFeed() {
 
   // THIS FUNCTION IS FOR THE PURPOSE OF FILTERS ON SOME VALUES WHICH IS COMING FROM SIDEFILTER.JS COMPONENT WHICH IS IN jobFeed/components/SideFilter.js
   const filteredJobs = jobList.filter((job) => {
-    console.log(job);
+    // console.log(
+    //   Math.floor((Date.now() - job.postedOn) / (1000 * 60 * 60 * 24))
+    // );
+    // console.log(sideFilters);
     var titleMatch = true,
       locationMatch = true,
       minSalary = true,
       maxSalary = true,
       jobType = true,
-      specialism = true;
+      specialism = true,
+      datePosted = true;
     if (searchSector) {
       console.log(job.industry);
       titleMatch = job.industry
         .toLowerCase()
         .includes(searchSector.toLowerCase());
     }
-    // if (searchLocation)
-    //   locationMatch = job.location
-    //     .toLowerCase()
-    //     .includes(searchLocation.toLowerCase());
-    // if (sideFilters.salaryFrom !== NaN)
-    //   if (job.minSR < sideFilters.salaryFrom) minSalary = false;
-    // if (sideFilters.salaryTo !== NaN)
-    //   if (job.maxSR > sideFilters.salaryTo) maxSalary = false;
-    // if (sideFilters.selectedJobtype.length)
-    //   jobType = sideFilters.selectedJobtype.some((type) =>
-    //     job.jobType.includes(type)
-    //   );
-    // if (sideFilters.selectedSpecialism.length)
-    //   specialism = sideFilters.selectedSpecialism.some((type) => {
-    //     console.log(job.industry, sideFilters.selectedSpecialism);
-    //     return job.industry.includes(type);
-    //   });
+    if (searchLocation)
+      locationMatch = job.location
+        .toLowerCase()
+        .includes(searchLocation.toLowerCase());
+    if (sideFilters.datePosted) {
+      if (
+        Math.floor((Date.now() - job.postedOn) / (1000 * 60 * 60 * 24)) >=
+        parseInt(sideFilters.datePosted)
+      ) {
+        datePosted = false;
+      }
+    }
+    if (sideFilters.salaryFrom !== NaN)
+      if (job.minSR < sideFilters.salaryFrom) minSalary = false;
+    if (sideFilters.salaryTo !== NaN)
+      if (job.maxSR > sideFilters.salaryTo) maxSalary = false;
+    if (sideFilters.selectedJobtype.length)
+      jobType = sideFilters.selectedJobtype.some((type) =>
+        job.jobType.includes(type)
+      );
+    if (sideFilters.selectedSpecialism.length)
+      specialism = sideFilters.selectedSpecialism.some((type) => {
+        console.log(job.industry, sideFilters.selectedSpecialism);
+        return job.industry.includes(type);
+      });
 
-    return titleMatch && locationMatch && maxSalary && minSalary && jobType;
+    return (
+      titleMatch &&
+      locationMatch &&
+      maxSalary &&
+      minSalary &&
+      jobType &&
+      datePosted
+    );
     // return titleMatch && locationMatch ;
     // return true;
     // console.log(!jobType.length, !jobLevel.length);
@@ -154,7 +173,8 @@ function JobFeed() {
     salaryFrom,
     salaryTo,
     selectedJobtype,
-    selectedSpecialism
+    selectedSpecialism,
+    datePosted
   ) => {
     setSideFilters((prev) => {
       const newObject = {
@@ -163,16 +183,17 @@ function JobFeed() {
         salaryTo: parseInt(salaryTo.slice(1)),
         selectedJobtype: selectedJobtype,
         selectedSpecialism: selectedSpecialism,
+        datePosted: datePosted,
       };
       return newObject;
     });
-    console.log(
-      location,
-      parseInt(salaryFrom.slice(1)),
-      parseInt(salaryTo.slice(1)),
-      selectedJobtype,
-      selectedSpecialism
-    );
+    // console.log(
+    //   location,
+    //   parseInt(salaryFrom.slice(1)),
+    //   parseInt(salaryTo.slice(1)),
+    //   selectedJobtype,
+    //   selectedSpecialism
+    // );
     // setJobType(jt);
     // setJobLevel(jl);
   };
@@ -198,7 +219,7 @@ function JobFeed() {
       <div className="jobFeedPage">
         <JobNav Search={Search} />
         <Container fluid className="jobFeedContainer">
-          <Button className="filter-show-btn" onClick={toggleFilter}>
+          <Button className="btn1 mt-2" onClick={toggleFilter}>
             Filters
           </Button>
           <Container className="custom-style">
@@ -331,11 +352,15 @@ function JobFeed() {
                     </div>
                     <div className="JobCardTitle mb-2">
                       <div className="JobCardTitle-carbon">
-                        <h3>{item.jobTitle}</h3>
+                        <h3 style={{ textAlign: "left" }}>{item.jobTitle}</h3>
                         <h5>{Date(item.postedOn).toString().slice(0, 11)}</h5>
                         <div
                           className="d-flex gap-1 align-items-center mb-1"
-                          style={{ width: "400px" }}
+                          style={{
+                            width: "30%",
+                            minWidth: "250px",
+                            justifyContent: "space-between",
+                          }}
                         >
                           <div className="d-flex gap-1 justify-content-center align-items-center">
                             <FaClock />

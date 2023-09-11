@@ -5,10 +5,12 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  justify-content: left;
+
   text-transform: capitalize;
 }
 .h5 {
-  margin-left: 3px;
+  margin-left: 1px;
   color: #000;
   font-family: Red Hat Text;
   font-size: 16px;
@@ -16,6 +18,7 @@
   font-weight: 500;
   line-height: normal;
   text-transform: capitalize;
+  text-align: left;
 }
 .p {
   margin-left: 5px;
@@ -26,6 +29,13 @@
   font-weight: 400;
   line-height: normal;
   text-transform: capitalize;
+}
+.SideFilter {
+  border: 1px solid rgb(244, 238, 238);
+  border-radius: 10px;
+  background-color: rgb(240, 237, 237);
+  margin-top: 30px;
+  width: 26%;
 }
 .select {
   width: 200px;
@@ -69,4 +79,11 @@
   font-weight: 500;
   line-height: normal;
   text-transform: capitalize;
+}
+
+@media (max-width: 700px) {
+  .SideFilter {
+    width: 80%;
+    margin-left: 32px;
+  }
 }

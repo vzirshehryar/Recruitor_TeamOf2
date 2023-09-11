@@ -1,63 +1,57 @@
 .form-section-heading {
-    text-align: left;
-    margin-top: 1rem !important;
-    margin-bottom: 0.5rem !important;
+  text-align: left;
+  margin-top: 1rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .heading-left-align {
-    text-align: left;
-    margin-top: 1rem !important;
+  text-align: left;
+  margin-top: 1rem !important;
 }
 
 .flex {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
- input[type="checkbox"] {
-    width: fit-content;
-    height: fit-content;
-    border-radius: 4px;
-    /* change the color of checkbox */ 
-    color:#cf1350;
+.create-account-form-container input[type="checkbox"] {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 4px;
+  /* change the color of checkbox */
+  color: #cf1350;
 }
-.input-pref123{
-    accent-color:#cf1350;
+.input-pref123 {
+  accent-color: #cf1350;
 }
-
 
 label {
-    margin: 0;
+  margin: 0;
 }
 
 .para-pref {
-    font-weight: 500;
-    font-size: 1rem;
+  font-weight: 500;
+  font-size: 1rem;
 }
 .Perfrences-AddEmail-Button {
-    color: black;
-    background-color: transparent;
-    font-size: 24px;
-    display: block;
-    margin-right: auto;
-    margin-left: -20px;
+  color: black;
+  background-color: transparent;
+  font-size: 24px;
+  display: block;
+  margin-right: auto;
+  margin-left: -20px;
+  margin-top: 94px;
+  margin-bottom: -82px;
 }
 .sendUpdates-pref {
-    color: #000;
-    font-family: Poppins;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px; /* 125% */
+  color: #000;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 125% */
 }
 .input-pref {
-    margin-top: 18px;
+  margin-top: 18px;
 }
-
-
-
-
-
-
-

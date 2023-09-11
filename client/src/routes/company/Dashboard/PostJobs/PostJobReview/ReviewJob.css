@@ -47,6 +47,7 @@ body {
     font-size: 26px;
     margin-left: auto;
     margin-right: 300px;
+    width: 200px;
 }
 
 .Settings-Heading {
@@ -168,13 +169,15 @@ body {
         margin-left: 170px;
     }
     .Option-Heading-2 {
-        margin-right: -110px;
+        margin-right: -150px;
         margin-left: auto;
         font-size: 14px;
+        width: 108px;
     }
     .Step22-Parent-Container {
-        width: 100%;
+        width: 80%;
         height: auto;
+        margin-top: 0;
     }
     .Parent-Container-PopUp {
         width: 100%;
@@ -189,19 +192,23 @@ body {
         margin-right: 20px;
     }
     .Step22-Parent-Container-2 {
-        width: 100%;
+        width: 80%;
         height: auto;
+        margin-top: 40px;
     }
     .input-field-pop-up-box {
         width: 280px;
     }
     .Step22-Parent-Container-3 {
-        width: 100%;
+        width: 80%;
         height: auto;
+        margin-top: 40px; 
     }
     .Button-Container {
-        width: 100%;
+        width: 80%;
         height: auto;
+        margin-top: 120px;
+        line-height: 10px;
     }
     .Review-Heading {
         font-size: 20px;
@@ -225,7 +232,7 @@ body {
         font-size: 17px;
     }
     .popUpBox-Button-Container {
-        margin-top: 20px;
+        margin-top: 130px;
         flex-direction: row;
     }
     .Done-button {

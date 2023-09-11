@@ -172,7 +172,11 @@ function Header({ active, page }) {
                 </button>
                 <button
                   className="getLogInBtn"
-                  style={{ background: "transparent", fontSize: 16 }}
+                  style={{
+                    background: "transparent",
+                    fontSize: 16,
+                    border: "none",
+                  }}
                   onClick={loginButton}
                 >
                   Sign In

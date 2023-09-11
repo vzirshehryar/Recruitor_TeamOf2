@@ -1,27 +1,22 @@
-// Import necessary dependencies and components
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "../companyContext";
 import { useContext, useEffect } from "react";
+
 import axios from "axios";
 import "./CreateAccount.css";
 import Header from "../../Home/components/header";
 
-// Define the CreateAccount component
 export const CreateAcount = () => {
-  // Initialize the navigation function from react-router-dom
   const navigate = useNavigate();
 
-  // Access the user context using useContext
   const { companyInfo, setcompanyInfo } = useContext(UserContext);
 
-  // Function to handle the form submission
   async function NextPage(e) {
     e.preventDefault();
     console.log("company: ", companyInfo);
     console.log("Running");
     try {
-      // Send a POST request to set the company profile
       var response = await fetch("/company/setProfile", {
         method: "POST",
         headers: {
@@ -37,20 +32,17 @@ export const CreateAcount = () => {
     
       console.log("nav");
 
-      // Navigate to the next page
       navigate("/company/jobbasics");
     } catch (e) {
       console.log(e);
     }
   }
 
-  // Function to handle input field changes
   const handleInputChange = (e) => {
     setcompanyInfo({ ...companyInfo, [e.target.id]: e.target.value });
     console.log(companyInfo);
   };
 
-  // Check for user authentication and navigate accordingly
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (localStorage.getItem("userType") !== "company")
@@ -65,11 +57,8 @@ export const CreateAcount = () => {
 
   return (
     <>
-      {/* Render the Header component */}
       <Header active="company" />
-
       <div className="create-account-main-container">
-        {/* Progress indicator */}
         <div className="Horizontal-Line-below-header-parent-create">
           <div className="round-horizontal-2-create">1</div>
           <div className="line-horizontal-2-create"></div>
@@ -82,31 +71,27 @@ export const CreateAcount = () => {
           <div className="round-horizontal-1-create">5</div>
         </div>
 
-        {/* Heading */}
         <div className="create-account-heading-container">
           <h1 className="create-account-heading">Create an employer account</h1>
         </div>
-
-        {/* Description */}
         <div className="create-account-para-container">
           <p className="create-account-para">
             You haven't posted a job before, so you'll need to create an
             employer account.
           </p>
         </div>
-
-        {/* Create account form */}
         <div className="create-account-form-container">
           <form action="" onSubmit={NextPage}>
             <div>
-              <label htmlFor="" className="Your-company-name-create">
+              <label htmlFor="" className="Your-company-name-create p-4">
                 Your company's name
               </label>
               <input
                 type="text"
                 name=""
                 id="name"
-                placeholder="XYZ"
+                className="p-3"
+                placeholder="Your company"
                 onChange={handleInputChange}
                 required
               />
@@ -120,6 +105,7 @@ export const CreateAcount = () => {
                 name=""
                 id="teamSize"
                 placeholder="10-1000"
+                className="p-3"
                 onChange={handleInputChange}
                 required
               />
@@ -132,6 +118,7 @@ export const CreateAcount = () => {
                 type="text"
                 name=""
                 id="firstAndLastName"
+                className="p-3"
                 placeholder="Name"
                 onChange={handleInputChange}
                 required
@@ -151,7 +138,8 @@ export const CreateAcount = () => {
                 type="text"
                 name=""
                 id="phNo"
-                placeholder="00000000000"
+                placeholder="Your phone"
+                className="p-3"
                 onChange={handleInputChange}
                 required
               />

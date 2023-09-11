@@ -7,8 +7,7 @@
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
-    font-family: "Poppins", sans-serif;
-
+  font-family: "Poppins", sans-serif;
 }
 .headings-2 {
   padding: 0px 100px 0 100px;
@@ -132,7 +131,7 @@
   width: 100%;
 }
 
-input,
+/* input,
 textarea {
   display: block;
   width: 100%;
@@ -151,7 +150,7 @@ label {
   align-items: start;
   margin-top: 10px;
   margin-bottom: 10px;
-}
+} */
 
 .heading-size {
   font-size: 48px;
@@ -372,7 +371,7 @@ label {
     width: 100%;
   }
 
-  input,
+  /* input,
   textarea {
     display: block;
     width: 100%;
@@ -391,7 +390,7 @@ label {
     align-items: start;
     margin-top: 10px;
     margin-bottom: 10px;
-  }
+  } */
 
   .heading-size {
     font-size: 48px;

@@ -54,10 +54,12 @@ function Slider() {
           <button onClick={handleSearch}>Search Jobs</button>
 
           {/* Browse Jobs link */}
-          <Link to="">
+        {/*  <Link to="">
             Browse Jobs
-            <FaAngleRight /> {/* Right arrow icon */}
+            <FaAngleRight /> 
           </Link>
+        */}
+          
         </div>
       </div>
     </div>
