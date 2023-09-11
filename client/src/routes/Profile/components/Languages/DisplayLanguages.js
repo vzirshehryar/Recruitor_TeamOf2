@@ -65,7 +65,7 @@ const DisplayLang = () => {
               >
                 {experience.language}
               </h4>
-              <span
+              {/* <span
                 style={{
                   color: "#1e1ef0",
                   cursor: "pointer",
@@ -75,7 +75,7 @@ const DisplayLang = () => {
                 onClick={() => openEditor(ind)}
               >
                 Edit
-              </span>
+              </span> */}
             </div>
             <p
               className="p-0 m-0"

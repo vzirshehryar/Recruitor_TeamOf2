@@ -59,7 +59,7 @@ const DisplayEdu = () => {
               >
                 {experience.school}
               </h4>
-              <span
+              {/* <span
                 style={{
                   color: "#1e1ef0",
                   cursor: "pointer",
@@ -69,7 +69,7 @@ const DisplayEdu = () => {
                 onClick={openEditor}
               >
                 Edit
-              </span>
+              </span> */}
             </div>
             <p
               className="p-0 m-0"

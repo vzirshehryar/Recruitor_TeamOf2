@@ -178,7 +178,7 @@ h5 {
   background: lightgray 0px 0px / 100% 100% no-repeat, #081351;
   width: 260px;
   height: 180px;
-  object-fit: contain;
+  object-fit: cover;
 }
 .linkToAi {
   color: #1e1ef0;

@@ -14,6 +14,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px 10px;
+  overflow: hidden;
 }
 
 .jobFeedFilter label {
@@ -31,7 +32,7 @@
   /* border-radius: 10px; */
   border: 1.7px solid #df1a50;
   font-size: 16px;
-  width: 250px; /* Make the input element full width */
+  width: 3000px; /* Make the input element full width */
   max-width: 300px; /* Add a maximum width */
   padding: 10px 15px;
 }
@@ -67,12 +68,11 @@
 @media screen and (max-width: 768px) {
   .jobFeedFilter label {
     font-size: 20px;
-    margin-right: 0;
-    margin-bottom: 10px; /* Add some spacing between label and input */
-  }
-
-  .jobFeedFilter input,
-  .jobFeedFilter button {
-    max-width: 100%; /* Remove max-width to allow elements to take full width */
+    margin-right: 10px;
   }
 }
+
+/* .jobFeedFilter input,
+  .jobFeedFilter button { */
+/* max-width: 100%; Remove max-width to allow elements to take full width */
+/* } */

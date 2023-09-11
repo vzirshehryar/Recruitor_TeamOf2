@@ -355,8 +355,12 @@ function JobFeed() {
                         <h3 style={{ textAlign: "left" }}>{item.jobTitle}</h3>
                         <h5>{Date(item.postedOn).toString().slice(0, 11)}</h5>
                         <div
-                          className="d-flex gap-1 align-items-center justify-content-between mb-1"
-                          style={{ maxWidth: "400px" }}
+                          className="d-flex gap-1 align-items-center mb-1"
+                          style={{
+                            width: "30%",
+                            minWidth: "250px",
+                            justifyContent: "space-between",
+                          }}
                         >
                           <div className="d-flex gap-1 justify-content-center align-items-center">
                             <FaClock />

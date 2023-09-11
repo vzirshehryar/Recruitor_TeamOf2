@@ -66,7 +66,7 @@ const DataDisplay = () => {
               >
                 {experience.jobTitle}
               </h4>
-              <span
+              {/* <span
                 style={{
                   color: "#1e1ef0",
                   cursor: "pointer",
@@ -76,7 +76,7 @@ const DataDisplay = () => {
                 onClick={openEditor}
               >
                 Edit
-              </span>
+              </span> */}
             </div>
             <p
               className="p-0 m-0"
