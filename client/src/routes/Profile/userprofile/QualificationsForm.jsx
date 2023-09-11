@@ -21,6 +21,11 @@ const data = {
 
 function QualificationsForm() {
   const [showDisplay, setDisplay] = useState(false);
+  const [update, setUpdate] = useState(true);
+
+  const updateFun = () => {
+    setUpdate(!update);
+  };
 
   return (
     <>
@@ -33,7 +38,7 @@ function QualificationsForm() {
             Qualifications
           </h3>
         </div>
-        <DisplayEdu />
+        <DisplayEdu update={update} />
         <div className={profileStyles["details-container"]} style={{}}>
           <div className={profileStyles["lower-container"]}>
             <p className={profileStyles["additional-details"]}>
@@ -52,12 +57,16 @@ function QualificationsForm() {
           </a>
         </div>
       </div>
-      <QualificationModel showDisplay={showDisplay} setDisplay={setDisplay} />
+      <QualificationModel
+        showDisplay={showDisplay}
+        setDisplay={setDisplay}
+        updateFun={updateFun}
+      />
     </>
   );
 }
 
-export const QualificationModel = ({ showDisplay, setDisplay }) => {
+export const QualificationModel = ({ showDisplay, setDisplay, updateFun }) => {
   const [formData, setFormData] = useState(data);
 
   const handleSubmit = (e) => {
@@ -77,6 +86,7 @@ export const QualificationModel = ({ showDisplay, setDisplay }) => {
         const finalprogress = addprogress.toString();
         localStorage.setItem("progress", finalprogress);
         toast.success(response.data.message);
+        updateFun();
         setFormData(data);
         setDisplay(false);
       })

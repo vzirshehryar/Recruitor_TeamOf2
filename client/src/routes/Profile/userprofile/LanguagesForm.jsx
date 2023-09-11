@@ -16,6 +16,11 @@ const data = {
 
 function LanguagesForm() {
   const [showDisplay, setDisplay] = useState(false);
+  const [update, setUpdate] = useState(true);
+
+  const updateFun = () => {
+    setUpdate(!update);
+  };
 
   return (
     <>
@@ -28,7 +33,7 @@ function LanguagesForm() {
             Languages
           </h3>
         </div>
-        <DisplayLang />
+        <DisplayLang update={update} />
         <div className={profileStyles["details-container"]} style={{}}>
           <div className={profileStyles["lower-container"]}>
             <p className={profileStyles["additional-details"]}></p>
@@ -46,12 +51,16 @@ function LanguagesForm() {
         </div>
       </div>
 
-      <LanguageModel showDisplay={showDisplay} setDisplay={setDisplay} />
+      <LanguageModel
+        showDisplay={showDisplay}
+        setDisplay={setDisplay}
+        updateFun={updateFun}
+      />
     </>
   );
 }
 
-export const LanguageModel = ({ showDisplay, setDisplay, language }) => {
+export const LanguageModel = ({ showDisplay, setDisplay, updateFun }) => {
   const [formData, setFormData] = useState(data);
   // if (language) {
   // }
@@ -76,6 +85,7 @@ export const LanguageModel = ({ showDisplay, setDisplay, language }) => {
         const finalprogress = addprogress.toString();
         localStorage.setItem("progress", finalprogress);
         toast.success(response.data.message);
+        updateFun();
         setFormData(data);
         setDisplay(false);
       })

@@ -31,9 +31,8 @@
   text-transform: capitalize;
 }
 .SideFilter {
-  border: 1px solid rgb(244, 238, 238);
+  border: 1px solid #cf1350;
   border-radius: 10px;
-  background-color: rgb(240, 237, 237);
   margin-top: 30px;
   width: 26%;
 }

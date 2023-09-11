@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 import { LanguageModel } from "../../userprofile/LanguagesForm";
 
-const DisplayLang = () => {
+const DisplayLang = ({ update }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [data, setData] = useState(null);
   const [showDisplay, setDisplay] = useState(false);
@@ -16,7 +16,6 @@ const DisplayLang = () => {
   useEffect(() => {
     const apiUrl = "/user/language/getData";
     const token = localStorage.getItem("token");
-
     const headers = {
       Authorization: token,
     };
@@ -32,7 +31,7 @@ const DisplayLang = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [update]);
 
   var index = 0;
   const openEditor = (ind) => {

@@ -23,6 +23,11 @@ const data = {
 
 function WorkExperienceForm() {
   const [showDisplay, setDisplay] = useState(false);
+  const [update, setUpdate] = useState(true);
+
+  const updateFun = () => {
+    setUpdate(!update);
+  };
 
   return (
     <>
@@ -35,7 +40,7 @@ function WorkExperienceForm() {
             Work Experience
           </h3>
         </div>
-        <DataDisplay />
+        <DataDisplay update={update} />
         <div className={profileStyles["details-container"]} style={{}}>
           <div className={profileStyles["lower-container"]}>
             <p className={profileStyles["additional-details"]}>
@@ -54,12 +59,16 @@ function WorkExperienceForm() {
           </a>
         </div>
       </div>
-      <ExperienceModel showDisplay={showDisplay} setDisplay={setDisplay} />
+      <ExperienceModel
+        showDisplay={showDisplay}
+        setDisplay={setDisplay}
+        updateFun={updateFun}
+      />
     </>
   );
 }
 
-export const ExperienceModel = ({ showDisplay, setDisplay }) => {
+export const ExperienceModel = ({ showDisplay, setDisplay, updateFun }) => {
   const [formData, setFormData] = useState(data);
 
   const handleSubmit = (e) => {
@@ -80,6 +89,7 @@ export const ExperienceModel = ({ showDisplay, setDisplay }) => {
         const finalprogress = addprogress.toString();
         localStorage.setItem("progress", finalprogress);
         toast.success(response.data.message);
+        updateFun();
         setFormData(data);
         setDisplay(false);
       })
@@ -90,7 +100,13 @@ export const ExperienceModel = ({ showDisplay, setDisplay }) => {
   };
 
   const handleChange = (e) => {
+    if (e.target.name === "currentlyWorking") {
+      setFormData({ ...formData, [e.target.name]: !formData.currentlyWorking });
+      return;
+    }
+
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(e.target.name, e.target.value);
   };
 
   return (
@@ -180,7 +196,8 @@ export const ExperienceModel = ({ showDisplay, setDisplay }) => {
               <label>
                 <p>End Date*</p>
                 <input
-                  required
+                  required={!formData.currentlyWorking}
+                  disabled={formData.currentlyWorking}
                   name="endDate"
                   value={formData.endDate}
                   type="date"

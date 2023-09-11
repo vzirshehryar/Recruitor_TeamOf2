@@ -86,7 +86,10 @@
 }
 
 .cover-letter-contact-container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
@@ -98,6 +101,7 @@
   font-size: 48px;
   font-family: "Poppins", sans-serif;
   margin-top: 20px;
+  max-width: 760px;
 }
 
 .cover-letter-contact-para {
@@ -107,6 +111,7 @@
   font-weight: 400;
   font-size: 40px;
   font-family: "Poppins", sans-serif;
+  max-width: 760px;
 }
 
 .cover-letter-info-container {
@@ -232,13 +237,14 @@ label {
   font-size: 18px;
   font-weight: 600;
 }
-.cover-letter-next-button132{
+.cover-letter-next-button132 {
   background: #cf1350;
   border: 1px solid #cf1350;
   width: 136px;
   height: 64px;
   font-size: 18px;
-  font-weight: 600;color: #FFF;
+  font-weight: 600;
+  color: #fff;
   border-radius: 12px;
 }
 

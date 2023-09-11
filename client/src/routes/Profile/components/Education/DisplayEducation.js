@@ -3,7 +3,7 @@ import "../Experiences/DataDisplay.css";
 import axios from "axios";
 import { useEffect } from "react";
 
-const DisplayEdu = () => {
+const DisplayEdu = (update) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [data, setData] = useState([]);
   const toggleDropdown = () => {
@@ -30,7 +30,7 @@ const DisplayEdu = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [update]);
 
   const openEditor = () => {};
 

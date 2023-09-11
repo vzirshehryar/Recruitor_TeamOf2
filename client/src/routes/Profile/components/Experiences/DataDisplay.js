@@ -12,7 +12,7 @@ function toProperDate(date) {
   return result;
 }
 
-const DataDisplay = () => {
+const DataDisplay = ({ update }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [data, setData] = useState(null);
   const toggleDropdown = () => {
@@ -37,7 +37,7 @@ const DataDisplay = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [update]);
 
   const openEditor = () => {};
 

@@ -107,7 +107,8 @@ function JobFeed() {
       maxSalary &&
       minSalary &&
       jobType &&
-      datePosted
+      datePosted &&
+      specialism
     );
     // return titleMatch && locationMatch ;
     // return true;
@@ -219,7 +220,15 @@ function JobFeed() {
       <div className="jobFeedPage">
         <JobNav Search={Search} />
         <Container fluid className="jobFeedContainer">
-          <Button className="btn1 mt-2" onClick={toggleFilter}>
+          <Button
+            className="btn1 mt-2"
+            onClick={toggleFilter}
+            style={{
+              color: "#081351",
+              backgroundColor: "#fff",
+              borderColor: "#081351",
+            }}
+          >
             Filters
           </Button>
           <Container className="custom-style">
