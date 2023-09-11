@@ -59,7 +59,7 @@ const CareerForm = () => {
       <Header active="career" /> {/* Render the header component with an "active" prop */}
       <div className="career-container11">
         <div className="rectangle-career11">
-          <div className="heading-career11">Career Coach</div>
+          <div className="heading-career11">Career Advice</div>
         </div>
         <div className="new-heading-career-container11">
           <div className="new-heading-career11">
@@ -174,8 +174,6 @@ const CareerForm = () => {
                 Submit
               </button>
             </div>
-          </form>
-          {/* Display the result */}
           <div className="career-form-field13233345">
             <textarea
               type="text"
@@ -185,6 +183,8 @@ const CareerForm = () => {
               value={result}
             />
           </div>
+          </form>
+          {/* Display the result */}
         </div>
       </div>
     </>

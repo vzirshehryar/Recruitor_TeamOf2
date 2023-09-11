@@ -69,7 +69,7 @@ export const  CoverLetterView = () => {
             </Link>
             {/* Button to navigate to the career coach page */}
             <Link to="/careercoach">
-              <button className="cover-letter-next-button">SUBMIT</button>
+              <button className="cover-letter-next-button132">SUBMIT</button>
             </Link>
           </div>
         </div>

@@ -94,9 +94,10 @@
   color: black;
   text-align: center;
   text-transform: capitalize;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 48px;
   font-family: "Poppins", sans-serif;
+  margin-top: 20px;
 }
 
 .cover-letter-contact-para {
@@ -206,6 +207,7 @@ label {
   height: 64px;
   font-size: 18px;
   font-weight: 600;
+  border-radius: 12px;
 }
 .cover-letter-back-button11 {
   background: transparent;
@@ -229,6 +231,15 @@ label {
   height: 64px;
   font-size: 18px;
   font-weight: 600;
+}
+.cover-letter-next-button132{
+  background: #cf1350;
+  border: 1px solid #cf1350;
+  width: 136px;
+  height: 64px;
+  font-size: 18px;
+  font-weight: 600;color: #FFF;
+  border-radius: 12px;
 }
 
 /* COVER LETTER VIEW PAGE */
@@ -458,6 +469,13 @@ label {
   }
 
   .cover-letter-next-button {
+    background: #cf1350;
+    border: 1px solid #cf1350;
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+  }
+  .cover-letter-next-button132 {
     background: #cf1350;
     border: 1px solid #cf1350;
     width: 100px;

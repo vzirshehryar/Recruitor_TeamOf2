@@ -9,13 +9,8 @@
 
 .cover-letter-heading-container23 {
   width: 100%;
-<<<<<<< HEAD
   height: 120px;
   background: #CF1350;
-=======
-  height: 200px;
-  background: #cf1350;
->>>>>>> 7a73a62b80ce8495f125ce5e1fe618795cf1c1b2
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,7 +134,7 @@
   font-weight: 400;
 }
 .lalle {
-  font-weight: 400;
+  font-weight: 500;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
 }
@@ -184,7 +179,7 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin-top: 120px;
+  margin-top: 2%;
 }
 .cover-letter-back-button1 {
   background: transparent;

@@ -95,13 +95,12 @@
 
 /* Styles for the result display field */
 .career-form-field13233345{
-    width: 100%;
+    width:100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 20px; /* Reduce spacing for this field */
     align-items: start;
     margin-top: 20px;
- align-items: center;
     text-align: start;
 }
 

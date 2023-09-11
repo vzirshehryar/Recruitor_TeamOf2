@@ -143,9 +143,8 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  width: 97%;
-  margin-top: 60px;
-  margin-bottom: 40px;
+  
+ 
 }
 .submit-button-salary {
   border-radius: 4px;
@@ -160,7 +159,7 @@
   height: 24px;
 }
 .button-salary-container {
-  margin-bottom: 60px;
+ 
 }
 .submit-button-salary:hover {
   background: #cf1350;
@@ -371,7 +370,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 100px;
+    
   }
 
   .salary-form {

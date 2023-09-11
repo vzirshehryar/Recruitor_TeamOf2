@@ -157,9 +157,7 @@ const SalaryForm = () => {
             {/* Container for the submit button */}
             <div
               className="button-field-salary"
-              style={{
-                flexDirection: "column",
-              }}
+              
             >
               {/* Submit button */}
               <button
