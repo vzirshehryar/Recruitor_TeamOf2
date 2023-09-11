@@ -58,7 +58,7 @@ export const JobBasics = () => {
               </label>
               <select
                 name=""
-                id="jobType"
+                id="industry"
                 onChange={handleInputChange}
                 required
               >
