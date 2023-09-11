@@ -13,8 +13,20 @@
   justify-content: center;
   align-items: center;
 }
-
 .heading-salary {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+}.heading-salary1233 {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+}
+.heading-salary1233 {
   color: white;
   font-family: "Poppins", sans-serif;
   font-size: 48px;
@@ -170,20 +182,17 @@
 .main-salary-image {
   position: relative;
   text-align: center;
-  margin-top: 40px;
-  width: 40%;
-  height: 500px;
+  object-fit: contain;
+  
 }
 .main-image {
-  max-width: 400px; /* Adjust the maximum width as needed */
-  max-height: 400px; /* Adjust the maximum height as needed */
-  display: block;
-  margin: 0 auto; /* Center the image horizontally */
+ width: 100%;
+ height: 85%;
 }
 
 .small-image-container {
   position: absolute;
-  top: 50%;
+  top: 60%;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -192,7 +201,7 @@
 .rs-container {
   display: flex; /* Use flex display */
   align-items: center; /* Center vertically */
-  margin-right: 10px;
+
   gap: 10px;
 }
 .small-image {
@@ -467,11 +476,13 @@
     text-align: center;
   }
   .rs-container {
+
     display: flex; /* Use flex display */
     align-items: center; /* Center vertically */
+    text-align: center;
   }
   .small-image {
-    width: 50%;
+    width: 70%;
     height: 50%;
 
     display: block;
@@ -480,9 +491,10 @@
   .rs-text {
     color: #000;
     font-family: "Poppins", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
-    margin-top: -20px;
+    text-align: center;
+    margin-left: 30%;
   }
   .salary-text {
     color: #0f16c3;
@@ -721,7 +733,7 @@
   .rs-text {
     color: #000;
     font-family: "Poppins", sans-serif;
-    font-size: 20px;
+    font-size:24px;
     font-weight: 500;
     margin-top: -20px;
   }

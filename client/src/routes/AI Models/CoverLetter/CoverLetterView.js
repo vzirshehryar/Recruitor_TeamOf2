@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { useLetterContext } from "../CoverLetterContext";
 import Header from "../../Home/components/header";
 
-export const CoverLetterView = () => {
+export const  CoverLetterView = () => {
   // Retrieve the cover letter content using the context API
   const { letter } = useLetterContext();
 

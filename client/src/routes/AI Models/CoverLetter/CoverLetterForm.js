@@ -80,7 +80,7 @@
      <>
        <Header active="cover" />
        <div className="cover-letter-main-container">
-         <div className="cover-letter-heading-container">
+         <div className="cover-letter-heading-container23">
            <h1 className="cover-letter-heading">Build Your Cover Letter</h1>
          </div>
          <div className="cover-letter-contact-container">
@@ -180,11 +180,9 @@
              </div>
              {/* Buttons for navigation */}
              <div className="cover-letter-button-container">
-               <Link to="/resume-final">
-                 <button className="cover-letter-back-button1">Back</button>
-               </Link>
+               
                <Link to="" onClick={handleSubmit}>
-                 <button className="cover-letter-next-button1">Next</button>
+                 <button className="button123">Next</button>
                </Link>
              </div>
            </form>

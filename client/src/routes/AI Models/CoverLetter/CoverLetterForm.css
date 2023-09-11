@@ -7,9 +7,9 @@
   height:198vh; /* Adjust the height as needed */
 }
 
-.cover-letter-heading-container {
+.cover-letter-heading-container23 {
   width: 100%;
-  height: 200px;
+  height: 120px;
   background: #CF1350;
   display: flex;
   justify-content: center;
@@ -225,6 +225,20 @@ letter-spacing: 0em;
 text-align: center;
 
 }
+.button123 {
+  border-radius: 8px;
+    background: #CF1350;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    font-weight: 600;
+    border:solid 1px #CF1350;
+}
+
 .cover-letter-next-button1 {
   background: transparent;
   color: #FFF;

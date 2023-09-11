@@ -44,7 +44,7 @@ const DisplaySalary = () => {
 
               {/* Container for displaying the salary */}
               <div className="rs-container">
-                <p className="rs-text">{salary}</p>
+                <div className="rs-text">{salary}</div>
               </div>
             </div>
           </div>
