@@ -50,7 +50,6 @@ function FinishPost() {
             if (response.ok) {
                 navigate("/companydashboard");
             }
-          
         } catch (e) {
             console.log(e);
             toast.error("Backend Error Occured");
@@ -84,24 +83,30 @@ function FinishPost() {
                         and manage candidates. Any job listings you create will
                         activate once your organization is approved.
                     </div>
-                    <div className="finishPost-Next">Next Steps</div>
-                    <div className="finishPost-review">
-                        Step200 is reviewing your organization for approval
-                    </div>
-                    <div className="finishPost-review-sub">
-                        Once your organization is approved, your jobs will be
-                        visible to members. This process
-                        <br /> usually takes 1 business day.
-                    </div>
-                    <div className="finishPost-review">
-                        Sponsor your job to start getting candidates
-                    </div>
-                    <div className="finishPost-review-sub">
-                        Once you’ve created a job, it’s time to start attracting
-                        candidates. Click the
-                        <br /> sponsorship button on your listing to set your
-                        budget and get your posting to the top
-                        <br /> of search results.
+                    <div className="finish-post-parent-desc">
+                        <div className="finishPost-line-parent"></div>
+                        <div className="description-parent">
+                            <div className="finishPost-Next">Next Steps</div>
+                            <div className="finishPost-review">
+                                Step200 is reviewing your organization for
+                                approval
+                            </div>
+                            <div className="finishPost-review-sub">
+                                Once your organization is approved, your jobs
+                                will be visible to members. This process
+                                <br /> usually takes 1 business day.
+                            </div>
+                            <div className="finishPost-review">
+                                Sponsor your job to start getting candidates
+                            </div>
+                            <div className="finishPost-review-sub">
+                                Once youve created a job, its time to start
+                                attracting candidates. Click the
+                                <br /> sponsorship button on your listing to set
+                                your budget and get your posting to the top
+                                <br /> of search results.
+                            </div>
+                        </div>
                     </div>
                     <div className="finishPost-Button-Container">
                         <button

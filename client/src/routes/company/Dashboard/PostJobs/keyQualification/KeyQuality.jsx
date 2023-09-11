@@ -28,7 +28,6 @@ function Checkbox({ id }) {
     );
 }
 
-
 const PopUpKey = ({ closePopUpKey, addStringToArray, state, value }) => {
     let inputSave = "";
     const handleInputChangeKey = (event) => {
@@ -209,7 +208,9 @@ function KeyQualities() {
                 <div
                     className="keyQuality-plus-button-container-parent "
                     onClick={openPopUpKey}
-                >   <p className="skill-ptag">Add Skills</p>
+                >
+                    {" "}
+                    <p className="skill-ptag">Add Skills</p>
                     <Plus />
                 </div>
             </div>

@@ -46,8 +46,7 @@ body {
     font-weight: 400;
     font-size: 26px;
     margin-left: auto;
-    margin-right: 300px;
-    width: 200px;
+    margin-right: 200px;
 }
 
 .Settings-Heading {
@@ -107,7 +106,7 @@ body {
 .PopUp-Container {
     width: 1156.48px;
     background-color: red;
-    height: 457px;
+    height: 250px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -135,11 +134,12 @@ body {
     margin-left: 100px;
     border-radius: 4px;
     margin-top: 10px;
+    padding: 10px;
 }
 .popUpBox-Button-Container {
     width: 956px;
     margin-left: 100px;
-    margin-top: 100px;
+    margin-top: 28px;
     padding-bottom: 50px;
     display: flex;
     flex-direction: row-reverse;
@@ -149,6 +149,8 @@ body {
     height: 54px;
     border-radius: 8px;
     background-color: #cf1350;
+    border: none;
+    color: white;
 }
 .Close-button {
     width: 164px;
@@ -156,8 +158,12 @@ body {
     margin-right: 15px;
     border-radius: 8px;
     background-color: #cf1350;
+    border: none;
+    color: white;
 }
+
 .Pen-Container {
+    margin-right: 105px;
 }
 @media (max-width: 768px) {
     /* Adjust styles for screens with a maximum width of 768px (e.g., mobile or small screens) */
@@ -169,15 +175,13 @@ body {
         margin-left: 170px;
     }
     .Option-Heading-2 {
-        margin-right: -150px;
+        margin-right: -110px;
         margin-left: auto;
         font-size: 14px;
-        width: 108px;
     }
     .Step22-Parent-Container {
-        width: 80%;
+        width: 100%;
         height: auto;
-        margin-top: 0;
     }
     .Parent-Container-PopUp {
         width: 100%;
@@ -192,23 +196,19 @@ body {
         margin-right: 20px;
     }
     .Step22-Parent-Container-2 {
-        width: 80%;
+        width: 100%;
         height: auto;
-        margin-top: 40px;
     }
     .input-field-pop-up-box {
         width: 280px;
     }
     .Step22-Parent-Container-3 {
-        width: 80%;
+        width: 100%;
         height: auto;
-        margin-top: 40px; 
     }
     .Button-Container {
-        width: 80%;
+        width: 100%;
         height: auto;
-        margin-top: 120px;
-        line-height: 10px;
     }
     .Review-Heading {
         font-size: 20px;
@@ -232,7 +232,7 @@ body {
         font-size: 17px;
     }
     .popUpBox-Button-Container {
-        margin-top: 130px;
+        margin-top: 20px;
         flex-direction: row;
     }
     .Done-button {

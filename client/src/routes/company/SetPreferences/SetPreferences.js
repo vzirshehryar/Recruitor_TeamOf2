@@ -79,14 +79,14 @@ export const SetPreferences = () => {
                                 required
                             />
                         </div>
+                        <button
+                            type="button"
+                            className="Perfrences-AddEmail-Button"
+                            onClick={handleAddEmail}
+                        >
+                            + Add Email
+                        </button>
                         <div>
-                            <button
-                                type="button"
-                                className="Perfrences-AddEmail-Button"
-                                onClick={handleAddEmail}
-                            >
-                                + Add Email
-                            </button>
                             {emails.length > 0 && (
                                 <ul>
                                     {emails.map((email, index) => (
@@ -105,10 +105,17 @@ export const SetPreferences = () => {
                                     time someone applies.
                                 </label>
                             </div>
-                            <p className="heading-left-align para-pref">
-                                Let potential candidates contact you about this
-                                job
-                            </p>
+                            <div className="flex">
+                                <input
+                                    type="checkbox"
+                                    id="ByEmailToTheAddress"
+                                    className="input-pref123"
+                                />
+                                <p className="heading-left-align para-pref">
+                                    Let potential candidates contact you about
+                                    this job
+                                </p>
+                            </div>
                             <div className="flex">
                                 <input
                                     type="checkbox"

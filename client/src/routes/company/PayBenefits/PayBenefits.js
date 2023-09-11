@@ -21,23 +21,22 @@ export const PayBenefits = () => {
         navigate("/company/techdetail");
     }
 
-     useEffect(() => {
-     const token = localStorage.getItem("token");
-     if (token === null && !token) {
-       console.log("token not found");
-       navigate("/company/createaccount");
-     } else {
-       console.log("Token found!");
-     }
-   }, []);
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token === null && !token) {
+            console.log("token not found");
+            navigate("/company/createaccount");
+        } else {
+            console.log("Token found!");
+        }
+    }, []);
     const bonuses = [
-        "Yearly bonus",
-        "Monthly bonus",
+        "Yearly Bonus",
+        "Monthly Bonus",
         "Vacation",
-        "Heath benefits",
+        "Heath Benefits",
         "Gym Facility",
         "Overtime",
-  
     ];
     const [checkedCheckboxes, setCheckedCheckboxes] = useState({});
     const [checkboxStates, setCheckboxStates] = useState(bonuses);
@@ -136,9 +135,10 @@ export const PayBenefits = () => {
                                     <input
                                         type="text"
                                         name=""
-                                        id="miniSR"
+                                        id="minSR"
                                         placeholder="Min"
                                         onChange={handleInputChange}
+                                        required
                                     />
                                     <div className="payBenefits-to-text">
                                         to
@@ -149,6 +149,7 @@ export const PayBenefits = () => {
                                         id="maxSR"
                                         placeholder="Max"
                                         onChange={handleInputChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -197,7 +198,9 @@ export const PayBenefits = () => {
                                                 <label
                                                     htmlFor={`checkbox-${index}`}
                                                 >
-                                                    <div className="bonus-container22">+{bonus}</div>
+                                                    <div className="payBenefits-bonus-heading">
+                                                        +{bonus}
+                                                    </div>
                                                 </label>
                                             </div>
                                         ))}
@@ -222,6 +225,6 @@ export const PayBenefits = () => {
                     </form>
                 </div>
             </div>
-        </>
-    );
+        </>
+    );
 };
