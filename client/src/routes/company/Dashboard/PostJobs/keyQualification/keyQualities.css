@@ -255,12 +255,11 @@ body {
 .keyQuality-plus-button-container-parent {
     margin-left: auto;
     margin-right: auto;
-    /* margin-top: 40px; */
     border: 1px solid #cf1350;
     border-radius: 4px;
     width: 12%;
     padding: 5px 10px;
-    background-color: #fff;
+    background-color: #cf1350;
     margin: auto;
 }
 /* .keyQuality-plus-button-container-parent  svg{

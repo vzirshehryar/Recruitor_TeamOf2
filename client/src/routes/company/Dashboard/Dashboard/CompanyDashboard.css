@@ -1,344 +1,344 @@
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins";
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
 }
 
 .company-dashboard-main-container {
-  overflow-x: hidden;
-  padding-block: 1rem;
-  padding-inline: 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.8rem;
+    overflow-x: hidden;
+    padding-block: 1rem;
+    padding-inline: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
 
-  @media (min-width: 768px) {
-    margin-left: 300px;
-  }
-  @media (min-width: 1200px) {
-    margin-left: 300px;
-    grid-template-columns: repeat(3, 1fr);
-  }
+    @media (min-width: 768px) {
+        margin-left: 300px;
+    }
+    @media (min-width: 1200px) {
+        margin-left: 300px;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .company-dashboard-welcome-div {
-  grid-column: 1 / span 2;
-  display: flex;
-  flex-direction: column;
-  background-color: #CF1350;
-  padding-top: 1rem;
-  padding-inline: 1rem;
-  border-radius: 5px;
+    grid-column: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    background-color: #cf1350;
+    padding-top: 1rem;
+    padding-inline: 1rem;
+    border-radius: 5px;
 
-  @media (min-width: 600px) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  @media (min-width: 1200px) {
-    grid-column: 1 / span 3;
-    justify-content: space-between;
-  }
+    @media (min-width: 600px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    @media (min-width: 1200px) {
+        grid-column: 1 / span 3;
+        justify-content: space-between;
+    }
 }
 
 .company-dashboard-heading {
-  font-size: 2rem;
-  color: white !important;
-  @media (min-width: 600px) {
-    font-size: 2.1rem;
-  }
-  @media (min-width: 768px) {
-    font-size: 1.3rem;
-  }
-  @media (min-width: 900px) {
     font-size: 2rem;
-  }
-  @media (min-width: 1100px) {
-    font-size: 2.5rem;
-  }
+    color: white !important;
+    @media (min-width: 600px) {
+        font-size: 2.1rem;
+    }
+    @media (min-width: 768px) {
+        font-size: 1.3rem;
+    }
+    @media (min-width: 900px) {
+        font-size: 2rem;
+    }
+    @media (min-width: 1100px) {
+        font-size: 2.5rem;
+    }
 }
 
 .company-dashboard-para {
-  color: white;
-  font-weight: 500;
-  font-size: 2.2rem;
+    color: white;
+    font-weight: 500;
+    font-size: 2.2rem;
 }
 
 .company-dashboard-welcome-div img {
-  width: auto;
-  height: 200px;
-  object-fit: cover;
+    width: auto;
+    height: 200px;
+    object-fit: cover;
 }
 
 .company-dashboard-job-cards-container {
-  padding-block: 1.3rem;
-  display: flex;
-  gap: 0.7rem;
-  overflow-x: auto;
-  @media (min-width: 600px) {
-    gap: 1.5rem;
-  }
-  @media (min-width: 1200px) {
-    grid-column: 1 / span 3;
-  }
+    padding-block: 1.3rem;
+    display: flex;
+    gap: 0.7rem;
+    overflow-x: auto;
+    @media (min-width: 600px) {
+        gap: 1.5rem;
+    }
+    @media (min-width: 1200px) {
+        grid-column: 1 / span 3;
+    }
 }
 
 .company-dashboard-job-card {
-  position: relative;
-  min-width: 387px;
-  flex-shrink: 0;
-  background-color: white;
-  box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
-  padding-block: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 110px;
-  gap: 0.7rem;
+    position: relative;
+    min-width: 387px;
+    flex-shrink: 0;
+    background-color: white;
+    box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    padding-block: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 110px;
+    gap: 0.7rem;
 }
 .company-dashboard-job-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: 23%;
-  background-color: #CF135026;
-  -webkit-mask-image: url("/public/manage-card.svg");
-  mask-image: url("/public/manage-card.svg");
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 23%;
+    background-color: #cf135026;
+    -webkit-mask-image: url("/public/manage-card.svg");
+    mask-image: url("/public/manage-card.svg");
 }
 
 .company-dashbaord-job-card-top-div {
-  display: flex;
-  gap: 2rem;
+    display: flex;
+    gap: 2rem;
 }
 
 .company-dashbaord-job-card-top-div-para {
-  position: relative;
-  display: flex;
-  gap: 1.5rem;
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
 }
 
 .company-dashboard-job-card-top-div-para {
-  font-size: 1.4rem;
-  font-weight: 500;
-  text-transform: capitalize;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: capitalize;
 }
 
 .company-dashboard-stats-with-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(35, 193, 10, 0.15);
-  border-radius: 30px;
-  padding: 3px 8px;
-  gap: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(35, 193, 10, 0.15);
+    border-radius: 30px;
+    padding: 3px 8px;
+    gap: 6px;
 }
 
 .company-dashboard-job-card-middle-div {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-right: 8rem;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 8rem;
 }
 
 .company-dashboard-job-card-bottom-div {
-  font-size: 1.2rem;
-  font-weight: 300;
-  margin-right: 8rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-right: 8rem;
 }
 
 /* for cards on main file */
 .company-dashboard-job-cards-div {
-  display: flex;
-  justify-content: space-between;
-  flex-shrink: 0;
-  gap: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0;
+    gap: 1.25rem;
 }
 
 /* Recent Job Table Component */
 .recent-job-table-component {
-  background: white;
-  box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
-  padding-top: 1.2rem;
-  padding-bottom: 6rem;
-  padding-inline: 1.56rem;
+    background: white;
+    box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    padding-top: 1.2rem;
+    padding-bottom: 6rem;
+    padding-inline: 1.56rem;
 }
 
 .company-dashboard-job-table-comp {
-  grid-column: auto/span 2;
-  overflow-x: hidden;
-  border-radius: 5px;
-  padding-block: 1rem;
-  padding-inline: 1rem;
-  box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
-  @media (min-width: 1200px) {
-    grid-column: 1 / span 2;
-  }
+    grid-column: auto/span 2;
+    overflow-x: hidden;
+    border-radius: 5px;
+    padding-block: 1rem;
+    padding-inline: 1rem;
+    box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    @media (min-width: 1200px) {
+        grid-column: 1 / span 2;
+    }
 }
 .recent-job-post-table-container {
-  overflow-x: auto;
+    overflow-x: auto;
 }
 
 .recent-job-top-row {
-  max-width: 1187px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    max-width: 1187px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .company-dashboard-recent-job-top-row-heading {
-  font-size: 20px !important;
+    font-size: 20px !important;
 }
 
 .recent-job-top-row-buttons {
-  & button {
-    background-color: #f4f5f9;
-    /* padding-inline: 3rem; */
-    border-radius: 50px;
-  }
-  :nth-child(1) {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-  }
-  :nth-child(2) {
-    border-radius: 0px;
-  }
-  :nth-child(3) {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-  }
+    & button {
+        background-color: #f4f5f9;
+        /* padding-inline: 3rem; */
+        border-radius: 50px;
+    }
+    :nth-child(1) {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    :nth-child(2) {
+        border-radius: 0px;
+    }
+    :nth-child(3) {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
 }
 
 .company-dashboard-recent-job-table {
-  min-width: 100%;
-  margin-top: 1.2rem;
-  border-radius: 4px;
+    min-width: 100%;
+    margin-top: 1.2rem;
+    border-radius: 4px;
 
-  & thead {
-    color: #081351;
-    background-color: #F8DCE5;
-    text-align: left;
-  }
-  & tbody {
-    text-align: left;
-  }
+    & thead {
+        color: #081351;
+        background-color: #f8dce5;
+        text-align: left;
+    }
+    & tbody {
+        text-align: left;
+    }
 }
 .recent-job-table > tbody > tr {
-  border-bottom: 1px solid #eaddf1;
+    border-bottom: 1px solid #eaddf1;
 }
 
 .recent-job-table > tbody > tr > td {
-  padding-block: 1rem;
+    padding-block: 1rem;
 }
 
 .recent-job-table-headings {
-  padding-block: 1rem;
+    padding-block: 1rem;
 }
 
 .recent-job-table-pagination-footer {
-  max-width: 1187px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-  gap: 1rem;
+    max-width: 1187px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 1rem;
 }
 
 .recent-job-table-pagination-footer > div {
-  display: flex;
-  gap: 0.7rem;
-  /* outline: 1px solid black; */
-  padding-inline: 1rem;
+    display: flex;
+    gap: 0.7rem;
+    /* outline: 1px solid black; */
+    padding-inline: 1rem;
 }
 
 .pie-chart-holder {
-  border-radius: 5px;
-  padding-block: 1rem;
-  box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
-  display: grid;
+    border-radius: 5px;
+    padding-block: 1rem;
+    box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    display: grid;
 }
 
 .candidate-pie-chart-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
 
-  & h3 {
-    /* text-align: left; */
-    margin-right: auto;
-    padding-inline: 1rem;
-    font-family: Montserrat;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 26px; /* 130% */
-    letter-spacing: -0.32px;
-  }
-  & div {
-    align-self: flex-start;
-  }
+    & h3 {
+        /* text-align: left; */
+        margin-right: auto;
+        padding-inline: 1rem;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 26px; /* 130% */
+        letter-spacing: -0.32px;
+    }
+    & div {
+        align-self: flex-start;
+    }
 }
 
 .pie-chart-bottom-div {
-  min-width: 100%;
-  display: flex;
-  justify-content: space-around;
-  padding-right: 1rem;
-  gap: 0.5rem;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-right: 1rem;
+    gap: 0.5rem;
 }
 .pie-chart-bottom-div > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .pie-chart-span {
-  display: block;
-  height: 12px;
-  width: 12px;
-  border-radius: 4px;
-  align-self: flex-start;
+    display: block;
+    height: 12px;
+    width: 12px;
+    border-radius: 4px;
+    align-self: flex-start;
 }
 
 .span-shortlisted {
-  background-color: #9747ff;
-  position: relative;
+    background-color: #9747ff;
+    position: relative;
 }
 .span-shortlisted::after {
-  content: "Hired";
-  position: absolute;
-  left: 16px;
-  bottom: -5px;
-  text-transform: capitalize;
-  color: #464255;
-  font-size: 14px;
+    content: "Hired";
+    position: absolute;
+    left: 16px;
+    bottom: -5px;
+    text-transform: capitalize;
+    color: #464255;
+    font-size: 14px;
 }
 .span-hired {
-  background-color: #d4ace9;
-  position: relative;
+    background-color: #d4ace9;
+    position: relative;
 }
 .span-hired::after {
-  content: "Interviewed";
-  position: absolute;
-  left: 16px;
-  bottom: -5px;
-  text-transform: capitalize;
-  color: #464255;
-  font-size: 14px;
+    content: "Interviewed";
+    position: absolute;
+    left: 16px;
+    bottom: -5px;
+    text-transform: capitalize;
+    color: #464255;
+    font-size: 14px;
 }
 .span-rejected {
-  background-color: #6d0e9d;
-  position: relative;
+    background-color: #6d0e9d;
+    position: relative;
 }
 
 .span-rejected::after {
-  content: "Shortlisted";
-  position: absolute;
-  left: 16px;
-  bottom: -5px;
-  text-transform: capitalize;
-  color: #464255;
-  font-size: 14px;
+    content: "Shortlisted";
+    position: absolute;
+    left: 16px;
+    bottom: -5px;
+    text-transform: capitalize;
+    color: #464255;
+    font-size: 14px;
 }

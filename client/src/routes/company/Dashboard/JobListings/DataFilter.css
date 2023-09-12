@@ -2,34 +2,33 @@
     display: flex;
     justify-content: center;
     width: 100%;
-  }
-  
-  .date-filter {
+}
+
+.date-filter {
     display: flex;
     align-items: center;
-    background: #F4F5F9;
+    background: #f4f5f9;
     border-radius: 30px;
     padding: 10px;
     width: 70%;
     max-width: 600px;
-  }
-  
-  .filter-button {
+}
+
+.filter-button {
     border: none;
     background: none;
     font-size: 16px;
     cursor: pointer;
     padding: 8px 16px;
     transition: background-color 0.3s ease-in-out;
-    flex: 1; 
+    flex: 1;
     text-align: center;
-    color: #969BA0;
+    color: #969ba0;
     font-family: Montserrat;
-  }
-  
-  .filter-button.active {
-    background: #6D0E9D;
+}
+
+.filter-button.active {
+    background: #6d0e9d;
     color: white;
     border-radius: 30px;
-  }
-  
+}

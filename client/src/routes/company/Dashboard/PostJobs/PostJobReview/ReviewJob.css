@@ -66,16 +66,17 @@ body {
 .Step22-Parent-Container-3 {
     width: 1041.58px;
     height: 510px;
-    margin-top: -80px;
+    margin-top: -130px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
     flex-direction: column;
 }
-.Button-Container {
+.Button-Container-review {
     width: 1041.58px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: -100px;
     padding-bottom: 50px;
     display: flex;
     justify-content: space-between;

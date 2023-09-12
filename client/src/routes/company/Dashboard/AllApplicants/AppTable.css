@@ -220,25 +220,32 @@
     display: flex;
     flex-direction: column; /* Ensure children stack vertically */
     margin-left: 0; /* Align children to the start (top) of the container */
-    margin-top: -360px;
-  }
+    @media (max-width: 1600px) {
+        margin-top: -165px;
+    }
+    @media (max-width: 1200px) {
+        margin-top: -550px;
+    }
+    @media (max-width: 600px) {
+        margin-top: -10px;
+        margin-left: -30px;
+    }
+}
 
-
-    .main-container-for-applicants {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh; /* Ensure the container takes at least the full viewport height */
-      }
-
+.main-container-for-applicants {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+}
 
 .footer-applicants {
     margin-bottom: auto; /* Push the footer to the bottom */
-  }
+}
 
-.dropdown-options{
+.dropdown-options {
     display: flex;
     justify-content: space-between;
-margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .search-bar-app-search input {
@@ -268,7 +275,7 @@ margin-bottom: 10px;
     font-size: 14px;
     font-style: normal;
 }
-.label-dropdown-appsearch{
+.label-dropdown-appsearch {
     margin-top: 5px;
 }
 
@@ -293,9 +300,7 @@ margin-bottom: 10px;
 }
 
 .sub-container-for-applicants {
-    flex: 1; /* Allow this container to grow and take remaining space */
-    display: flex;
-  }
+}
 /* App Search CSS End */
 
 /* Job Listings CSS Start */
@@ -305,8 +310,20 @@ margin-bottom: 10px;
     background: var(--shades-of-black-white, #fff);
     box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.25);
     overflow-x: hidden;
-    width: 95%;
+    width: 90%;
     margin-top: 20px;
+    margin-left: 400px;
+    @media (max-width: 1600px) {
+    }
+    @media (max-width: 1200px) {
+        margin-top: 550px;
+        margin-left: 160px;
+        width: 70%;
+    }
+    @media (max-width: 600px) {
+        margin-top: 60px;
+        margin-left: 20px;
+    }
 }
 .listings-heading {
     text-align: start;
@@ -391,4 +408,23 @@ margin-bottom: 10px;
     .post-button-app-search {
         display: none;
     }
+}
+.test900 {
+    margin-left: 250px;
+    @media (max-width: 1600px) {
+    }
+    @media (max-width: 1200px) {
+        margin-top: 550px;
+    }
+    @media (max-width: 600px) {
+        margin-top: 60px;
+        margin-left: 20px;
+    }
+}
+.test9001 {
+    margin-top: auto;
+}
+.test9002 {
+    margin-top: 45px;
+    width: 100%;
 }

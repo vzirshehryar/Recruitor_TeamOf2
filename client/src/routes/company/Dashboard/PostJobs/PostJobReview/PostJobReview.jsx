@@ -492,23 +492,7 @@ function ReviewJob() {
                     </div>
                     {/* Copying and pasting the upper code */}
                     <Line />
-                    <div className="Option-Heading-Container">
-                        <div className="Option-Heading">Name</div>
-                        <div className="Option-Heading-2">
-                            {companyInfo.firstAndLastName}
-                        </div>
-                        <div
-                            onClick={() => {
-                                setFormState("companyInfo");
-                                setFormField("contactName");
-                                openPopUp("contactName", companyInfo);
-                            }}
-                            className="Pen-Container"
-                        >
-                            <Pen className="Pen-Icon" />
-                        </div>
-                    </div>
-                    <Line />
+
                     <div className="Option-Heading-Container">
                         <div className="Option-Heading">Phone Number</div>
                         <div className="Option-Heading-2">
@@ -526,25 +510,8 @@ function ReviewJob() {
                         </div>
                     </div>
                     <Line />
-                    <div className="Option-Heading-Container">
-                        <div className="Option-Heading">Company name</div>
-                        <div className="Option-Heading-2">
-                            {companyInfo.name}
-                        </div>
-                        <div
-                            onClick={() => {
-                                setFormState("companyInfo");
-                                setFormField("companyForThisJob");
-                                openPopUp("companyForThisJob", companyInfo);
-                            }}
-                            className="Pen-Container"
-                        >
-                            <Pen className="Pen-Icon" />
-                        </div>
-                    </div>
-                    <Line />
                 </div>
-                <div className="Button-Container">
+                <div className="Button-Container-review">
                     <button className="Back-Button" onClick={PreviousPage}>
                         Back
                     </button>
