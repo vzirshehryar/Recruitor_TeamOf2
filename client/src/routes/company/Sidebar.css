@@ -25,11 +25,13 @@
 }
 
 .dashboard-heading {
-  text-align: center;
+  text-align: start;
   font-family: Poppins;
   font-size: 18px;
   margin-top: 30px;
   font-weight: 400;
+  margin-left: 15px;
+  margin-bottom: 10px;
 }
 
 .sidebar-buttons {

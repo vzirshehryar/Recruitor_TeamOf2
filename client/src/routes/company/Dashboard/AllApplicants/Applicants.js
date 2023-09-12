@@ -25,19 +25,15 @@ const Applicants = () => {
   }, []);
 
   return (
-    <>
-      {/* Render the Sidebar component */}
-      <Sidebar />
-
-      {/* Main container for the Applicants component */}
-      <div className="dashboard-component-container3">
-        {/* Render the AppTable component */}
-        <AppTable />
-
-        {/* Render the Footer component */}
-        <Footer />
+    <div className="main-container-for-applicants">
+      <div className="sub-container-for-applicants">
+        <Sidebar />
+        <div className="dashboard-component-container3">
+          <AppTable />
+        </div>
       </div>
-    </>
+      <Footer className="footer-applicants" style={{width:100}} />
+    </div>
   );
 };
 

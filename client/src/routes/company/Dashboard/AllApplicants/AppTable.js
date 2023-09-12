@@ -192,26 +192,28 @@ const AppTable = () => {
             {showDropdown && (
               <div className="dropdown-content-appsearch">
                 <h3>Sort By</h3>
-                <label>
-                  Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div className="dropdown-options">
+                <label className="label-dropdown-appsearch">
+                  Name 
+                </label>
                   <input
                     type="radio"
                     value="Name"
                     checked={selectedSortOption === "Name"}
                     onChange={() => handleSortOptionChange("Name")}
                   />
-                </label>
+                  </div>
+                  <div className="dropdown-options">
                 <label>
                   Job Title
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </label>
                   <input
                     type="radio"
                     value="Job Title"
                     checked={selectedSortOption === "Job Title"}
                     onChange={() => handleSortOptionChange("Job Title")}
                   />
-                </label>
+                </div>
                 {/* <label>
                 Applied Date&nbsp;&nbsp;
                 <input

@@ -24,6 +24,7 @@ const Sidebar = () => {
         />
       </div>
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+        <div className="sidebar-buttons">
         <div className="dashboard-heading">
           <NavLink
             to="/companydashboard"
@@ -46,7 +47,6 @@ const Sidebar = () => {
             &nbsp;&nbsp;&nbsp;Dashboard
           </NavLink>
         </div>
-        <div className="sidebar-buttons">
           <NavLink
             to="/compprofile"
             activeClassName="active"
