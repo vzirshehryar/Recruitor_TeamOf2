@@ -1,9 +1,11 @@
+/* Center elements both horizontally and vertically */
 .allCenter {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Styles for the company navigation bar */
 .companyNav {
   position: sticky;
   top: 0;
@@ -17,6 +19,7 @@
   border-bottom: 1px solid #6d0e9d;
 }
 
+/* Styles for the company navigation bar container */
 .companyNavDiv {
   width: 100%;
   display: flex;
@@ -24,6 +27,7 @@
   align-items: center;
 }
 
+/* Styles for the company name in the navigation bar */
 .companyNav > h2 {
   color: #CF1350;
   font-family: Poppins;
@@ -36,10 +40,13 @@
   min-width: fit-content;
 }
 
+/* Styles for navigation links container */
 .links {
   width: 80%;
   min-width: fit-content;
 }
+
+/* Styles for navigation links */
 .links > a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.83);
@@ -50,6 +57,8 @@
   line-height: 24px; /* 100% */
   margin: 0 10px;
 }
+
+/* Styles for the user section in the navigation bar */
 .user {
   gap: 10px;
   width: 20%;
@@ -61,6 +70,8 @@
   font-weight: 400;
   line-height: 24px; /* 100% */
 }
+
+/* Styles for the Log In button */
 .logIn {
   border-radius: 8px;
   background: #6d0e9d;
@@ -68,6 +79,8 @@
   padding: 6px 20px;
   border: 1px solid #6d0e9d;
 }
+
+/* Styles for the Sign Up button */
 .signUp {
   border: 1px solid #6d0e9d;
   border-radius: 8px;
@@ -76,18 +89,22 @@
   padding: 6px 20px;
 }
 
+/* Styles for the bars icon (for mobile view) */
 .barIcon {
   display: none;
   color: #6d0e9d;
   cursor: pointer;
 }
 
+/* Styles for the user profile picture */
 .companyNav div img {
   width: 30px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50%;
 }
+
+/* Styles for the user profile cover */
 .cover {
   width: 120px;
   align-items: "center";
@@ -99,6 +116,8 @@
   cursor: pointer;
   position: relative;
 }
+
+/* Styles for the logout option container */
 .logoutOption {
   position: absolute;
   top: 55px;
@@ -109,17 +128,23 @@
   background: var(--secondary-putih, #f9f9f9);
   display: none;
 }
+
+/* Styles for the individual items in the logout option */
 .logoutOption > p {
   padding: 3px 5px;
   border-radius: 5px;
   margin: 2px 0;
   transition: 0.3ms;
 }
+
+/* Styles for the hover effect on logout option items */
 .logoutOption > p:hover {
   background: var(--secondary-putih, #ffffff);
 }
 
+/* Media query for responsiveness */
 @media (max-width: 600px) {
+  /* Styles for mobile view navigation bar container */
   .companyNavDiv {
     position: absolute;
     top: 55px;
@@ -132,12 +157,16 @@
     padding: 10px;
     transition: 1s;
   }
+
+  /* Styles for mobile view navigation links and user section */
   .links,
   .user {
     align-items: start;
     flex-direction: column;
     gap: 10px;
   }
+
+  /* Styles for the bars icon (visible in mobile view) */
   .barIcon {
     display: block;
   }

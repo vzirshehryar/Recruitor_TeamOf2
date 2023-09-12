@@ -1,3 +1,4 @@
+// Import necessary dependencies and styles
 import "./finish.css";
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../../companyContext";
@@ -5,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../../../Home/components/header";
 import { toast } from "react-toastify";
 
+// Define the FinishPost functional component
 function FinishPost() {
+    // Initialize necessary hooks and context
     const navigate = useNavigate();
-
     const {
         companyInfo,
         jobBasics,
@@ -18,8 +20,10 @@ function FinishPost() {
         keyQualities,
     } = useContext(UserContext);
 
+    // Log keyQualities to the console
     console.log(keyQualities);
 
+    // Function to navigate to the next page and post a job
     async function NextPage() {
         console.log("Running");
 
@@ -41,7 +45,7 @@ function FinishPost() {
             });
             console.log("response: ", response);
             if (!response.ok) {
-                throw new Error("Backend Error Occured");
+                throw new Error("Backend Error Occurred");
             }
             const data = await response.json();
             console.log(data);
@@ -52,9 +56,11 @@ function FinishPost() {
             }
         } catch (e) {
             console.log(e);
-            toast.error("Backend Error Occured");
+            toast.error("Backend Error Occurred");
         }
     }
+
+    // useEffect to check user authentication and access rights
     useEffect(() => {
         const token = localStorage.getItem("token");
 
@@ -68,6 +74,7 @@ function FinishPost() {
         }
     }, []);
 
+    // Render the component
     return (
         <>
             <div>
@@ -78,8 +85,8 @@ function FinishPost() {
                         Welcome to the Step200 Employer Center!
                     </div>
                     <div className="finishPost-SubText">
-                        Your account was created and you&apos;re one step closer
-                        to hiring the workers you need. ou can now create a hub
+                        Your account was created, and you're one step closer
+                        to hiring the workers you need. You can now create a hub
                         and manage candidates. Any job listings you create will
                         activate once your organization is approved.
                     </div>
@@ -100,7 +107,7 @@ function FinishPost() {
                                 Sponsor your job to start getting candidates
                             </div>
                             <div className="finishPost-review-sub">
-                                Once youve created a job, its time to start
+                                Once you've created a job, it's time to start
                                 attracting candidates. Click the
                                 <br /> sponsorship button on your listing to set
                                 your budget and get your posting to the top
@@ -121,4 +128,6 @@ function FinishPost() {
         </>
     );
 }
+
+// Export the FinishPost component
 export default FinishPost;

@@ -8,10 +8,12 @@ const Navbar = ({ page }) => {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
 
+    // Check if the user is authenticated as a company
     const authenticated =
         localStorage.getItem("token") &&
         localStorage.getItem("userType") === "company";
 
+    // Render the navigation bar for the authentication page
     if (page === "authPage")
         return (
             <div className={`${style.allCenter} ${style.companyNav}`}>
@@ -19,6 +21,7 @@ const Navbar = ({ page }) => {
             </div>
         );
 
+    // Render the navigation bar for non-authenticated users
     if (!authenticated)
         return (
             <div className={style.companyNav}>
@@ -58,8 +61,10 @@ const Navbar = ({ page }) => {
             </div>
         );
 
+    // Extract user information from local storage for authenticated users
     const { email, name } = JSON.parse(localStorage.getItem("user"));
 
+    // Render the navigation bar for authenticated users
     if (authenticated)
         return (
             <div className={style.companyNav}>
@@ -68,11 +73,6 @@ const Navbar = ({ page }) => {
                     className={`${style.allCenter} ${style.cover}`}
                     onClick={() => setOpen(!open)}
                 >
-                    {/* <img
-            src={"/background.png"}
-            alt="profilePic"
-            className={style.image}
-          /> */}
                     <FaUser style={{ width: 25, height: 25 }} />
                     <p className="m-0">
                         {name ? name.slice(0, 5) : email.slice(0, 5)}
@@ -85,6 +85,7 @@ const Navbar = ({ page }) => {
                         <p>{name ? name : email}</p>
                         <p
                             onClick={() => {
+                                // Clear user data from local storage and navigate to the home page
                                 localStorage.clear();
                                 navigate("/");
                             }}

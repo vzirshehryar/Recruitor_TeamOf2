@@ -15,8 +15,10 @@ const ManageHiring = () => {
   const [selectedJob, setSelectedJob] = useState();
 
   useEffect(() => {
-    if (localStorage.getItem("userType") !== "company")
-      navigate("/loginAsCompany");
+    // Check user type, if not a company, redirect to login
+    if (localStorage.getItem("userType") !== "company") navigate("/loginAsCompany");
+
+    // Fetch and load job data when component mounts
     getAllJobs();
   }, []);
 
@@ -29,13 +31,14 @@ const ManageHiring = () => {
       });
       const data = await res.json();
       setJobs(data.jobs);
-      setSelectedJob(data.jobs[0]._id);
+      setSelectedJob(data.jobs[0]._id); // Set the first job as the selected job
     } catch (error) {
       toast.error(error);
     }
   };
 
   const changeJob = (id) => {
+    // Update the selected job ID when a different job is clicked
     if (selectedJob !== id) setSelectedJob(id);
   };
 
@@ -51,6 +54,7 @@ const ManageHiring = () => {
           <h3>Active Jobs</h3>
           <div className="manage-hiring-job-cards-div">
             {jobs.length ? (
+              // Map over the list of jobs and render a ManageJobCard for each
               jobs.map((job, i) => {
                 return (
                   <ManageJobCard
@@ -67,6 +71,7 @@ const ManageHiring = () => {
           </div>
         </div>
         <div className="manage-hiring-table-comp">
+          {/* Render RecentJobPosts component with the selected job ID */}
           <RecentJobPosts jobID={selectedJob} />
         </div>
       </div>

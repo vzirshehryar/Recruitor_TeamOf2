@@ -13,7 +13,10 @@ const Applicants = () => {
 
     // Function to handle authentication and redirect if the user is not a company
     const handleAuth = () => {
+        // Retrieve the user type from local storage
         const type = localStorage.getItem("userType");
+        
+        // Check if the user type is not "company"
         if (type !== "company") {
             navigate("/loginAsCompany"); // Redirect to the login page for companies
         }
@@ -21,7 +24,7 @@ const Applicants = () => {
 
     // Use useEffect to check authentication on component mount
     useEffect(() => {
-        handleAuth();
+        handleAuth(); // Call the authentication handling function
     }, []);
 
     return (

@@ -5,8 +5,10 @@ import "./JobBasicst.css";
 import Header from "../../Home/components/header";
 
 export const JobBasics = () => {
+  // Accessing state and context
   const { jobBasics, setjobBasics } = useContext(UserContext);
 
+  // Handle input change
   const handleInputChange = (e) => {
     setjobBasics({ ...jobBasics, [e.target.id]: e.target.value });
     console.log(jobBasics);
@@ -14,6 +16,7 @@ export const JobBasics = () => {
 
   const navigate = useNavigate();
 
+  // Handle navigation to the next page
   const NextPage = (e) => {
     e.preventDefault();
     console.log("Running");
@@ -21,6 +24,7 @@ export const JobBasics = () => {
   };
 
   useEffect(() => {
+    // Check for authentication and user type
     const token = localStorage.getItem("token");
     if (localStorage.getItem("userType") !== "company")
       navigate("/loginAsCompany");
@@ -37,6 +41,7 @@ export const JobBasics = () => {
       <Header active="company" />
       <div className="create-account-main-container">
         <div className="Horizontal-Line-below-header-parent-jobBasics">
+          {/* Progress indicators */}
           <div className="round-horizontal-1-jobBasics">1</div>
           <div className="line-horizontal-jobBasics"></div>
           <div className="round-horizontal-2-jobBasics">2</div>
@@ -52,6 +57,7 @@ export const JobBasics = () => {
         </div>
         <div className="create-account-form-container">
           <form action="" onSubmit={NextPage}>
+            {/* Industry selection */}
             <div>
               <label htmlFor="industry" className="companyIndustry-jobBasics">
                 Company's Industry
@@ -73,6 +79,7 @@ export const JobBasics = () => {
                 <option value="Management">Management</option>
               </select>
             </div>
+            {/* Job Title input */}
             <div>
               <label htmlFor="jobTitle" className="companyIndustry-jobBasics">
                 Job Title
@@ -86,6 +93,7 @@ export const JobBasics = () => {
                 required
               />
             </div>
+            {/* Job Type selection */}
             <div>
               <label htmlFor="jobType" className="companyIndustry-jobBasics">
                 Job Type
@@ -103,6 +111,7 @@ export const JobBasics = () => {
                 <option value="Full Time">Full Time</option>
               </select>
             </div>
+            {/* Location input */}
             <div>
               <label htmlFor="location" className="companyIndustry-jobBasics">
                 Location
@@ -116,6 +125,7 @@ export const JobBasics = () => {
                 required
               />
             </div>
+            {/* Job Description textarea */}
             <div>
               <label
                 htmlFor="jobDescription"
@@ -132,6 +142,7 @@ export const JobBasics = () => {
                 required
               />
             </div>
+            {/* Submit button */}
             <button type="submit" className="job-basics-submit-button">
               Continue
             </button>

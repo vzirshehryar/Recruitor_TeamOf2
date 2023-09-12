@@ -1,10 +1,20 @@
-body {
+/* Reset default margin and padding for all elements */
+*,
+*::before,
+*::after {
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "monospace";
 }
+
+/* Header styling */
 .Header {
     background-color: #cf1350;
     height: 76px;
 }
+
+/* Styling for the title */
 .finishPost-Title {
     margin-top: 80px;
     color: #0f151a;
@@ -17,6 +27,8 @@ body {
     position: relative;
     right: 48px;
 }
+
+/* Styling for the subtext */
 .finishPost-SubText {
     color: #0f151a;
     text-align: initial;
@@ -27,10 +39,11 @@ body {
     line-height: 48px; /* 200% */
     width: 900px;
     margin-left: 235px;
-
     margin-top: 20px;
     line-height: 3;
 }
+
+/* Styling for the "Next" text */
 .finishPost-Next {
     color: #000;
     font-family: Poppins;
@@ -41,6 +54,8 @@ body {
     margin-left: 239px;
     margin-top: 80px;
 }
+
+/* Styling for the "Review" text */
 .finishPost-review {
     color: #000;
     font-family: Poppins;
@@ -51,6 +66,8 @@ body {
     margin-left: 239px;
     margin-top: 50px;
 }
+
+/* Styling for the "Review" subtext */
 .finishPost-review-sub {
     color: #000;
     font-family: Poppins;
@@ -61,12 +78,16 @@ body {
     margin-left: 239px;
     margin-top: 20px;
 }
+
+/* Styling for the button container */
 .finishPost-Button-Container {
     display: flex;
     margin-top: 150px;
     justify-content: center;
     padding-bottom: 100px;
 }
+
+/* Styling for the continue button */
 .finishPost-Continue-Button {
     width: 651px;
     height: 73px;
@@ -79,10 +100,14 @@ body {
     font-weight: 400;
     line-height: 30px; /* 83.333% */
 }
+
+/* Styling for the parent description container */
 .finish-post-parent-desc {
     display: flex;
     flex-direction: row;
 }
+
+/* Styling for the vertical line separator */
 .finishPost-line-parent {
     background-color: red;
     width: 1px;
@@ -91,7 +116,10 @@ body {
     margin-left: 200px;
     margin-top: 11%;
 }
+
+/* Media query for screens with max width of 768px */
 @media (max-width: 768px) {
+    /* Adjustments for smaller screens */
     .parent-Container {
         left: 0;
     }

@@ -2,21 +2,24 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "../companyContext";
 import { useContext, useEffect } from "react";
-
 import axios from "axios";
 import "./CreateAccount.css";
 import Header from "../../Home/components/header";
 
 export const CreateAcount = () => {
+  // Initialize the navigation hook from react-router-dom
   const navigate = useNavigate();
 
+  // Retrieve companyInfo and setcompanyInfo from the UserContext
   const { companyInfo, setcompanyInfo } = useContext(UserContext);
 
+  // Function to handle form submission
   async function NextPage(e) {
     e.preventDefault();
     console.log("company: ", companyInfo);
     console.log("Running");
     try {
+      // Send a POST request to set the company's profile
       var response = await fetch("/company/setProfile", {
         method: "POST",
         headers: {
@@ -27,22 +30,26 @@ export const CreateAcount = () => {
       });
 
       console.log("response: ", response);
+
+      // Parse the response as JSON
       response = await response.json();
 
-    
       console.log("nav");
 
+      // Navigate to the "/company/jobbasics" route
       navigate("/company/jobbasics");
     } catch (e) {
       console.log(e);
     }
   }
 
+  // Function to handle input changes and update companyInfo
   const handleInputChange = (e) => {
     setcompanyInfo({ ...companyInfo, [e.target.id]: e.target.value });
     console.log(companyInfo);
   };
 
+  // useEffect to check for authentication and user type
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (localStorage.getItem("userType") !== "company")
@@ -60,6 +67,7 @@ export const CreateAcount = () => {
       <Header active="company" />
       <div className="create-account-main-container">
         <div className="Horizontal-Line-below-header-parent-create">
+          {/* Progress indicators */}
           <div className="round-horizontal-2-create">1</div>
           <div className="line-horizontal-2-create"></div>
           <div className="round-horizontal-1-create">2</div>
@@ -83,6 +91,7 @@ export const CreateAcount = () => {
         <div className="create-account-form-container">
           <form action="" onSubmit={NextPage}>
             <div>
+              {/* Input for company name */}
               <label htmlFor="" className="Your-company-name-create p-4">
                 Your company's name
               </label>
@@ -97,6 +106,7 @@ export const CreateAcount = () => {
               />
             </div>
             <div>
+              {/* Input for number of employees */}
               <label htmlFor="" className="Your-company-name-create">
                 Your company's number of employees
               </label>
@@ -111,6 +121,7 @@ export const CreateAcount = () => {
               />
             </div>
             <div>
+              {/* Input for first and last name */}
               <label htmlFor="" className="Your-company-name-create">
                 Your first and last name
               </label>
@@ -125,14 +136,14 @@ export const CreateAcount = () => {
               />
             </div>
             <div>
+              {/* Input for phone number */}
               <label htmlFor="" className="Your-company-name-create">
                 Your phone number <br />
-                {/* added the text in a span tag */}
+                {/* Additional note */}
                 <span>
-                (For account management communication. Not visible to
-                jobseekers.)
+                  (For account management communication. Not visible to
+                  jobseekers.)
                 </span>
-
               </label>
               <input
                 type="text"
@@ -144,6 +155,7 @@ export const CreateAcount = () => {
                 required
               />
             </div>
+            {/* Submit button */}
             <button type="submit" className="create-account-submit-button">
               Continue
             </button>

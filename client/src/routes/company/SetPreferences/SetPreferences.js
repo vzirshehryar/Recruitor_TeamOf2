@@ -5,36 +5,44 @@ import "./SetPreferences.css";
 import Header from "../../Home/components/header";
 
 export const SetPreferences = () => {
+    // Access preferences and setPreferences from context
     const { preferences, setPreferences } = useContext(UserContext);
-    console.log(preferences);
 
+    // Handle input changes and update preferences
     const handleInputChange = (e) => {
         setPreferences({ ...preferences, [e.target.id]: e.target.value });
         console.log(preferences);
     };
 
+    // State for storing email addresses
     const [emails, setEmails] = useState([]);
 
+    // Handle adding an email to the list
     const handleAddEmail = () => {
         if (preferences.email) {
             setEmails((prevEmails) => [...prevEmails, preferences.email]);
             setPreferences({ ...preferences, email: preferences.email });
         }
     };
+
+    // Initialize navigation
     const navigate = useNavigate();
 
+    // Handle navigation to the next page
     const NextPage = (e) => {
         e.preventDefault();
         console.log("Running");
         navigate("/company/postJobReview");
     };
 
+    // Handle navigation to the previous page
     const PrevPage = (e) => {
         e.preventDefault();
         console.log("Running");
         navigate("/company/paybenefits");
     };
 
+    // Check user authentication and token
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (localStorage.getItem("userType") !== "company")
@@ -51,6 +59,7 @@ export const SetPreferences = () => {
         <>
             <Header active="company" />
             <div className="create-account-main-container">
+                {/* Horizontal navigation indicators */}
                 <div className="Horizontal-Line-below-header-parent-tech">
                     <div className="round-horizontal-1-tech">1</div>
                     <div className="line-horizontal-tech"></div>
@@ -62,12 +71,14 @@ export const SetPreferences = () => {
                     <div className="line-horizontal-2-tech"></div>
                     <div className="round-horizontal-2-tech">5</div>
                 </div>
+                {/* Page heading */}
                 <div className="create-account-heading-container">
                     <h1 className="create-account-heading">Set Preferences</h1>
                 </div>
                 <div className="create-account-form-container">
                     <form action="" onSubmit={NextPage}>
                         <div>
+                            {/* Input for adding an email */}
                             <label htmlFor="email" className="sendUpdates-pref">
                                 Send daily updates to
                             </label>
@@ -79,6 +90,7 @@ export const SetPreferences = () => {
                                 required
                             />
                         </div>
+                        {/* Button for adding an email */}
                         <button
                             type="button"
                             className="Perfrences-AddEmail-Button"
@@ -87,6 +99,7 @@ export const SetPreferences = () => {
                             + Add Email
                         </button>
                         <div>
+                            {/* Display added email addresses */}
                             {emails.length > 0 && (
                                 <ul>
                                     {emails.map((email, index) => (
@@ -94,6 +107,7 @@ export const SetPreferences = () => {
                                     ))}
                                 </ul>
                             )}
+                            {/* Checkboxes and labels for communication preferences */}
                             <div className="flex">
                                 <input
                                     type="checkbox"
@@ -104,17 +118,6 @@ export const SetPreferences = () => {
                                     Plus, send an individual email update each
                                     time someone applies.
                                 </label>
-                            </div>
-                            <div className="flex">
-                                <input
-                                    type="checkbox"
-                                    id="ByEmailToTheAddress"
-                                    className="input-pref123"
-                                />
-                                <p className="heading-left-align para-pref">
-                                    Let potential candidates contact you about
-                                    this job
-                                </p>
                             </div>
                             <div className="flex">
                                 <input
@@ -139,6 +142,7 @@ export const SetPreferences = () => {
                             <h5 className="form-section-heading">
                                 Application Preferences
                             </h5>
+                            {/* Select for asking candidates for a CV */}
                             <label htmlFor="cv">
                                 Ask potential candidates for a CV?
                             </label>
@@ -153,6 +157,7 @@ export const SetPreferences = () => {
                             </select>
                         </div>
                         <div>
+                            {/* Input for setting an application deadline */}
                             <label htmlFor="applicationDeadline">
                                 Application deadline
                             </label>
@@ -165,12 +170,14 @@ export const SetPreferences = () => {
                             />
                         </div>
                         <div className="form-button-div">
+                            {/* Button for navigating to the previous page */}
                             <button
                                 className="form-back-button"
                                 onClick={PrevPage}
                             >
                                 Back
                             </button>
+                            {/* Button for submitting the form and continuing */}
                             <button
                                 type="submit"
                                 className="tech-detail-submit-button"

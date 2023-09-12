@@ -1,13 +1,18 @@
+/* Resetting default margin and padding for the entire body */
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins";
 }
+
+/* Styling for the header element */
 .Header {
     background-color: #cf1350;
     height: 76px;
 }
+
+/* Styling for the parent container of step 22 */
 .Step22-Parent-Container {
     width: 1041.58px;
     height: 970px;
@@ -18,6 +23,7 @@ body {
     flex-direction: column;
 }
 
+/* Styling for the review heading */
 .Review-Heading {
     margin-left: auto;
     margin-right: auto;
@@ -28,20 +34,28 @@ body {
     font-size: 38px;
     font-weight: 700;
 }
+
+/* Styling for the details heading */
 .Details-Heading {
     font-weight: 700;
     font-size: 24px;
     margin-top: 50px;
 }
+
+/* Styling for the option headings container */
 .Option-Heading-Container {
     margin-top: 15px;
     display: flex;
     flex-direction: row;
 }
+
+/* Styling for option headings */
 .Option-Heading {
     font-weight: 500;
     font-size: 26px;
 }
+
+/* Styling for option headings (alternate style) */
 .Option-Heading-2 {
     font-weight: 400;
     font-size: 26px;
@@ -49,11 +63,14 @@ body {
     margin-right: 200px;
 }
 
+/* Styling for settings heading */
 .Settings-Heading {
     font-weight: 700;
     font-size: 24px;
     margin-top: 50px;
 }
+
+/* Styling for the second parent container of step 22 */
 .Step22-Parent-Container-2 {
     width: 1041.58px;
     height: 610px;
@@ -63,6 +80,8 @@ body {
     margin-right: auto;
     flex-direction: column;
 }
+
+/* Styling for the third parent container of step 22 */
 .Step22-Parent-Container-3 {
     width: 1041.58px;
     height: 510px;
@@ -72,6 +91,8 @@ body {
     margin-right: auto;
     flex-direction: column;
 }
+
+/* Styling for the button container in the review section */
 .Button-Container-review {
     width: 1041.58px;
     margin-left: auto;
@@ -81,6 +102,8 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+/* Styling for the back button */
 .Back-Button {
     border: 2px solid #cf1350;
     border-radius: 6px;
@@ -90,6 +113,8 @@ body {
     background-color: white;
     font-size: 36px;
 }
+
+/* Styling for the confirm button */
 .Confirm-Button {
     border-radius: 6px;
     width: 322px;
@@ -98,15 +123,18 @@ body {
     background-color: #cf1350;
     font-size: 36px;
 }
+
+/* Styling for the parent container of the pop-up */
 .Parent-Container-PopUp {
     width: 100%;
     height: 350%;
     background-color: rgba(128, 128, 128, 0.5);
     position: absolute;
 }
+
+/* Styling for the pop-up container */
 .PopUp-Container {
     width: 1156.48px;
-    background-color: red;
     height: 250px;
     position: fixed;
     top: 50%;
@@ -115,21 +143,29 @@ body {
     border-radius: 8px;
     background-color: #ffffff;
 }
+
+/* Styling for the cross SVG container */
 .cross-svg-container {
     display: flex;
     flex-direction: row-reverse;
 }
+
+/* Styling for the edit job post heading */
 .Edit-JobPost-Heading {
     font-size: 32px;
     font-weight: 600;
     margin-left: 100px;
 }
+
+/* Styling for the job title heading */
 .Job-Title-Heading {
     font-size: 24px;
     font-weight: 400;
     margin-top: 20px;
     margin-left: 100px;
 }
+
+/* Styling for the input field in the pop-up box */
 .input-field-pop-up-box {
     width: 956px;
     margin-left: 100px;
@@ -137,6 +173,8 @@ body {
     margin-top: 10px;
     padding: 10px;
 }
+
+/* Styling for the button container in the pop-up box */
 .popUpBox-Button-Container {
     width: 956px;
     margin-left: 100px;
@@ -145,6 +183,8 @@ body {
     display: flex;
     flex-direction: row-reverse;
 }
+
+/* Styling for the "Done" button in the pop-up */
 .Done-button {
     width: 164px;
     height: 54px;
@@ -153,6 +193,8 @@ body {
     border: none;
     color: white;
 }
+
+/* Styling for the "Close" button in the pop-up */
 .Close-button {
     width: 164px;
     height: 54px;
@@ -163,84 +205,104 @@ body {
     color: white;
 }
 
+/* Styling for the pen container */
 .Pen-Container {
     margin-right: 105px;
 }
+
+/* Media query for screens with a maximum width of 768px (e.g., mobile or small screens) */
 @media (max-width: 768px) {
-    /* Adjust styles for screens with a maximum width of 768px (e.g., mobile or small screens) */
     body {
         width: 100%;
         height: auto;
     }
+
     .Pen-Container {
         margin-left: 170px;
     }
+
     .Option-Heading-2 {
         margin-right: -110px;
         margin-left: auto;
         font-size: 14px;
     }
+
     .Step22-Parent-Container {
         width: 100%;
         height: auto;
     }
+
     .Parent-Container-PopUp {
         width: 100%;
         height: 300%;
     }
+
     .PopUp-Container {
         width: 500px;
         height: auto;
         margin-left: -40px;
     }
+
     .cross-svg-container {
         margin-right: 20px;
     }
+
     .Step22-Parent-Container-2 {
         width: 100%;
         height: auto;
     }
+
     .input-field-pop-up-box {
         width: 280px;
     }
+
     .Step22-Parent-Container-3 {
         width: 100%;
         height: auto;
     }
+
     .Button-Container {
         width: 100%;
         height: auto;
     }
+
     .Review-Heading {
         font-size: 20px;
     }
+
     .Details-Heading {
         font-size: 14px;
     }
+
     .Option-Heading {
         font-size: 15px;
     }
+
     .Back-Button {
         margin-top: 20px;
         width: 122px;
         height: 43px;
         font-size: 17px;
     }
+
     .Confirm-Button {
         margin-top: 20px;
         width: 122px;
         height: 43px;
         font-size: 17px;
     }
+
     .popUpBox-Button-Container {
         margin-top: 20px;
         flex-direction: row;
     }
+
     .Done-button {
         width: 122px;
         height: 43px;
         font-size: 17px;
     }
+
     .Close-button {
         width: 122px;
         height: 43px;

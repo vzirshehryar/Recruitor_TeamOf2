@@ -1,21 +1,28 @@
 import { useRef, useEffect, useState } from "react";
+
+// Define the CandidatePieChart component
 const CandidatePieChart = () => {
+    // Create a reference to the canvas element
     const chartRef = useRef(null);
+
+    // Initialize state for storing application response data
     const [pieInfo, setPieInfo] = useState({
         interviewed: 0,
         shortlisted: 0,
         hired: 0,
     });
 
-    //temporary for now, data will from the database
-
+    // Temporary for now; data will come from the database
     const getPieInfo = async () => {
         try {
+            // Make an asynchronous request to fetch application response data
             const res = await fetch("/company/getPieInfo", {
                 headers: {
                     Authorization: localStorage.getItem("token"),
                 },
             });
+
+            // Parse the response data and update the state
             const data = await res.json();
             setPieInfo(data);
             console.log("Data from pie info", data);
@@ -24,14 +31,17 @@ const CandidatePieChart = () => {
         }
     };
 
+    // Use the useEffect hook to fetch application response data when the component mounts
     useEffect(() => {
         getPieInfo();
     }, []);
 
+    // Use another useEffect hook to redraw the pie chart when the pieInfo state changes
     useEffect(() => {
         drawPieChart();
     }, [pieInfo]);
 
+    // Function to draw the pie chart
     const drawPieChart = () => {
         const canvas = chartRef.current;
         const context = canvas.getContext("2d");
@@ -80,6 +90,7 @@ const CandidatePieChart = () => {
         drawHollowCircle(context, centerX, centerY, radius * 0.5, "#FFFFFF"); // Draw a white circle in the center
     };
 
+    // Function to draw a slice of the pie chart
     const drawSlice = (
         context,
         centerX,
@@ -97,6 +108,7 @@ const CandidatePieChart = () => {
         context.fill();
     };
 
+    // Function to draw a hollow circle in the center of the pie chart
     const drawHollowCircle = (context, centerX, centerY, radius, color) => {
         context.beginPath();
         context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
@@ -105,6 +117,7 @@ const CandidatePieChart = () => {
         context.fill();
     };
 
+    // Render the pie chart component
     return (
         <div className="candidate-pie-chart-container">
             <div>

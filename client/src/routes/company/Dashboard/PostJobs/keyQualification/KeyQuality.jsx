@@ -13,6 +13,7 @@ import Cross from "../../../../../assests/svg/cross-svg";
 import Plus from "../../../../../assests/svg/plusIconsvg";
 import Header from "../../../../Home/components/header";
 
+// Component for rendering a checkbox
 function Checkbox({ id }) {
     const [isChecked, setIsChecked] = useState(false);
 
@@ -28,6 +29,7 @@ function Checkbox({ id }) {
     );
 }
 
+// Component for the popup to add a new skill
 const PopUpKey = ({ closePopUpKey, addStringToArray, state, value }) => {
     let inputSave = "";
     const handleInputChangeKey = (event) => {
@@ -76,6 +78,7 @@ function KeyQualities() {
 
     const navigate = useNavigate();
 
+    // Function to navigate to the next page
     function NextPage(e) {
         e.preventDefault();
 
@@ -102,6 +105,7 @@ function KeyQualities() {
         console.log("Running");
         navigate("/company/finishPostfinal");
     }
+
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (localStorage.getItem("userType") !== "company")
@@ -114,6 +118,7 @@ function KeyQualities() {
         }
     }, []);
 
+    // Function to navigate to the previous page
     function PreviousPage(e) {
         e.preventDefault();
         console.log("Running");
@@ -153,11 +158,11 @@ function KeyQualities() {
                 </div>
                 <div className="keyQuality-subtitle1">
                     Find the best candidates by telling us which qualifications
-                    are a must have.
+                    are a must-have.
                 </div>
                 <div className="keyQuality-subtitle2">
                     Let us know how important they are so that we can reach the
-                    right jobseekers.
+                    right job seekers.
                 </div>
                 <div className="keyQuality-mini-container-1">
                     <div className="keyQuality-Skill-Heading">Skill</div>

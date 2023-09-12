@@ -7,10 +7,14 @@ import Sidebar from "../../Sidebar";
 import Footer from "../../../Home/components/footer";
 
 const EditJob = () => {
+    // Extract jobID from the route parameters
     const paramData = useParams();
     const jobID = paramData && paramData.jobID;
 
+    // Initialize navigation
     const navigate = useNavigate();
+
+    // Initialize form data using useState
     const [formData, setFormData] = useState({
         jobTitle: "",
         jobType: "",
@@ -23,40 +27,24 @@ const EditJob = () => {
         jobDescription: "",
         qualification: "",
     });
+
+    // Function to handle authentication and redirect if user is not a company
     const handleAuth = () => {
         const type = localStorage.getItem("userType");
         if (type !== "company") {
             navigate("/loginAsCompany");
         }
     };
+
+    // Use useEffect to perform actions after component mount
     useEffect(() => {
-        handleAuth();
-        getJobDetail();
+        handleAuth(); // Check user authentication
+        getJobDetail(); // Fetch job details
     }, []);
 
-    // const getJobDetail = () => {
-    //   const token = localStorage.getItem("token");
-    //   const headers = {
-    //     Authorization: token,
-    //   };
-    //   axios
-    //     .get(`/job/getJob/${jobID}`, { headers })
-    //     .then((response) => {
-    //       console.log(response.data.job);
-    //       setDegree(response.data.job.qualification.slice(0, 2));
-    //       setFormData({
-    //         ...response.data.job,
-    //         qualification: response.data.job.qualification.slice(3, -1),
-    //       });
-    //     })
-    //     .catch((error) => {
-    //       console.error(error);
-    //       toast.error("Error getting jobDetail from the backend.");
-    //     });
-    // };
+    // Function to fetch job details
     const getJobDetail = () => {
         const token = localStorage.getItem("token");
-        console.log(token);
         const headers = {
             Authorization: token,
         };
@@ -67,8 +55,8 @@ const EditJob = () => {
                 const job = response.data.job;
 
                 if (job && job.qualification) {
-                    // Check if qualification is an array or string before using slice
                     if (Array.isArray(job.qualification)) {
+                        // Handle qualification as an array
                         setDegree(job.qualification.slice(0, 2));
                         setFormData({
                             ...job,
@@ -76,7 +64,6 @@ const EditJob = () => {
                         });
                     } else if (typeof job.qualification === "string") {
                         // Handle qualification as a string
-                        // You can modify this part according to your data structure
                         setDegree(job.qualification.slice(0, 2));
                         setFormData({
                             ...job,
@@ -94,8 +81,10 @@ const EditJob = () => {
             });
     };
 
+    // Initialize degree using useState
     const [degree, setDegree] = useState("");
 
+    // Function to handle form input changes
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData((prevFormData) => ({
@@ -104,9 +93,11 @@ const EditJob = () => {
         }));
     };
 
+    // Function to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // Format the data before sending it to the backend
         const formattedData = {
             jobTitle: formData.jobTitle,
             jobType: formData.jobType,
@@ -125,6 +116,8 @@ const EditJob = () => {
         const headers = {
             Authorization: token,
         };
+
+        // Send a POST request to edit the job
         axios
             .post(`/job/editJob/${jobID}`, formattedData, { headers })
             .then((response) => {
@@ -146,6 +139,7 @@ const EditJob = () => {
                             <div className="postjobs-heading">
                                 Edit Job Detail
                             </div>
+                            {/* Job Title and Job Type */}
                             <div className="name-container">
                                 <div className="input-group-profile">
                                     <label className="label" htmlFor="jobTitle">
@@ -185,7 +179,8 @@ const EditJob = () => {
                                     </select>
                                 </div>
                             </div>
-
+                            
+                            {/* Job Level */}
                             <div className="email-container">
                                 <label className="label" htmlFor="jobLevel">
                                     Job Level
@@ -206,6 +201,7 @@ const EditJob = () => {
                                 </select>
                             </div>
 
+                            {/* Salary Range */}
                             <div className="name-container-exp">
                                 <div className="input-group-exp">
                                     <label
@@ -243,6 +239,7 @@ const EditJob = () => {
                                 </div>
                             </div>
 
+                            {/* Location */}
                             <div className="address-container">
                                 <label className="label" htmlFor="location">
                                     Location
@@ -258,6 +255,7 @@ const EditJob = () => {
                                 />
                             </div>
 
+                            {/* Experience */}
                             <div className="address-container">
                                 <label className="label" htmlFor="Experience">
                                     Experience
@@ -285,11 +283,12 @@ const EditJob = () => {
                                 </select>
                             </div>
 
+                            {/* Education */}
                             <div className="name-container-exp">
                                 <div className="input-group-exp">
                                     <label
                                         className="label-exp"
-                                        htmlFor="minSR"
+                                        htmlFor="degree"
                                     >
                                         Education
                                     </label>
@@ -329,6 +328,7 @@ const EditJob = () => {
                                 </div>
                             </div>
 
+                            {/* Application Deadline */}
                             <div className="linkedin-container">
                                 <label
                                     className="label"
@@ -350,6 +350,7 @@ const EditJob = () => {
                                 />
                             </div>
 
+                            {/* Job Description */}
                             <div className="description-container-exp">
                                 <label
                                     className="label-exp"
@@ -369,6 +370,7 @@ const EditJob = () => {
                                 />
                             </div>
 
+                            {/* Submission Button */}
                             <div className="button-container">
                                 <button type="submit">Update</button>
                             </div>

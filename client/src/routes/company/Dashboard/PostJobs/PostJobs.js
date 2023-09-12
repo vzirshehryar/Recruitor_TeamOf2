@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
 const PostJobs = () => {
+    // State to manage form data
     const [formData, setFormData] = useState({
         jobTitle: "",
         jobType: "",
@@ -15,8 +16,11 @@ const PostJobs = () => {
         jobDescription: "",
         qualification: "",
     });
+
+    // State to manage the selected degree
     const [degree, setDegree] = useState("");
 
+    // Function to handle changes in form fields
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData((prevFormData) => ({
@@ -25,9 +29,11 @@ const PostJobs = () => {
         }));
     };
 
+    // Function to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // Format the data before sending it to the backend
         const formattedData = {
             jobTitle: formData.jobTitle,
             jobType: formData.jobType,
@@ -41,16 +47,23 @@ const PostJobs = () => {
             qualification: degree + " " + formData.qualification,
         };
 
+        // Get the user's token from local storage
         const token = localStorage.getItem("token");
+
+        // Define the API endpoint
         const apiUrl = "/job/postJob";
 
+        // Set headers for the API request
         const headers = {
             Authorization: token,
         };
+
+        // Send a POST request to the backend
         axios
             .post(apiUrl, formattedData, { headers })
             .then((response) => {
                 toast.success(response.data.message);
+                // Clear form fields on successful submission
                 setFormData({
                     jobTitle: "",
                     jobType: "",
@@ -76,6 +89,7 @@ const PostJobs = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="postjobs-heading">Job Detail</div>
                     <div className="name-container">
+                        {/* Job Title Input */}
                         <div className="input-group-profile">
                             <label className="label" htmlFor="jobTitle">
                                 Job Title
@@ -90,6 +104,7 @@ const PostJobs = () => {
                                 onChange={handleChange}
                             />
                         </div>
+                        {/* Job Type Select */}
                         <div className="input-group-profile">
                             <label className="label" htmlFor="jobType">
                                 Job Type
@@ -109,6 +124,7 @@ const PostJobs = () => {
                         </div>
                     </div>
 
+                    {/* Job Level Select */}
                     <div className="email-container">
                         <label className="label" htmlFor="jobLevel">
                             Job Level
@@ -127,6 +143,7 @@ const PostJobs = () => {
                         </select>
                     </div>
 
+                    {/* Salary Range Inputs */}
                     <div className="name-container-exp">
                         <div className="input-group-exp">
                             <label className="label-exp" htmlFor="minSR">
@@ -158,6 +175,7 @@ const PostJobs = () => {
                         </div>
                     </div>
 
+                    {/* Location Input */}
                     <div className="address-container">
                         <label className="label" htmlFor="location">
                             Location
@@ -173,6 +191,7 @@ const PostJobs = () => {
                         />
                     </div>
 
+                    {/* Experience Select */}
                     <div className="address-container">
                         <label className="label" htmlFor="Experience">
                             Experience
@@ -198,6 +217,7 @@ const PostJobs = () => {
                         </select>
                     </div>
 
+                    {/* Education (Degree) Select */}
                     <div className="name-container-exp">
                         <div className="input-group-exp">
                             <label className="label-exp" htmlFor="minSR">
@@ -234,6 +254,7 @@ const PostJobs = () => {
                         </div>
                     </div>
 
+                    {/* Application Deadline Input */}
                     <div className="linkedin-container">
                         <label className="label" htmlFor="applicationDeadline">
                             Application Deadline
@@ -252,6 +273,7 @@ const PostJobs = () => {
                         />
                     </div>
 
+                    {/* Job Description Textarea */}
                     <div className="description-container-exp">
                         <label className="label-exp" htmlFor="jobDescription">
                             Description
@@ -268,11 +290,13 @@ const PostJobs = () => {
                         />
                     </div>
 
+                    {/* Submit Button */}
                     <div className="button-container">
                         <button type="submit">Save</button>
                     </div>
                 </form>
             </div>
+            {/* Toast container for displaying success or error messages */}
             <ToastContainer />
         </div>
     );
