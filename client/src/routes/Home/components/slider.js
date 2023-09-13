@@ -25,9 +25,10 @@ function Slider() {
   return (
     <div className={`${Style.HomeSlider}`}>
       {/* Header */}
+      
       <h1 className={`${Style.h1}`}>Discover Your Dream Career</h1>
       <h3 className={`${Style.h3}`}>find a job you’ll love</h3>
-
+      
       <div>
         <div className="d-flex flex-column">
           {/* Input for "What" */}
