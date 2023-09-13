@@ -60,7 +60,7 @@ function Services() {
         {/* Sample job categories */}
         <div>
           <img
-            style={{ width: "220px" }}
+            style={{ width: "280px" }}
             src="/TechnologyJobs.png"
             alt="image"
           />
@@ -73,7 +73,7 @@ function Services() {
         </div>
         <div>
           <img
-            style={{ width: "220px" }}
+            style={{ width: "280px" }}
             src="/EngineeringJobs.png"
             alt="image"
           />
@@ -86,7 +86,7 @@ function Services() {
         </div>
         <div>
           <img
-            style={{ width: "220px" }}
+            style={{ width: "280px" }}
             src="/GraduatesJobs.png"
             alt="image"
           />
@@ -98,7 +98,7 @@ function Services() {
           </p>
         </div>
         <div>
-          <img style={{ width: "220px" }} src="/HealthJobs.png" alt="image" />
+          <img style={{ width: "280px" }} src="/HealthJobs.png" alt="image" />
           <p
             style={{ textAlign: "left", paddingTop: "5px", cursor: "pointer" }}
             onClick={() => searchSector("Admin, Secreterial & PA")}
