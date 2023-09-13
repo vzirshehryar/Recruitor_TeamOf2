@@ -25,13 +25,13 @@ const Listings = () => {
     return (
         <>
             <Sidebar />
-            <div className="dashboard-component-container3">
+            <div className="dashboard-component-container32">
                 {/* Render the ListingsTable component */}
                 <ListingsTable />
-                <div className="test9002">
-                    {/* Render the Footer component */}
-                    <Footer />
-                </div>
+            </div>
+            <div className="test9002">
+                {/* Render the Footer component */}
+                <Footer className="footer-9000" />
             </div>
         </>
     );

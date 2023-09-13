@@ -14,227 +14,231 @@ import SideFilter from "./components/SideFilter";
 import { useJobContext } from "../../useContext/jobContext";
 import "./jobsfeed.css";
 const bacgroundSelect = {
-  background: "rgba(109, 14, 157, 0.19)",
+    background: "rgba(109, 14, 157, 0.19)",
 };
 
 function JobFeed() {
-  const { searchLocation, searchSector } = useJobContext();
-  const navigate = useNavigate();
+    const { searchLocation, searchSector } = useJobContext();
+    const navigate = useNavigate();
 
-  const [location, setLocation] = useState("");
-  const [searchKeyword, setSearchKeyword] = useState("");
-  const [jobList, setJobList] = useState([]);
-  const [selectedJob, setSelectedJob] = useState();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [selected, setSelected] = useState(0);
-  const [jobType, setJobType] = useState([]);
-  const [jobLevel, setJobLevel] = useState([]);
+    const [location, setLocation] = useState("");
+    const [searchKeyword, setSearchKeyword] = useState("");
+    const [jobList, setJobList] = useState([]);
+    const [selectedJob, setSelectedJob] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
+    const [selected, setSelected] = useState(0);
+    const [jobType, setJobType] = useState([]);
+    const [jobLevel, setJobLevel] = useState([]);
 
-  const [sideFilters, setSideFilters] = useState({
-    location: "",
-    salaryFrom: "",
-    salaryTo: "",
-    selectedJobtype: [],
-    selectedSpecialism: [],
-  });
+    const [sideFilters, setSideFilters] = useState({
+        location: "",
+        salaryFrom: "",
+        salaryTo: "",
+        selectedJobtype: [],
+        selectedSpecialism: [],
+    });
 
-  useEffect(() => {
-    getAllJobs();
+    useEffect(() => {
+        getAllJobs();
 
-    setSelected(0);
-  }, [currentPage]);
+        setSelected(0);
+    }, [currentPage]);
 
-  const jobsPerPage = 6;
+    const jobsPerPage = 6;
 
-  const handleSearch = (event) => {
-    setCurrentPage(1);
-    setSearchKeyword(event.target.value);
-  };
+    const handleSearch = (event) => {
+        setCurrentPage(1);
+        setSearchKeyword(event.target.value);
+    };
 
-  const handleLocationChange = (event) => {
-    setCurrentPage(1);
-    setLocation(event.target.value);
-  };
+    const handleLocationChange = (event) => {
+        setCurrentPage(1);
+        setLocation(event.target.value);
+    };
 
-  // THIS FUNCTION IS FOR THE PURPOSE OF FILTERS ON SOME VALUES WHICH IS COMING FROM SIDEFILTER.JS COMPONENT WHICH IS IN jobFeed/components/SideFilter.js
-  const filteredJobs = jobList.filter((job) => {
-    // console.log(
-    //   Math.floor((Date.now() - job.postedOn) / (1000 * 60 * 60 * 24))
-    // );
-    // console.log(sideFilters);
-    var titleMatch = true,
-      locationMatch = true,
-      minSalary = true,
-      maxSalary = true,
-      jobType = true,
-      specialism = true,
-      datePosted = true;
-    if (searchSector) {
-      console.log(job.industry);
-      titleMatch = job.industry
-        .toLowerCase()
-        .includes(searchSector.toLowerCase());
-    }
-    if (searchLocation)
-      locationMatch = job.location
-        .toLowerCase()
-        .includes(searchLocation.toLowerCase());
-    if (sideFilters.datePosted) {
-      if (
-        Math.floor((Date.now() - job.postedOn) / (1000 * 60 * 60 * 24)) >=
-        parseInt(sideFilters.datePosted)
-      ) {
-        datePosted = false;
-      }
-    }
-    if (sideFilters.salaryFrom !== NaN)
-      if (job.minSR < sideFilters.salaryFrom) minSalary = false;
-    if (sideFilters.salaryTo !== NaN)
-      if (job.maxSR > sideFilters.salaryTo) maxSalary = false;
-    if (sideFilters.selectedJobtype.length)
-      jobType = sideFilters.selectedJobtype.some((type) =>
-        job.jobType.includes(type)
-      );
-    if (sideFilters.selectedSpecialism.length)
-      specialism = sideFilters.selectedSpecialism.some((type) => {
-        console.log(job.industry, sideFilters.selectedSpecialism);
-        return job.industry.includes(type);
-      });
+    // THIS FUNCTION IS FOR THE PURPOSE OF FILTERS ON SOME VALUES WHICH IS COMING FROM SIDEFILTER.JS COMPONENT WHICH IS IN jobFeed/components/SideFilter.js
+    const filteredJobs = jobList.filter((job) => {
+        // console.log(
+        //   Math.floor((Date.now() - job.postedOn) / (1000 * 60 * 60 * 24))
+        // );
+        // console.log(sideFilters);
+        var titleMatch = true,
+            locationMatch = true,
+            minSalary = true,
+            maxSalary = true,
+            jobType = true,
+            specialism = true,
+            datePosted = true;
+        if (searchSector) {
+            console.log(job.industry);
+            titleMatch = job.industry
+                .toLowerCase()
+                .includes(searchSector.toLowerCase());
+        }
+        if (searchLocation)
+            locationMatch = job.location
+                .toLowerCase()
+                .includes(searchLocation.toLowerCase());
+        if (sideFilters.datePosted) {
+            if (
+                Math.floor(
+                    (Date.now() - job.postedOn) / (1000 * 60 * 60 * 24)
+                ) >= parseInt(sideFilters.datePosted)
+            ) {
+                datePosted = false;
+            }
+        }
+        if (sideFilters.salaryFrom !== NaN)
+            if (job.minSR < sideFilters.salaryFrom) minSalary = false;
+        if (sideFilters.salaryTo !== NaN)
+            if (job.maxSR > sideFilters.salaryTo) maxSalary = false;
+        if (sideFilters.selectedJobtype.length)
+            jobType = sideFilters.selectedJobtype.some((type) =>
+                job.jobType.includes(type)
+            );
+        if (sideFilters.selectedSpecialism.length)
+            specialism = sideFilters.selectedSpecialism.some((type) => {
+                console.log(job.industry, sideFilters.selectedSpecialism);
+                return job.industry.includes(type);
+            });
+
+        return (
+            titleMatch &&
+            locationMatch &&
+            maxSalary &&
+            minSalary &&
+            jobType &&
+            datePosted &&
+            specialism
+        );
+        // return titleMatch && locationMatch ;
+        // return true;
+        // console.log(!jobType.length, !jobLevel.length);
+        // if (!jobType.length && !jobLevel.length) return true;
+
+        // for (const word of jobType) {
+        //   if (job.jobType === word) return true;
+        // }
+        // for (const word of jobLevel) {
+        //   if (job.jobLevel === word) return true;
+        // }
+        // // if(jobType.lenght)
+        // return false;
+    });
+
+    // const sortedCurrentJobs = [...filteredJobs].sort((a, b) => {
+    //   const titleA = a.jobTitle.toLowerCase();
+    //   const titleB = b.jobTitle.toLowerCase();
+    //   if (titleA < titleB) {
+    //     return -1;
+    //   }
+    //   if (titleA > titleB) {
+    //     return 1;
+    //   }
+    //   return 0;
+    // });
+    const sortedCurrentJobs = filteredJobs;
+
+    // const totalJobs = filteredJobs.length;
+    const totalJobs = sortedCurrentJobs.length;
+    const totalPages = Math.ceil(totalJobs / jobsPerPage);
+
+    const indexOfLastJob = currentPage * jobsPerPage;
+    const indexOfFirstJob = indexOfLastJob - jobsPerPage;
+    // const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
+    const currentJobs = sortedCurrentJobs.slice(
+        indexOfFirstJob,
+        indexOfLastJob
+    );
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+    const setJobIndex = (id) => {
+        const selectedItem = jobList.find((item) => item._id === id);
+        if (selectedItem) {
+            setSelectedJob(selectedItem);
+        } else {
+            setSelectedJob(jobList[selected]);
+        }
+    };
+
+    const getAllJobs = async () => {
+        const newJobs = await fetch("/job/getalljobs");
+        const resJobs = await newJobs.json();
+        console.log(resJobs.jobs);
+        setJobList(resJobs.jobs);
+        setSelectedJob(resJobs.jobs[0]);
+    };
+
+    // THIS FUNCITON IS CALLED WHENEVER A FILTER IS APPLIED FROM SIDEFILTER.JS (passed as props to SideFilter.js) COMPONENT WHICH IS IN jobFeed/components/SideFilter.js
+    const Search = (
+        location,
+        salaryFrom,
+        salaryTo,
+        selectedJobtype,
+        selectedSpecialism,
+        datePosted
+    ) => {
+        setSideFilters((prev) => {
+            const newObject = {
+                location,
+                salaryFrom: parseInt(salaryFrom.slice(1)),
+                salaryTo: parseInt(salaryTo.slice(1)),
+                selectedJobtype: selectedJobtype,
+                selectedSpecialism: selectedSpecialism,
+                datePosted: datePosted,
+            };
+            return newObject;
+        });
+        // console.log(
+        //   location,
+        //   parseInt(salaryFrom.slice(1)),
+        //   parseInt(salaryTo.slice(1)),
+        //   selectedJobtype,
+        //   selectedSpecialism
+        // );
+        // setJobType(jt);
+        // setJobLevel(jl);
+    };
+    const [showFilter, setShowFilter] = useState(true);
+
+    const toggleFilter = () => {
+        const newShowFilter = !showFilter;
+        setShowFilter(newShowFilter);
+        localStorage.setItem("showFilter", newShowFilter);
+    };
+    const handleEasyApply = (item) => {
+        if (localStorage.getItem("userType") === "user") {
+            console.log(item);
+            navigate(`/jobdetail/${item._id}`);
+            return;
+        }
+        navigate("/login");
+    };
 
     return (
-      titleMatch &&
-      locationMatch &&
-      maxSalary &&
-      minSalary &&
-      jobType &&
-      datePosted &&
-      specialism
-    );
-    // return titleMatch && locationMatch ;
-    // return true;
-    // console.log(!jobType.length, !jobLevel.length);
-    // if (!jobType.length && !jobLevel.length) return true;
-
-    // for (const word of jobType) {
-    //   if (job.jobType === word) return true;
-    // }
-    // for (const word of jobLevel) {
-    //   if (job.jobLevel === word) return true;
-    // }
-    // // if(jobType.lenght)
-    // return false;
-  });
-
-  // const sortedCurrentJobs = [...filteredJobs].sort((a, b) => {
-  //   const titleA = a.jobTitle.toLowerCase();
-  //   const titleB = b.jobTitle.toLowerCase();
-  //   if (titleA < titleB) {
-  //     return -1;
-  //   }
-  //   if (titleA > titleB) {
-  //     return 1;
-  //   }
-  //   return 0;
-  // });
-  const sortedCurrentJobs = filteredJobs;
-
-  // const totalJobs = filteredJobs.length;
-  const totalJobs = sortedCurrentJobs.length;
-  const totalPages = Math.ceil(totalJobs / jobsPerPage);
-
-  const indexOfLastJob = currentPage * jobsPerPage;
-  const indexOfFirstJob = indexOfLastJob - jobsPerPage;
-  // const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
-  const currentJobs = sortedCurrentJobs.slice(indexOfFirstJob, indexOfLastJob);
-
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  const setJobIndex = (id) => {
-    const selectedItem = jobList.find((item) => item._id === id);
-    if (selectedItem) {
-      setSelectedJob(selectedItem);
-    } else {
-      setSelectedJob(jobList[selected]);
-    }
-  };
-
-  const getAllJobs = async () => {
-    const newJobs = await fetch("/job/getalljobs");
-    const resJobs = await newJobs.json();
-    console.log(resJobs.jobs);
-    setJobList(resJobs.jobs);
-    setSelectedJob(resJobs.jobs[0]);
-  };
-
-  // THIS FUNCITON IS CALLED WHENEVER A FILTER IS APPLIED FROM SIDEFILTER.JS (passed as props to SideFilter.js) COMPONENT WHICH IS IN jobFeed/components/SideFilter.js
-  const Search = (
-    location,
-    salaryFrom,
-    salaryTo,
-    selectedJobtype,
-    selectedSpecialism,
-    datePosted
-  ) => {
-    setSideFilters((prev) => {
-      const newObject = {
-        location,
-        salaryFrom: parseInt(salaryFrom.slice(1)),
-        salaryTo: parseInt(salaryTo.slice(1)),
-        selectedJobtype: selectedJobtype,
-        selectedSpecialism: selectedSpecialism,
-        datePosted: datePosted,
-      };
-      return newObject;
-    });
-    // console.log(
-    //   location,
-    //   parseInt(salaryFrom.slice(1)),
-    //   parseInt(salaryTo.slice(1)),
-    //   selectedJobtype,
-    //   selectedSpecialism
-    // );
-    // setJobType(jt);
-    // setJobLevel(jl);
-  };
-  const [showFilter, setShowFilter] = useState(true);
-
-  const toggleFilter = () => {
-    const newShowFilter = !showFilter;
-    setShowFilter(newShowFilter);
-    localStorage.setItem("showFilter", newShowFilter);
-  };
-  const handleEasyApply = (item) => {
-    if (localStorage.getItem("userType") === "user") {
-      console.log(item);
-      navigate(`/jobdetail/${item._id}`);
-      return;
-    }
-    navigate("/login");
-  };
-
-  return (
-    <>
-      <Header active="job" />
-      <div className="jobFeedPage">
-        <JobNav Search={Search} />
-        <Container fluid className="jobFeedContainer">
-          <Button
-            className="btn1 mt-2"
-            onClick={toggleFilter}
-            style={{
-              color: "#081351",
-              backgroundColor: "#fff",
-              borderColor: "#081351",
-            }}
-          >
-            Filters
-          </Button>
-          <Container className="custom-style">
-            {Search && showFilter && <SideFilter Search={Search} />}
-            <Row className="pt-4 pb-5 jobFeedDisplay">
-              {/* <div className="jobCardInJobFeed">
+        <>
+            <Header active="job" />
+            <div className="jobFeedPage">
+                <JobNav Search={Search} />
+                <Container fluid className="jobFeedContainer">
+                    <Button
+                        className="btn1 mt-2"
+                        onClick={toggleFilter}
+                        style={{
+                            color: "#081351",
+                            backgroundColor: "#fff",
+                            borderColor: "#081351",
+                        }}
+                    >
+                        Filters
+                    </Button>
+                    <Container className="custom-style">
+                        {Search && showFilter && <SideFilter Search={Search} />}
+                        <Row className="pt-4 pb-5 jobFeedDisplay">
+                            {/* <div className="jobCardInJobFeed">
                 <p>1,053 Account Administrator Jobs in 47080</p>
                 <button>
                   <svg
@@ -267,64 +271,68 @@ function JobFeed() {
                   Get Job Alert
                 </button>
               </div> */}
-              <div className="col-lg-5 jobFeedList px-0">
-                {currentJobs.map((item, index) => (
-                  <div
-                    key={index}
-                    className="displayJobs"
-                    onClick={() => {
-                      setSelected(index);
-                      setJobIndex(item._id);
-                      // window.scrollTo({ top: 0, behavior: "smooth" });
-                      // onClick(()=>)
-                    }}
-                    // style={forBackgroundSelection(index) ? bacgroundSelect : {}}
-                  >
-                    <div className="EasyApplyPortion mb-3">
-                      <button onClick={() => handleEasyApply(item)}>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="8"
-                          height="8"
-                          viewBox="0 0 8 8"
-                          fill="none"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M1.21531 1.21531C0.600134 1.83049 1.34818 3.57593 2.88612 5.11386C4.42406 6.65183 6.16949 7.39986 6.78469 6.78469C7.39986 6.16949 6.65183 4.42406 5.11386 2.88612C3.57593 1.34818 1.83049 0.600134 1.21531 1.21531Z"
-                            fill="white"
-                            stroke="white"
-                            stroke-width="0.6"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                        Easy Apply
-                      </button>
-                      <div className="iconsForJobCard">
-                        <div
-                          style={{
-                            background: "#CF1350",
-                            border: "1px solid #CF1350",
-                          }}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="9"
-                            height="9"
-                            viewBox="0 0 9 9"
-                            fill="none"
-                          >
-                            <path
-                              d="M8 1L1 8M1 1L8 8"
-                              stroke="white"
-                              stroke-width="1.5"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        {/* <div
+                            <div className="col-lg-5 jobFeedList px-0">
+                                {currentJobs.map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className="displayJobs"
+                                        onClick={() => {
+                                            setSelected(index);
+                                            setJobIndex(item._id);
+                                            // window.scrollTo({ top: 0, behavior: "smooth" });
+                                            // onClick(()=>)
+                                        }}
+                                        // style={forBackgroundSelection(index) ? bacgroundSelect : {}}
+                                    >
+                                        <div className="EasyApplyPortion mb-3">
+                                            <button
+                                                onClick={() =>
+                                                    handleEasyApply(item)
+                                                }
+                                            >
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="8"
+                                                    height="8"
+                                                    viewBox="0 0 8 8"
+                                                    fill="none"
+                                                >
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        clip-rule="evenodd"
+                                                        d="M1.21531 1.21531C0.600134 1.83049 1.34818 3.57593 2.88612 5.11386C4.42406 6.65183 6.16949 7.39986 6.78469 6.78469C7.39986 6.16949 6.65183 4.42406 5.11386 2.88612C3.57593 1.34818 1.83049 0.600134 1.21531 1.21531Z"
+                                                        fill="white"
+                                                        stroke="white"
+                                                        stroke-width="0.6"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                    />
+                                                </svg>
+                                                Easy Apply
+                                            </button>
+                                            <div className="iconsForJobCard">
+                                                <div
+                                                    style={{
+                                                        background: "#CF1350",
+                                                        border: "1px solid #CF1350",
+                                                    }}
+                                                >
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="9"
+                                                        height="9"
+                                                        viewBox="0 0 9 9"
+                                                        fill="none"
+                                                    >
+                                                        <path
+                                                            d="M8 1L1 8M1 1L8 8"
+                                                            stroke="white"
+                                                            stroke-width="1.5"
+                                                            stroke-linejoin="round"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                                {/* <div
                           style={{
                             background: "white",
                             border: "1px solid #CF1350",
@@ -357,93 +365,117 @@ function JobFeed() {
                             </defs>
                           </svg>
                         </div> */}
-                      </div>
-                    </div>
-                    <div className="JobCardTitle mb-2">
-                      <div className="JobCardTitle-carbon">
-                        <h3 style={{ textAlign: "left" }}>{item.jobTitle}</h3>
-                        <h5>{Date(item.postedOn).toString().slice(0, 11)}</h5>
-                        <div
-                          className="d-flex gap-1 align-items-center mb-1"
-                          style={{
-                            width: "30%",
-                            minWidth: "250px",
-                            justifyContent: "space-between",
-                          }}
-                        >
-                          <div className="d-flex gap-1 justify-content-center align-items-center">
-                            <FaClock />
-                            <p>${item.minSR} per month</p>
-                          </div>
-                          <div className="d-flex gap-1 justify-content-center align-items-center ml-6">
-                            <FaFileContract />
-                            <p>{item.jobType}</p>
-                          </div>
-                        </div>
-                        <div className="d-flex gap-1 align-items-center">
-                          <FaMapMarkerAlt />
-                          <p>{item.location}</p>
-                        </div>
-                      </div>
-                      <div className="image">
-                        CN
-                        {/* <img src="/rightToJobCard.png" alt="image" /> */}
-                      </div>
-                    </div>
-                    <div
-                      className="SeeMore"
-                      onClick={() => handleEasyApply(item)}
-                    >
-                      <p>See More</p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="8"
-                        height="5"
-                        viewBox="0 0 8 5"
-                        fill="none"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M7.37231 0.126247C7.2346 -0.0420828 7.01133 -0.0420828 6.87363 0.126247L3.73783 3.95939L0.60203 0.126247C0.464324 -0.0420828 0.241058 -0.0420828 0.103353 0.126247C-0.0343542 0.294576 -0.0343542 0.567492 0.103353 0.735822L3.48849 4.87375C3.55462 4.95459 3.64431 5 3.73783 5C3.83135 5 3.92104 4.95459 3.98717 4.87375L7.37231 0.735822C7.51001 0.567492 7.51001 0.294576 7.37231 0.126247Z"
-                          fill="#1E1EF0"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                ))}
+                                            </div>
+                                        </div>
+                                        <div className="JobCardTitle mb-2">
+                                            <div className="JobCardTitle-carbon">
+                                                <h3
+                                                    style={{
+                                                        textAlign: "left",
+                                                    }}
+                                                >
+                                                    {item.jobTitle}
+                                                </h3>
+                                                <h5>
+                                                    {Date(item.postedOn)
+                                                        .toString()
+                                                        .slice(0, 11)}
+                                                </h5>
+                                                <div
+                                                    className="d-flex gap-1 align-items-center mb-1"
+                                                    style={{
+                                                        width: "30%",
+                                                        minWidth: "250px",
+                                                        justifyContent:
+                                                            "space-between",
+                                                    }}
+                                                >
+                                                    <div className="d-flex gap-1 justify-content-center align-items-center">
+                                                        <FaClock />
+                                                        <p>
+                                                            ${item.minSR} per
+                                                            month
+                                                        </p>
+                                                    </div>
+                                                    <div className="d-flex gap-1 justify-content-center align-items-center ml-6">
+                                                        <FaFileContract />
+                                                        <p>{item.jobType}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="d-flex gap-1 align-items-center">
+                                                    <FaMapMarkerAlt />
+                                                    <p>{item.location}</p>
+                                                </div>
+                                            </div>
+                                            <div className="image">
+                                                CN
+                                                {/* <img src="/rightToJobCard.png" alt="image" /> */}
+                                            </div>
+                                        </div>
+                                        <div
+                                            className="SeeMore"
+                                            onClick={() =>
+                                                handleEasyApply(item)
+                                            }
+                                        >
+                                            <p>See More</p>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="8"
+                                                height="5"
+                                                viewBox="0 0 8 5"
+                                                fill="none"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M7.37231 0.126247C7.2346 -0.0420828 7.01133 -0.0420828 6.87363 0.126247L3.73783 3.95939L0.60203 0.126247C0.464324 -0.0420828 0.241058 -0.0420828 0.103353 0.126247C-0.0343542 0.294576 -0.0343542 0.567492 0.103353 0.735822L3.48849 4.87375C3.55462 4.95459 3.64431 5 3.73783 5C3.83135 5 3.92104 4.95459 3.98717 4.87375L7.37231 0.735822C7.51001 0.567492 7.51001 0.294576 7.37231 0.126247Z"
+                                                    fill="#1E1EF0"
+                                                />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                ))}
 
-                {/* Pagination */}
-                {totalPages > 1 && (
-                  <div className="text-center mt-4 custom-pagination">
-                    <Pagination>
-                      {Array.from({ length: totalPages }, (_, index) => (
-                        <Pagination.Item
-                          key={index + 1}
-                          active={index + 1 === currentPage}
-                          onClick={() => paginate(index + 1)}
-                        >
-                          {index + 1}
-                        </Pagination.Item>
-                      ))}
-                    </Pagination>
-                  </div>
-                )}
-              </div>
+                                {/* Pagination */}
+                                {totalPages > 1 && (
+                                    <div className="text-center mt-4 custom-pagination">
+                                        <Pagination>
+                                            {Array.from(
+                                                { length: totalPages },
+                                                (_, index) => (
+                                                    <Pagination.Item
+                                                        key={index + 1}
+                                                        active={
+                                                            index + 1 ===
+                                                            currentPage
+                                                        }
+                                                        onClick={() =>
+                                                            paginate(index + 1)
+                                                        }
+                                                    >
+                                                        {index + 1}
+                                                    </Pagination.Item>
+                                                )
+                                            )}
+                                        </Pagination>
+                                    </div>
+                                )}
+                            </div>
 
-              {/* Yhan pe jobCard ayega */}
-            </Row>
-          </Container>
-        </Container>
-      </div>
-      <Footer />
-    </>
-  );
+                            {/* Yhan pe jobCard ayega */}
+                        </Row>
+                    </Container>
+                </Container>
+            </div>
+            <Footer />
+        </>
+    );
 }
 export default JobFeed;
 
 {
-  /* <Row>
+    /* <Row>
                       <div className="col-lg-10 d-flex gap-1">
                         <div className="capitalLetter">
                           <p className="p-0 m-0">
@@ -482,13 +514,13 @@ export default JobFeed;
 }
 
 {
-  /* <div className="col-lg-7 p-0">
+    /* <div className="col-lg-7 p-0">
                 {selectedJob && <JobCard selectedJob={selectedJob} />}
               </div> */
 }
 
 {
-  /*<Container>
+    /*<Container>
           <Row className="pt-5 pb-5 searchCont">
             <div className="searchJobCont mx-3">
               <p className="searchJobFieldText">What</p>

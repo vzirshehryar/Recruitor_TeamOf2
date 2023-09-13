@@ -6,49 +6,57 @@ import { Link } from "react-router-dom";
 import { useJobContext } from "../../../useContext/jobContext";
 
 const JobNav = ({ Search }) => {
-  // State variables for the "What" and "Where" search inputs
-  const [what, setWhat] = useState("");
-  const [where, setWhere] = useState("");
+    // State variables for the "What" and "Where" search inputs
+    const [what, setWhat] = useState("");
+    const [where, setWhere] = useState("");
 
-  // Destructuring values from the job context
-  const { setSearchLocation, setSearchSector, searchLocation, searchSector } =
-    useJobContext();
+    // Destructuring values from the job context
+    const { setSearchLocation, setSearchSector, searchLocation, searchSector } =
+        useJobContext();
 
-  // Function to handle the search button click
-  const handleSearch = () => {
-    // Update the search location and sector in the job context
-    setSearchLocation(where);
-    setSearchSector(what);
-  };
+    // Function to handle the search button click
+    const handleSearch = () => {
+        // Update the search location and sector in the job context
+        setSearchLocation(where);
+        setSearchSector(what);
+    };
 
-  return (
-    <div className="jobFeedFilter">
-      {/* "What" filter input */}
-      <div className="filter">
-        <label for="what">What</label>
-        <input
-          placeholder='e.g. "teacher"'
-          value={what}
-          defaultValue={searchSector}
-          onChange={(e) => setWhat(e.target.value)}
-        />
-      </div>
+    return (
+        <div className="jobFeedFilter">
+            {/* "What" filter input */}
+            <div className="parent-jobNav-filter">
+                <div className="filter ">
+                    <label for="what" className="what-heading-jobNav">
+                        What
+                    </label>
+                    <input
+                        className="jobNavFilter-2"
+                        placeholder='e.g. "teacher"'
+                        value={what}
+                        defaultValue={searchSector}
+                        onChange={(e) => setWhat(e.target.value)}
+                    />
+                </div>
 
-      {/* "Where" filter input */}
-      <div className="filter">
-        <label for="where">Where</label>
-        <input
-          placeholder="town or postcode"
-          value={where}
-          defaultValue={searchLocation}
-          onChange={(e) => setWhere(e.target.value)}
-        />
-      </div>
+                {/* "Where" filter input */}
+                <div className="filter ">
+                    <label for="where" className="what-heading-jobNav">
+                        Where
+                    </label>
+                    <input
+                        className="jobNavFilter-2"
+                        placeholder="town or postcode"
+                        value={where}
+                        defaultValue={searchLocation}
+                        onChange={(e) => setWhere(e.target.value)}
+                    />
+                </div>
+            </div>
 
-      {/* Search button and Browse Jobs link */}
-      <div className="filter">
-        <button onClick={handleSearch}>Search Jobs</button>
-        {/* <Link to="">
+            {/* Search button and Browse Jobs link */}
+            <div className="filter">
+                <button onClick={handleSearch}>Search Jobs</button>
+                {/* <Link to="">
           Browse Jobs
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,9 +73,9 @@ const JobNav = ({ Search }) => {
             />
           </svg>
         </Link> */}
-      </div>
-    </div>
-  );
+            </div>
+        </div>
+    );
 };
 
 export default JobNav;

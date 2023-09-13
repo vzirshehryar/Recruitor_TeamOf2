@@ -412,6 +412,7 @@
 .test900 {
     margin-left: 250px;
     @media (max-width: 1600px) {
+        margin-top: 150px;
     }
     @media (max-width: 1200px) {
         margin-top: 550px;
@@ -425,6 +426,23 @@
     margin-top: auto;
 }
 .test9002 {
-    margin-top: 45px;
     width: 100%;
+    margin-top: 375px;
+}
+.dashboard-component-container32 {
+    display: flex;
+    flex-direction: column; /* Ensure children stack vertically */
+    margin-left: 0; /* Align children to the start (top) of the container */
+    @media (max-width: 1600px) {
+        margin-top: -15px;
+        margin-left: -120px;
+        width: 90%;
+    }
+    @media (max-width: 1200px) {
+        margin-top: -550px;
+    }
+    @media (max-width: 600px) {
+        margin-top: -10px;
+        margin-left: -30px;
+    }
 }
