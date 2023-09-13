@@ -2,19 +2,23 @@ import express from "express";
 import fs from "fs";
 import path from "path";
 import sgMail from "@sendgrid/mail";
-const API_KEY ="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";
+
+const API_KEY =
+    "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";
 sgMail.setApiKey(API_KEY);
 const router = express.Router();
 
+// This function handles the sending of an email when a user applies for a job.
 export const ApplyJobEmail = async (req, res) => {
-  const { fullName, email, phoneNumber, coverLetter, Files } = req.body;
+    const { fullName, email, phoneNumber, coverLetter, Files } = req.body;
 
-  try {
-    const message = {
-      from: "ahadshams002@gmail.com",
-      to: "info@soltridge.com",
-      subject: "Soltridge jobs",
-      html: ` <div class="container">
+    try {
+        // Create an email message with the provided information.
+        const message = {
+            from: "ahadshams002@gmail.com",
+            to: "info@soltridge.com",
+            subject: "Soltridge jobs",
+            html: ` <div class="container">
       <h1>Email Template</h1>
   
       <p>Dear ${fullName},</p>
@@ -56,18 +60,21 @@ export const ApplyJobEmail = async (req, res) => {
       <p>Best regards,<br>
       Soltridge</p>
     </div>`,
-  
-    };
-    const send = await sgMail.send(message);
-    if (send) {
-      return res.status(200).json({ message: "Email send successfully" });
+        };
+
+        // Send the email using SendGrid.
+        const send = await sgMail.send(message);
+
+        // If the email is sent successfully, return a success response.
+        if (send) {
+            return res.status(200).json({ message: "Email sent successfully" });
+        }
+    } catch (error) {
+        console.error("Error sending email:", error);
+        console.log("Error:", error.response.body.errors);
+        res.status(500).send("Error sending email");
+        return false;
     }
-  } catch (error) {
-    console.error("Error sending email:", error);
-    console.log("Error:", error.response.body.errors);
-    res.status(500).send("Error sending email");
-    return false;
-  }
 };
 
 export default router;
