@@ -13,6 +13,7 @@ const ApplyJob = ({ job }) => {
   const [value, setValue] = useState("");
   const data = localStorage.getItem("user");
   const token = localStorage.getItem("token");
+  const [sent, setSent] = useState(false); // for loader purpose
 
   // User data from local storage
   const user = JSON.parse(data);
@@ -56,6 +57,8 @@ const ApplyJob = ({ job }) => {
         resume: fileDataforDB,
       };
 
+      setSent(true);
+
       fetch(`/job/apply/${job}`, {
         method: "POST",
         headers: {
@@ -71,6 +74,7 @@ const ApplyJob = ({ job }) => {
           if (data.error) {
             toast.error(data.error);
             setFileDataforDB();
+            setSent(false);
             return;
           }
           setFormData((prevFormData) => ({
@@ -81,10 +85,12 @@ const ApplyJob = ({ job }) => {
           setValue("");
           setFileDataforDB();
           toast.success(data.message);
+          setSent(false);
         })
         .catch((error) => {
           console.log(error);
           toast.error(error);
+          setSent(false);
         });
     }
   };
@@ -197,13 +203,13 @@ const ApplyJob = ({ job }) => {
                 borderRadius: "5px",
                 margin: 0,
               }}
+              disabled={sent}
               type="submit"
             >
-              Send
+              {sent ? "Loading..." : "Send"}
             </Button>
           </Form>
         </Modal.Body>
-        <ToastContainer />
       </Modal>
     </div>
   );

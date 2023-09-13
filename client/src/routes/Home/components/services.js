@@ -65,10 +65,15 @@ function Services() {
             alt="image"
           />
           <p
-            style={{ textAlign: "left", paddingTop: "5px", cursor: "pointer" }}
+            style={{
+              textAlign: "center",
+              paddingTop: "5px",
+              cursor: "pointer",
+              color: "#1e1ef0",
+            }}
             onClick={() => searchSector("IT & TELECOM")}
           >
-            IT & TELECOM
+            IT & Telecom {">"}
           </p>
         </div>
         <div>
@@ -78,10 +83,15 @@ function Services() {
             alt="image"
           />
           <p
-            style={{ textAlign: "left", paddingTop: "5px", cursor: "pointer" }}
+            style={{
+              textAlign: "center",
+              paddingTop: "5px",
+              cursor: "pointer",
+              color: "#1e1ef0",
+            }}
             onClick={() => searchSector("Customer Service")}
           >
-            Customer Service
+            Customer Service {">"}
           </p>
         </div>
         <div>
@@ -91,19 +101,29 @@ function Services() {
             alt="image"
           />
           <p
-            style={{ textAlign: "left", paddingTop: "5px", cursor: "pointer" }}
+            style={{
+              textAlign: "center",
+              paddingTop: "5px",
+              cursor: "pointer",
+              color: "#1e1ef0",
+            }}
             onClick={() => searchSector("Art")}
           >
-            Art
+            Art {">"}
           </p>
         </div>
         <div>
           <img style={{ width: "280px" }} src="/HealthJobs.png" alt="image" />
           <p
-            style={{ textAlign: "left", paddingTop: "5px", cursor: "pointer" }}
+            style={{
+              textAlign: "center",
+              paddingTop: "5px",
+              cursor: "pointer",
+              color: "#1e1ef0",
+            }}
             onClick={() => searchSector("Admin, Secreterial & PA")}
           >
-            Admin, Secreterial & PA
+            Admin, Secreterial & PA {">"}
           </p>
         </div>
       </div>

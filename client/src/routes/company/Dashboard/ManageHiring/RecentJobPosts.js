@@ -112,7 +112,9 @@ const RecentJobPosts = ({ jobID }) => {
                 return (
                   <tr key={i} className="manage-hiring-table-row-body">
                     <td>{applicant.user.firstName}</td>
-                    <td>{applicant.education.degree}</td>
+                    <td>
+                      {applicant.education ? applicant.education.degree : ""}
+                    </td>
                     <td>{applicant.appliedDate.substring(0, 10)}</td>
                     <td>
                       <Badge className="rounded-pill manage-hiring-badge">
