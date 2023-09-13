@@ -3,6 +3,7 @@ import "./DataDisplay.css";
 import axios from "axios";
 import { useEffect } from "react";
 
+// Helper function to format dates in a more readable way
 function toProperDate(date) {
   const inputDate = new Date(date);
   const month = inputDate.toLocaleString("default", { month: "long" });
@@ -20,6 +21,7 @@ const DataDisplay = ({ update }) => {
   };
 
   useEffect(() => {
+    // Fetch user job experience data from the backend
     const apiUrl = "/user/jobExperience/getData";
     const token = localStorage.getItem("token");
 
@@ -30,6 +32,7 @@ const DataDisplay = ({ update }) => {
     axios
       .get(apiUrl, { headers })
       .then((response) => {
+        // Set the experience flag in localStorage based on the fetched data
         if (response.data.jobs.length) localStorage.setItem("experience", "1");
         else localStorage.removeItem("experience");
         setData(response.data.jobs);
@@ -66,6 +69,7 @@ const DataDisplay = ({ update }) => {
               >
                 {experience.jobTitle}
               </h4>
+              {/* Uncomment the following lines when editing functionality is implemented */}
               {/* <span
                 style={{
                   color: "#1e1ef0",
@@ -88,6 +92,7 @@ const DataDisplay = ({ update }) => {
               className="p-0 m-0"
               style={{ fontSize: "16px", fontWeight: "300" }}
             >
+              {/* Display properly formatted start and end dates */}
               {toProperDate(experience.startDate)} -{" "}
               {experience.currentlyWorking
                 ? "Present"

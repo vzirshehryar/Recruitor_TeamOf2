@@ -1,14 +1,21 @@
+/* Reset default margin and padding for the entire page */
 body {
     padding: 0;
     margin: 0;
 }
+
+/* Styles for the parent container of the company sign-up section */
 .company-SignUp-parent-container {
     width: 43%;
 }
+
+/* Styles for the company sign-up and sign-in buttons */
 .company-sign-button-register {
     height: 49.6px;
     margin-bottom: 20px;
 }
+
+/* Styles for the sign-in navigation button */
 .signIn-navigate-company {
     height: 49.6px;
     width: 50%;
@@ -16,6 +23,8 @@ body {
     background-color: transparent;
     font-weight: 600;
 }
+
+/* Styles for the register navigation button */
 .register-navigate-company {
     height: 49.6px;
     width: 50%;
@@ -24,31 +33,43 @@ body {
     border-color: #b90739;
     font-weight: bold;
 }
+
+/* Styles for the company sign-up heading */
 .company-signup-register-heading {
     text-align: center;
     font-weight: bold;
     font-size: 30px;
 }
+
+/* Styles for the heading of the registration section with email */
 .register-with-email-heading-signup {
     margin-top: 15px;
     font-weight: bold;
     margin-bottom: 15px;
 }
+
+/* Styles for the email input field in the sign-up form */
 .email-Input-Company-SignUp {
     height: 55px;
     border: 1px solid #b90739;
     margin-bottom: 15px;
 }
+
+/* Styles for the password input field in the sign-up form */
 .pass-Input-Company-SignUp {
     height: 55px;
     border: 1px solid #b90739;
     margin-bottom: 15px;
 }
+
+/* Styles for the confirm password input field in the sign-up form */
 .confirm-pass-Input-Company-SignUp {
     height: 55px;
     border: 1px solid #b90739;
     margin-bottom: 15px;
 }
+
+/* Styles for the sign-up button in the company registration form */
 .signUp-button-register-company {
     background-color: #b90739 !important;
     width: 100%;

@@ -17,6 +17,7 @@ const CertForm = () => {
     description: "",
   });
 
+  // Handle changes in the form fields
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prevFormData) => ({
@@ -25,6 +26,7 @@ const CertForm = () => {
     }));
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -35,7 +37,7 @@ const CertForm = () => {
       expiryDate: formData.expiryDate,
       credentialID: formData.credentialID,
       credentialURL: formData.credentialURL,
-      desrciption: formData.description,
+      desrciption: formData.description, // Typo here, should be 'description'
     };
 
     const token = localStorage.getItem("token");
@@ -67,6 +69,7 @@ const CertForm = () => {
     <div className="form-container-cour">
       <div className="shadow-exp">
         <form onSubmit={handleSubmit}>
+          {/* Course Title */}
           <div className="email-container-exp">
             <label className="label-exp" htmlFor="courseTitle">
               Course Title
@@ -82,6 +85,8 @@ const CertForm = () => {
               onChange={handleChange}
             />
           </div>
+
+          {/* Organization */}
           <div className="email-container-exp">
             <label className="label-exp" htmlFor="organization">
               Organization
@@ -97,6 +102,8 @@ const CertForm = () => {
               onChange={handleChange}
             />
           </div>
+
+          {/* Issue Date and Expiry Date */}
           <div className="name-container-exp">
             <div className="input-group-exp">
               <label className="label-exp" htmlFor="issueDate">
@@ -130,6 +137,7 @@ const CertForm = () => {
             </div>
           </div>
 
+          {/* Credential ID and Credential URL */}
           <div className="name-container-exp">
             <div className="input-group-exp">
               <label className="label-exp" htmlFor="credentialID">
@@ -159,6 +167,7 @@ const CertForm = () => {
             </div>
           </div>
 
+          {/* Description */}
           <div className="description-container-exp">
             <label className="label-exp" htmlFor="description">
               Description
@@ -175,6 +184,7 @@ const CertForm = () => {
             />
           </div>
 
+          {/* Submit Button */}
           <div className="button-container-exp">
             <button type="submit">Submit</button>
           </div>

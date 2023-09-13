@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import '../Experiences/DataDisplay.css';
+import '../Experiences/DataDisplay.css'; // Import the CSS file for styling
 import axios from 'axios';
 import { useEffect } from 'react';
 
 const DisplayCour = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [data, setData] = useState(null);
+  
+  // Function to toggle the dropdown
   const toggleDropdown = () => {
     setDropdownOpen((prevState) => !prevState);
   };
 
   useEffect(() => {
-    
+    // Fetch course data from the backend API
     const apiUrl = '/user/course/getData';
     const token = localStorage.getItem('token');
 
@@ -22,7 +24,6 @@ const DisplayCour = () => {
     axios.get(apiUrl, { headers })
       .then((response) => {
         setData(response.data.courses[0]);
-        
       })
       .catch((error) => {
         console.error(error);
@@ -58,6 +59,7 @@ const DisplayCour = () => {
             
           </div>
           <div className="data-company">Institute: {data.instituteName}</div>
+          {/* Uncomment the lines below to display additional information */}
           {/* <div className="data-description-heading">Description:</div> */}
           {/* <div className="data-description">{data.school}</div> */}
         

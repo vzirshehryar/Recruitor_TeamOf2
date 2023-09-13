@@ -1,10 +1,11 @@
-/* Base styles */
+/* Base styles for the custom style container */
 .custom-style {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+/* Styles for the custom button with class 'btn1' */
 .btn1 {
   width: 37%;
   height: 30px;
@@ -17,8 +18,9 @@
   min-width: 150px;
 }
 
-/* Media queries for responsiveness */
+/* Media query for screens with a minimum width of 1204px */
 @media (min-width: 1204px) {
+  /* Adjusting the custom container for wider screens */
   .custom-style {
     flex-direction: row;
     width: auto;
@@ -26,7 +28,9 @@
   }
 }
 
+/* Media query for screens with a minimum width of 836px */
 @media (min-width: 836px) {
+  /* Hiding the custom button with class 'btn1' on screens with a minimum width of 836px */
   .btn1 {
     display: none;
   }

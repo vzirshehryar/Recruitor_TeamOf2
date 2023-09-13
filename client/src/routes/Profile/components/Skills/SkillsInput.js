@@ -11,6 +11,7 @@ const SkillInput = () => {
     newSkill: "",
   });
 
+  // Update the 'newSkill' state as the user types
   const handleInputChange = (event) => {
     setFormState({
       ...formState,
@@ -18,6 +19,7 @@ const SkillInput = () => {
     });
   };
 
+  // Add a new skill to the 'skills' state
   const handleAddSkill = () => {
     if (formState.newSkill.trim() !== "") {
       setFormState((prevFormState) => ({
@@ -28,6 +30,7 @@ const SkillInput = () => {
     }
   };
 
+  // Delete a skill from the 'skills' state
   const handleDeleteSkill = (skill) => {
     setFormState((prevFormState) => ({
       ...prevFormState,
@@ -35,12 +38,14 @@ const SkillInput = () => {
     }));
   };
 
+  // Handle the 'Enter' key press to add a skill
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       handleAddSkill();
     }
   };
 
+  // Handle the form submission
   const handleSubmit = () => {
     const apiUrl = "/user/personalInfo/postSkills";
 
@@ -57,12 +62,15 @@ const SkillInput = () => {
     axios
       .post(apiUrl, requestData, { headers })
       .then((response) => {
+        // Update progress and show success message
         const updateprogress = localStorage.getItem("progress");
         const newprogress = parseInt(updateprogress, 10);
         const addprogress = newprogress + response.data.progress;
         const finalprogress = addprogress.toString();
         localStorage.setItem("progress", finalprogress);
         toast.success(response.data.message);
+
+        // Redirect to the next page after a delay
         setTimeout(() => {
           navigate("/skills/submit-skills");
         }, 1500);

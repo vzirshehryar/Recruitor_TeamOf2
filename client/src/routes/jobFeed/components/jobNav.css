@@ -1,4 +1,6 @@
 /* Default styles */
+
+/* Container for job feed filters */
 .jobFeedFilter {
   display: flex;
   justify-content: center;
@@ -9,6 +11,7 @@
   background: rgba(207, 19, 80, 0.02);
 }
 
+/* Individual filter elements */
 .jobFeedFilter .filter {
   display: flex;
   justify-content: center;
@@ -17,6 +20,7 @@
   overflow: hidden;
 }
 
+/* Label style */
 .jobFeedFilter label {
   color: #000;
   text-align: center;
@@ -27,9 +31,9 @@
   margin-right: 10px;
 }
 
+/* Input style */
 .jobFeedFilter input {
   border-radius: 5px;
-  /* border-radius: 10px; */
   border: 1.7px solid #df1a50;
   font-size: 16px;
   width: 3000px; /* Make the input element full width */
@@ -37,6 +41,7 @@
   padding: 10px 15px;
 }
 
+/* Button style */
 .jobFeedFilter button {
   border-radius: 5px;
   border: none;
@@ -51,6 +56,7 @@
   top: 0px;
 }
 
+/* Link style */
 .jobFeedFilter a {
   display: flex;
   justify-content: center;
@@ -72,7 +78,9 @@
   }
 }
 
+/* Uncomment the following lines if you want to remove max-width constraints */
 /* .jobFeedFilter input,
-  .jobFeedFilter button { */
-/* max-width: 100%; Remove max-width to allow elements to take full width */
-/* } */
+   .jobFeedFilter button {
+     max-width: 100%;
+   }
+*/

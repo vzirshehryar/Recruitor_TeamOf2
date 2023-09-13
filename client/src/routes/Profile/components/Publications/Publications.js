@@ -3,27 +3,28 @@ import PubForm from "./PubForm";
 import Sidenav from "../Sidenav";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const Publications = () => {
 
+const Publications = () => {
     const navigate = useNavigate();
-    const handleAuth = () =>{
+
+    // Function to handle user authentication
+    const handleAuth = () => {
         const type = localStorage.getItem("userType");
-        if (type !== "user")
-        {
+        if (type !== "user") {
             navigate("/login");
         }
     }
+
     useEffect(() => {
-        handleAuth();
-      }, []);
-      
-    return(
+        handleAuth(); // Check authentication when the component mounts
+    }, []);
+
+    return (
         <>
-        <Sidenav />
-        <div className="profile-component-container-multi">
-        <PubForm />
-        </div>
-        
+            <Sidenav />
+            <div className="profile-component-container-multi">
+                <PubForm />
+            </div>
         </>
     );
 }

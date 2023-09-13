@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "../UserSide.css";
 
 const ApplyJob = ({ job }) => {
+  // State variables
   const [showModal, setShowModal] = useState(false);
   const [fileData, setFileData] = useState();
   const [fileDataforDB, setFileDataforDB] = useState();
@@ -13,8 +14,10 @@ const ApplyJob = ({ job }) => {
   const data = localStorage.getItem("user");
   const token = localStorage.getItem("token");
 
+  // User data from local storage
   const user = JSON.parse(data);
 
+  // Function to handle modal visibility
   const handleModal = () => {
     setShowModal(!showModal);
   };
@@ -26,6 +29,7 @@ const ApplyJob = ({ job }) => {
     }));
   }, [job]);
 
+  // Initial form data
   const initialFormData = {
     fullName: "",
     email: user.email,
@@ -34,28 +38,22 @@ const ApplyJob = ({ job }) => {
 
   const [formData, setFormData] = useState(initialFormData);
 
+  // Function to handle form input changes
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
+  // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // if ((localStorage.getItem("progress"), 10) < 70) {
-    //   toast.error("Profile not complete");
-    //   return;
-    // }
-
+    // Check if fileDataforDB is not empty
     if (!fileDataforDB) {
       toast.error("Please enter all fields");
       return;
     } else {
       const data = {
-        // ...formData,
-        // phoneNumber: value,
         resume: fileDataforDB,
-        // Files: fileData,
-        // userId: user._id,
       };
 
       fetch(`/job/apply/${job}`, {
@@ -75,7 +73,6 @@ const ApplyJob = ({ job }) => {
             setFileDataforDB();
             return;
           }
-          // console.log(data);
           setFormData((prevFormData) => ({
             ...prevFormData,
             job: "",
@@ -92,6 +89,7 @@ const ApplyJob = ({ job }) => {
     }
   };
 
+  // Function to handle file upload
   const handleFileUpload = (file) => {
     if (
       file.type !== "application/pdf" &&
@@ -100,7 +98,6 @@ const ApplyJob = ({ job }) => {
     ) {
       toast.error("Invalid file format. Only PDF and DOCX files are allowed.");
       setFileData();
-
       return;
     } else {
       const attachment = {
@@ -110,7 +107,6 @@ const ApplyJob = ({ job }) => {
         disposition: "attachment",
       };
       setFileDataforDB(file.base64);
-      // setFileData(attachment);
     }
   };
 
@@ -122,11 +118,6 @@ const ApplyJob = ({ job }) => {
       >
         Apply Now
       </button>
-      {/* <div className="col-lg">
-        <button className="selectedJobApplyBtn" onClick={handleModal}>
-          Apply Now
-        </button>
-      </div> */}
 
       <Modal show={showModal} onHide={handleModal}>
         <Modal.Header closeButton>
@@ -136,17 +127,18 @@ const ApplyJob = ({ job }) => {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit} className="applyjobform">
-            {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-              <p>Enter Your Name</p>
+            <Form.Group className="my-2" controlId="formBasicEmail">
+              {/* You can uncomment and modify the following lines if needed */}
+              {/* <p>Enter Your Name</p>
               <Form.Control
                 type="text"
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="Name"
-              />
+              /> */}
             </Form.Group>
-            <Form.Group controlId="email">
+            {/* <Form.Group controlId="email">
               <p>Enter Your Email</p>
               <Form.Control
                 required

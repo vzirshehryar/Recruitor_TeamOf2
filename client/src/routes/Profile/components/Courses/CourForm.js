@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../Experiences/ExpForm.css";
+import "../Experiences/ExpForm.css"; // Import the CSS file for styling
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -43,18 +43,24 @@ const CourForm = () => {
     axios
       .post(apiUrl, formattedData, { headers })
       .then((response) => {
+        // Update progress in local storage
         const updateprogress = localStorage.getItem("progress");
         const newprogress = parseInt(updateprogress, 10);
         const addprogress = newprogress + response.data.progress;
         const finalprogress = addprogress.toString();
         localStorage.setItem("progress", finalprogress);
+        
+        // Show a success toast message
         toast.success(response.data.message);
+
+        // Redirect to the specified page after a delay
         setTimeout(() => {
           navigate("/courses/submit-cour");
         }, 1500);
       })
       .catch((error) => {
         console.error(error);
+        // Show an error toast message if there's an issue with the request
         toast.error("Error sending data to the backend.");
       });
   };
@@ -80,7 +86,7 @@ const CourForm = () => {
           </div>
           <div className="email-container-exp">
             <label className="label-exp" htmlFor="instituteName">
-              Institue Name
+              Institute Name
               <span className="required-exp">*</span>
             </label>
             <input

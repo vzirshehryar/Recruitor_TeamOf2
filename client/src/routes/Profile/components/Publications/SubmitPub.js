@@ -4,29 +4,29 @@ import DisplayPub from "./DisplayPublications";
 import Sidenav from "../Sidenav";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const SubmitPub = () => {
 
+const SubmitPub = () => {
     const navigate = useNavigate();
-    const handleAuth = () =>{
+
+    // Function to handle user authentication
+    const handleAuth = () => {
         const type = localStorage.getItem("userType");
-        if (type !== "user")
-        {
+        if (type !== "user") {
             navigate("/login");
         }
     }
+
     useEffect(() => {
-        handleAuth();
-      }, []);
-      
-    return(
+        handleAuth(); // Check authentication when the component mounts
+    }, []);
+
+    return (
         <>
-        <Sidenav />
-        <DisplayPub />
-        <div className="profile-component-container-all">
-        <AddPublications />
-        </div>
-        
-        
+            <Sidenav />
+            <DisplayPub />
+            <div className="profile-component-container-all">
+                <AddPublications />
+            </div>
         </>
     );
 }

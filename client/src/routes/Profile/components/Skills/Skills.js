@@ -3,27 +3,29 @@ import SkillInput from "./SkillsInput";
 import Sidenav from "../Sidenav";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const Skills = () => {
 
+const Skills = () => {
     const navigate = useNavigate();
-    const handleAuth = () =>{
+
+    // Function to handle user authentication
+    const handleAuth = () => {
         const type = localStorage.getItem("userType");
-        if (type !== "user")
-        {
+        if (type !== "user") {
             navigate("/login");
         }
     }
+
+    // Ensure user authentication on component mount
     useEffect(() => {
         handleAuth();
-      }, []);
-      
-    return(
+    }, []);
+
+    return (
         <>
-        <Sidenav />
-        <div className="profile-component-container-multi">
-        <SkillInput />
-        </div>
-        
+            <Sidenav />
+            <div className="profile-component-container-multi">
+                <SkillInput />
+            </div>
         </>
     );
 }

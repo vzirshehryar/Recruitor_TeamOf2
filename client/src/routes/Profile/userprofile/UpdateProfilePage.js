@@ -12,17 +12,21 @@ import WorkExperienceForm from "./WorkExperienceForm";
 import QualificationsForm from "./QualificationsForm";
 
 export default function UpdateProfilePage() {
+  // State variables
   const [showDisplay, setDisplay] = useState(false);
   const [formName, setForm] = useState("");
 
+  // Retrieve user data from local storage
   const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <>
+      {/* Header component */}
       <Header />
       <div className={profileStyles.container}>
         <div className={profileStyles["inner-container"]}>
           <div className={profileStyles["left"]}>
+            {/* ProfileSideBar component */}
             <ProfileSideBar />
           </div>
           <div className={profileStyles["right"]}>
@@ -73,12 +77,16 @@ export default function UpdateProfilePage() {
                 </a> */}
               </div>
             </div>
+            {/* WorkExperienceForm component */}
             <WorkExperienceForm />
+            {/* QualificationsForm component */}
             <QualificationsForm />
+            {/* LanguagesForm component */}
             <LanguagesForm />
           </div>
         </div>
       </div>
+      {/* Footer component */}
       <Footer />
     </>
   );

@@ -4,29 +4,30 @@ import DisplayCertifications from "./DisplayCertifications";
 import Sidenav from "../Sidenav";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const SubmitCert = () => {
 
+const SubmitCert = () => {
     const navigate = useNavigate();
+
+    // Function to check user authentication
     const handleAuth = () =>{
         const type = localStorage.getItem("userType");
-        if (type !== "user")
-        {
+        if (type !== "user") {
             navigate("/login");
         }
     }
+
     useEffect(() => {
+        // Check user authentication on component mount
         handleAuth();
-      }, []);
-      
-    return(
+    }, []);
+
+    return (
         <>
         <Sidenav />
         <DisplayCertifications />
         <div className="profile-component-container-all">
-        <AddCertifications />
+            <AddCertifications />
         </div>
-        
-        
         </>
     );
 }

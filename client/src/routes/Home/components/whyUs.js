@@ -7,19 +7,27 @@ import img3 from "../../../assests/images/Why us img 3.PNG";
 function WhyUs() {
   return (
     <>
+      {/* Main container for the "Why Us" section */}
       <Container id="whyus" className="py-5 p-3">
+        {/* Main heading */}
         <h1 className="text-center whyUsMainHeading">
           Discover Your Perfect Career Path with Us
         </h1>
         <br></br>
+        
+        {/* Container for the second heading */}
         <Container className="whyUsSecondHeadingCont">
+          {/* Second heading */}
           <h2 className="text-center whyUsSecondHeading">
             Experience the difference with our unparalleled recruitment
             solutions that connect talent with opportunity.
           </h2>
         </Container>
+        
+        {/* Container for the content */}
         <Container className="pt-5 pb-5">
           <div className="d-flex justify-content-between flex-wrap text-center p-3 gap-3">
+            {/* First content block */}
             <div className="whyUsContentCont">
               <img className="whyUsImg" src={img1} />
               <h1 className="whyUsContHeader pt-2">Cutting-Edge Technology</h1>
@@ -29,6 +37,8 @@ function WhyUs() {
                 efficient job searches.
               </p>
             </div>
+            
+            {/* Second content block */}
             <div className="whyUsContentCont">
               <img className="whyUsImg" src={img2} />
               <h1 className="whyUsContHeader pt-2">Personalized Approach </h1>
@@ -37,6 +47,8 @@ function WhyUs() {
                 recommendations, targeted support, and valuable career guidance.
               </p>
             </div>
+            
+            {/* Third content block */}
             <div className="whyUsContentCont">
               <img className="whyUsImg" src={img3} />
               <h1 className="whyUsContHeader pt-2">Unparalleled Support </h1>
@@ -49,7 +61,10 @@ function WhyUs() {
           </div>
         </Container>
       </Container>
-      {/* <div
+      
+      {/* Commented out code */}
+      {/* 
+      <div
         class="jumbotron jumbotron-fluid w-100 pt-5 pb-5 mb-5"
         style={{ backgroundImage: `url(${img})` }}
       >
@@ -65,7 +80,8 @@ function WhyUs() {
             space of its parent.
           </p>
         </div>
-      </div> */}
+      </div>
+      */}
     </>
   );
 }

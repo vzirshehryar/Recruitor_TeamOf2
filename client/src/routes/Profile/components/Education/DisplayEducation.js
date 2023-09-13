@@ -4,12 +4,18 @@ import axios from "axios";
 import { useEffect } from "react";
 
 const DisplayEdu = (update) => {
+  // State to manage the dropdown toggle
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  // State to store education data
   const [data, setData] = useState([]);
+
+  // Function to toggle the dropdown
   const toggleDropdown = () => {
     setDropdownOpen((prevState) => !prevState);
   };
 
+  // Fetch education data from the server when the component mounts or receives an update
   useEffect(() => {
     const apiUrl = "/user/education/getData";
     const token = localStorage.getItem("token");
@@ -32,6 +38,7 @@ const DisplayEdu = (update) => {
       });
   }, [update]);
 
+  // Function to open the editor
   const openEditor = () => {};
 
   return (
@@ -59,6 +66,7 @@ const DisplayEdu = (update) => {
               >
                 {experience.school}
               </h4>
+              {/* Uncomment the following code if you want to enable an edit option */}
               {/* <span
                 style={{
                   color: "#1e1ef0",
