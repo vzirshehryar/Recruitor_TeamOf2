@@ -9,6 +9,12 @@
     gap: 5px;
     padding: 10px;
     background: rgba(207, 19, 80, 0.02);
+    @media screen and (max-width: 768px) {
+        
+            font-size: 20px;
+            margin-right: 10px;
+                    
+}
 }
 
 /* Individual filter elements */
@@ -26,6 +32,13 @@
     display: flex;
     margin-top: 15px;
     padding-bottom: 10px;
+    @media screen and (max-width: 768px) {
+        
+        font-size: 20px;
+        
+                display: flex;
+                flex-direction: column;
+}
 }
 .jobNavFilter-2 {
     padding: 10px !important;
