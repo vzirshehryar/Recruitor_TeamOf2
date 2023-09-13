@@ -7,7 +7,7 @@ import {
   FaFacebook,
   BsFillEyeFill,
   BsFillEyeSlashFill,
-} from "react-icons";
+} from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
