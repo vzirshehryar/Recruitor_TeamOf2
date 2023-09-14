@@ -39,6 +39,10 @@
     border-collapse: collapse;
     margin-top: 20px;
 }
+.custom-table-parent {
+    margin-right: auto;
+    margin-left: 30px;
+}
 .custom-table thead {
     background: var(--white-secondary, #ece9fd);
     /* Optional border below the header */
@@ -67,6 +71,9 @@
     padding: 10px;
     vertical-align: middle; /* This ensures vertical alignment */
     border-bottom: 1px solid #dadada;
+}
+.custom-table-sub {
+    background-color: red;
 }
 
 .custom-table th {
