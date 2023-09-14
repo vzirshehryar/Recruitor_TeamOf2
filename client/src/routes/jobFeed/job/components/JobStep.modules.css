@@ -13,6 +13,46 @@
   border-radius: 10px;
   border: 1px solid #cf1350;
 }
+.div-box-main-color{
+  width: 100%;
+  background-color: #cf1350;
+  height: 250px;
+  border-radius: 16px 16px 0px 0px ;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  
+}
+.div-box-main-color-heading{
+  color: #fff;
+  font-size: 36px;
+  font-family: Poppins , sans-serif;
+  font-weight: 700;
+  width: 30%;
+  text-align: center;
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 25px;
+background-color:#8b0e35;  
+margin-top: 250px;
+@media (max-width:768px) {
+  color: #fff;
+  font-size: 24px;
+  font-family: Poppins , sans-serif;
+  font-weight: 700;
+  width: 60%;
+  text-align: center;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 25px;
+background-color:#8b0e35;  
+margin-top: 250px;
+}
+}
 .ncardss {
   width: 748px;
   height: 72px;

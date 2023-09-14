@@ -55,18 +55,12 @@ function DetailPage() {
               className=" bgimg"
               style={{ marginBottom: "120px", width: "100%" }}
             >
-              <img
-                src="/bgimg.png"
-                className="carbon d-flex text-center justify-content-center"
-                alt=""
-              />
+              <div className="div-box-main-color">
+                
+              <div className="div-box-main-color-heading">
+              Job Title
             </div>
-            <div className="dbox d-flex justify-content-center align-items-center  ">
-              <img
-                src={carbon}
-                className="carbon d-flex text-center justify-content-center mt-5"
-                alt=""
-              />
+          </div>
             </div>
             {/* TITLE PART AND SMALL INFORMATIONS*/}
             <div>
